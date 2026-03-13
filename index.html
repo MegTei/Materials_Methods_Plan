@@ -1,0 +1,2075 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AO Target Materials</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<!-- GitHub Pages compatible: single self-contained HTML file, no server dependencies -->
+<style>
+:root {
+  --navy:#1E2886; --navy-dark:#141b5e;
+  --blue:#0288CC; --blue-dark:#0271ad;
+  --cyan:#00E3FF;
+  --green:#10b981; --green-dark:#059669;
+  --red:#f87171;  --red-dark:#ef4444;
+  --amber:#fbbf24;
+  --slate-50:#f8fafc; --slate-100:#f1f5f9; --slate-200:#e2e8f0;
+  --slate-400:#94a3b8; --slate-600:#475569; --slate-900:#0f172a;
+  --text:#1e293b; --text-light:#64748b;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'DM Sans',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;background:var(--slate-100);color:var(--text);min-height:100vh;}
+
+/* HEADER */
+.site-header{background:linear-gradient(135deg,var(--navy-dark) 0%,var(--navy) 60%,var(--blue-dark) 100%);padding:36px 60px 0;position:relative;overflow:hidden;}
+.site-header::before{content:'';position:absolute;top:-60px;right:-60px;width:320px;height:320px;background:radial-gradient(circle,rgba(0,227,255,.15) 0%,transparent 70%);border-radius:50%;}
+.header-inner{position:relative;z-index:1;display:flex;justify-content:space-between;align-items:flex-end;}
+.header-text h1{font-size:2.4rem;font-weight:800;color:white;letter-spacing:-.5px;line-height:1.1;}
+.header-text h1 em{color:var(--cyan);font-style:normal;}
+.header-text p{color:rgba(255,255,255,.7);font-size:.95rem;margin-top:6px;font-weight:300;}
+.header-meta{display:flex;gap:12px;align-items:center;padding-bottom:4px;}
+.hbadge{background:rgba(255,255,255,.12);color:rgba(255,255,255,.9);padding:6px 14px;border-radius:20px;font-size:.8rem;font-weight:600;border:1px solid rgba(255,255,255,.18);}
+
+/* TABS */
+.tab-nav{display:flex;gap:0;background:rgba(0,0,0,.2);overflow:hidden;border-top:1px solid rgba(255,255,255,.1);position:relative;z-index:1;margin-top:28px;}
+.tab-btn{padding:16px 36px;background:transparent;border:none;color:rgba(255,255,255,.55);font-family:'DM Sans',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;font-size:.92rem;font-weight:600;cursor:pointer;border-bottom:3px solid transparent;transition:all .2s;display:flex;align-items:center;gap:10px;white-space:nowrap;}
+.tab-btn .tab-num{background:rgba(255,255,255,.12);width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.74rem;flex-shrink:0;}
+.tab-btn:hover{color:rgba(255,255,255,.85);background:rgba(255,255,255,.06);}
+.tab-btn.active{color:var(--cyan);border-bottom-color:var(--cyan);background:rgba(0,227,255,.07);}
+.tab-btn.active .tab-num{background:var(--cyan);color:var(--navy);}
+.tab-panel{display:none;animation:fadeUp .25s ease;}
+.tab-panel.active{display:block;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+/* MAIN */
+.main{padding:32px 60px 60px;max-width:1600px;margin:0 auto;}
+.section-title{font-size:1.3rem;font-weight:700;color:var(--navy);margin-bottom:6px;}
+.section-sub{color:var(--text-light);font-size:.9rem;margin-bottom:20px;font-weight:400;}
+.divider{height:3px;background:linear-gradient(90deg,var(--blue) 0%,var(--cyan) 50%,transparent 100%);border-radius:4px;margin-bottom:22px;width:120px;}
+
+/* CALLOUTS */
+.callout{border-radius:12px;padding:14px 18px;display:flex;gap:10px;align-items:flex-start;font-size:.84rem;line-height:1.6;}
+.callout-red{background:rgba(248,113,113,.08);border:1.5px solid rgba(248,113,113,.3);}
+.callout-green{background:rgba(16,185,129,.07);border:1.5px solid rgba(16,185,129,.25);}
+.callout-blue{background:rgba(2,136,204,.07);border:1.5px solid rgba(2,136,204,.2);}
+.callout-amber{background:rgba(251,191,36,.08);border:1.5px solid rgba(251,191,36,.35);}
+.callout-icon{font-size:1rem;flex-shrink:0;padding-top:1px;}
+.callouts-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:22px;}
+
+/* HOW TO */
+.how-to{background:white;border-radius:14px;box-shadow:0 2px 10px rgba(0,0,0,.07);overflow:hidden;margin-bottom:22px;}
+.how-to-header{padding:12px 22px;background:linear-gradient(135deg,rgba(30,40,134,.06) 0%,rgba(2,136,204,.08) 100%);border-bottom:1px solid var(--slate-200);font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:var(--blue);}
+.how-to-body{padding:18px 22px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;}
+.how-to-step{display:flex;gap:10px;align-items:flex-start;}
+.step-num{width:26px;height:26px;border-radius:50%;background:var(--blue);color:white;font-weight:800;font-size:.8rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.step-text{font-size:.81rem;color:var(--slate-600);line-height:1.55;padding-top:3px;}
+
+/* FILTER BAR */
+.filter-bar{display:flex;gap:10px;flex-wrap:wrap;align-items:flex-end;margin-bottom:16px;background:white;border-radius:12px;padding:16px 20px;border:1.5px solid var(--slate-200);}
+.filter-group{display:flex;flex-direction:column;gap:4px;}
+.filter-group label{font-size:.63rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text-light);}
+.filter-group select{font-family:inherit;font-size:.79rem;font-weight:500;color:var(--slate-900);background:var(--slate-50);border:1.5px solid var(--slate-200);border-radius:8px;padding:7px 28px 7px 10px;cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%230288CC' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 9px center;min-width:160px;}
+.filter-group select:focus{outline:none;border-color:var(--blue);}
+.btn-clear{font-family:inherit;font-size:.74rem;font-weight:600;color:var(--blue);background:rgba(2,136,204,.08);border:1.5px solid rgba(2,136,204,.25);border-radius:8px;padding:7px 14px;cursor:pointer;}
+.btn-clear:hover{background:rgba(2,136,204,.14);}
+.result-count{font-size:.74rem;color:var(--slate-400);padding:7px 4px;align-self:center;}
+
+/* LEGEND */
+.legend{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:16px;}
+.legend-label{font-size:.73rem;font-weight:700;color:var(--slate-600);}
+.legend-item{display:flex;align-items:center;gap:6px;padding:4px 11px;border-radius:7px;border:1.5px solid;}
+.legend-dot{width:9px;height:9px;border-radius:2px;flex-shrink:0;}
+.legend-text{font-size:.73rem;font-weight:600;}
+.legend-yes{background:rgba(16,185,129,.07);border-color:rgba(16,185,129,.35);}
+.legend-yes .legend-dot{background:#10b981;} .legend-yes .legend-text{color:#059669;}
+.legend-no{background:rgba(248,113,113,.07);border-color:rgba(248,113,113,.3);}
+.legend-no .legend-dot{background:var(--red-dark);} .legend-no .legend-text{color:var(--red-dark);}
+.legend-maybe{background:rgba(251,191,36,.08);border-color:rgba(251,191,36,.4);}
+.legend-maybe .legend-dot{background:var(--amber);} .legend-maybe .legend-text{color:#92400e;}
+
+/* TABLE */
+.table-wrap{background:white;border-radius:12px;overflow:hidden;border:1.5px solid var(--slate-200);}
+.table-scroll{overflow-x:auto;}
+table{width:100%;border-collapse:collapse;}
+thead tr{background:linear-gradient(135deg,var(--navy) 0%,var(--blue-dark) 100%);color:white;}
+thead th{padding:11px 12px;text-align:left;font-size:.71rem;font-weight:700;letter-spacing:.3px;white-space:nowrap;}
+thead th.th-amber{background:linear-gradient(135deg,#b45309 0%,#d97706 100%);color:#fef9c3;}
+thead th.th-gap{background:var(--slate-100);padding:0;width:16px;border:none;}
+thead th.th-teal{background:linear-gradient(135deg,#0e7490 0%,#0891b2 100%);color:#e0f7fa;}
+thead th.th-concern{background:linear-gradient(135deg,#7f1d1d 0%,#991b1b 100%);color:#fee2e2;}
+
+.group-row td{background:var(--slate-100);padding:8px 12px;font-weight:700;font-size:.73rem;color:var(--navy);text-transform:uppercase;letter-spacing:.5px;border-top:2px solid var(--slate-200);border-bottom:2px solid var(--blue);letter-spacing:.4px;}
+.data-row td{padding:9px 12px;border-bottom:1px solid var(--slate-100);font-size:.79rem;vertical-align:top;}
+.data-row:hover td{background:rgba(2,136,204,.025) !important;}
+.td-gap{padding:0 !important;background:var(--slate-50) !important;border-left:1px solid var(--slate-200) !important;border-right:1px solid var(--slate-200) !important;width:16px;}
+.td-amber{background:rgba(251,191,36,.025) !important;border-bottom-color:rgba(251,191,36,.12) !important;}
+.td-teal{background:rgba(8,145,178,.025) !important;border-bottom-color:rgba(8,145,178,.1) !important;}
+.td-concern{background:rgba(248,113,113,.02) !important;border-bottom-color:rgba(248,113,113,.08) !important;}
+
+.mat-name{font-weight:700;color:var(--slate-900);font-size:.82rem;line-height:1.35;}
+.mat-sub{font-size:.73rem;color:var(--slate-400);margin-top:2px;line-height:1.4;}
+.cell-text{font-size:.77rem;color:var(--slate-600);line-height:1.5;}
+.cell-small{font-size:.73rem;color:var(--slate-500);line-height:1.45;}
+.cell-concern{font-size:.74rem;color:#7f1d1d;line-height:1.45;}
+.cell-gap{font-size:.72rem;color:var(--slate-400);line-height:1.45;font-style:italic;}
+.cell-link{color:var(--blue);font-size:.72rem;text-decoration:none;}
+.cell-link:hover{text-decoration:underline;}
+.price-text{white-space:nowrap;color:var(--slate-700);font-size:.8rem;font-weight:600;}
+.ref-badge{font-size:.72rem;color:var(--slate-400);font-weight:700;}
+
+/* STATUS BADGES */
+.badge{display:inline-block;padding:3px 8px;border-radius:6px;font-size:.68rem;font-weight:700;border:1px solid;white-space:nowrap;line-height:1.4;}
+.badge-yes{background:rgba(16,185,129,.12);color:#059669;border-color:rgba(16,185,129,.35);}
+.badge-no{background:rgba(248,113,113,.12);color:var(--red-dark);border-color:rgba(248,113,113,.3);}
+.badge-maybe{background:rgba(251,191,36,.15);color:#92400e;border-color:rgba(251,191,36,.45);}
+
+/* AO REC PILL */
+.rec{display:inline-flex;align-items:center;gap:4px;padding:3px 9px;border-radius:18px;font-size:.7rem;font-weight:700;border:1.5px solid;white-space:nowrap;line-height:1.4;}
+.rec-green{background:#dcfce7;color:#15803d;border-color:#86efac;}
+.rec-blue{background:#e0f2fe;color:var(--blue-dark);border-color:#7dd3fc;}
+.rec-amber{background:#fef9c3;color:#854d0e;border-color:#fde047;}
+.rec-orange{background:#fff7ed;color:#c2410c;border-color:#fdba74;}
+.rec-red{background:#fee2e2;color:#b91c1c;border-color:#fca5a5;}
+
+/* RML STAR RATING */
+.rml-star{display:inline-flex;align-items:center;gap:4px;padding:3px 9px;border-radius:6px;font-size:.68rem;font-weight:800;letter-spacing:.2px;border:1.5px solid;}
+.rml-rec{background:#dcfce7;color:#15803d;border-color:#86efac;}
+.rml-cond{background:#fef9c3;color:#854d0e;border-color:#fde047;}
+.rml-limit{background:#fee2e2;color:#b91c1c;border-color:#fca5a5;}
+
+/* EPD / FSC CHIPS */
+.chip{display:inline-block;padding:2px 7px;border-radius:5px;font-size:.66rem;font-weight:700;margin:1px;}
+.chip-yes{background:rgba(16,185,129,.15);color:#047857;border:1px solid rgba(16,185,129,.3);}
+.chip-no{background:rgba(248,113,113,.12);color:#b91c1c;border:1px solid rgba(248,113,113,.25);}
+.chip-warn{background:rgba(251,191,36,.2);color:#78350f;border:1px solid rgba(251,191,36,.4);}
+.chip-na{background:var(--slate-100);color:var(--slate-400);border:1px solid var(--slate-200);}
+
+.empty-state{padding:40px;text-align:center;color:var(--slate-400);font-size:.88rem;}
+/* SUPPLIER CONCERTINA */
+.sup-toggle{font-size:.68rem;font-weight:700;color:var(--blue);background:rgba(2,136,204,.08);border:1px solid rgba(2,136,204,.22);border-radius:5px;padding:2px 8px;cursor:pointer;margin-top:4px;display:inline-block;font-family:inherit;}
+.sup-toggle:hover{background:rgba(2,136,204,.16);}
+.sup-detail-row>td{background:#f0f7ff!important;border-bottom:2px solid rgba(2,136,204,.18)!important;padding:0!important;}
+.sup-list{display:flex;flex-direction:column;gap:6px;}
+.sup-item{display:flex;align-items:center;gap:12px;font-size:.75rem;}
+.sup-item-name{font-weight:700;color:var(--slate-700);min-width:150px;}
+.sup-item-url a{color:var(--blue);text-decoration:none;font-size:.73rem;}
+.sup-item-url a:hover{text-decoration:underline;}
+
+/* ── Responsible Methods tab ─────────────────────────────────── */
+.did-you-know{background:linear-gradient(135deg,var(--navy-dark,#0a1628) 0%,var(--navy) 60%,var(--blue-dark,#0255a3) 100%);border-radius:14px;border:1.5px solid rgba(0,227,255,.25);box-shadow:0 2px 10px rgba(0,0,0,.12);padding:20px 24px;display:flex;gap:18px;align-items:flex-start;margin-bottom:22px;position:relative;overflow:hidden;}
+.did-you-know::after{content:'';position:absolute;right:-40px;top:-40px;width:180px;height:180px;background:radial-gradient(circle,rgba(0,227,255,.12) 0%,transparent 70%);border-radius:50%;}
+.dyk-icon{width:42px;height:42px;border-radius:10px;background:rgba(0,227,255,.15);border:1.5px solid rgba(0,227,255,.35);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.dyk-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--cyan);margin-bottom:6px;}
+.dyk-text{font-size:.86rem;color:rgba(255,255,255,.88);line-height:1.65;}
+.legend-row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:18px;}
+.leg-item{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:7px;border:1.5px solid;font-size:.72rem;font-weight:600;}
+.leg-d{background:rgba(2,136,204,.08);border-color:rgba(2,136,204,.3);color:#0255a3;}
+.leg-pm{background:rgba(251,191,36,.1);border-color:rgba(251,191,36,.4);color:#92400e;}
+.leg-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+.guide-table-wrap{background:white;border-radius:14px;overflow:hidden;border:1.5px solid var(--slate-200);box-shadow:0 2px 10px rgba(0,0,0,.07);}
+.guide-table{width:100%;border-collapse:collapse;table-layout:fixed;}
+.guide-table .col-mat{width:44%;}.guide-table .col-prac{width:44%;}.guide-table .col-step{width:90px;}.guide-table .col-own{width:120px;}.guide-table .col-gap{width:12px;}
+.guide-table thead tr{background:linear-gradient(135deg,#0d1f3c 0%,#1a3a6e 100%);color:white;}
+.guide-table thead th{padding:13px 16px;text-align:left;font-size:.72rem;font-weight:700;letter-spacing:.3px;white-space:nowrap;}
+.guide-table thead .th-mat{background:linear-gradient(135deg,#0e4f8a 0%,#0271ad 100%);color:#bae6fd;}
+.guide-table thead .th-prac{background:linear-gradient(135deg,#065f46 0%,#047857 100%);color:#d1fae5;}
+.guide-table thead .th-gap{background:var(--slate-100);padding:0;width:12px;border:none;}
+.guide-table tbody tr{border-bottom:1px solid var(--slate-100);}
+.guide-table td{padding:18px 16px;vertical-align:top;font-size:.82rem;line-height:1.6;color:var(--slate-600);}
+.td-gap-col{padding:0!important;background:var(--slate-50)!important;border-left:1px solid var(--slate-200)!important;border-right:1px solid var(--slate-200)!important;width:12px;}
+.td-mat{border-left:4px solid rgba(2,136,204,.3);background:rgba(2,136,204,.018);}
+.td-prac{border-left:4px solid rgba(16,185,129,.3);background:rgba(16,185,129,.018);}
+.step-cell{padding:18px 14px!important;text-align:center;border-right:1px solid var(--slate-200);background:var(--slate-50);}
+.step-n{font-size:1.7rem;font-weight:800;color:var(--navy);line-height:1;}
+.step-lbl{font-size:.62rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--slate-400);margin-top:3px;}
+.action-verb{font-weight:700;color:#1e293b;}
+.own-cell{text-align:center;vertical-align:middle;background:rgba(251,191,36,.08)!important;border-left:1px solid rgba(251,191,36,.25);}
+.own-chip{display:inline-block;font-size:.68rem;font-weight:700;padding:4px 10px;border-radius:6px;border:1.5px solid;white-space:nowrap;}
+.own-d{background:rgba(2,136,204,.08);border-color:rgba(2,136,204,.3);color:#0255a3;}
+.own-pm{background:rgba(251,191,36,.1);border-color:rgba(251,191,36,.4);color:#92400e;}
+.cards-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
+.pocket-card{background:white;border-radius:14px;overflow:hidden;border:1.5px solid var(--slate-200);box-shadow:0 4px 20px rgba(0,0,0,.08);display:flex;flex-direction:column;}
+.card-head{padding:28px 30px 22px;position:relative;overflow:hidden;}
+.card-head::before{content:'';position:absolute;right:-30px;top:-30px;width:140px;height:140px;background:radial-gradient(circle,rgba(0,0,0,.06) 0%,transparent 70%);border-radius:50%;}
+.card-a .card-head{background:linear-gradient(135deg,#0a1628 0%,#0d1f3c 60%,#0255a3 100%);border-bottom:3px solid #0091D2;}
+.card-b .card-head{background:linear-gradient(135deg,#064e3b 0%,#065f46 60%,#047857 100%);border-bottom:3px solid #10b981;}
+.card-eyebrow{font-size:.65rem;font-weight:700;letter-spacing:.9px;text-transform:uppercase;margin-bottom:6px;position:relative;z-index:1;}
+.card-a .card-eyebrow{color:#28F8E4;}.card-b .card-eyebrow{color:#6ee7b7;}
+.card-title{font-size:1.55rem;font-weight:800;color:white;line-height:1.15;margin-bottom:8px;position:relative;z-index:1;}
+.card-subtitle{font-size:.81rem;color:rgba(255,255,255,.6);line-height:1.5;position:relative;z-index:1;}
+.card-body{padding:24px 30px;flex:1;}
+.card-step{display:flex;gap:14px;margin-bottom:18px;align-items:flex-start;}
+.cs-icon{width:38px;height:38px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;border:1.5px solid;}
+.card-a .cs-icon{background:rgba(2,136,204,.08);border-color:rgba(2,136,204,.25);}
+.card-b .cs-icon{background:rgba(16,185,129,.08);border-color:rgba(16,185,129,.25);}
+.cs-label{font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:#64748b;margin-bottom:3px;}
+.cs-text{font-size:.82rem;color:var(--slate-600);line-height:1.55;}
+.cs-text strong{color:#1e293b;font-weight:700;}
+.p-card-divider{height:1px;background:var(--slate-100);margin:18px 0;}
+.card-prompt{border-radius:10px;padding:16px 18px;display:flex;gap:12px;align-items:flex-start;margin:4px 30px 24px;}
+.card-a .card-prompt{background:rgba(2,136,204,.06);border:1.5px solid rgba(2,136,204,.2);}
+.card-b .card-prompt{background:rgba(16,185,129,.06);border:1.5px solid rgba(16,185,129,.2);}
+.prompt-icon{flex-shrink:0;margin-top:1px;display:flex;}
+.prompt-lbl{font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.6px;margin-bottom:4px;}
+.card-a .prompt-lbl{color:#0091D2;}.card-b .prompt-lbl{color:#047857;}
+.prompt-text{font-size:.82rem;color:#64748b;font-style:italic;line-height:1.5;}
+.card-footer{padding:13px 30px;border-top:1px solid var(--slate-100);display:flex;justify-content:space-between;align-items:center;background:var(--slate-50);}
+.footer-mark{font-size:.7rem;font-weight:600;color:var(--slate-400);}
+.footer-steps{font-size:.7rem;font-weight:700;color:var(--slate-400);}
+.prc-section-title{font-size:1.15rem;font-weight:700;color:var(--navy);margin-bottom:6px;}
+
+:root{
+    --navy:    #001E4C;
+    --blue:    #005EBC;
+    --teal:    #00B4D8;
+    --aqua:    #28F8E4;
+    --gold:    #F5C400;
+    --white:   #FFFFFF;
+    --offwhite:#F2F6FB;
+    --light:   #D6E8F8;
+    --muted:   #8AAAC8;
+    --dark:    #00122E;
+  }
+.ip-wrap *, .ip-wrap *::before, .ip-wrap *::after{ box-sizing: border-box; margin: 0; padding: 0; }
+.ip-wrap body{
+    font-family: 'Barlow', sans-serif;
+    background: var(--dark);
+    color: var(--white);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+/* ── Background ── */
+.ip-wrap .bg-canvas{
+    position: fixed; inset: 0; z-index: 0; pointer-events: none;
+    background:
+      radial-gradient(ellipse 80% 60% at 10% 0%, rgba(0,94,188,0.30) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 50% at 90% 100%, rgba(0,180,216,0.18) 0%, transparent 55%),
+      radial-gradient(ellipse 40% 30% at 50% 50%, rgba(40,248,228,0.05) 0%, transparent 60%),
+      linear-gradient(170deg, #00122E 0%, #001838 55%, #001228 100%);
+  }
+.ip-wrap .bg-lines{
+    position: fixed; inset: 0; z-index: 0; pointer-events: none; opacity: 0.06;
+    background-image:
+      repeating-linear-gradient(90deg, var(--teal) 0px, var(--teal) 1px, transparent 1px, transparent 80px),
+      repeating-linear-gradient(0deg,  var(--teal) 0px, var(--teal) 1px, transparent 1px, transparent 80px);
+  }
+/* ── Wrapper ── */
+.ip-wrap .page{
+    position: relative; z-index: 1;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 56px 48px 80px;
+  }
+/* ── Header ── */
+.ip-wrap .header{
+    display: flex; align-items: flex-end; justify-content: space-between;
+    margin-bottom: 52px;
+    border-bottom: 1px solid rgba(0,180,216,0.25);
+    padding-bottom: 28px;
+  }
+.ip-wrap .header-left{}
+.ip-wrap .eyebrow{
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px; font-weight: 600; letter-spacing: 4px;
+    color: var(--aqua); text-transform: uppercase;
+    margin-bottom: 10px;
+    opacity: 0;
+    animation: fadeUp 0.6s 0.1s ease forwards;
+  }
+.ip-wrap .title{
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(48px, 6vw, 82px);
+    font-weight: 900; line-height: 0.92; text-transform: uppercase;
+    letter-spacing: -1px;
+    opacity: 0;
+    animation: fadeUp 0.6s 0.2s ease forwards;
+  }
+.ip-wrap .title span{ color: var(--teal); }
+.ip-wrap .header-right{
+    text-align: right;
+    opacity: 0;
+    animation: fadeUp 0.6s 0.35s ease forwards;
+  }
+.ip-wrap .header-tag{
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px; font-weight: 600; letter-spacing: 2px;
+    color: var(--muted); text-transform: uppercase;
+    line-height: 1.8;
+  }
+.ip-wrap .header-tag strong{ color: var(--gold); }
+/* ── Column labels ── */
+.ip-wrap .col-labels{
+    display: grid;
+    grid-template-columns: 180px repeat(5, 1fr);
+    gap: 1px;
+    margin-bottom: 2px;
+    opacity: 0;
+    animation: fadeUp 0.6s 0.45s ease forwards;
+  }
+.ip-wrap .col-label-empty{ background: transparent; }
+.ip-wrap .col-label{
+    padding: 10px 18px 14px;
+    background: rgba(0,94,188,0.12);
+    border-top: 2px solid var(--blue);
+    position: relative;
+    overflow: hidden;
+  }
+.ip-wrap .col-label::before{
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--teal);
+    transform: scaleX(0); transform-origin: left;
+    transition: transform 0.4s ease;
+  }
+.ip-wrap .col-label:hover::before{ transform: scaleX(1); }
+.ip-wrap .col-num{
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px; font-weight: 700; letter-spacing: 3px;
+    color: var(--teal); text-transform: uppercase;
+    display: block; margin-bottom: 3px;
+  }
+.ip-wrap .col-name{
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 20px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.5px; color: var(--white); line-height: 1;
+  }
+/* ── Grid rows ── */
+.ip-wrap .plan-grid{
+    display: flex; flex-direction: column; gap: 2px;
+  }
+.ip-wrap .plan-row{
+    display: grid;
+    grid-template-columns: 180px repeat(5, 1fr);
+    gap: 2px;
+    opacity: 0;
+    animation: fadeUp 0.7s ease forwards;
+  }
+.ip-wrap .plan-row:nth-child(1){ animation-delay: 0.55s; }
+.ip-wrap .plan-row:nth-child(2){ animation-delay: 0.70s; }
+.ip-wrap .plan-row:nth-child(3){ animation-delay: 0.85s; }
+/* ── Year label ── */
+.ip-wrap .year-label{
+    display: flex; flex-direction: column; justify-content: flex-start;
+    padding: 22px 16px 22px 0;
+    gap: 6px;
+  }
+.ip-wrap .year-badge{
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px; font-weight: 700; letter-spacing: 3.5px;
+    text-transform: uppercase;
+    display: inline-block; margin-bottom: 2px;
+  }
+.ip-wrap .plan-row:nth-child(1) .year-badge{ color: var(--gold); }
+.ip-wrap .plan-row:nth-child(2) .year-badge{ color: var(--teal); }
+.ip-wrap .plan-row:nth-child(3) .year-badge{ color: var(--aqua); }
+.ip-wrap .ao-badge{
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 28px; font-weight: 900; letter-spacing: -0.5px;
+    line-height: 1;
+  }
+.ip-wrap .plan-row:nth-child(1) .ao-badge{ color: var(--gold); }
+.ip-wrap .plan-row:nth-child(2) .ao-badge{ color: var(--teal); }
+.ip-wrap .plan-row:nth-child(3) .ao-badge{ color: var(--aqua); }
+.ip-wrap .year-divider{
+    width: 28px; height: 2px; margin-top: 4px;
+  }
+.ip-wrap .plan-row:nth-child(1) .year-divider{ background: linear-gradient(90deg, var(--gold), transparent); }
+.ip-wrap .plan-row:nth-child(2) .year-divider{ background: linear-gradient(90deg, var(--teal), transparent); }
+.ip-wrap .plan-row:nth-child(3) .year-divider{ background: linear-gradient(90deg, var(--aqua), transparent); }
+/* ── Cells ── */
+.ip-wrap .cell{
+    padding: 22px 20px 24px;
+    background: rgba(0,18,46,0.55);
+    border: 1px solid rgba(0,94,188,0.18);
+    backdrop-filter: blur(8px);
+    position: relative;
+    overflow: hidden;
+    transition: background 0.3s, border-color 0.3s, transform 0.25s;
+    cursor: default;
+  }
+.ip-wrap .cell::after{
+    content: '';
+    position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, transparent, var(--teal), transparent);
+    opacity: 0; transition: opacity 0.3s;
+  }
+.ip-wrap .cell:hover{
+    background: rgba(0,30,80,0.75);
+    border-color: rgba(0,180,216,0.35);
+    transform: translateY(-2px);
+  }
+.ip-wrap .cell:hover::after{ opacity: 1; }
+/* Row colour accents */
+.ip-wrap .plan-row:nth-child(1) .cell{ border-top: 2px solid rgba(245,196,0,0.5); }
+.ip-wrap .plan-row:nth-child(2) .cell{ border-top: 2px solid rgba(0,180,216,0.5); }
+.ip-wrap .plan-row:nth-child(3) .cell{ border-top: 2px solid rgba(40,248,228,0.5); }
+.ip-wrap .plan-row:nth-child(1) .cell::after{ background: linear-gradient(90deg, transparent, rgba(245,196,0,0.6), transparent); }
+.ip-wrap .plan-row:nth-child(2) .cell::after{ background: linear-gradient(90deg, transparent, rgba(0,180,216,0.6), transparent); }
+.ip-wrap .plan-row:nth-child(3) .cell::after{ background: linear-gradient(90deg, transparent, rgba(40,248,228,0.6), transparent); }
+/* Corner glow */
+.ip-wrap .cell::before{
+    content: '';
+    position: absolute; top: 0; right: 0;
+    width: 60px; height: 60px;
+    border-radius: 0 0 0 100%;
+    opacity: 0; transition: opacity 0.3s;
+  }
+.ip-wrap .plan-row:nth-child(1) .cell::before{ background: radial-gradient(circle at top right, rgba(245,196,0,0.12), transparent 70%); }
+.ip-wrap .plan-row:nth-child(2) .cell::before{ background: radial-gradient(circle at top right, rgba(0,180,216,0.12), transparent 70%); }
+.ip-wrap .plan-row:nth-child(3) .cell::before{ background: radial-gradient(circle at top right, rgba(40,248,228,0.12), transparent 70%); }
+.ip-wrap .cell:hover::before{ opacity: 1; }
+/* ── Cell content ── */
+.ip-wrap .cell-heading{
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px; font-weight: 700; letter-spacing: 2px;
+    text-transform: uppercase; margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+.ip-wrap .plan-row:nth-child(1) .cell-heading{ color: var(--gold); }
+.ip-wrap .plan-row:nth-child(2) .cell-heading{ color: var(--teal); }
+.ip-wrap .plan-row:nth-child(3) .cell-heading{ color: var(--aqua); }
+.ip-wrap .cell p{
+    font-size: 12.5px; font-weight: 400; line-height: 1.65;
+    color: rgba(255,255,255,0.78);
+    margin-bottom: 8px;
+  }
+.ip-wrap .cell p:last-child{ margin-bottom: 0; }
+.ip-wrap .cell ol, .ip-wrap .cell ul{
+    padding-left: 0; list-style: none;
+    display: flex; flex-direction: column; gap: 7px;
+  }
+.ip-wrap .cell ol li, .ip-wrap .cell ul li{
+    font-size: 12.5px; line-height: 1.6;
+    color: rgba(255,255,255,0.75);
+    padding-left: 18px; position: relative;
+  }
+.ip-wrap .cell ol{ counter-reset: item; }
+.ip-wrap .cell ol li{ counter-increment: item; }
+.ip-wrap .cell ol li::before{
+    content: counter(item);
+    position: absolute; left: 0; top: 0;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px; font-weight: 700; letter-spacing: 0.5px;
+    width: 14px; text-align: right;
+    color: var(--teal);
+  }
+.ip-wrap .plan-row:nth-child(1) .cell ol li::before{ color: var(--gold); }
+.ip-wrap .plan-row:nth-child(3) .cell ol li::before{ color: var(--aqua); }
+.ip-wrap .cell ul li::before{
+    content: '›';
+    position: absolute; left: 0;
+    font-size: 14px; font-weight: 700;
+    color: var(--teal); line-height: 1.4;
+  }
+.ip-wrap .plan-row:nth-child(1) .cell ul li::before{ color: var(--gold); }
+.ip-wrap .plan-row:nth-child(3) .cell ul li::before{ color: var(--aqua); }
+/* Sub-sections inside Accountability */
+.ip-wrap .sub-section{ margin-bottom: 14px; }
+.ip-wrap .sub-section:last-child{ margin-bottom: 0; }
+.ip-wrap .sub-heading{
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px; font-weight: 700; letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+    margin-bottom: 5px;
+  }
+/* Row-specific sub-heading accent colours */
+.ip-wrap .plan-row:nth-child(1) .sub-heading{ color: var(--gold); }
+.ip-wrap .plan-row:nth-child(2) .sub-heading{ color: var(--teal); }
+.ip-wrap .plan-row:nth-child(3) .sub-heading{ color: var(--aqua); }
+/* Impact chip styling */
+.ip-wrap .impact-section{ margin-bottom: 14px; }
+.ip-wrap .impact-section:last-child{ margin-bottom: 0; }
+.ip-wrap .impact-label{
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 10px; font-weight: 800; letter-spacing: 2px;
+    text-transform: uppercase;
+    display: inline-block; margin-bottom: 8px;
+    padding: 3px 8px; border-radius: 2px;
+  }
+.ip-wrap .impact-label.direct{ background: rgba(245,196,0,0.15); color: var(--gold); }
+.ip-wrap .impact-label.knock{ background: rgba(245,196,0,0.10); color: var(--gold); }
+.ip-wrap em{ font-style: italic; color: inherit; }
+.ip-wrap strong{ font-weight: 600; color: rgba(255,255,255,0.95); }
+/* ── Animations ── */
+@keyframes fadeUp{
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+/* ── Footer ── */
+.ip-wrap .footer{
+    margin-top: 40px; padding-top: 20px;
+    border-top: 1px solid rgba(0,94,188,0.2);
+    display: flex; justify-content: space-between; align-items: center;
+    opacity: 0;
+    animation: fadeUp 0.6s 1.0s ease forwards;
+  }
+.ip-wrap .footer-note{
+    font-size: 11px; color: var(--muted); letter-spacing: 1px;
+    font-family: 'Barlow Condensed', sans-serif; text-transform: uppercase;
+  }
+.ip-wrap .ao-logo{
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 16px; font-weight: 900; letter-spacing: 3px;
+    text-transform: uppercase; color: var(--white);
+  }
+.ip-wrap .ao-logo span{ color: var(--teal); }
+
+/* Plan tab overrides */
+.ip-wrap { display:block; }
+.ip-wrap .bg-canvas, .ip-wrap .bg-lines { display:none !important; }
+.ip-wrap .page { padding: 24px 0 0; }
+.ip-wrap .header { display:none !important; }
+.ip-wrap .footer { margin-top:24px; }
+
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════ HEADER ═══════════════════════ -->
+<header class="site-header">
+  <div class="header-inner">
+    <div class="header-text">
+      <h1>AO <em>Target Materials</em></h1>
+      <p>Maximum Play, Minimum Footprint &mdash; Responsible Materials Program</p>
+    </div>
+    <div class="header-meta">
+      <span class="hbadge">March 2026</span>
+    </div>
+  </div>
+  <nav class="tab-nav">
+    <button class="tab-btn active" onclick="showTab('target',this)">Target Materials</button>
+    <button class="tab-btn" onclick="showTab('pocket',this)">Responsible Methods</button>
+    <button class="tab-btn" onclick="showTab('plan',this)">Incremental Plan</button>
+  </nav>
+</header>
+
+<main class="main">
+
+<!-- ══════════════════════════════════════════════════════════════
+     TAB 1 — TARGET MATERIALS
+══════════════════════════════════════════════════════════════ -->
+<div id="tab-target" class="tab-panel active">
+
+  <div style="margin-top:28px;">
+    <div class="section-title">Target Materials</div>
+    <div class="divider"></div>
+  </div>
+
+  <div class="how-to" style="margin-top:24px;">
+    <div class="how-to-header">How to use this list</div>
+    <div class="how-to-body">
+      <div class="how-to-step"><div class="step-num">1</div><div class="step-text">The AO target materials list contains both current state materials in use at the AO together with some new responsible materials. Check the AO recommendation column for advice.</div></div>
+      <div class="how-to-step"><div class="step-num">2</div><div class="step-text">Methods matter. Most of the materials on this list are reusable/ recyclable materials. It is how we treat and dispose of materials that creates waste. We can change that. Check the "Circularity" column and "What to ask for"</div></div>
+      <div class="how-to-step"><div class="step-num">3</div><div class="step-text">Filter by Precinct Application, Material Category, Supplier or AO Recommendation</div></div>
+    </div>
+  </div>
+
+  <div class="filter-bar">
+    <div class="filter-group"><label>Precinct Application</label><select id="ct-app" onchange="renderCombined()"><option value="">All applications</option></select></div>
+    <div class="filter-group"><label>Material Category</label><select id="ct-cat" onchange="renderCombined()"><option value="">All categories</option></select></div>
+    <div class="filter-group"><label>AO Recommendation</label>
+      <select id="ct-rec" onchange="renderCombined()">
+        <option value="">All</option>
+        <option value="rec-bench">&#10003; Recommended</option>
+        <option value="rec-rml">&#10003; Recommended RML</option>
+        <option value="ifsep">&#8652; If separated</option>
+        <option value="limit">&#9888; Limit use</option>
+        <option value="limitrml">&#9888; Limited RML alternatives</option>
+        <option value="conditional">Conditional</option>
+      </select>
+    </div>
+    <div class="filter-group"><label>Supplier</label><select id="ct-sup" onchange="renderCombined()"><option value="">All suppliers</option></select></div>
+    <button class="btn-clear" onclick="clearCombined()">&#10005; Clear</button>
+    <div id="ct-count" class="result-count"></div>
+  </div>
+
+  <div class="table-wrap"><div class="table-scroll">
+    <table style="min-width:2200px;">
+      <thead><tr>
+        <!-- A --> <th style="width:52px;">Ref</th>
+        <!-- src --> <th style="width:80px;">Source</th>
+        <!-- B --> <th style="min-width:150px;">Precinct Application</th>
+        <!-- C --> <th style="min-width:120px;">Category</th>
+        <!-- D --> <th style="min-width:220px;">Product Name</th>
+        <!-- F --> <th style="min-width:110px;">Unit Size</th>
+        <!-- G --> <th style="min-width:120px;">Price</th>
+        <!-- H --> <th style="min-width:200px;">Price Comparison</th>
+        <!-- I --> <th style="min-width:160px;">Supplier</th>
+        <th class="th-gap"></th>
+        <!-- J --> <th class="th-amber" style="min-width:160px;text-align:center;">AO Recommendation</th>
+        <!-- K --> <th class="th-amber" style="min-width:200px;">Circularity / EOL</th>
+        <!-- L --> <th class="th-amber" style="min-width:200px;">What to ask for</th>
+        <!-- M --> <th class="th-amber" style="min-width:200px;">Fire Class</th>
+        <!-- N --> <th class="th-amber" style="min-width:260px;">Certifications</th>
+      </tr></thead>
+      <tbody id="ct-tbody"></tbody>
+    </table>
+  </div></div>
+
+</div><!-- /tab-target -->
+
+
+
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- TAB 4 — POCKET REFERENCE CARDS                                 -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<div id="tab-pocket" class="tab-panel">
+  <div class="section-title" style="margin-top:28px;">Responsible Methods</div>
+  <div class="divider"></div>
+
+  <div class="did-you-know">
+    <div class="dyk-icon">
+      <svg width="24" height="24" viewBox="0 0 20 20" fill="none" style="color:#28F8E4">
+        <path d="M10 2a6 6 0 0 1 3.5 10.8V14a1 1 0 0 1-1 1h-5a1 1 0 0 1-1-1v-1.2A6 6 0 0 1 10 2Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+        <path d="M7.5 18h5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M8.5 15v1.5M11.5 15v1.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div>
+      <div class="dyk-label">Did you know?</div>
+      <div class="dyk-text">Many materials used in AO venue overlays can be reused or recycled. It's how we treat, finish and handle them at bump-out that turns potential resources into waste. Every time we bin a material we throw money away. Here's how to get more out of materials with methods.</div>
+    </div>
+  </div>
+
+  <div class="cards-grid">
+
+    <!-- CARD A -->
+    <div class="pocket-card card-a">
+      <div class="card-head">
+        <div class="card-eyebrow">Track 1 — For Designers/ Agencies/ Builders</div>
+        <div class="card-title">Before You Build</div>
+        <div class="card-subtitle">Material choices made here determine what's possible at bump-out. Lock these in the brief with builders.</div>
+      </div>
+      <div class="card-body">
+        <div class="card-step">
+          <div class="cs-icon"><svg width="18" height="18" style="color:#0091D2"><use href="#ico-grid"/></svg></div>
+          <div><div class="cs-label">Step 1 — Evergreen Elements</div><div class="cs-text"><strong>Long-term design (3 year contracts) enable design and build of "evergreen" elements.</strong> These reusable assets amplify fan experience building on familiarity year on year. Create a realistic plan to achieve 25% reuse in year 3.</div></div>
+        </div>
+        <div class="p-card-divider"></div>
+        <div class="card-step">
+          <div class="cs-icon"><svg width="18" height="18" style="color:#0091D2"><use href="#ico-layers"/></svg></div>
+          <div><div class="cs-label">Step 2 — Design Waste Out</div><div class="cs-text"><strong>Designers have a key role designing waste out.</strong> Identify which materials will be reused and which ones will go to a waste stream.</div></div>
+        </div>
+        <div class="p-card-divider"></div>
+        <div class="card-step">
+          <div class="cs-icon"><svg width="18" height="18" style="color:#0091D2"><use href="#ico-bolt"/></svg></div>
+          <div><div class="cs-label">Step 3 — Materials</div><div class="cs-text"><strong>Consult the AO Target Materials List (TML)</strong> in design — zone in on whether the same outcome can be delivered that is not single use. Consider finishes that won't contaminate materials. The AO TML can tell you what to look for.</div></div>
+        </div>
+        <div class="p-card-divider"></div>
+        <div class="card-step">
+          <div class="cs-icon"><svg width="18" height="18" style="color:#0091D2"><use href="#ico-box"/></svg></div>
+          <div><div class="cs-label">Step 4 — Modular &amp; DfD</div><div class="cs-text"><strong>Modular Design and Design for Disassembly (DfD) create reusable systems.</strong> Systems design incorporating connectors — mechanical joinery (bolted, screwed, nailed connections) that don't need chemical bonds (glues, sealers, welding) will allow for disassembly and keep materials recoverable at bump-out.</div></div>
+        </div>
+        <div class="p-card-divider"></div>
+        <div class="card-step">
+          <div class="cs-icon"><svg width="18" height="18" style="color:#0091D2"><use href="#ico-clipboard"/></svg></div>
+          <div><div class="cs-label">Step 5 — Evaluate Build Effort &amp; Storage</div><div class="cs-text"><strong>Work with builders to evaluate which design elements are fit-for-purpose.</strong> Consider the effort for a builder to pack down on bump out. Storage logistics and which assets will be retained are considerations in the design stage, not at bump out. Documentation of the system and methods are essential — design plans illustrating how components work together so that future contractors can assemble and dismantle with care.</div></div>
+        </div>
+      </div>
+      <div class="card-prompt">
+        <div class="prompt-icon"><svg width="18" height="18" style="color:#0091D2"><use href="#ico-check"/></svg></div>
+        <div>
+          <div class="prompt-lbl">Design-Stage Prompt — Design with the end in mind</div>
+          <div class="prompt-text">"Have I considered design with AO target materials and how to reuse or recover them? Have my methods ensured what we put on materials (paint/graphics/ finishes) and how we build ensure they can be reused or recovered?"</div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <span class="footer-mark">Maximum Play, Minimum Footprint</span>
+      </div>
+    </div>
+
+    <!-- CARD B -->
+    <div class="pocket-card card-b">
+      <div class="card-head">
+        <div class="card-eyebrow">Track 2 — For Builders &amp; Contractors</div>
+        <div class="card-title">Bump-Out Protocol</div>
+        <div class="card-subtitle">Many materials in waste streams are perfectly reusable and recyclable. It is our methods that turns them into waste. Follow this on pack-down.</div>
+      </div>
+      <div class="card-body">
+        <div class="card-step">
+          <div class="cs-icon"><svg width="18" height="18" style="color:#047857"><use href="#ico-wrench"/></svg></div>
+          <div><div class="cs-label">Step 1 — Methods Matter</div><div class="cs-text"><strong>Methods to mitigate waste.</strong> Many materials we use today are circular. It is the application of finishes and how they are handled at bump-out that turns them into waste. Mechanical connectors allow disassembly without damage, water-based paint, wood treatments and separation of materials create clean resource streams.</div></div>
+        </div>
+        <div class="p-card-divider"></div>
+        <div class="card-step">
+          <div class="cs-icon"><svg width="18" height="18" style="color:#047857"><use href="#ico-bolt"/></svg></div>
+          <div><div class="cs-label">Step 2 — Materials</div><div class="cs-text"><strong>Consult the AO Target Materials List (TML)</strong> in design — zone in on whether the same outcome can be delivered that is not single use. Consider finishes that won't contaminate materials. The AO TML can tell you what to look for.</div></div>
+        </div>
+        <div class="p-card-divider"></div>
+        <div class="card-step">
+          <div class="cs-icon"><svg width="18" height="18" style="color:#047857"><use href="#ico-clipboard"/></svg></div>
+          <div><div class="cs-label">Step 3 — Plan Before You Start</div><div class="cs-text"><strong>Read the deconstruction documentation.</strong> Plan effort and resources to pack down. Use the Design for Disassembly instructions, follow the specified steps to avoid damage.</div></div>
+        </div>
+        <div class="p-card-divider"></div>
+        <div class="card-step">
+          <div class="cs-icon"><svg width="18" height="18" style="color:#047857"><use href="#ico-tag"/></svg></div>
+          <div><div class="cs-label">Step 4 — Track &amp; Tag</div><div class="cs-text"><strong>Record procurement costs and track reused assets</strong> — maintain a consistent material tracking log from specification stage through to bump-out and warehouse storage. Tag evergreen assets circular status, age and condition. This is key in measuring circularity and financial ROI outcomes.</div></div>
+        </div>
+      </div>
+      <div class="card-prompt">
+        <div class="prompt-icon"><svg width="18" height="18" style="color:#047857"><use href="#ico-check"/></svg></div>
+        <div>
+          <div class="prompt-lbl">Bump-Out — Planning Prompt</div>
+          <div class="prompt-text">"Have I considered AO target materials and methods to reuse or recover them? What resources do I need to disassemble and to label assets with circular status as I pack them for storage?"</div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <span class="footer-mark">Maximum Play, Minimum Footprint</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- PRACTICAL WAYS TO REDUCE WASTE -->
+  <div style="margin-top:36px;">
+    <div class="prc-section-title">Practical ways to reduce waste</div>
+    <div class="divider"></div>
+    <p style="font-size:.88rem;color:var(--slate-600);margin:0 0 24px;">Use this guide to help you establish reuse or waste stream up front.</p>
+    <div style="font-size:.88rem;color:var(--slate-600);line-height:1.75;display:flex;flex-direction:column;gap:20px;">
+
+      <div style="background:white;border-radius:14px;padding:24px 28px;box-shadow:0 2px 8px rgba(0,0,0,.06);">
+        <div style="display:flex;gap:14px;">
+          <div style="min-width:32px;height:32px;border-radius:50%;background:var(--navy);color:white;font-size:.75rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;">01</div>
+          <div>
+            <p style="margin:0 0 10px;font-weight:700;color:var(--navy);font-size:.93rem;">Evergreen vs annual</p>
+            <p style="margin:0 0 12px;">Some temporary event infrastructure components are well suited to be deliberately designed to be reused for a 3–5 year lifecycle with minimal rework, rather than built for a single use. They are modular, durable and brand-agnostic (or easily re-skinned), use mechanical connectors, are documented and tracked so they can be efficiently stored, refurbished, redeployed and ultimately recycled at end-of-life instead of going to landfill. There are a few types:</p>
+            <div style="display:flex;flex-direction:column;gap:6px;padding-left:8px;">
+              <div style="display:flex;gap:10px;"><span style="min-width:22px;color:#0091D2;font-weight:700;">i)</span><span><strong>Foundational:</strong> toilets, staff spaces, retail stores, water stations, first aid, counters (back of house / front of house)</span></div>
+              <div style="display:flex;gap:10px;"><span style="min-width:22px;color:#0091D2;font-weight:700;">ii)</span><span><strong>Structural:</strong> framing / structures / decking</span></div>
+              <div style="display:flex;gap:10px;"><span style="min-width:22px;color:#0091D2;font-weight:700;">iii)</span><span><strong>Facades:</strong> shade structures / legs, internal hoardings, reusable facades for F&amp;B, marquees and modular structures (Highline / Spacecube)</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="background:white;border-radius:14px;padding:24px 28px;box-shadow:0 2px 8px rgba(0,0,0,.06);">
+        <div style="display:flex;gap:14px;">
+          <div style="min-width:32px;height:32px;border-radius:50%;background:var(--navy);color:white;font-size:.75rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;">02</div>
+          <div>
+            <p style="margin:0 0 10px;font-weight:700;color:var(--navy);font-size:.93rem;">Use AO Target Materials where possible</p>
+            <p style="margin:0 0 10px;">Many of the materials used today in the AO build are circular — that is, reusable and recyclable. It is how we treat and dispose of materials that creates waste. Finishes and how they are handled on bump-out can keep them out of landfill.</p>
+            <button onclick="showTab('target',document.querySelectorAll('.tab-btn')[0])" style="display:inline-flex;align-items:center;gap:6px;font-size:.82rem;font-weight:700;color:#0091D2;background:none;text-decoration:none;border:1.5px solid #0091D2;border-radius:6px;padding:5px 12px;cursor:pointer;">
+              <svg width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M10 3H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-5"/><path d="M15 3h2v2m0 0-7 7"/><path d="M13 3h4v4"/></svg>
+              AO Target Materials
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div style="background:white;border-radius:14px;padding:24px 28px;box-shadow:0 2px 8px rgba(0,0,0,.06);">
+        <div style="display:flex;gap:14px;">
+          <div style="min-width:32px;height:32px;border-radius:50%;background:var(--navy);color:white;font-size:.75rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;">03</div>
+          <div>
+            <p style="margin:0 0 10px;font-weight:700;color:var(--navy);font-size:.93rem;">Do all materials have a responsible alternative?</p>
+            <p style="margin:0 0 12px;">No — unfortunately not. Some waste is unavoidable because there aren't responsible alternatives and bump-out has time constraints. The materials that face a substitution challenge are MDF, SAV, and outdoor flooring (decking).</p>
+            <div style="display:flex;flex-direction:column;gap:10px;padding-left:8px;">
+              <div style="display:flex;gap:10px;"><span style="min-width:22px;color:#0091D2;font-weight:700;">i)</span><span>There are some alternatives for MDF, although they come at a higher premium — the requirement is, if using MDF, commit to modular design so that it can be reused rather than single-use straight to landfill.</span></div>
+              <div style="display:flex;gap:10px;"><span style="min-width:22px;color:#0091D2;font-weight:700;">ii)</span><span>Hi-res graphics typically use SAV or ACM (aluminium composite). If they can be separated from substrates some materials can be recovered — especially ACM where aluminium is high value on the secondary market.</span></div>
+              <div style="display:flex;gap:10px;"><span style="min-width:22px;color:#0091D2;font-weight:700;">iii)</span><span>Decking has no end-of-life pathway — attempt to design components for reuse.</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="background:white;border-radius:14px;padding:24px 28px;box-shadow:0 2px 8px rgba(0,0,0,.06);">
+        <div style="display:flex;gap:14px;">
+          <div style="min-width:32px;height:32px;border-radius:50%;background:var(--navy);color:white;font-size:.75rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;">04</div>
+          <div style="width:100%;">
+            <p style="margin:0 0 10px;font-weight:700;color:var(--navy);font-size:.93rem;">Interventions I can put into practice now</p>
+            <p style="margin:0 0 14px;">Begin with the end in mind — <strong>"what will happen to a material at the end of the event?"</strong> It is clear in design and procurement where it will end up — this is the opportunity to design waste out.</p>
+            <p style="margin:0 0 6px;font-weight:700;color:#334155;">Consider the treatments to materials</p>
+            <p style="margin:0 0 16px;">Use of water-based paint, oils and untreated timbers allows them to be recycled.</p>
+            <p style="margin:0 0 8px;font-weight:700;color:#334155;">Consider these options for graphics</p>
+            <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:16px;padding-left:8px;">
+              <div style="display:flex;gap:10px;"><span style="color:#0091D2;font-weight:700;flex-shrink:0;">•</span><span>Fabric as an alternative (used in Ballpark AO26)</span></div>
+              <div style="display:flex;gap:10px;"><span style="color:#0091D2;font-weight:700;flex-shrink:0;">•</span><span>High-res graphics bonded to ACP or ply create unrecoverable composites — a high waste category. Aluminium has great resale value and material separation at bump-out keeps it out of landfill.</span></div>
+              <div style="display:flex;gap:10px;"><span style="color:#0091D2;font-weight:700;flex-shrink:0;">•</span><span>Avoid Foamex where possible — many builders consider it inferior and it cannot be recycled easily.</span></div>
+            </div>
+            <p style="margin:0 0 8px;font-weight:700;color:#334155;">Consider wood products and treatments</p>
+            <p style="margin:0 0 10px;">There are many types of engineered wood — <a href="#" style="color:#0091D2;font-weight:600;text-decoration:none;">see our fact sheet</a>. The resins (glues) used in them can send them to landfill. The AO Target List recommends engineered wood and timber products that are suited to reuse and highlights where they can be recycled.</p>
+            <div style="background:#fef9c3;border-left:3px solid #fbbf24;border-radius:0 8px 8px 0;padding:12px 16px;font-size:.84rem;color:#78350f;">
+              <strong>Note:</strong> There is extremely limited MDF recycling globally. The formaldehyde resin and fibre composite make it difficult to break down. MDF is the popular choice for joinery / cabinetry / wall flats. The AO request is — take a look at alternatives and consider if the premium is viable over a longer lifecycle, or if it is used, be sure it is in an evergreen element for reuse.
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div><!-- /tab-pocket -->
+
+
+
+
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- TAB — INCREMENTAL PLAN                                         -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<div id="tab-plan" class="tab-panel">
+  <iframe srcdoc="<!DOCTYPE html>
+<html lang=&quot;en&quot;>
+<head>
+<meta charset=&quot;UTF-8&quot;>
+<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+<title>AO Incremental Plan</title>
+<link href=&quot;https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;600;700;900&amp;family=Barlow:wght@300;400;500;600&amp;display=swap&quot; rel=&quot;stylesheet&quot;>
+<style>
+  :root {
+    --navy:    #001E4C;
+    --blue:    #005EBC;
+    --teal:    #00B4D8;
+    --aqua:    #28F8E4;
+    --gold:    #F5C400;
+    --white:   #FFFFFF;
+    --offwhite:#F2F6FB;
+    --light:   #D6E8F8;
+    --muted:   #8AAAC8;
+    --dark:    #00122E;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Barlow', sans-serif;
+    background: var(--dark);
+    color: var(--white);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ── Background ── */
+  .bg-canvas {
+    position: fixed; inset: 0; z-index: 0; pointer-events: none;
+    background:
+      radial-gradient(ellipse 80% 60% at 10% 0%, rgba(0,94,188,0.30) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 50% at 90% 100%, rgba(0,180,216,0.18) 0%, transparent 55%),
+      radial-gradient(ellipse 40% 30% at 50% 50%, rgba(40,248,228,0.05) 0%, transparent 60%),
+      linear-gradient(170deg, #00122E 0%, #001838 55%, #001228 100%);
+  }
+  .bg-lines {
+    position: fixed; inset: 0; z-index: 0; pointer-events: none; opacity: 0.06;
+    background-image:
+      repeating-linear-gradient(90deg, var(--teal) 0px, var(--teal) 1px, transparent 1px, transparent 80px),
+      repeating-linear-gradient(0deg,  var(--teal) 0px, var(--teal) 1px, transparent 1px, transparent 80px);
+  }
+
+  /* ── Wrapper ── */
+  .page {
+    position: relative; z-index: 1;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 56px 48px 80px;
+  }
+
+  /* ── Header ── */
+  .header {
+    display: flex; align-items: flex-end; justify-content: space-between;
+    margin-bottom: 52px;
+    border-bottom: 1px solid rgba(0,180,216,0.25);
+    padding-bottom: 28px;
+  }
+  .header-left {}
+  .eyebrow {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px; font-weight: 600; letter-spacing: 4px;
+    color: var(--aqua); text-transform: uppercase;
+    margin-bottom: 10px;
+    opacity: 0;
+    animation: fadeUp 0.6s 0.1s ease forwards;
+  }
+  .title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(48px, 6vw, 82px);
+    font-weight: 900; line-height: 0.92; text-transform: uppercase;
+    letter-spacing: -1px;
+    opacity: 0;
+    animation: fadeUp 0.6s 0.2s ease forwards;
+  }
+  .title span { color: var(--teal); }
+  .header-right {
+    text-align: right;
+    opacity: 0;
+    animation: fadeUp 0.6s 0.35s ease forwards;
+  }
+  .header-tag {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px; font-weight: 600; letter-spacing: 2px;
+    color: var(--muted); text-transform: uppercase;
+    line-height: 1.8;
+  }
+  .header-tag strong { color: var(--gold); }
+
+  /* ── Column labels ── */
+  .col-labels {
+    display: grid;
+    grid-template-columns: 180px repeat(5, 1fr);
+    gap: 1px;
+    margin-bottom: 2px;
+    opacity: 0;
+    animation: fadeUp 0.6s 0.45s ease forwards;
+  }
+  .col-label-empty { background: transparent; }
+  .col-label {
+    padding: 10px 18px 14px;
+    background: rgba(0,94,188,0.12);
+    border-top: 2px solid var(--blue);
+    position: relative;
+    overflow: hidden;
+  }
+  .col-label::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--teal);
+    transform: scaleX(0); transform-origin: left;
+    transition: transform 0.4s ease;
+  }
+  .col-label:hover::before { transform: scaleX(1); }
+  .col-num {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px; font-weight: 700; letter-spacing: 3px;
+    color: var(--teal); text-transform: uppercase;
+    display: block; margin-bottom: 3px;
+  }
+  .col-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 20px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.5px; color: var(--white); line-height: 1;
+  }
+
+  /* ── Grid rows ── */
+  .plan-grid {
+    display: flex; flex-direction: column; gap: 2px;
+  }
+
+  .plan-row {
+    display: grid;
+    grid-template-columns: 180px repeat(5, 1fr);
+    gap: 2px;
+    opacity: 0;
+    animation: fadeUp 0.7s ease forwards;
+  }
+  .plan-row:nth-child(1) { animation-delay: 0.55s; }
+  .plan-row:nth-child(2) { animation-delay: 0.70s; }
+  .plan-row:nth-child(3) { animation-delay: 0.85s; }
+
+  /* ── Year label ── */
+  .year-label {
+    display: flex; flex-direction: column; justify-content: flex-start;
+    padding: 22px 16px 22px 0;
+    gap: 6px;
+  }
+  .year-badge {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px; font-weight: 700; letter-spacing: 3.5px;
+    text-transform: uppercase;
+    display: inline-block; margin-bottom: 2px;
+  }
+  .plan-row:nth-child(1) .year-badge { color: var(--gold); }
+  .plan-row:nth-child(2) .year-badge { color: var(--teal); }
+  .plan-row:nth-child(3) .year-badge { color: var(--aqua); }
+  .ao-badge {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 28px; font-weight: 900; letter-spacing: -0.5px;
+    line-height: 1;
+  }
+  .plan-row:nth-child(1) .ao-badge { color: var(--gold); }
+  .plan-row:nth-child(2) .ao-badge { color: var(--teal); }
+  .plan-row:nth-child(3) .ao-badge { color: var(--aqua); }
+
+  .year-divider {
+    width: 28px; height: 2px; margin-top: 4px;
+  }
+  .plan-row:nth-child(1) .year-divider { background: linear-gradient(90deg, var(--gold), transparent); }
+  .plan-row:nth-child(2) .year-divider { background: linear-gradient(90deg, var(--teal), transparent); }
+  .plan-row:nth-child(3) .year-divider { background: linear-gradient(90deg, var(--aqua), transparent); }
+
+  /* ── Cells ── */
+  .cell {
+    padding: 22px 20px 24px;
+    background: rgba(0,18,46,0.55);
+    border: 1px solid rgba(0,94,188,0.18);
+    backdrop-filter: blur(8px);
+    position: relative;
+    overflow: hidden;
+    transition: background 0.3s, border-color 0.3s, transform 0.25s;
+    cursor: default;
+  }
+  .cell::after {
+    content: '';
+    position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, transparent, var(--teal), transparent);
+    opacity: 0; transition: opacity 0.3s;
+  }
+  .cell:hover {
+    background: rgba(0,30,80,0.75);
+    border-color: rgba(0,180,216,0.35);
+    transform: translateY(-2px);
+  }
+  .cell:hover::after { opacity: 1; }
+
+  /* Row colour accents */
+  .plan-row:nth-child(1) .cell { border-top: 2px solid rgba(245,196,0,0.5); }
+  .plan-row:nth-child(2) .cell { border-top: 2px solid rgba(0,180,216,0.5); }
+  .plan-row:nth-child(3) .cell { border-top: 2px solid rgba(40,248,228,0.5); }
+
+  .plan-row:nth-child(1) .cell::after { background: linear-gradient(90deg, transparent, rgba(245,196,0,0.6), transparent); }
+  .plan-row:nth-child(2) .cell::after { background: linear-gradient(90deg, transparent, rgba(0,180,216,0.6), transparent); }
+  .plan-row:nth-child(3) .cell::after { background: linear-gradient(90deg, transparent, rgba(40,248,228,0.6), transparent); }
+
+  /* Corner glow */
+  .cell::before {
+    content: '';
+    position: absolute; top: 0; right: 0;
+    width: 60px; height: 60px;
+    border-radius: 0 0 0 100%;
+    opacity: 0; transition: opacity 0.3s;
+  }
+  .plan-row:nth-child(1) .cell::before { background: radial-gradient(circle at top right, rgba(245,196,0,0.12), transparent 70%); }
+  .plan-row:nth-child(2) .cell::before { background: radial-gradient(circle at top right, rgba(0,180,216,0.12), transparent 70%); }
+  .plan-row:nth-child(3) .cell::before { background: radial-gradient(circle at top right, rgba(40,248,228,0.12), transparent 70%); }
+  .cell:hover::before { opacity: 1; }
+
+  /* ── Cell content ── */
+  .cell-heading {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px; font-weight: 700; letter-spacing: 2px;
+    text-transform: uppercase; margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  .plan-row:nth-child(1) .cell-heading { color: var(--gold); }
+  .plan-row:nth-child(2) .cell-heading { color: var(--teal); }
+  .plan-row:nth-child(3) .cell-heading { color: var(--aqua); }
+
+  .cell p {
+    font-size: 12.5px; font-weight: 400; line-height: 1.65;
+    color: rgba(255,255,255,0.78);
+    margin-bottom: 8px;
+  }
+  .cell p:last-child { margin-bottom: 0; }
+
+  .cell ol, .cell ul {
+    padding-left: 0; list-style: none;
+    display: flex; flex-direction: column; gap: 7px;
+  }
+  .cell ol li, .cell ul li {
+    font-size: 12.5px; line-height: 1.6;
+    color: rgba(255,255,255,0.75);
+    padding-left: 18px; position: relative;
+  }
+  .cell ol { counter-reset: item; }
+  .cell ol li { counter-increment: item; }
+  .cell ol li::before {
+    content: counter(item);
+    position: absolute; left: 0; top: 0;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px; font-weight: 700; letter-spacing: 0.5px;
+    width: 14px; text-align: right;
+    color: var(--teal);
+  }
+  .plan-row:nth-child(1) .cell ol li::before { color: var(--gold); }
+  .plan-row:nth-child(3) .cell ol li::before { color: var(--aqua); }
+
+  .cell ul li::before {
+    content: '›';
+    position: absolute; left: 0;
+    font-size: 14px; font-weight: 700;
+    color: var(--teal); line-height: 1.4;
+  }
+  .plan-row:nth-child(1) .cell ul li::before { color: var(--gold); }
+  .plan-row:nth-child(3) .cell ul li::before { color: var(--aqua); }
+
+  /* Sub-sections inside Accountability */
+  .sub-section { margin-bottom: 14px; }
+  .sub-section:last-child { margin-bottom: 0; }
+  .sub-heading {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px; font-weight: 700; letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+    margin-bottom: 5px;
+  }
+  /* Row-specific sub-heading accent colours */
+  .plan-row:nth-child(1) .sub-heading { color: var(--gold); }
+  .plan-row:nth-child(2) .sub-heading { color: var(--teal); }
+  .plan-row:nth-child(3) .sub-heading { color: var(--aqua); }
+
+  /* Impact chip styling */
+  .impact-section { margin-bottom: 14px; }
+  .impact-section:last-child { margin-bottom: 0; }
+  .impact-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 10px; font-weight: 800; letter-spacing: 2px;
+    text-transform: uppercase;
+    display: inline-block; margin-bottom: 8px;
+    padding: 3px 8px; border-radius: 2px;
+  }
+  .impact-label.direct { background: rgba(245,196,0,0.15); color: var(--gold); }
+  .impact-label.knock  { background: rgba(245,196,0,0.10); color: var(--gold); }
+
+  em { font-style: italic; color: inherit; }
+  strong { font-weight: 600; color: rgba(255,255,255,0.95); }
+
+  /* ── Animations ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── Footer ── */
+  .footer {
+    margin-top: 40px; padding-top: 20px;
+    border-top: 1px solid rgba(0,94,188,0.2);
+    display: flex; justify-content: space-between; align-items: center;
+    opacity: 0;
+    animation: fadeUp 0.6s 1.0s ease forwards;
+  }
+  .footer-note {
+    font-size: 11px; color: var(--muted); letter-spacing: 1px;
+    font-family: 'Barlow Condensed', sans-serif; text-transform: uppercase;
+  }
+  .ao-logo {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 16px; font-weight: 900; letter-spacing: 3px;
+    text-transform: uppercase; color: var(--white);
+  }
+  .ao-logo span { color: var(--teal); }
+</style>
+</head>
+<body>
+
+<div class=&quot;bg-canvas&quot;></div>
+<div class=&quot;bg-lines&quot;></div>
+
+<div class=&quot;page&quot;>
+
+  <!-- Header -->
+  <header class=&quot;header&quot;>
+    <div class=&quot;header-left&quot;>
+      <div class=&quot;eyebrow&quot;>Australian Open · Sustainability Program</div>
+      <h1 class=&quot;title&quot;>Incremental<br><span>Plan</span></h1>
+    </div>
+    <div class=&quot;header-right&quot;>
+      <div class=&quot;header-tag&quot;>Three‑Year Framework<br><span style=&quot;color:var(--gold)&quot;>AO27</span> <span style=&quot;color:rgba(255,255,255,0.35)&quot;>→</span> <span style=&quot;color:var(--teal)&quot;>AO28</span> <span style=&quot;color:rgba(255,255,255,0.35)&quot;>→</span> <span style=&quot;color:var(--aqua)&quot;>AO29</span></div>
+    </div>
+  </header>
+
+  <!-- Column Labels -->
+  <div class=&quot;col-labels&quot;>
+    <div class=&quot;col-label-empty&quot;></div>
+    <div class=&quot;col-label&quot;>
+      <span class=&quot;col-num&quot;>01 ›</span>
+      <span class=&quot;col-name&quot;>Targets</span>
+    </div>
+    <div class=&quot;col-label&quot;>
+      <span class=&quot;col-num&quot;>02 ›</span>
+      <span class=&quot;col-name&quot;>Materials</span>
+    </div>
+    <div class=&quot;col-label&quot;>
+      <span class=&quot;col-num&quot;>03 ›</span>
+      <span class=&quot;col-name&quot;>Methods</span>
+    </div>
+    <div class=&quot;col-label&quot;>
+      <span class=&quot;col-num&quot;>04 ›</span>
+      <span class=&quot;col-name&quot;>Accountability</span>
+    </div>
+    <div class=&quot;col-label&quot;>
+      <span class=&quot;col-num&quot;>05 ›</span>
+      <span class=&quot;col-name&quot;>Impact</span>
+    </div>
+  </div>
+
+  <!-- Plan Grid -->
+  <div class=&quot;plan-grid&quot;>
+
+    <!-- ── YEAR 1 ── -->
+    <div class=&quot;plan-row&quot;>
+
+      <div class=&quot;year-label&quot;>
+        <span class=&quot;year-badge&quot;>Year 1</span>
+        <span class=&quot;ao-badge&quot;>AO27</span>
+        <div class=&quot;year-divider&quot;></div>
+      </div>
+
+      <!-- Targets -->
+      <div class=&quot;cell&quot;>
+        <div class=&quot;cell-heading&quot;>Start Here</div>
+        <p>Develop a 3‑year incremental plan to align with AO targets:</p>
+        <ol>
+          <li>30% reuse target over 3 years. Use &quot;Evergreen elements&quot; with a <em>3–5 year</em> lifespan to achieve this.</li>
+          <li>Demonstrate circular materials + methods across 3 target categories: Timber, Engineered Wood, Flooring.</li>
+          <li>Establish your baseline — where you are today to measure your circular actions.</li>
+          <li>Bring innovative ideas using a mix of AO target materials into your RFP response.</li>
+        </ol>
+      </div>
+
+      <!-- Materials -->
+      <div class=&quot;cell&quot;>
+        <div class=&quot;cell-heading&quot;>Zone of Focus Materials</div>
+        <ol>
+          <li>Match evergreen elements with an AO Target Material.</li>
+          <li>The list includes materials used widely today as well as other highly sustainable materials (low environmental impact).</li>
+          <li>The list will be vetted by TA Fire/Safety team which will save headaches down the line during design intent approvals.</li>
+          <li>TA Procurement will work to support preferential pricing.</li>
+        </ol>
+      </div>
+
+      <!-- Methods -->
+      <div class=&quot;cell&quot;>
+        <div class=&quot;cell-heading&quot;>Practices</div>
+        <p>Many materials used today in build are circular (reusable/recyclable). It is how we treat and dispose of materials that creates waste. Follow these practices:</p>
+        <ol>
+          <li>The simplest way to reduce waste is to ask &quot;what will happen to a material at the end of the event?&quot;</li>
+          <li>Evergreen elements are the best opportunities for Modular and Design for Disassembly (DfD) in your build.</li>
+          <li>Waste management planning — identify waste streams and factor in labour to disassemble.</li>
+          <li>Provide your methods to track evergreen/reused assets.</li>
+          <li>A lot of waste can be reduced with existing materials by choosing timber/engineered wood that can be recycled and separating composite structures (e.g. ACM+ ply–aluminium which has high value/recycled).</li>
+        </ol>
+      </div>
+
+      <!-- Accountability -->
+      <div class=&quot;cell&quot;>
+        <div class=&quot;cell-heading&quot;>Expectations</div>
+        <div class=&quot;sub-section&quot;>
+          <div class=&quot;sub-heading&quot;>TA PMs / Designers / Builders</div>
+          <ul>
+            <li>Use Target Materials and Methods.</li>
+            <li>Opportunity to lead circular design goals in individual KPIs.</li>
+            <li>Waste planning (upfront — design/procurement considerations).</li>
+            <li>Reporting: Asset tracking of target materials and evergreen assets.</li>
+          </ul>
+        </div>
+        <div class=&quot;sub-section&quot;>
+          <div class=&quot;sub-heading&quot;>Precinct Agencies / Designers / Builders</div>
+          <ul>
+            <li>Tender for three‑year supply contract. Requirement to showcase use of Target Materials and Methods.</li>
+            <li>Waste planning (upfront — design/procurement considerations).</li>
+            <li>Reporting: Asset tracking of target materials and evergreen assets.</li>
+          </ul>
+        </div>
+        <div class=&quot;sub-section&quot;>
+          <div class=&quot;sub-heading&quot;>Partners / Agencies / Designers / Builders</div>
+          <ul>
+            <li>PTRs set out TA objectives. Circular success stories celebrated.</li>
+            <li>Encouragement from TA contacts (Bianca) to use Target Materials and Methods.</li>
+            <li>Waste planning (upfront — design/procurement considerations). User pays waste costs for failure to deliver robust waste management plan.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Impact -->
+      <div class=&quot;cell&quot;>
+        <div class=&quot;impact-section&quot;>
+          <span class=&quot;impact-label direct&quot;>Direct Impact</span>
+          <ol>
+            <li>AO brand equity xxx</li>
+            <li>AO becomes a circular economy leader in major events.</li>
+            <li>Targets (YoY): By year 3, 30% reuse target — reduced waste streams by 10%, 90% MCW recovery rate.</li>
+            <li>Support for TA's Climate Action Strategy pillars: Reducing emissions; Consuming responsibly; Future‑proofing tennis.</li>
+            <li>Decreased environmental footprint of AO events.</li>
+            <li>Deliver on social licence to operate — AO events leave a positive <em>lasting legacy</em>.</li>
+          </ol>
+        </div>
+        <div class=&quot;impact-section&quot;>
+          <span class=&quot;impact-label knock&quot;>Knock‑on Impact</span>
+          <ol>
+            <li>Improved resource efficiency.</li>
+            <li>Cost savings through optimised asset lifecycle.</li>
+            <li>Reduced waste disposal costs.</li>
+            <li>Enhanced event resilience against climate change.</li>
+          </ol>
+        </div>
+      </div>
+
+    </div><!-- /year 1 -->
+
+    <!-- ── YEAR 2 ── -->
+    <div class=&quot;plan-row&quot;>
+
+      <div class=&quot;year-label&quot;>
+        <span class=&quot;year-badge&quot;>Year 2</span>
+        <span class=&quot;ao-badge&quot;>AO28</span>
+        <div class=&quot;year-divider&quot;></div>
+      </div>
+
+      <!-- Targets -->
+      <div class=&quot;cell&quot;>
+        <div class=&quot;cell-heading&quot;>Year 1 +</div>
+        <ol>
+          <li>Progress your incremental plan in alignment with AO targets.</li>
+          <li>20% re‑use target in year 2.</li>
+        </ol>
+      </div>
+
+      <!-- Materials -->
+      <div class=&quot;cell&quot;>
+        <div class=&quot;cell-heading&quot;>Expand Zone of Focus</div>
+        <ol>
+          <li>Build out more evergreen elements using more target materials.</li>
+          <li>Benefit from preferred supplier pricing.</li>
+          <li>Experience the benefits of reuse (Build effort/savings).</li>
+        </ol>
+      </div>
+
+      <!-- Methods -->
+      <div class=&quot;cell&quot;>
+        <div class=&quot;cell-heading&quot;>Competence</div>
+        <ol>
+          <li>Create more opportunities for Modular and Design for Disassembly (DfD) in your build.</li>
+          <li>Track reused assets.</li>
+          <li>Factor in labour to disassemble.</li>
+          <li>Identify <em>and recover</em> high value materials in composite structures.</li>
+          <li>Use waste management planning to maximise recovery.</li>
+        </ol>
+      </div>
+
+      <!-- Accountability -->
+      <div class=&quot;cell&quot;>
+        <div class=&quot;cell-heading&quot;>Contract Delivery &amp;amp; Renewals</div>
+        <div class=&quot;sub-section&quot;>
+          <div class=&quot;sub-heading&quot;>TA PMs / Designers / Builders</div>
+          <ul>
+            <li>Align with internal Target Materials and Methods goals.</li>
+          </ul>
+        </div>
+        <div class=&quot;sub-section&quot;>
+          <div class=&quot;sub-heading&quot;>Precinct Agencies / Designers / Builders</div>
+          <ul>
+            <li>Demonstration of delivering to incremental plans — deploying Target Materials and Methods.</li>
+          </ul>
+        </div>
+        <div class=&quot;sub-section&quot;>
+          <div class=&quot;sub-heading&quot;>Partners / Agencies / Designers / Builders</div>
+          <ul>
+            <li>Partner renewal contracts require reporting against Circular Design expectation (inc waste management).</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Impact -->
+      <div class=&quot;cell&quot;>
+        <div class=&quot;cell-heading&quot;>Ongoing Uplift</div>
+        <p>Progress against Year 1 targets; asset library growing as tracking systems mature. Supply chain relationships deepen with preferred suppliers.</p>
+      </div>
+
+    </div><!-- /year 2 -->
+
+    <!-- ── YEAR 3 ── -->
+    <div class=&quot;plan-row&quot;>
+
+      <div class=&quot;year-label&quot;>
+        <span class=&quot;year-badge&quot;>Year 3</span>
+        <span class=&quot;ao-badge&quot;>AO29</span>
+        <div class=&quot;year-divider&quot;></div>
+      </div>
+
+      <!-- Targets -->
+      <div class=&quot;cell&quot;>
+        <div class=&quot;cell-heading&quot;>Demonstrate at Year 3</div>
+        <p>Achieve your incremental plan in alignment with AO <strong>30% re‑use target</strong> in year 3.</p>
+      </div>
+
+      <!-- Materials -->
+      <div class=&quot;cell&quot;>
+        <div class=&quot;cell-heading&quot;>Best Practice</div>
+        <p>Shift from product‑led vs AO standard. Aligned with IOC grade standards.</p>
+        <p>Activity‑based Scope 3 carbon accounting for Site Preparation.</p>
+      </div>
+
+      <!-- Methods -->
+      <div class=&quot;cell&quot;>
+        <div class=&quot;cell-heading&quot;>Best Practice</div>
+        <ul>
+          <li>Asset library created via asset tracking.</li>
+          <li>Waste management prioritises recovery of high value materials.</li>
+        </ul>
+      </div>
+
+      <!-- Accountability -->
+      <div class=&quot;cell&quot;>
+        <div class=&quot;cell-heading&quot;>Contract Delivery &amp;amp; Renewals</div>
+        <div class=&quot;sub-section&quot;>
+          <div class=&quot;sub-heading&quot;>TA PMs / Designers / Builders</div>
+          <ul>
+            <li>Align with internal Target Materials and Methods goals.</li>
+          </ul>
+        </div>
+        <div class=&quot;sub-section&quot;>
+          <div class=&quot;sub-heading&quot;>Precinct Agencies / Designers / Builders</div>
+          <ul>
+            <li>Demonstration of delivering to incremental plans — deploying Target Materials and Methods.</li>
+          </ul>
+        </div>
+        <div class=&quot;sub-section&quot;>
+          <div class=&quot;sub-heading&quot;>Partners / Agencies / Designers / Builders</div>
+          <ul>
+            <li>Partner renewal contracts require reporting against Circular Design expectation (inc waste management).</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Impact -->
+      <div class=&quot;cell&quot;>
+        <div class=&quot;cell-heading&quot;>Full Maturity</div>
+        <p>30% reuse target achieved. Waste streams reduced by 10%, 90% MCW recovery rate met.</p>
+        <p>AO established as a circular economy leader in major global events, delivering lasting environmental legacy.</p>
+      </div>
+
+    </div><!-- /year 3 -->
+
+  </div><!-- /plan-grid -->
+
+  <!-- Footer -->
+  <footer class=&quot;footer&quot;>
+    <span class=&quot;footer-note&quot;>Australian Open · Sustainability &amp;amp; Materials Program · Confidential</span>
+    <span class=&quot;ao-logo&quot;>AO <span>›</span> 2027–2029</span>
+  </footer>
+
+</div><!-- /page -->
+</body>
+</html>
+"
+    style="width:100%;height:calc(100vh - 120px);min-height:700px;border:none;display:block;"
+    title="Incremental Plan">
+  </iframe>
+</div><!-- /tab-plan -->
+
+</main>
+
+<script>
+// ── UTILITIES ────────────────────────────────────────────────────
+function v(id){var el=document.getElementById(id);return el?el.value:"";}
+function $(id){return document.getElementById(id);}
+function esc(s){
+  if(!s)return '—';
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+function showTab(id,btn){
+  document.querySelectorAll('.tab-panel').forEach(function(p){p.classList.remove('active');});
+  document.querySelectorAll('.tab-btn').forEach(function(b){b.classList.remove('active');});
+  $('tab-'+id).classList.add('active');
+  btn.classList.add('active');
+}
+function addOpts(selId,vals){
+  var el=$(selId);
+  if(!el)return;
+  vals.forEach(function(val){var o=document.createElement('option');o.value=val;o.textContent=val;el.appendChild(o);});
+}
+function countLabel(n,elId){var _el=$(elId);if(!_el)return;_el.textContent=n?n+' row'+(n!==1?'s':'')+' shown':'';}
+
+var STATUS_BG={yes:'rgba(16,185,129,.035)',no:'rgba(248,113,113,.035)',maybe:'rgba(251,191,36,.04)'};
+var GROUP_STY='background:#f1f5f9;padding:8px 12px;font-weight:700;font-size:.73rem;color:#1E2886;text-transform:uppercase;letter-spacing:.4px;border-top:2px solid #e2e8f0;border-bottom:2px solid #0288CC;';
+
+// Multi-supplier support: pipe-separated values e.g. 'AusWood|Big River Group|Evolution FP'
+function priceFmt(p){if(!p)return '—';return p.split('|').map(function(s){return esc(s.trim());}).filter(Boolean).join('<br>');}
+function supMatch(supplierVal,filt){
+  if(!filt) return true;
+  if(!supplierVal) return false;
+  var parts=supplierVal.split('|');
+  for(var i=0;i<parts.length;i++){if(parts[i].trim()===filt)return true;}
+  return false;
+}
+function supDisplay(supplierVal){
+  if(!supplierVal) return '—';
+  return supplierVal.split('|').map(function(s){return s.trim();}).join(' · ');
+}
+function supLink(name,url){
+  if(!name)return '—';
+  if(!url||url.length<4)return '<span class="cell-small">'+esc(name)+'</span>';
+  var href=url.indexOf('http')===0?url:'https://'+url;
+  return '<a href="'+esc(href)+'" target="_blank" class="cell-link" style="font-weight:600;font-size:.75rem;">'+esc(name)+'</a>';
+}
+
+function rmlStarBadge(rec,status){
+  var t=rec.toLowerCase();
+  var cls=(status==='yes')?'rml-rec':(status==='maybe')?'rml-cond':'rml-limit';
+  var label=(status==='yes')?'✓ Recommended RML':(status==='maybe')?'CONDITIONAL':'LIMITED';
+  // Extract more detail from rec text
+  if(t.indexOf('best-in-class')>-1) label='✓ Recommended RML — Best-in-class';
+  else if(t.indexOf('recommended')>-1&&status==='yes') label='✓ Recommended RML';
+  return '<span class="rml-star '+cls+'">'+label+'</span>';
+}
+function recBadge2(rec){
+  var t=rec.toLowerCase();
+  if(t.indexOf('no rml')>-1||t.indexOf('not recommended')>-1) return '<span class="rec rec-orange">&#9888; Limited RML alternatives</span>';
+  if(t.indexOf('limit use')>-1) return '<span class="rec rec-orange">&#9888; Limit use</span>';
+  if(t.indexOf('consider')>-1&&t.indexOf('conditional')===-1) return '<span class="rec rec-blue">&#8635; Consider</span>';
+  if(t.indexOf('conditional')>-1) return '<span class="rec rec-amber">? Conditional</span>';
+  if(t.indexOf('recommended')>-1||t.indexOf('keep using')>-1) return '<span class="rec rec-green">&#10003; Recommended</span>';
+  if(t.indexOf('use if')>-1) return '<span class="rec rec-amber">&#8652; If separated</span>';
+  return '<span class="rec rec-amber">? '+esc(rec.substring(0,30))+'</span>';
+}
+function chipEpd(epd){
+  if(!epd||epd==='—') return '<span class="chip chip-na">—</span>';
+  var t=epd.toLowerCase();
+  if(t.indexOf('⚠')>-1||t.indexOf('expired')>-1) return '<span class="chip chip-warn">&#9888; '+esc(epd.substring(0,25))+'</span>';
+  if(t.indexOf('yes')>-1) return '<span class="chip chip-yes">&#10003; YES</span>';
+  if(t.indexOf('no')>-1) return '<span class="chip chip-no">&#10005; NO</span>';
+  return '<span class="chip chip-na">'+esc(epd.substring(0,20))+'</span>';
+}
+function chipFsc(fsc){
+  if(!fsc||fsc==='—') return '<span class="chip chip-na">—</span>';
+  var t=fsc.toLowerCase();
+  if(t.indexOf('expired')>-1) return '<span class="chip chip-warn">&#9888; Expired</span>';
+  if(t.indexOf('n/a')>-1) return '<span class="chip chip-na">N/A</span>';
+  if(t.indexOf('yes')>-1||t.indexOf('pefc')>-1||t.indexOf('fsc')>-1) return '<span class="chip chip-yes">&#10003; '+esc(fsc.substring(0,22))+'</span>';
+  if(t.indexOf('no')>-1) return '<span class="chip chip-no">&#10005; NO</span>';
+  return '<span class="chip chip-na">'+esc(fsc.substring(0,20))+'</span>';
+}
+function fireChip(f){
+  if(!f||f==='—') return '<span class="chip chip-na">—</span>';
+  var t=f.toLowerCase();
+  if(t.indexOf('critical')>-1||t.indexOf('below')>-1||t.indexOf('concern')>-1||t.indexOf('⚠')>-1)
+    return '<span style="font-size:.72rem;color:#991b1b;font-weight:700;">&#9888; '+esc(f)+'</span>';
+  if(t.indexOf('class 1')>-1||t.indexOf('pass')>-1||t.indexOf('group 1')>-1)
+    return '<span style="font-size:.72rem;color:#059669;font-weight:700;">'+esc(f)+'</span>';
+  return '<span style="font-size:.72rem;color:var(--slate-600);">'+esc(f)+'</span>';
+}
+
+// ════════════════════════════════════════════════════════════════
+// TAB 1 — TARGET MATERIALS DATA
+// ════════════════════════════════════════════════════════════════
+
+// ========================= TAB 3 COMBINED =========================
+
+
+// ========================= TAB 3 COMBINED =========================
+
+function populateCombined(){
+  var GROUPS=[
+    'Framing & structures',
+    'Flooring - indoor for partner suites',
+    'Flooring - outdoor',
+    'F&B container facades - standardised structures',
+    'Graphics/ surfaces',
+    'Internal precinct hoardings',
+    'Joinery/ Cabinetry/ wall flats',
+    'Marquee projections',
+    'Modular structures (Space Cubes/Highline) - wrapping container facades',
+    'Partner activations',
+    'Precinct facades & cladding',
+    'Shade legs'
+  ];
+  addOpts('ct-app', GROUPS);
+  // Populate category from both datasets
+  var cats=[],sC={};
+  benchRows.forEach(function(r){if(r.cat&&!sC[r.cat]){sC[r.cat]=true;cats.push(r.cat);}});
+  rmlRows.forEach(function(r){if(r.cat&&!sC[r.cat]){sC[r.cat]=true;cats.push(r.cat);}});
+  addOpts('ct-cat',cats.sort());
+  // Populate supplier from both datasets
+  var sups=[],sS={};
+  benchRows.forEach(function(r){if(r.supplier&&!sS[r.supplier]){sS[r.supplier]=true;sups.push(r.supplier);}});
+  rmlRows.forEach(function(r){if(r.supplier&&!sS[r.supplier]){sS[r.supplier]=true;sups.push(r.supplier);}});
+  addOpts('ct-sup',sups.sort());
+}
+
+function toggleSup(id,btn){
+  var row=document.getElementById(id);
+  if(!row)return;
+  var open=row.style.display!=='none';
+  row.style.display=open?'none':'table-row';
+  var cnt=btn.dataset.count;
+  btn.textContent=open?('\u25be +'+cnt+' suppliers'):'\u25b4 hide suppliers';
+}
+
+function renderCombined(){
+  var fA=v('ct-app'),fC=v('ct-cat'),fRec=v('ct-rec'),fS=v('ct-sup');
+  var html='',total=0,uid=0;
+
+  var GROUPS=[
+    'Framing & structures',
+    'Flooring - indoor for partner suites',
+    'Flooring - outdoor',
+    'F&B container facades - standardised structures',
+    'Graphics/ surfaces',
+    'Internal precinct hoardings',
+    'Joinery/ Cabinetry/ wall flats',
+    'Marquee projections',
+    'Modular structures (Space Cubes/Highline) - wrapping container facades',
+    'Partner activations',
+    'Precinct facades & cladding',
+    'Shade legs'
+  ];
+
+  GROUPS.forEach(function(grp){
+    if(fA && fA!==grp) return;
+    var rawRows=[];
+
+    /* Pre-group bench rows by ref+app, apply rec filter on primary (non-empty aoRec) row */
+    var benchGroups={},benchGroupOrder=[];
+    benchRows.forEach(function(r){
+      if(r.app!==grp)return;
+      if(fC&&r.cat!==fC)return;
+      var gk=r.ref+'|'+r.app;
+      if(!benchGroups[gk]){benchGroups[gk]=[];benchGroupOrder.push(gk);}
+      benchGroups[gk].push(r);
+    });
+    benchGroupOrder.forEach(function(gk){
+      var rows=benchGroups[gk];
+      /* Find primary row — first with non-empty aoRec */
+      var primary=rows[0];
+      for(var i=0;i<rows.length;i++){if(rows[i].aoRec&&rows[i].aoRec.trim()){primary=rows[i];break;}}
+      /* Apply rec filter against primary aoRec */
+      if(!recFilter2(primary.aoRec,fRec))return;
+      /* Supplier filter — include group if any supplier matches; show only matching suppliers */
+      var supFiltered=fS?rows.filter(function(r){return supMatch(r.supplier,fS);}):rows;
+      if(!supFiltered.length)return;
+      supFiltered.forEach(function(r){rawRows.push({src:'bench',r:r});});
+    });
+    rmlRows.forEach(function(r){
+      if(r.app===grp && (!fC||r.cat===fC) && aoRecFilter3(r.aoRec,fRec) && (!fS||supMatch(r.supplier,fS))){
+        rawRows.push({src:'rml',r:r});
+      }
+    });
+
+    if(!rawRows.length) return;
+
+    /* Group rows by ref+app+src — rows only differ by supplier/url */
+    var groupMap={},groupOrder=[];
+    rawRows.forEach(function(item){
+      var key=item.r.ref+'|'+item.r.app+'|'+item.src;
+      if(!groupMap[key]){groupMap[key]={item:item,sups:[]};groupOrder.push(key);}
+      groupMap[key].sups.push({name:item.r.supplier,url:item.r.url});
+    });
+
+    html+='<tr><td colspan="15" style="background:#f1f5f9;padding:8px 12px;font-weight:700;font-size:.73rem;color:#1E2886;text-transform:uppercase;letter-spacing:.4px;border-top:2px solid #e2e8f0;border-bottom:2px solid #0288CC;">'+esc(grp)+'</td></tr>';
+
+    groupOrder.forEach(function(key){
+      total++;
+      var g=groupMap[key];
+      var item=g.item,r=item.r,sups=g.sups;
+      var bg=STATUS_BG[r.status]||'';
+      var refVal=r.ref||'—';
+
+      /* First supplier for primary display */
+      var s0=sups[0];
+      /* URL baked into supplier name — always show dash in URL column */
+      var urlCell='<span style="color:var(--slate-300);">—</span>';
+
+      /* Supplier cell — single or multi */
+      var supCellContent;
+      if(sups.length===1){
+        supCellContent=supLink(s0.name,s0.url);
+      } else {
+        uid++;
+        var rowId='sup-expand-'+uid;
+        supCellContent='<button class="sup-toggle" onclick="toggleSup(&apos;'+rowId+'&apos;,this)" data-count="'+sups.length+'">'+'&#9662; '+sups.length+' suppliers</button>';
+      }
+      var srcBadge=item.src==='bench'
+        ?'<span style="font-size:.68rem;font-weight:700;background:#e0e7ff;color:#1E2886;border-radius:3px;padding:2px 5px;">CURRENT</span>'
+        :'<span style="font-size:.68rem;font-weight:700;background:#fef3c7;color:#92400e;border-radius:3px;padding:2px 5px;">RML</span>';
+
+      if(item.src==='bench'){
+        html+='<tr class="data-row" style="background:'+bg+';">'
+          +'<td><span class="ref-badge">'+esc(refVal)+'</span></td>'
+          +'<td style="text-align:center;">'+srcBadge+'</td>'
+          +'<td><span class="cell-small">'+esc(r.app)+'</span></td>'
+          +'<td><span class="cell-small">'+esc(r.cat)+'</span></td>'
+          +'<td><div class="mat-name">'+esc(r.name)+'</div></td>'
+          +'<td><span class="cell-small" style="white-space:normal;">'+esc(r.size||'—')+'</span></td>'
+          +'<td><span class="cell-small" style="white-space:normal;">'+priceFmt(r.price)+'</span></td>'
+          +'<td><span class="cell-small" style="white-space:normal;">'+esc(r.priceComp||'—')+'</span></td>'
+          +'<td>'+supCellContent+'</td>'
+          +'<td class="td-gap"></td>'
+          +'<td class="td-amber" style="text-align:center;">'+recBadge2(r.aoRec)+'</td>'
+          +'<td class="td-amber"><span class="cell-text">'+esc(r.circ||'—')+'</span></td>'
+          +'<td class="td-amber"><span class="cell-text">'+esc(r.whatToAsk||'—')+'</span></td>'
+          +'<td class="td-amber"><span style="color:var(--slate-300);">—</span></td>'
+          +'<td class="td-amber"><span style="color:var(--slate-300);">—</span></td>'
+          +'</tr>';
+      } else {
+        html+='<tr class="data-row" style="background:'+bg+';">'
+          +'<td><span class="ref-badge">'+esc(refVal)+'</span></td>'
+          +'<td style="text-align:center;">'+srcBadge+'</td>'
+          +'<td><span class="cell-small">'+esc(r.app)+'</span></td>'
+          +'<td><span class="cell-small">'+esc(r.cat)+'</span></td>'
+          +'<td><div class="mat-name">'+esc(r.name)+'</div></td>'
+          +'<td><span class="cell-small" style="white-space:normal;">'+esc(r.size||'—')+'</span></td>'
+          +'<td><span class="cell-small" style="white-space:normal;">'+priceFmt(r.price)+'</span></td>'
+          +'<td><span class="cell-small" style="white-space:normal;">'+esc(r.priceComp||'—')+'</span></td>'
+          +'<td>'+supCellContent+'</td>'
+          +'<td class="td-gap"></td>'
+          +'<td class="td-amber" style="text-align:center;">'+rmlStarBadge(r.aoRec,r.status)+'</td>'
+          +'<td class="td-amber"><span class="cell-text">'+esc(r.circ||'—')+'</span></td>'
+          +'<td class="td-amber"><span style="color:var(--slate-300);">—</span></td>'
+          +'<td class="td-amber"><span class="cell-text">'+esc(r.fireClass||'—')+'</span></td>'
+          +'<td class="td-amber"><span class="cell-text">'+esc(r.certs||'—')+'</span></td>'
+          +'</tr>';
+      }
+
+      /* Concertina sub-row for multiple suppliers — aligns under URL (col5) and Supplier (col9) */
+      if(sups.length>1){
+        var rowId2='sup-expand-'+uid;
+        /* Supplier name hyperlinked to URL — displayed in Supplier column only */
+        var nameStack='';
+        sups.forEach(function(s){
+          var h=s.url?(s.url.indexOf('http')===0?s.url:'https://'+s.url):'';
+          nameStack+=h
+            ?'<div style="margin-bottom:5px;"><a href="'+esc(h)+'" target="_blank" class="cell-link" style="font-size:.75rem;font-weight:600;color:var(--blue);">'+esc(s.name)+'</a></div>'
+            :'<div style="margin-bottom:5px;font-size:.75rem;font-weight:600;color:var(--slate-700);">'+esc(s.name)+'</div>';
+        });
+        html+='<tr id="'+rowId2+'" class="sup-detail-row" style="display:none;">'
+          /* cols 0-4: Ref, Source, App, Cat, Name — spacers */
+          +'<td colspan="5" style="border:none;background:#f0f7ff!important;padding:0!important;border-bottom:none!important;"></td>'
+          /* cols 5-7: Size, Price, PriceComp — spacers (URL col removed) */
+          +'<td colspan="3" style="border:none;background:#f0f7ff!important;padding:0!important;border-bottom:none!important;"></td>'
+          /* col 9: Supplier — hyperlinked names, left-aligned */
+          +'<td style="vertical-align:top;padding:8px 12px 10px 12px;text-align:left;background:#f0f7ff!important;border-bottom:2px solid rgba(2,136,204,.18)!important;">'+nameStack+'</td>'
+          /* col 10: gap */
+          +'<td class="td-gap" style="background:#f0f7ff!important;border-bottom:2px solid rgba(2,136,204,.18)!important;padding:0!important;"></td>'
+          /* cols 11-15: amber cols — empty */
+          +'<td colspan="5" style="border:none;background:#f0f7ff!important;border-bottom:2px solid rgba(2,136,204,.18)!important;"></td>'
+          +'</tr>';
+      }
+    });
+  });
+
+  if(!html)html='<tr><td colspan="15" class="empty-state">No materials match the selected filters.</td></tr>';
+  $('ct-tbody').innerHTML=html;
+  countLabel(total,'ct-count');
+}
+function clearCombined(){['ct-app','ct-cat','ct-rec','ct-sup'].forEach(function(id){$(id).value='';});renderCombined();}
+
+
+
+
+
+
+// ════════════════════════════════════════════════════════════════
+// TAB 2 — CURRENT STATE (from XLS cols A–K)
+// ════════════════════════════════════════════════════════════════
+var benchRows = [
+  {ref:'C1',app:'Precinct facades & cladding',cat:'Engineered wood',name:'Particleboard/ chipboard  (Type A-Bond) Phenol Formaldehyde - PF',url:'www.bigrivergroup.com.au',size:'2400x1200',price:'16mm $48 | 18mm $51',priceComp:'Contact AO preferred supplier for better than market rates',supplier:'Big River Group',aoRec:'Recommended (Current material) keep using supplier or TA preferred partner pricing',circ:'Yes - can be recycled',whatToAsk:'FSC or PEFC Choose: Phenol Formaldehyde - PF (not HMR B-bond - MUF or C/D- Bond UF)',status:'yes'},
+  {ref:'C1',app:'Precinct facades & cladding',cat:'Engineered wood',name:'Particleboard/ chipboard  (Type A-Bond) Phenol Formaldehyde - PF',url:'www.auswood.com.au',size:'2400x1200',price:'16mm $48 | 18mm $51',priceComp:'Contact AO preferred supplier for better than market rates',supplier:'AusWood',aoRec:'Recommended (Current material) keep using supplier or TA preferred partner pricing',circ:'Yes - can be recycled',whatToAsk:'FSC or PEFC Choose: Phenol Formaldehyde - PF (not HMR B-bond - MUF or C/D- Bond UF)',status:'yes'},
+  {ref:'C1',app:'Precinct facades & cladding',cat:'Engineered wood',name:'Particleboard/ chipboard  (Type A-Bond) Phenol Formaldehyde - PF',url:'https://evolutionfp.com.au',size:'2400x1200',price:'16mm $48 | 18mm $51',priceComp:'Contact AO preferred supplier for better than market rates',supplier:'Evolution FP',aoRec:'Recommended (Current material) keep using supplier or TA preferred partner pricing',circ:'Yes - can be recycled',whatToAsk:'FSC or PEFC Choose: Phenol Formaldehyde - PF (not HMR B-bond - MUF or C/D- Bond UF)',status:'yes'},
+  {ref:'C18',app:'Precinct facades & cladding',cat:'Engineered wood',name:'Non-structural ply CD (cladding)',url:'',size:'2400x1200',price:'12mm $31 (C/D grade) 19mm $40 (BC/D grade)',priceComp:'',supplier:'',aoRec:'Limit use',circ:'No - has MUF/ UF cannot be recycled (waste stream)',whatToAsk:'',status:'no'},
+  {ref:'C2',app:'Precinct facades & cladding',cat:'Engineered wood',name:'Structural ply (Type A-bond)',url:'www.bigrivergroup.com.au',size:'2400x1200',price:'12mm $40 | 19mm $75',priceComp:'Contact AO preferred supplier for better than market rates',supplier:'Big River Group',aoRec:'Recommended (Current material) keep using supplier or TA preferred partner pricing',circ:'Yes - can be recycled',whatToAsk:'FSC or PEFC Choose: A-Bond Phenol Formaldehyde - PF',status:'yes'},
+  {ref:'C2',app:'Precinct facades & cladding',cat:'Engineered wood',name:'Structural ply (Type A-bond)',url:'www.auswood.com.au',size:'2400x1200',price:'12mm $40 | 19mm $75',priceComp:'Contact AO preferred supplier for better than market rates',supplier:'AusWood',aoRec:'Recommended (Current material) keep using supplier or TA preferred partner pricing',circ:'Yes - can be recycled',whatToAsk:'FSC or PEFC Choose: A-Bond Phenol Formaldehyde - PF',status:'yes'},
+  {ref:'C2',app:'Precinct facades & cladding',cat:'Engineered wood',name:'Structural ply (Type A-bond)',url:'https://evolutionfp.com.au',size:'2400x1200',price:'12mm $40 | 19mm $75',priceComp:'Contact AO preferred supplier for better than market rates',supplier:'Evolution FP',aoRec:'Recommended (Current material) keep using supplier or TA preferred partner pricing',circ:'Yes - can be recycled',whatToAsk:'FSC or PEFC Choose: A-Bond Phenol Formaldehyde - PF',status:'yes'},
+  {ref:'C19',app:'Precinct facades & cladding',cat:'Engineered wood',name:'MDF (Décor/ MR)',url:'',size:'2400x1200',price:'6mm $20-$25 | 18mm $25-$40',priceComp:'',supplier:'',aoRec:'Limit use',circ:'No - has MUF/ UF cannot be recycled (waste stream) Consider RML alternatives: Melamine/ Formica. Compact Laminate',whatToAsk:'',status:'no'},
+  {ref:'C12',app:'Precinct facades & cladding',cat:'Facade graphics & cladding',name:'ACM/ ACP (aluminium composite panel)',url:'',size:'1220X2440',price:'$120 p/sheet',priceComp:'',supplier:'Widely available',aoRec:'Use if can be separated to recycle',circ:'Yes - ACM can be recycled if separated ! Aluminium has high value',whatToAsk:'',status:'maybe'},
+  {ref:'C3',app:'F&B container facades - standardised structures',cat:'Engineered wood',name:'AA Grade Marine Plywood BS1088',url:'www.auswood.com.au',size:'2400x1200',price:'9mm $55-$80 | 15-25mm $90-$150',priceComp:'Contact AO preferred supplier for better than market rates',supplier:'AusWood',aoRec:'Recommended (Current material) keep using supplier or TA preferred partner pricing',circ:'Yes - can be recycled',whatToAsk:'FSC or PEFC Choose BS1088 standard or Australian',status:'yes'},
+  {ref:'C2',app:'F&B container facades - standardised structures',cat:'Engineered wood',name:'Structural ply (Type A-bond)',url:'www.bigrivergroup.com.au',size:'2400x1200',price:'12mm $40 | 19mm $75',priceComp:'Contact AO preferred supplier for better than market rates',supplier:'Big River Group',aoRec:'Recommended (Current material) keep using supplier or TA preferred partner pricing',circ:'Yes - can be recycled',whatToAsk:'FSC or PEFC Choose: A-Bond Phenol Formaldehyde - PF',status:'yes'},
+  {ref:'C2',app:'F&B container facades - standardised structures',cat:'Engineered wood',name:'Structural ply (Type A-bond)',url:'www.auswood.com.au',size:'2400x1200',price:'12mm $40 | 19mm $75',priceComp:'Contact AO preferred supplier for better than market rates',supplier:'AusWood',aoRec:'Recommended (Current material) keep using supplier or TA preferred partner pricing',circ:'Yes - can be recycled',whatToAsk:'FSC or PEFC Choose: A-Bond Phenol Formaldehyde - PF',status:'yes'},
+  {ref:'C2',app:'F&B container facades - standardised structures',cat:'Engineered wood',name:'Structural ply (Type A-bond)',url:'https://evolutionfp.com.au',size:'2400x1200',price:'12mm $40 | 19mm $75',priceComp:'Contact AO preferred supplier for better than market rates',supplier:'Evolution FP',aoRec:'Recommended (Current material) keep using supplier or TA preferred partner pricing',circ:'Yes - can be recycled',whatToAsk:'FSC or PEFC Choose: A-Bond Phenol Formaldehyde - PF',status:'yes'},
+  {ref:'C1',app:'Modular structures (Space Cubes/Highline) & Marquee projections',cat:'Engineered wood',name:'Particleboard/ chipboard  (Type A-Bond) Phenol Formaldehyde - PF',url:'www.bigrivergroup.com.au',size:'2400x1200',price:'16mm $48 | 18mm $51',priceComp:'Contact AO preferred supplier for better than market rates',supplier:'Big River Group',aoRec:'Recommended (Current material) keep using supplier or TA preferred partner pricing',circ:'Yes - can be recycled',whatToAsk:'FSC or PEFC Choose: Phenol Formaldehyde - PF (not HMR B-bond - MUF or C/D- Bond UF)',status:'yes'},
+  {ref:'C1',app:'Modular structures (Space Cubes/Highline) & Marquee projections',cat:'Engineered wood',name:'Particleboard/ chipboard  (Type A-Bond) Phenol Formaldehyde - PF',url:'www.auswood.com.au',size:'2400x1200',price:'16mm $48 | 18mm $51',priceComp:'Contact AO preferred supplier for better than market rates',supplier:'AusWood',aoRec:'Recommended (Current material) keep using supplier or TA preferred partner pricing',circ:'Yes - can be recycled',whatToAsk:'FSC or PEFC Choose: Phenol Formaldehyde - PF (not HMR B-bond - MUF or C/D- Bond UF)',status:'yes'},
+  {ref:'C1',app:'Modular structures (Space Cubes/Highline) & Marquee projections',cat:'Engineered wood',name:'Particleboard/ chipboard  (Type A-Bond) Phenol Formaldehyde - PF',url:'https://evolutionfp.com.au',size:'2400x1200',price:'16mm $48 | 18mm $51',priceComp:'Contact AO preferred supplier for better than market rates',supplier:'Evolution FP',aoRec:'Recommended (Current material) keep using supplier or TA preferred partner pricing',circ:'Yes - can be recycled',whatToAsk:'FSC or PEFC Choose: Phenol Formaldehyde - PF (not HMR B-bond - MUF or C/D- Bond UF)',status:'yes'},
+  {ref:'C2',app:'Modular structures (Space Cubes/Highline) & Marquee projections',cat:'Engineered wood',name:'Structural ply (Type A-bond)',url:'www.bigrivergroup.com.au',size:'2400x1200',price:'12mm $40 | 19mm $75',priceComp:'Contact AO preferred supplier for better than market rates',supplier:'Big River Group',aoRec:'Recommended (Current material) keep using supplier or TA preferred partner pricing',circ:'Yes - can be recycled',whatToAsk:'FSC or PEFC Choose: A-Bond Phenol Formaldehyde - PF',status:'yes'},
+  {ref:'C2',app:'Modular structures (Space Cubes/Highline) & Marquee projections',cat:'Engineered wood',name:'Structural ply (Type A-bond)',url:'www.auswood.com.au',size:'2400x1200',price:'12mm $40 | 19mm $75',priceComp:'Contact AO preferred supplier for better than market rates',supplier:'AusWood',aoRec:'Recommended (Current material) keep using supplier or TA preferred partner pricing',circ:'Yes - can be recycled',whatToAsk:'FSC or PEFC Choose: A-Bond Phenol Formaldehyde - PF',status:'yes'},
+  {ref:'C2',app:'Modular structures (Space Cubes/Highline) & Marquee projections',cat:'Engineered wood',name:'Structural ply (Type A-bond)',url:'https://evolutionfp.com.au',size:'2400x1200',price:'12mm $40 | 19mm $75',priceComp:'Contact AO preferred supplier for better than market rates',supplier:'Evolution FP',aoRec:'Recommended (Current material) keep using supplier or TA preferred partner pricing',circ:'Yes - can be recycled',whatToAsk:'FSC or PEFC Choose: A-Bond Phenol Formaldehyde - PF',status:'yes'},
+  {ref:'C3',app:'Internal precinct hoardings',cat:'Engineered wood',name:'Project Panels AA Grade Marine  Plywood BS1088 Ideal modular material + weather proof',url:'www.auswood.com.au',size:'2400x1200',price:'9mm $55-$80 | 15-25mm $90-$150',priceComp:'Contact AO preferred supplier for better than market rates',supplier:'AusWood',aoRec:'Recommended (Current material) keep using supplier or TA preferred partner pricing',circ:'Yes - can be recycled',whatToAsk:'FSC or PEFC Choose BS1088 standard or Australian',status:'yes'},
+  {ref:'C21',app:'Internal precinct hoardings',cat:'Facade graphics & cladding',name:'Foamex hoarding sheets XPS (Extruded Polystyrene) Water resistant, cheap, easy to wrap/ paint - inferior to other materials, warps in heat',url:'',size:'2240x 2060 3000 x 1200',price:'6mm  $50 | 12mm $150',priceComp:'',supplier:'',aoRec:'Not recommended',circ:'No - cannot be recycled (waste stream)',whatToAsk:'',status:'no'},
+  {ref:'C12',app:'Shade legs',cat:'Facade graphics & cladding',name:'ACP (aluminium composite panel)',url:'',size:'1220X2440',price:'$120 p/sheet',priceComp:'',supplier:'Widely available',aoRec:'Use if can be separated to recycle',circ:'Yes - ACM can be recycled if separated ! Aluminium has high value',whatToAsk:'',status:'maybe'},
+  {ref:'C13',app:'Shade legs',cat:'Facade graphics & cladding',name:'Tetrik fabric Easy to wrap, very suitable to many applications. Tested successfully at Ballpark AO26',url:'www.tetrikstructures.com/tetrik',size:'',price:'Low cost',priceComp:'Far cheaper than ACM+ply composite Contact AO preferred supplier for better than market rates',supplier:'Tetrik Structures',aoRec:'Recommended (Current material) keep using supplier or TA preferred partner pricing',circ:'Recovery pathways in development',whatToAsk:'Sublimation base- stretch lycra derived from 80% PET reclaimed Solid colour material- Mechanical stretch polyester derived from 80% PET reclaimed',status:'yes'},
+  {ref:'C4',app:'Shade legs',cat:'Timber/ wood',name:'90x45 MGP 10 untreated pine. Choose untreated (blue)',url:'www.bigrivergroup.com.au',size:'',price:'$4 - $5 p/ lm',priceComp:'Contact AO preferred supplier for better than market rates',supplier:'Big River Group',aoRec:'Recommended (Current material) keep using supplier or TA preferred partner pricing',circ:'Yes - can be recycled',whatToAsk:'FSC or PEFC',status:'yes'},
+  {ref:'C4',app:'Shade legs',cat:'Timber/ wood',name:'90x45 MGP 10 untreated pine. Choose untreated (blue)',url:'www.auswood.com.au',size:'',price:'$4 - $5 p/ lm',priceComp:'Contact AO preferred supplier for better than market rates',supplier:'AusWood',aoRec:'Recommended (Current material) keep using supplier or TA preferred partner pricing',circ:'Yes - can be recycled',whatToAsk:'FSC or PEFC',status:'yes'},
+  {ref:'C4',app:'Shade legs',cat:'Timber/ wood',name:'90x45 MGP 10 untreated pine. Choose untreated (blue)',url:'https://evolutionfp.com.au',size:'',price:'$4 - $5 p/ lm',priceComp:'Contact AO preferred supplier for better than market rates',supplier:'Evolution FP',aoRec:'Recommended (Current material) keep using supplier or TA preferred partner pricing',circ:'Yes - can be recycled',whatToAsk:'FSC or PEFC',status:'yes'},
+  {ref:'C19',app:'Joinery/ Cabinetry/ wall flats',cat:'Engineered wood',name:'MDF (Décor/ MR) Consider alternatives: Melamine/ Formica. Compact Laminate',url:'',size:'2400x1200',price:'6mm $20-$25 | 18mm $25-$40',priceComp:'',supplier:'',aoRec:'Limit use',circ:'No - has MUF/ UF cannot be recycled (waste stream) Consider RML alternatives: Melamine/ Formica. Compact Laminate',whatToAsk:'',status:'no'},
+  {ref:'C20',app:'Joinery/ Cabinetry/ wall flats',cat:'Engineered wood',name:'Raw MDF',url:'',size:'2400x1200',price:'9mm $31 | 18mm $49',priceComp:'',supplier:'',aoRec:'Limit use',circ:'No - has MUF/ UF cannot be recycled (waste stream)',whatToAsk:'',status:'no'},
+  {ref:'C5',app:'Joinery/ Cabinetry/ wall flats',cat:'Engineered wood',name:'FormPly - where substrate is particleboard high-quality F14 rated plywood',url:'www.bigrivergroup.com.au',size:'2400x1200',price:'$30-$37 p/m²',priceComp:'Contact AO preferred supplier for better than market rates',supplier:'Big River Group',aoRec:'Recommended (Current material) keep using supplier or TA preferred partner pricing',circ:'Yes - can be recycled',whatToAsk:'Particleboard substrate no MUF/ UF',status:'yes'},
+  {ref:'C5',app:'Joinery/ Cabinetry/ wall flats',cat:'Engineered wood',name:'FormPly - where substrate is particleboard high-quality F14 rated plywood',url:'www.auswood.com.au',size:'2400x1200',price:'$30-$37 p/m²',priceComp:'Contact AO preferred supplier for better than market rates',supplier:'AusWood',aoRec:'Recommended (Current material) keep using supplier or TA preferred partner pricing',circ:'Yes - can be recycled',whatToAsk:'Particleboard substrate no MUF/ UF',status:'yes'},
+  {ref:'C5',app:'Joinery/ Cabinetry/ wall flats',cat:'Engineered wood',name:'FormPly - where substrate is particleboard high-quality F14 rated plywood',url:'https://evolutionfp.com.au',size:'2400x1200',price:'$30-$37 p/m²',priceComp:'Contact AO preferred supplier for better than market rates',supplier:'Evolution FP',aoRec:'Recommended (Current material) keep using supplier or TA preferred partner pricing',circ:'Yes - can be recycled',whatToAsk:'Particleboard substrate no MUF/ UF',status:'yes'},
+  {ref:'C6',app:'Joinery/ Cabinetry/ wall flats',cat:'Engineered wood',name:'Melamine particleboard substrate (white) - source melamine with Chipboard substrate PF',url:'',size:'2400x1200',price:'16mm $60 | 18mm $80',priceComp:'Contact AO preferred supplier for better than market rates',supplier:'Widely available',aoRec:'Recommended (Current material) keep using supplier or TA preferred partner pricing',circ:'Some recycling supported',whatToAsk:'Particleboard substrate no MUF/ UF',status:'yes'},
+  {ref:'C7',app:'Joinery/ Cabinetry/ wall flats',cat:'Engineered wood',name:'LVL E10 90x45 Premium engineered framing',url:'www.bigrivergroup.com.au',size:'200x45',price:'$25 p/ lm',priceComp:'Contact AO preferred supplier for better than market rates',supplier:'Big River Group',aoRec:'Recommended (Current material) keep using supplier or TA preferred partner pricing',circ:'Yes - can be recycled',whatToAsk:'FSC or PEFC',status:'yes'},
+  {ref:'C7',app:'Joinery/ Cabinetry/ wall flats',cat:'Engineered wood',name:'LVL E10 90x45 Premium engineered framing',url:'www.auswood.com.au',size:'200x46',price:'$25 p/ lm',priceComp:'Contact AO preferred supplier for better than market rates',supplier:'AusWood',aoRec:'',circ:'',whatToAsk:'',status:'maybe'},
+  {ref:'C7',app:'Joinery/ Cabinetry/ wall flats',cat:'Engineered wood',name:'LVL E10 90x45 Premium engineered framing',url:'https://evolutionfp.com.au',size:'200x47',price:'$25 p/ lm',priceComp:'Contact AO preferred supplier for better than market rates',supplier:'Evolution FP',aoRec:'',circ:'',whatToAsk:'',status:'maybe'},
+  {ref:'C8',app:'Framing & structures',cat:'Timber/ wood',name:'MGP 10  untreated pine (kiln dried)',url:'www.bigrivergroup.com.au',size:'',price:'$4 - $5 p/ lm',priceComp:'Contact AO preferred supplier for better than market rates',supplier:'Big River Group',aoRec:'Recommended (Current material) keep using supplier or TA preferred partner pricing',circ:'Yes - can be recycled',whatToAsk:'FSC or PEFC',status:'yes'},
+  {ref:'C8',app:'Framing & structures',cat:'Timber/ wood',name:'MGP 10  untreated pine (kiln dried)',url:'www.auswood.com.au',size:'',price:'$4 - $5 p/ lm',priceComp:'Contact AO preferred supplier for better than market rates',supplier:'AusWood',aoRec:'',circ:'',whatToAsk:'',status:'maybe'},
+  {ref:'C8',app:'Framing & structures',cat:'Timber/ wood',name:'MGP 10  untreated pine (kiln dried)',url:'https://evolutionfp.com.au',size:'',price:'$4 - $5 p/ lm',priceComp:'Contact AO preferred supplier for better than market rates',supplier:'Evolution FP',aoRec:'',circ:'',whatToAsk:'',status:'maybe'},
+  {ref:'C9',app:'Framing & structures',cat:'Timber/ wood',name:'90x45 MGP 10 untreated pine. Choose untreated (blue)',url:'www.bigrivergroup.com.au',size:'',price:'$4.50 p/lm',priceComp:'Contact AO preferred supplier for better than market rates',supplier:'Big River Group',aoRec:'Recommended (Current material) keep using supplier or TA preferred partner pricing',circ:'Yes - untreated (blue) can be recycled',whatToAsk:'FSC or PEFC Choose untreated blue (not green)',status:'yes'},
+  {ref:'C9',app:'Framing & structures',cat:'Timber/ wood',name:'90x45 MGP 10 untreated pine. Choose untreated (blue)',url:'www.auswood.com.au',size:'',price:'$4.50 p/lm',priceComp:'Contact AO preferred supplier for better than market rates',supplier:'AusWood',aoRec:'',circ:'',whatToAsk:'',status:'maybe'},
+  {ref:'C9',app:'Framing & structures',cat:'Timber/ wood',name:'90x45 MGP 10 untreated pine. Choose untreated (blue)',url:'https://evolutionfp.com.au',size:'',price:'$4.50 p/lm',priceComp:'Contact AO preferred supplier for better than market rates',supplier:'Evolution FP',aoRec:'',circ:'',whatToAsk:'',status:'maybe'},
+  {ref:'C22',app:'Framing & structures',cat:'Timber/ wood',name:'90×45 F-grade MGP10 H2 treated pine (Green) Contains: LOSP /CCA',url:'',size:'',price:'$7-$9 p/lm',priceComp:'',supplier:'',aoRec:'Limit use',circ:'No - cannot be recycled (waste stream)',whatToAsk:'Contains: LOSP (Light Organic Solvent Preservative) CCA (Copper Chrome Arsenate)',status:'no'},
+  {ref:'C2',app:'Framing & structures',cat:'Engineered wood',name:'Structural ply (Type A-bond)',url:'www.bigrivergroup.com.au',size:'2400x1200',price:'12mm $40 | 19mm $75',priceComp:'Contact AO preferred supplier for better than market rates',supplier:'Big River Group',aoRec:'Recommended (Current material) keep using supplier or TA preferred partner pricing',circ:'Yes - can be recycled',whatToAsk:'FSC or PEFC Choose: A-Bond Phenol Formaldehyde - PF',status:'yes'},
+  {ref:'C2',app:'Framing & structures',cat:'Engineered wood',name:'Structural ply (Type A-bond)',url:'www.auswood.com.au',size:'2400x1200',price:'12mm $40 | 19mm $75',priceComp:'Contact AO preferred supplier for better than market rates',supplier:'AusWood',aoRec:'Recommended (Current material) keep using supplier or TA preferred partner pricing',circ:'Yes - can be recycled',whatToAsk:'FSC or PEFC Choose: A-Bond Phenol Formaldehyde - PF',status:'yes'},
+  {ref:'C2',app:'Framing & structures',cat:'Engineered wood',name:'Structural ply (Type A-bond)',url:'https://evolutionfp.com.au',size:'2400x1200',price:'12mm $40 | 19mm $75',priceComp:'Contact AO preferred supplier for better than market rates',supplier:'Evolution FP',aoRec:'Recommended (Current material) keep using supplier or TA preferred partner pricing',circ:'Yes - can be recycled',whatToAsk:'FSC or PEFC Choose: A-Bond Phenol Formaldehyde - PF',status:'yes'},
+  {ref:'C10',app:'Framing & structures',cat:'Metals',name:'Blue scope steel',url:'',size:'',price:'$2-$4.5 p/kg',priceComp:'',supplier:'Bluescope',aoRec:'Recommended (Current material) keep using supplier or TA preferred partner pricing',circ:'Yes - can be recycled',whatToAsk:'',status:'yes'},
+  {ref:'C11',app:'Framing & structures',cat:'Metals',name:'Aluminium',url:'',size:'',price:'$4.5-$12 p/kg',priceComp:'',supplier:'Widely available',aoRec:'Recommended (Current material) keep using supplier or TA preferred partner pricing',circ:'Yes - can be recycled',whatToAsk:'',status:'yes'},
+  {ref:'C23',app:'Flooring - indoor for partner suites',cat:'Flooring - engineered wood',name:'Engineered wood',url:'',size:'',price:'$50-$100 p/m²',priceComp:'',supplier:'Widely available',aoRec:'Use where required - No RML alternatives',circ:'No - cannot be recycled (waste stream)',whatToAsk:'',status:'maybe'},
+  {ref:'C17',app:'Flooring - indoor for partner suites',cat:'Flooring - carpet',name:'Carpet tiles - widely available source those from RML with take back program',url:'',size:'',price:'$30- $45 p/m²',priceComp:'',supplier:'Widely available',aoRec:'Recommended (Current material) source those from RML with take back program',circ:'Yes - can be recycled',whatToAsk:'',status:'yes'},
+  {ref:'C24',app:'Flooring - outdoor',cat:'Flooring - outdoor',name:'Slip resistant decking - Evolution forest  Composite / PVC',url:'',size:'2400×1200mm',price:'$56.00 p/m²  | $160 p/sheet',priceComp:'',supplier:'Widely available',aoRec:'Use where required - No RML alternatives',circ:'No - cannot be recycled (waste stream)',whatToAsk:'',status:'maybe'},
+  {ref:'C16',app:'Flooring - outdoor',cat:'Flooring - outdoor',name:'Astro turf Using Tuff group with take back program',url:'www.tuff-group.com.au',size:'',price:'$30- $60 p/m²',priceComp:'',supplier:'Tuff Group',aoRec:'Recommended (Current material) source those from RML with take back program',circ:'Yes - can be recycled',whatToAsk:'Only Tuff group have recycling',status:'yes'},
+  {ref:'C25',app:'Graphics/ surfaces',cat:'Branding/ Graphics/ skins on facades',name:'Vinyl - SAV',url:'',size:'',price:'',priceComp:'',supplier:'Widely available',aoRec:'Use where required - No RML alternatives',circ:'No - cannot be recycled (waste stream)',whatToAsk:'',status:'maybe'},
+  {ref:'C15',app:'Graphics/ surfaces',cat:'Branding/ Graphics/ skins on facades',name:'PVC banners (sail track)',url:'',size:'Various',price:'Standard market rates',priceComp:'',supplier:'Widely available',aoRec:'Use where required - No RML alternatives',circ:'Yes - can be recycled',whatToAsk:'',status:'maybe'},
+  {ref:'C14',app:'Graphics/ surfaces',cat:'Branding/ Graphics/ skins on facades',name:'Wattyl Wide range FX Australia Wide range Dulux Enviro range',url:'',size:'Various',price:'Standard market rates',priceComp:'',supplier:'Widely available',aoRec:'Recommended (Current material) keep using supplier or TA preferred partner pricing',circ:'Yes - can be recycled Choose waterbased for timber use so that it can be recycled',whatToAsk:'Choose UV water based',status:'yes'},
+  {ref:'C13',app:'Graphics/ surfaces',cat:'Branding/ Graphics/ skins on facades',name:'Fabric façades and structures delivering 3D elements/ experience. Supports sublimation printing and secondary print materials',url:'www.tetrikstructures.com/tetrik',size:'Various',price:'Low cost',priceComp:'Far cheaper than ACM+ply composite Contact AO preferred supplier for better than market rates',supplier:'Tetrik Structures',aoRec:'Recommended (Current material) keep using supplier or TA preferred partner pricing',circ:'Recovery pathways in development',whatToAsk:'Sublimation base- stretch lycra derived from 80% PET reclaimed Solid colour material- Mechanical stretch polyester derived from 80% PET reclaimed',status:'yes'}
+];
+
+// carry-forward app for sub-rows
+(function(){var last='';benchRows.forEach(function(r){if(r.app)last=r.app;else r.app=last;});})();
+
+function populateT2(){
+  var apps=[],sA={};
+  benchRows.forEach(function(r){
+    if(r.app&&!sA[r.app]){sA[r.app]=true;apps.push(r.app);}
+  });
+  addOpts('t2-app',apps);
+}
+
+function recFilter2(aoRec,filt){
+  if(!filt)return true;
+  var t=aoRec.toLowerCase();
+  if(filt==='rec-bench') return t.indexOf('recommended')>-1||t.indexOf('keep using')>-1;
+  if(filt==='ifsep') return t.indexOf('use if')>-1||t.indexOf('if separated')>-1;
+  if(filt==='limit') return t.indexOf('limit use')>-1;
+  if(filt==='limitrml') return t.indexOf('no rml')>-1;
+  /* rec-rml and conditional — bench rows never match */
+  return false;
+}
+
+function renderT2(){
+  if(!$('t2-tbody'))return;
+  var fA=v('t2-app'),fC=v('t2-cat'),fRec=v('t2-rec');
+  var tbody=$('t2-tbody'),html='',total=0,uid2=0;
+
+  /* Group rows by ref+app — rows only differ by supplier/url */
+  var groupMap={},groupOrder=[],appOrder=[];
+  benchRows.forEach(function(r){
+    var pass=(!fA||r.app===fA)&&(!fC||r.cat===fC)&&recFilter2(r.aoRec,fRec);
+    if(!pass)return;
+    var key=r.ref+'|'+r.app;
+    if(!groupMap[key]){
+      groupMap[key]={r:r,sups:[]};
+      groupOrder.push(key);
+      if(appOrder.indexOf(r.app)===-1)appOrder.push(r.app);
+    }
+    groupMap[key].sups.push({name:r.supplier,url:r.url});
+  });
+
+  var lastApp='';
+  groupOrder.forEach(function(key){
+    total++;
+    var g=groupMap[key],r=g.r,sups=g.sups;
+    var bg=STATUS_BG[r.status]||'';
+
+    /* App group header */
+    if(r.app!==lastApp){
+      lastApp=r.app;
+      if(r.ref) html+='<tr><td colspan="11" style="background:#f1f5f9;padding:8px 12px;font-weight:700;font-size:.73rem;color:#1E2886;text-transform:uppercase;letter-spacing:.4px;border-top:2px solid #e2e8f0;border-bottom:2px solid #0288CC;">'+esc(r.app)+'</td></tr>';
+    }
+
+    /* Supplier cell */
+    var s0=sups[0];
+    var supCell;
+    if(sups.length===1){
+      supCell=supLink(s0.name,s0.url);
+    } else {
+      uid2++;
+      var rowId='t2sup-'+uid2;
+      supCell='<button class="sup-toggle" onclick="toggleSup(&apos;'+rowId+'&apos;,this)" data-count="'+sups.length+'">&#9662; '+sups.length+' suppliers</button>';
+    }
+
+    html+='<tr class="data-row" style="background:'+bg+';">'
+      +'<td><span class="ref-badge">'+(r.ref||'')+'</span></td>'
+      +'<td><span class="cell-small">'+esc(r.app)+'</span></td>'
+      +'<td><span class="cell-small">'+esc(r.cat)+'</span></td>'
+      +'<td><div class="mat-name">'+esc(r.name)+'</div></td>'
+      +'<td><span class="cell-small">'+esc(r.size||'—')+'</span></td>'
+      +'<td style="white-space:normal;word-break:break-word;"><span class="cell-small">'+priceFmt(r.price)+'</span></td>'
+      +'<td>'+supCell+'</td>'
+      +'<td class="td-gap"></td>'
+      +'<td class="td-amber" style="text-align:center;">'+recBadge2(r.aoRec)+'</td>'
+      +'<td class="td-amber"><span class="cell-text">'+esc(r.circ)+'</span></td>'
+      +'<td class="td-amber"><span class="cell-text">'+esc(r.whatToAsk||'—')+'</span></td>'
+      +'</tr>';
+
+    /* Concertina sub-row for multiple suppliers — col 7 = Supplier */
+    if(sups.length>1){
+      var rowId2='t2sup-'+uid2;
+      var nameStack='';
+      sups.forEach(function(s){
+        var h=s.url?(s.url.indexOf('http')===0?s.url:'https://'+s.url):'';
+        nameStack+=h
+          ?'<div style="margin-bottom:5px;"><a href="'+esc(h)+'" target="_blank" class="cell-link" style="font-size:.75rem;font-weight:600;color:var(--blue);">'+esc(s.name)+'</a></div>'
+          :'<div style="margin-bottom:5px;font-size:.75rem;font-weight:600;color:var(--slate-700);">'+esc(s.name)+'</div>';
+      });
+      html+='<tr id="'+rowId2+'" class="sup-detail-row" style="display:none;">'
+        /* cols 0-3: Ref, App, Cat, Name — spacers */
+        +'<td colspan="4" style="border:none;background:#f0f7ff!important;padding:0!important;border-bottom:none!important;"></td>'
+        /* cols 4-5: Size, Price — spacers */
+        +'<td colspan="2" style="border:none;background:#f0f7ff!important;padding:0!important;border-bottom:none!important;"></td>'
+        /* col 6: Supplier — hyperlinked names */
+        +'<td style="vertical-align:top;padding:8px 12px 10px 12px;text-align:left;background:#f0f7ff!important;border-bottom:2px solid rgba(2,136,204,.18)!important;">'+nameStack+'</td>'
+        /* col 7: gap */
+        +'<td class="td-gap" style="background:#f0f7ff!important;border-bottom:2px solid rgba(2,136,204,.18)!important;padding:0!important;"></td>'
+        /* cols 8-10: amber cols */
+        +'<td colspan="3" style="border:none;background:#f0f7ff!important;border-bottom:2px solid rgba(2,136,204,.18)!important;"></td>'
+        +'</tr>';
+    }
+  });
+
+  if(!html)html='<tr><td colspan="11" class="empty-state">No materials match the selected filters.</td></tr>';
+  tbody.innerHTML=html;
+  countLabel(total,'t2-count');
+}
+function clearT2(){['t2-app','t2-cat','t2-rec'].forEach(function(id){var e=$(id);if(e)e.value='';});renderT2();}
+
+
+// ════════════════════════════════════════════════════════════════
+// TAB 3 — RML (from XLS all columns)
+// ════════════════════════════════════════════════════════════════
+var rmlRows = [
+  {ref:'26',app:'Flooring - indoor for partner suites',cat:'Flooring - engineered wood',name:'Corsica Oak Engineered Timber Flooring 5G Insta Clic® floating.',url:'www.ghcommercial.com',size:'190×1900mm; 14mm; 3mm wear',price:'<200m² $70/m²   | >500m²  $60/m²',priceComp:'RML is price competitive',supplier:'GH Commercial',aoRec:'RECOMMENDED',circ:'Eligible for take back rehome program 5G Insta Clic® board reuse possible.',fireClass:'CRF 3.8 kW/m² (Class 2 only — CONCERN)',certs:'PEFC CoC | GBCA VOC | ISO 9001/14001',status:'yes'},
+  {ref:'27',app:'Flooring - indoor for partner suites',cat:'Flooring - carpet',name:'Curious Path Broadloom Carpet (roll)',url:'www.ghcommercial.com',size:'4.00m roll; 6.5mm',price:'<200m² $65/lm | >500m²  $55/ lm',priceComp:'RML is price competitive',supplier:'GH Commercial',aoRec:'CONSIDER',circ:'No take-back, roll difficult to recycle',fireClass:'NCC C1.10 — CRF not stated',certs:'Declare Red List Free | ECS Level 4+ (Cert #20120) | GBCA VOC | ISO 9001/14001/45001 | Australian Made | PVC Free',status:'maybe'},
+  {ref:'28',app:'Flooring - indoor for partner suites',cat:'Flooring - carpet',name:'Thematic Thread Carpet Tiles & Planks 5G Insta Clic® floating.',url:'www.ghcommercial.com',size:'250×1000mm tiles',price:'<200m² $33/m²  | >500m²  $27/m²',priceComp:'RML is price competitive',supplier:'GH Commercial',aoRec:'RECOMMENDED',circ:'Tiles well suited to GH take-back rehome program Modular tile format supports DfD. EPD, Declare Red List Free, Australian Made',fireClass:'NCC C1.10 (health/aged care) — numeric CRF on request',certs:'EPD (IBU 2025–2030) | Declare Red List Free | ECS Level 4+ (Cert #21157) | ACCS Contract EHD 4★ | Australian Made | PVC Free | ISO 9001/14001/45001',status:'yes'},
+  {ref:'29',app:'Flooring - indoor for partner suites',cat:'Flooring - carpet',name:'Netcorp 100% Wool Broadloom Carpet 5G Insta Clic® floating. Unique natural credentials-  biodegradable',url:'www.ghcommercial.com',size:'3.66m roll; 8mm',price:'$39.6/m2',priceComp:'RML is price competitive',supplier:'GH Commercial',aoRec:'CONSIDER',circ:'Roll carpet difficult to recycle 100% Wool and Jute are biodegradable/compostable. No active composting program confirmed.',fireClass:'NCC C1.10 compliant — Smoke 80% min. Wool inherently flame-retardant.',certs:'Declare Red List Free | ECS Level 4+ (Cert #22061) | NCC C1.10 | PVC Free | GBCA VOC | ISO 9001/14001 | 100% Natural Materials',status:'maybe'},
+  {ref:'30',app:'Flooring - indoor for partner suites',cat:'Flooring - carpet',name:'Long Grain II Carpet Tiles',url:'www.ghcommercial.com',size:'500×500mm tiles',price:'<200m² $19/m²   | >500m²  $24/m²',priceComp:'RML below market rates',supplier:'GH Commercial',aoRec:'RECOMMENDED',circ:'Tiles well suited to GH take-back  rehome program Optimal for modular & DfD.',fireClass:'CRF 8.8 kW/m² (Direct Stick) — Class 1 CONFIRMED (highest in assessment)',certs:'EPD (IBU 2025–2030) | Declare Red List Free | ECS Level 4+ (Cert #19128) | CRF 8.8 kW/m² Class 1 | ACCS Contract EHD 4★ | PVC/BPA/Phthalate Free | Australian Made | ISO 9001/14001/45001 |',status:'yes'},
+  {ref:'31',app:'Flooring - indoor for partner suites',cat:'Flooring - Vinyl',name:'Bolon Flooring — RIFF Heavy commerical (events/ hospitality)',url:'www.bolon.com',size:'Tiles & Acoustic Tiles: 500×500mm',price:'$100 – $110/m²',priceComp:'10–25% premium over standard',supplier:'Bolon AB',aoRec:'CONSIDER',circ:'Back2Bolon -  recycling system. tack tiles -  (no glue)  qualify for take-back - check if supported AUS',fireClass:'Class 1 CRF (ASTM E 648) + Bfl-s1 (EN 13501-1)',certs:'EPD (EN 15804 + ISO 14025, environdec.com) | GreenTag GreenRate (Tiles only) | GreenTag PHD (all) | Declare (Living Future Institute)  | ECOproduct | ISO 14001:2015 | EcoVadis',status:'maybe'},
+  {ref:'32',app:'Flooring - indoor for partner suites',cat:'Flooring - Vinyl',name:'Bolon Flooring — ELEMENTS Heavy commerical (events/ hospitality)',url:'www.bolon.com',size:'Rolls: 2000mm × 25m Tiles & acoustic tiles: 500×500mm',price:'$100 – $110/m²',priceComp:'10–25% premium over standard',supplier:'Bolon AB',aoRec:'CONSIDER',circ:'Back2Bolon- recycling system.   Tiles/Acoustic Tiles (IOBAC tack, non-permanent) check if supported AUS',fireClass:'Class 1 CRF (ASTM E 648) + Bfl-s1 (EN 13501-1) — all three formats',certs:'EPD (EN 15804 + ISO 14025, environdec.com) | GreenTag GreenRate | GreenTag PHD (all) | Declare (Living Future Institute) | M1 (Finnish low-emission) | FloorScore (SCS Global) | ISO 14001:2015 | EcoVadis',status:'maybe'},
+  {ref:'39',app:'Flooring - indoor for partner suites',cat:'Flooring - carpet',name:'Milliken AMPLIFIER — Beats/Echo/Treble/Octave',url:'https://www.milliken.com/en-us/flooring/products/carpet-tiles',size:'500×500mm tiles',price:'$22/m²',priceComp:'RML is price competitive',supplier:'Milliken & Company',aoRec:'RECOMMENDED',circ:'N/XT Life™ 100% recyclable, zero landfill guarantee. All installation off-cuts and all used tiles can be sent back for recycling into Renasci. Milliken cover transport fees contractors need to stack the used carpet on a pallet and They will organise pick and transport to Sydney',fireClass:'Class 9b AS ISO 9239-1 PASS',certs:'Declare Red List Free | C2C Silver | ECS Level 4+ | CRI Green Label Plus™ | Works with WELL | EcoVadis Gold | SBTi Net Zero',status:'yes'},
+  {ref:'40',app:'Flooring - indoor for partner suites',cat:'Flooring - carpet',name:'Milliken DISTINCT FORMS — Cement/Construction',url:'www.milliken.com/en-us/segments/floor-covering',size:'500×500mm tiles',price:'$25/m²',priceComp:'RML is price competitive',supplier:'Milliken & Company',aoRec:'RECOMMENDED',circ:'N/XT Life™ 100% recyclable, zero landfill guarantee. All installation off-cuts and all used tiles can be sent back for recycling into Renasci. Milliken cover transport fees contractors need to stack the used carpet on a pallet and They will organise pick and transport to Sydney',fireClass:'Class 9b AS ISO 9239-1 PASS',certs:'Declare Red List Free | C2C Silver | ECS Level 4+ | CRI Green Label Plus™ | Works with WELL | EcoVadis Gold | SBTi Net Zero',status:'yes'},
+  {ref:'41',app:'Flooring - indoor for partner suites',cat:'Flooring - carpet',name:'Milliken MAJOR FREQUENCY ONE — Vibration/Distortion',url:'https://www.milliken.com/en-us/flooring/products/carpet-tiles',size:'25×100cm planks',price:'$34/m²',priceComp:'RML is price competitive',supplier:'Milliken & Company',aoRec:'RECOMMENDED',circ:'N/XT Life™ 100% recyclable, zero landfill guarantee. All installation off-cuts and all used tiles can be sent back for recycling into Renasci. Milliken cover transport fees contractors need to stack the used carpet on a pallet and They will organise pick and transport to Sydney',fireClass:'Class 9b AS ISO 9239-1 PASS',certs:'Declare Red List Free | C2C Silver | ECS Level 4+ | CRI Green Label Plus™ | Works with WELL | EcoVadis Gold | SBTi Net Zero',status:'yes'},
+  {ref:'42',app:'Flooring - indoor for partner suites',cat:'Flooring - carpet',name:'Milliken WHALE SONG AUNZ — Beluga/Humpback',url:'https://www.milliken.com/en-us/flooring/products/carpet-tiles',size:'500×500mm tiles',price:'$37/m²',priceComp:'RML is price competitive',supplier:'Milliken & Company',aoRec:'RECOMMENDED',circ:'N/XT Life™ 100% recyclable, zero landfill guarantee. All installation off-cuts and all used tiles can be sent back for recycling into Renasci. Milliken cover transport fees contractors need to stack the used carpet on a pallet and They will organise pick and transport to Sydney',fireClass:'Class 9b AS ISO 9239-1 PASS',certs:'Declare Red List Free | C2C Silver | ECS Level 4+ | CRI Green Label Plus™ | Works with WELL | EcoVadis Gold | SBTi Net Zero',status:'yes'},
+  {ref:'43',app:'Flooring - indoor for partner suites',cat:'Flooring - carpet',name:'Milliken SALT LAKE — Fata Morgana/Strata/Crystals',url:'https://www.milliken.com/en-us/flooring/products/carpet-tiles',size:'250×1000mm plank & 100×100cm tile',price:'$39/m²',priceComp:'RML is price competitive',supplier:'Milliken & Company',aoRec:'RECOMMENDED',circ:'N/XT Life™ 100% recyclable, zero landfill guarantee. All installation off-cuts and all used tiles can be sent back for recycling into Renasci. Milliken cover transport fees contractors need to stack the used carpet on a pallet and They will organise pick and transport to Sydney',fireClass:'Class 9b AS ISO 9239-1 PASS',certs:'Declare Red List Free | C2C Silver | ECS Level 4+ | CRI Green Label Plus™ | Works with WELL | EcoVadis Gold | SBTi Net Zero',status:'yes'},
+  {ref:'44',app:'Flooring - indoor for partner suites',cat:'Flooring - carpet',name:'Milliken HEAVY META — Alloy/Foundry',url:'https://www.milliken.com/en-us/flooring/products/carpet-tiles',size:'250×1000mm planks',price:'$46/m²',priceComp:'RML 10% premium',supplier:'Milliken & Company',aoRec:'RECOMMENDED',circ:'N/XT Life™ 100% recyclable, zero landfill guarantee. All installation off-cuts and all used tiles can be sent back for recycling into Renasci. Milliken cover transport fees contractors need to stack the used carpet on a pallet and They will organise pick and transport to Sydney',fireClass:'Class 9b AS ISO 9239-1 PASS',certs:'Declare Red List Free | C2C Silver | ECS Level 4+ | CRI Green Label Plus™ | Works with WELL | EcoVadis Gold | SBTi Net Zero',status:'yes'},
+  {ref:'45',app:'Flooring - indoor for partner suites',cat:'Flooring - Vinyl',name:'Milliken TOPIARY — Rigid Core LVT',url:'https://www.milliken.com/en-us/flooring/products/carpet-tiles',size:'6mm 232×1532mm planks; 0.50mm wear layer',price:'$34/m²',priceComp:'RML is price competitive',supplier:'Milliken & Company',aoRec:'RECOMMENDED',circ:'Resiloop program for resilient flooring - accept off-cuts to be recycled',fireClass:'Class 9b AS ISO 9239-1 PASS',certs:'✓ Declare RED LIST FREE | EPD | GreenRate Global GreenTag | Best Practice PVC | Works with WELL | M/PACT™ Carbon Neutral',status:'yes'},
+  {ref:'46',app:'Flooring - indoor for partner suites',cat:'Flooring - Vinyl',name:'Milliken RENASCI — Circular Mixed Polymer Flooring',url:'https://www.milliken.com/en-us/flooring/products/carpet-tiles',size:'500×1000mm tiles; 6.5mm; 0.50mm integrated PU wear layer',price:'$55/m²',priceComp:'RML 20% premium',supplier:'Milliken & Company',aoRec:'RECOMMENDED',circ:'RENASCI is made FROM 80% carpet waste + 20% soft plastic waste  — the  N/XT Life™ circular loop. All installation off-cuts and all used tiles can be sent back for recycling into Renasci. Milliken cover transport fees contractors need to stack the used carpet on a pallet and They will organise pick and transport to Sydney',fireClass:'Class 9b AS ISO 9239-1 PASS',certs:'N/XT Life™ (physical product) | Patent Pending technology | P3 & R10 slip resistance',status:'yes'},
+  {ref:'47',app:'Flooring - indoor for partner suites',cat:'Flooring - Vinyl',name:'Armstrong Armalon® NG (heavy duty)',url:'www.armstrongflooring.au/armalon',size:'Roll: 2.0mm × 1.83m × 20m 1.525m × 24m 1.2m × 20m',price:'$TBC',priceComp:'TBC: Australian-made; premium over basic imported commercial vinyl. Competitive on durability and lifecycle cost.',supplier:'Armstrong Flooring',aoRec:'CONDITIONAL',circ:'ResiLoop founding member. FloorCycle take-back improving - No post-consumer recycled content. EOL pathway developing.',fireClass:'Floor: CRF ≥ 4.5 kW/m² (Class 1) | Wall: Group 1 (AS 5637.1)',certs:'GreenTag GreenRate Level A | BEP PVC (Vinyl Council AU) | PVC Stewardship | ResiLoop | ISO 9001/14001/45001 | GBCA TVOC Compliant',status:'maybe'},
+  {ref:'48',app:'Flooring - indoor for partner suites',cat:'Flooring - Vinyl',name:'Armstrong Natralis® Collection (heavy duty)',url:'www.armstrongflooring.au/natralis',size:'Roll: 2.0mm × 1.83m × 20m Natralis: lightly embossed.',price:'$TBC',priceComp:'TBC: Australian-made; competitive with imported commercial vinyl. Premium justified by Very Heavy Class 34 wear rating',supplier:'Armstrong Flooring',aoRec:'CONDITIONAL',circ:'ResiLoop founding member. FloorCycle take-back improving - No post-consumer recycled content. EOL pathway developing.',fireClass:'Floor: CRF ≥ 4.5 kW/m² (Class 1) | Wall: Group 3 (note wall limitation)',certs:'GreenTag GreenRate Level A | GreenTag LCARate Gold | EPD (available) | BEP PVC | PVC Stewardship | ResiLoop | ISO 9001/14001/45001 | GBCA TVOC | Hospital PVC Recycling (VCA)',status:'maybe'},
+  {ref:'49',app:'Flooring - indoor for partner suites',cat:'Flooring - Vinyl',name:'Armstrong Quantum® (heavy duty)',url:'www.armstrongflooring.au/quantum',size:'Roll: 2.0mm × 1.83m × 20m Lightly embossed. 13 colours.',price:'$TBC',priceComp:'TBC: Australian-made; competitive with imported vinyl. 24% recycled content and antistatic certification add value.',supplier:'Armstrong Flooring',aoRec:'CONDITIONAL',circ:'ResiLoop founding member. FloorCycle take-back improving - No post-consumer recycled content. EOL pathway developing.',fireClass:'Floor: CRF ≥ 4.5 kW/m² (Class 1) | Wall: Group 3 (note wall limitation)',certs:'GreenTag GreenRate Level A | BEP PVC | PVC Stewardship | ResiLoop | ISO 9001/14001/45001 | GBCA TVOC',status:'maybe'},
+  {ref:'50',app:'Precinct facades & cladding',cat:'Flooring - Vinyl',name:'Armstrong Wallflex® Internal wall cladding',url:'www.armstrongflooring.au/wallflex',size:'Roll: 2.0mm × 1.5m × 20m. WALL APPLICATION ONLY. 13 colours.',price:'$TBC',priceComp:'TBC: Australian-made; competitive with imported vinyl wall covering.',supplier:'Armstrong Flooring',aoRec:'CONDITIONAL',circ:'ResiLoop founding member. FloorCycle take-back improving - No post-consumer recycled content. EOL pathway developing.',fireClass:'Wall: Group 1 AU (AS 5637.1) + Group 1-S NZ (ISO 5660-1) — best available wall fire class. NOT a floor product.',certs:'GreenTag GreenRate Level A | GreenTag LCARate Gold | EPD | BEP PVC | PVC Stewardship | ResiLoop | ISO 9001/14001/45001 | GBCA TVOC | Group 1 Wall Fire (AS 5637.1 AU + ISO 5660-1 NZ)',status:'maybe'},
+  {ref:'51',app:'Flooring - indoor for partner suites',cat:'Flooring - Vinyl',name:'Armstrong Accolade® Collection',url:'www.armstrongflooring.au/accolade',size:'Roll: 2.0mm × 1.83m × 20m',price:'$TBC',priceComp:'TBC: Armstrong\'s premium  phthalate-free, ultra-low VOC, 24% recycled content',supplier:'Armstrong Flooring',aoRec:'CONDITIONAL',circ:'ResiLoop founding member. FloorCycle take-back improving - No post-consumer recycled content. EOL pathway developing.',fireClass:'Floor: CRF ≥ 4.5 kW/m² (Class 1) | Wall: Group 3 (note wall limitation)',certs:'GreenTag GreenRate Level A | GreenTag LCARate Gold | EPD | BEP PVC | Phthalate Free | Ultra Low VOC |  PVC Stewardship | ResiLoop | ISO 9001/14001/45001 | GBCA TVOC | Hospital PVC Recycling (VCA)',status:'maybe'},
+  {ref:'52',app:'Joinery/ Cabinetry/ wall flats',cat:'Engineered wood',name:'Paperock SOLID Phenolic Paper Composite (Compact Laminate equivalent)',url:'www.paperock.com.au/paperock-solid',size:'6mm up to 25mm 2450 x1230mm 3050 x 1230mm sheets',price:'$110/ m²',priceComp:'RML is an alternative to MDF 2x price however is highly suited to modular design/ storage & refurb Discounts apply: 0-20 sheets 5% 21 - 35 sheets 7.5% 36 - 50 sheets 10% 51+ sheets 15%',supplier:'Paperock',aoRec:'RECOMMENDED',circ:'Non recyclable; no take-back. Excellent durability = long service life reduces replacement frequency. — confirm fire Group rating (AS 5637.1), commission EPD, and obtain formal E0 formaldehyde certificate before AO programme specification.',fireClass:'Group 3 tested',certs:'Silica FREE | Australian Made | None — no LBC Declaration for SOLID (LBC Declaration',status:'yes'},
+  {ref:'53',app:'Joinery/ Cabinetry/ wall flats',cat:'Engineered wood',name:'Paperock PLY - good for refurb FSC Birch Plywood with Phenolic Paper Composite Faces',url:'www.paperock.com.au/paperock-ply',size:'19mm - 28mm 2400×1200mm sheets',price:'$200/ m²',priceComp:'RML is an alternative to MDF 3x price however is highly suited to modular design/ storage and refurb Discounts apply: 0-20 sheets 5% 21 - 35 sheets 7.5% 36 - 50 sheets 10% 51+ sheets 15%',supplier:'Paperock',aoRec:'CONDITIONAL - need review by TA Fire/ Safety',circ:'Composite bonded panel difficult to recycle.',fireClass:'NOT DECLARED — CRITICAL DATA GAP. AS 5637.1 Group rating not published. Plywood-based panels typically Group 3. Confirm before AO venue specification.',certs:'Australian Made | None — LBC Declaration (12 May 2025) — provide current FSC certificate (expired Oct 2024), fire Group rating (AS 5637.1), and commission EPD before AO programme specification.',status:'maybe'},
+  {ref:'54',app:'Joinery/ Cabinetry/ wall flats',cat:'Engineered wood',name:'Paperock TACTILE HPL-Faced FSC Birch Plywood',url:'www.paperock.com.au/paperock-tactile',size:'19mm- 25mm 2400×1200mm sheets',price:'$198 /m²',priceComp:'RML is an alternative to MDF 3x price however is highly suited to modular design/ storage and refurb Discounts apply: 0-20 sheets 5% 21 - 35 sheets 7.5% 36 - 50 sheets 10% 51+ sheets 15%',supplier:'Paperock',aoRec:'CONDITIONAL - need review by TA Fire/ Safety',circ:'Composite panel difficult to recycle. Durable surface extends service life.',fireClass:'No fire certificates for PaperockTactile currently, - come under wood/timber Category Group 3. Confirm before AO occupied venue specification.',certs:'Silica FREE | Australian Made | LBC Declaration Letter Renew GREENGUARD Gold certificate (expired May 2025), obtain current FSC plywood certificate (expired Oct 2024)',status:'maybe'},
+  {ref:'55',app:'Joinery/ Cabinetry/ wall flats',cat:'Engineered wood',name:'Low Pressure Melamine Particleboard  LPM STD Particleboard',url:'www.polytec.com.au/melamine/',size:'9mm | 16mm | 18mm | 25mm | Sheets: 2400×1200mm | 3600×1200mm | 3600×1800mm',price:'16mm from $35/m² | 18mm from $40/m² | 25mm from $55/m² (Matt finish)',priceComp:'RML is price competitive',supplier:'Porta Products',aoRec:'RECOMMENDED',circ:'TBC - if can be recycled.  EOL: energy recovery or landfill. Biomass incineration is viable EOL.',fireClass:'Group 3 (AS 5637.1-2015 / BCA C1.10) — confirmed in TDS and EPD. Fire-critical AO venues require Group 1/2.',certs:'EPD: BOR:CP01:2025:EP (Global GreenTag, valid Jul 2030) | PEFC/Responsible Wood CoC: EWPAA-RW-COC-253 (valid Jul 2028) | GreenTag GreenRate Level A: BOR:CP02:2024:GR (STD, expires 17 Feb 2026 — RENEW) | Australian Made and Owned | EWPAA Formaldehyde E1 Cert — Upgrade to E0 substrate and confirm GreenTag renewal (expiring Feb 2026) to strengthen.',status:'yes'},
+  {ref:'56',app:'Joinery/ Cabinetry/ wall flats',cat:'Engineered wood - recycled plastic alternative',name:'EKOply Board — 100% Recycled Post-Consumer Plastic',url:'www.ausfab.com.au/ekoply/',size:'2440 × 1220mm sheets 19mm (33kg)  12.5mm (25kg) Anti-Slip 20mm (34kg)',price:'12.5 mm  $272 | 19 mm $291',priceComp:'$TBC',supplier:'AusFab',aoRec:'CONDITIONAL',circ:'TBC - if can be recycled.  Resolve fire performance gap and EPD programme compatibility',fireClass:'NOT DECLARED — CRITICAL GAP. PE/PP combustible. No AS 5637.1',certs:'',status:'maybe'},
+  {ref:'57',app:'Joinery/ Cabinetry/ wall flats',cat:'Engineered wood',name:'Laminex Compact Laminate Multipurpose  (HPL-Type, Phenolic Core)',url:'www.laminex.com.au/products/compact-laminate',size:'13mm (18.46 kg/m²) 18mm (25.2 kg/m²) Panels: 3600×1500mm or 3600×750mm',price:'13mm: $140.00/m²  | 18mm: $185.00/m²',priceComp:'RML is an alternative to MDF 3x price however is highly suited to modular design/ storage and refurb',supplier:'Laminex Group',aoRec:'RECOMMENDED',circ:'Diffcicult to recycle EOL:  landfill or energy recovery. obtain GREENGUARD Gold for Green Star VOC credits.',fireClass:'Group 3 (AS/NZS 3837 Cone Calorimeter) — lowest classification. Confirm suitability with fire engineer for BCA applications.',certs:'EPD: LGLP04 2023EP (Global GreenTag, valid Jul 2028) | PEFC/Responsible Wood CoC | Declare Red List Approved | GECA  | ISO 14001 | SVHC-free |',status:'yes'},
+  {ref:'58',app:'Joinery/ Cabinetry/ wall flats',cat:'Engineered wood',name:'Laminex Decorated Particleboard (Low Pressure Melamine)',url:'www.laminex.com.au/products/particleboard',size:'18mm (11.4 kg/m²) 25mm (17.6 kg/m²) Range: 9mm–38mm  Standard sheet format',price:'18mm: $30.00/m² | 25mm: $37.00/m²',priceComp:'RML is price competitive',supplier:'Laminex Group',aoRec:'RECOMMENDED',circ:'Laminex  take-back/ remanufacturing.  Biogenic carbon reverses at landfill — take-back essential. Specify E0 grade; confirm fire Group rating;',fireClass:'NOT DECLARED — CRITICAL GAP. Typical particleboard = Group 3 (AS/NZS 3837). Confirm with Laminex before BCA specification.',certs:'EPD: IES-0017524:001 (Intl EPD System, valid to 2030) | PEFC/Responsible Wood CoC | Declare Red List Approved | GECA  | ISO 14001',status:'yes'},
+  {ref:'59',app:'Joinery/ Cabinetry/ wall flats',cat:'Engineered wood',name:'Laminex Raw Particleboard (Trade Essentials®)',url:'www.laminex.com.au/products/particleboard',size:'16mm (10.2 kg/m²) 18mm (11.4 kg/m²) 25mm (15.5 kg/m²) 33mm (21.1–22.1 kg/m²) Range: 9mm–38mm',price:'16mm: $10.50/m² | 18mm: $12.00/m² | 25mm: $17.00/m² | 33mm: $25.00/m²',priceComp:'RML is price competitive',supplier:'Laminex Group',aoRec:'RECOMMENDED',circ:'Laminex  take-back/remanufacturing.  Biogenic carbon reverses at landfill — take-back essential. confirm fire Group rating',fireClass:'NOT DECLARED — CRITICAL GAP. Typical particleboard = Group 3 (AS/NZS 3837). Confirm with Laminex before BCA specification.',certs:'EPD: IES-0017522:001 (Intl EPD System, valid to 2030) | PEFC/Responsible Wood CoC | Declare Red List Approved  | GECA  | ISO 14001 — Outstanding EPD credentials (negative-carbon, 2025). Specify MR E0 grade;',status:'yes'},
+  {ref:'60',app:'Flooring - indoor for partner suites',cat:'Flooring - engineered wood',name:'EnduraFloor by Laminex — Particleboard Flooring',url:'www.laminex.com.au',size:'19mm and 22mm thickness; sheet dimensions not stated in TDS — confirm via Part 2',price:'TBC',priceComp:'TBC if price competitive',supplier:'Laminex Group',aoRec:'CONDITIONAL',circ:'Particleboard generally non-recyclable — primary pathway is landfill.',fireClass:'Class 1 PASS — Critical Heat Flux 5.6 kW/m² (threshold ≥4.5 kW/m²). Smoke Value 9% min. Tested to AS/NZS 1860.1.',certs:'AS/NZS 1860.1 (product tested to) | AS/NZS 1860.2 (installation standard) | No sustainability certifications declared',status:'maybe'},
+  {ref:'61',app:'Graphics/ surfaces',cat:'Surfaces - paint',name:'Paintback Greyscale Paint',url:'paintback.com.au',size:'Standard litre containers — sizes not declared in SDS. Confirm with supplier',price:'$6.60/L vs ~$5–$12/L for virgin paint.',priceComp:'~30% less than commercial paints',supplier:'Paintback',aoRec:'RECOMMENDED',circ:'Highly circular paint product with 99%+ PCR content, active AU take-back, Green Star VOC compliance, and Australian manufacture.',fireClass:'--- (not tested/declared). Not flammable in liquid state. NCC fire group for dried film not declared — request fire test if required for specific application',certs:'CONDITIONAL pending EPD, TDS, fire data, and Dec/Jan supply confirmation.',status:'yes'},
+  {ref:'62',app:'Graphics/ surfaces',cat:'Surfaces - paint',name:'Paintback Tinted rWBP',url:'paintback.com.au',size:'Standard litre containers — sizes not declared. Confirm with supplier',price:'$7.20/L vs ~$7–$15/L for custom-tinted virgin paint.',priceComp:'RML is price competitive',supplier:'Paintback',aoRec:'RECOMMENDED',circ:'Most relevant Paintback product for AO brand colour requirements. 99%+ PCR base, active AU take-back, Australian made. Custom colour matching enables project-specific palette.',fireClass:'--- (not tested/declared). Non-flammable in liquid state',certs:'CONDITIONAL pending EPD, TDS, tinted VOC confirmation, and Dec/Jan supply.',status:'yes'},
+  {ref:'63',app:'Joinery/ Cabinetry/ wall flats',cat:'Engineered wood',name:'SELEX® Plywood — Structural B/D & Non-Structural Pine  Structural CD',url:'https://www.forest.one',size:'2400×1200mm | 7–25mm.',price:'B/D 18mm: $79.95 | CD 18mm: $65.43',priceComp:'TBC: 20% Premium over local CD-pine  - verified EPD negative carbon',supplier:'ForestOne',aoRec:'RECOMMENDED',circ:'No active take-back. Timber recyclable/reusable',fireClass:'Group 3 assumed (untreated pine) — confirm AU fire data with Forest One',certs:'EPD: S-P-02010 (Intl EPD System, valid 2027) | Climate Declaration S-P-02010 | FSC® + PEFC™ CoC',status:'yes'},
+  {ref:'64',app:'Framing & structures',cat:'Engineered wood',name:'EGGER OSB 3 E0 / OSB 3 E0 ELS — Oriented Strand Board',url:'https://www.forest.one',size:'6–40mm | 2050–6300mm × 590–2800mm',price:'TBC',priceComp:'TBC:Competitive vs imported OSB. AU supply via Forest One.',supplier:'ForestOne',aoRec:'RECOMMENDED',circ:'GOOD — EGGER closed-loop waste use in production. Recyclable. Biomass energy recovery.',fireClass:'Euroclass D-s2, d0 (EN 13501-1, ≥9mm) — AU NCC Group 3 ASSUMED. Confirm.',certs:'EPD: EPD-EGG-20240403-IBD2-EN (IBU, valid 2029) | ISO 38200:2018 | SVHC/REACH CLEAN | AgBB (DIBt)',status:'yes'},
+  {ref:'65',app:'Joinery/ Cabinetry/ wall flats',cat:'Engineered wood',name:'EGGER Eurodekor® MFC Panels — E1E05 TSCA P2 CE (18mm & 25mm MR Particleboard)',url:'https://www.forest.one',size:'2800×2070mm | 18mm - 25mm',price:'18mm from $40.47/m² | 25mm from $48.00/m²',priceComp:'TBC:Standard market pricing for premium MFC — competitive with Laminex decorated particleboard',supplier:'ForestOne',aoRec:'RECOMMENDED',circ:'GOOD — 76% recycled content (24% PCR). EGGER closed-loop chipboard. Recyclable at EOL.',fireClass:'Euroclass D-s2, d0 (EN 13501-1) — AU NCC Group 3 ASSUMED. Must confirm.',certs:'EPD: IBU (Eurodekor MFC) | TÜV PROFiCERT-product Interior PREMIUM | ISO 38200:2018 | REACH CLEAN',status:'yes'},
+  {ref:'66',app:'Joinery/ Cabinetry/ wall flats',cat:'Engineered wood',name:'EGGER Laminate — CPL 0.8mm (Continuous Pressure Laminate)',url:'https://www.forest.one',size:'3650×1310×0.8mm (standard) | 2790×2060×0.8mm (Feelwood)',price:'TBC',priceComp:'TBC',supplier:'ForestOne',aoRec:'RECOMMENDED',circ:'GOOD — EGGER closed-loop. Recyclable with substrate. AU take-back not confirmed.',fireClass:'Not declared for laminate sheet alone — fire rating of assembled panel determined by substrate.',certs:'EPD: EPD-EGG-20230338-IBD1-EN (IBU, valid 2029) | TÜV PROFiCERT-product Interior PREMIUM | REACH CLEAN',status:'yes'},
+  {ref:'67',app:'Joinery/ Cabinetry/ wall flats',cat:'Engineered wood',name:'EGGER PerfectSense® Lacquered Board — Feelwood & Texture (18mm & 25mm MR MDF/PB)',url:'https://www.forest.one',size:'2800×2070mm | 18mm MR MDF',price:'18mm: $74.83/m²  | 25mm: $82.32/m²',priceComp:'TBC:Premium over Eurodekor MFC (~85%). Eliminates post-paint cost — lower lifecycle cost vs painted MDF.',supplier:'ForestOne',aoRec:'RECOMMENDED',circ:'EXCELLENT — 71% recycled (29% PCR). EGGER closed-loop. Recyclable at EOL. Best circularity in EGGER range.',fireClass:'Euroclass D-s2, d0 (EN 13501-1) — AU NCC Group 3 ASSUMED. Must confirm.',certs:'EPD: EPD-EGG-20200253-IBC3-EN (IBU, issued 28.08.2023, valid 16.05.2028) | TÜV PROFiCERT PREMIUM | SVHC/REACH CLEAN | AgBB confirmed',status:'yes'},
+  {ref:'68',app:'Flooring - indoor for partner suites',cat:'Flooring - carpet',name:'DESSO & Patricia Urquiola Carpet Tile',url:'www.tarkett.com.au/en/product/desso-patricia-urquiola',size:'500 × 500 mm tiles 6.5 mm thick',price:'TBC',priceComp:'TBC',supplier:'Tarkett',aoRec:'RECOMMENDED',circ:'Tarkett ReStart® take-back',fireClass:'CRF 6.3 kW/m² — Class 1 (highest Aus standard)',certs:'C2C SILVER | GreenTag Level A | GUT certified (Prodis/GUT) | LCA: Available via EPD S-P-08561',status:'yes'},
+  {ref:'69',app:'Flooring - indoor for partner suites',cat:'Flooring - carpet',name:'DESSO AirMaster Earth EcoBase',url:'https://www.tarkett.com.au',size:'Carpet tile 500×500mm | 4.3mm',price:'$50.40/m²',priceComp:'TBC:10-20% premium',supplier:'Tarkett',aoRec:'RECOMMENDED',circ:'EXCELLENT — 71.2% recycled content (ECONYL® PA6 yarn + EcoBase® avg 80% recycled backing).  AU ReStart®',fireClass:'CRF 8.5 kW/m² (AS/ISO 9239.1) — meets Class 1 (≥4.5 kW/m²)',certs:'EPD S-P-00507 | MHS EPEA 45606 v3.0 (exp Oct 2027) | GreenTag Level A + HealthRATE Platinum | C2C Material Health Bronze | GUT/Prodis | BEP PVC Licence  | AU ReStart®',status:'yes'},
+  {ref:'70',app:'Flooring - indoor for partner suites',cat:'Flooring - carpet',name:'DESSO Linon EcoBase',url:'https://www.tarkett.com.au',size:'Carpet tile 500×500mm',price:'$39.08/m²',priceComp:'TBC:10% premium',supplier:'Tarkett',aoRec:'RECOMMENDED',circ:'EXCELLENT — 63.9% recycled content. EcoBase® avg 80% recycled. AU ReStart® confirmed in partner guide',fireClass:'CRF 6.4 kW/m² (AS/ISO 9239.1) — meets Class 1 (≥4.5 kW/m²)',certs:'EPD S-P-09286 | MHS EPEA 45606 v3.0 (exp Oct 2027) | GreenTag Level A + HealthRATE Platinum | C2C Material Health Bronze | GUT/Prodis | AU ReStart®',status:'yes'},
+  {ref:'71',app:'Flooring - indoor for partner suites',cat:'Flooring - carpet',name:'DESSO Stratos EcoBase',url:'https://www.tarkett.com.au',size:'Carpet tile 500×500mm',price:'$30.90/m²',priceComp:'TBC: RML is price competitive',supplier:'Tarkett',aoRec:'RECOMMENDED',circ:'EXCELLENT — 70.1% recycled content. EcoBase® avg 80% recycled. Lowest A–D carbon (0.83 kg CO₂eq/m²) in Tarkett carpet tile range. AU ReStart® confirmed',fireClass:'CRF 7.5 kW/m² (AS/ISO 9239.1) — meets Class 1',certs:'EPD S-P-08626 | MHS EPEA 45606 v3.0 (exp Oct 2027) | GreenTag Level A + HealthRATE Platinum | C2C Material Health Bronze | GUT/Prodis | AU ReStart®',status:'yes'},
+  {ref:'72',app:'Flooring - indoor for partner suites',cat:'Flooring - carpet',name:'Tarkett Lino Loose-Lay (Linoleum 2m Roll)',url:'https://www.tarkett.com.au',size:'Roll 2m wide × 25m | 2.5mm',price:'$36.79/m²',priceComp:'TBC: RML is price competitive  with dramatically better environmental profile.',supplier:'Tarkett',aoRec:'RECOMMENDED',circ:'EXCELLENT — Carbon negative A–D (−3.45 kg CO₂eq/m²). Biogenic carbon sequestration in linseed oil + wood flour. Loose-lay DfD (no adhesive). AU ReStart® confirmed',fireClass:'AU CRF not stated in AU spec — confirm with Tarkett AU before BCA submission',certs:'EPD (Tarkett Linoleum) | GreenTag Level A + HealthRATE Platinum | Platinum VOC ≤10 µg/m³ | AU ReStart® confirmed | No BEP PVC Licence (non-PVC product)',status:'yes'},
+  {ref:'73',app:'Flooring - indoor for partner suites',cat:'Flooring - Vinyl',name:'Tarkett iD Square Loose-Lay LVT',url:'https://www.tarkett.com.au',size:'Modular LVT tile 603×603mm',price:'$43.50/m²',priceComp:'TBC: RML is price competitive Loose-lay eliminates adhesive cost and improves DfD and circular EOL',supplier:'Tarkett',aoRec:'RECOMMENDED',circ:'GOOD — 20.2% post-industrial recycled content. Loose-lay DfD (no adhesive). Global ReStart® LVT. AU collection unconfirmed. Module D: −6.29 kg CO₂eq/m²',fireClass:'EU: Bfl-s1 / Cfl-s1 (EN 13501-1) | AU CRF (AS 9239.1): not stated — confirm with Tarkett AU',certs:'EPD EPD-EIS-01352 v3 (valid 2030) | MHS EPEA 45605 v3.0 (exp Oct 2027) | Platinum VOC ≤10 µg/m³ | GreenTag Level A + HealthRATE Platinum | BEP PVC Licence (TAR:FW01:2023:BP)',status:'yes'},
+  {ref:'74',app:'Flooring - indoor for partner suites',cat:'Flooring - Vinyl',name:'Tarkett iD Click Ultimate 70 LVT',url:'https://www.tarkett.com.au',size:'Click-lock LVT plank 225×1506mm | 6.5mm total | 0.70mm wear layer',price:'$46.63/m²',priceComp:'TBC: RML is price competitive Click-lock eliminates adhesive cost and improves DfD',supplier:'Tarkett',aoRec:'RECOMMENDED',circ:'GOOD — 20% recycled content (17% post-manufacturing). Click-lock DfD (no adhesive). AU ReStart® LVT unconfirmed. ADCA SVHC in acoustic backing (decomposed/trace — must disclose)',fireClass:'EU: Bfl-s1 (EN 13501-1) | AU CRF (AS 9239.1): not stated — confirm with Tarkett AU',certs:'EPD S-P-03331 v2 (valid 2027) | MHS EPEA 40524.2 v3.0 (exp Oct 2026) | Platinum VOC ≤10 µg/m³ | GreenTag Level A | BEP PVC Licence',status:'yes'},
+  {ref:'75',app:'Flooring - indoor for partner suites',cat:'Flooring - Vinyl',name:'Tarkett iD Tilt LVT',url:'https://www.tarkett.com.au',size:'Interlocking LVT | 5.0mm total | 0.70mm wear layer',price:'$49.70/m²',priceComp:'TBC',supplier:'Tarkett',aoRec:'CONDITIONAL',circ:'UNKNOWN — No MHS to verify. 25% recycled content stated but source/type unverified.',fireClass:'EU: Bfl-s1 (EN 13501-1) | AU CRF (AS 9239.1): not stated',certs:'NO EPD | NO MHS | Platinum VOC (stated spec sheet only — unverified) | GreenTag status not confirmed for Tilt specifically | BEP PVC Licence (Tarkett AU, expires Aug 2026)',status:'maybe'},
+  {ref:'76',app:'Flooring - indoor for partner suites',cat:'Flooring - Vinyl',name:'Tarkett iD Tilt HIT LVT (Heavy Industrial)',url:'https://www.tarkett.com.au',size:'Interlocking LVT | 6.0mm total | 2.70mm wear layer (3–4× standard)',price:'$67.61/m²',priceComp:'TBC: 20% premium. For I43 Heavy industrial applications requiring maximum wear resistance',supplier:'Tarkett',aoRec:'CONDITIONAL',circ:'LIMITED — EPD primary EOL = landfill. Lowest recycled content in range (13–15%). Minimal recycling credit (Module D: −0.47).',fireClass:'EU: Bfl-s1 (EN 13501-1) | AU CRF (AS 9239.1): not stated — confirm with Tarkett AU',certs:'EPD S-P-08634 (valid 2028) | MHS EPEA 40579.2 v3.0 (exp Oct 2026) | Platinum VOC ≤10 µg/m³ | GreenTag Level A | BEP PVC Licence',status:'maybe'},
+  {ref:'77',app:'Flooring - indoor for partner suites',cat:'Flooring - Vinyl',name:'Tarkett Granit Safe.T',url:'https://www.tarkett.com.au',size:'Roll 2m × 25m | 2.0mm',price:'$35.42/m²',priceComp:'TBC: RML is price competitive',supplier:'Tarkett',aoRec:'RECOMMENDED',circ:'EXCELLENT — AU ReStart® confirmed (partner guide). 25.5% pre-consumer recycled. Module D recycling benefit −4.16 kg CO₂eq/m². 90% recycling efficiency',fireClass:'CRF 11.0 kW/m² (AS/ISO 9239.1) | Smoke 88%.min',certs:'EPD EPD-IES-0001346:006 (valid 2030) | MHS EPEA 45597 v3.0 (exp Aug 2027) | Platinum VOC ≤10 µg/m³ | GreenTag Level A + HealthRATE Platinum | BEP PVC Licence TAR:FW01:2023:BP | AU ReStart®',status:'yes'},
+  {ref:'78',app:'Flooring - indoor for partner suites',cat:'Flooring - Vinyl',name:'Tarkett iQ Eminent',url:'https://www.tarkett.com.au',size:'Roll 2m × 23m | 2.0mm',price:'$29.37/m²',priceComp:'TBC: RML is price competitive',supplier:'Tarkett',aoRec:'RECOMMENDED',circ:'EXCELLENT — AU ReStart® confirmed. 25.5% recycled. Surface restoration extends service life (reduces replacement frequency and lifetime carbon). Module D: −4.16 kg CO₂eq/m²',fireClass:'CRF 11.0 kW/m² (AS/ISO 9239.1) | Smoke 117%.min | Wall: Group 3 (AS/NZS 3837) | ASEA 238.8 m²/kg',certs:'EPD EPD-IES-0001346:006 (valid 2030) | MHS EPEA 45597 v3.0 (exp Aug 2027) | Platinum VOC ≤10 µg/m³ | GreenTag Level A + HealthRATE Platinum | BEP PVC Licence TAR:FW01:2023:BP | AU ReStart®',status:'yes'},
+  {ref:'79',app:'Flooring - indoor for partner suites',cat:'Flooring - Vinyl',name:'Tarkett iQ Natural',url:'https://www.tarkett.com.au',size:'Roll 2m × 23m + tiles | 2.0mm',price:'$37.63/m²',priceComp:'TBC: 10% premium Lowest carbon + biobased content commands premium. Best environmental credentials in Tarkett sheet vinyl range',supplier:'Tarkett',aoRec:'RECOMMENDED',circ:'EXCELLENT — AU ReStart® confirmed. Lowest fossil carbon due to elevated ESBO biobased plasticiser. Module D: −4.16 kg CO₂eq/m². Renewable plasticiser reduces fossil feedstock dependency',fireClass:'CRF 11.2 kW/m² (ISO AS 9239-1) | Smoke 45%.min — HIGHEST CRF in Tarkett sheet vinyl range',certs:'EPD EPD-IES-0001346:006 (valid 2030) | MHS EPEA 45597 v3.0 (exp Aug 2027) | Platinum VOC ≤10 µg/m³ | E1 formaldehyde class | GreenTag Level A + HealthRATE Platinum | BEP PVC Licence TAR:FW01:2023:BP | AU ReStart®',status:'yes'},
+  {ref:'80',app:'Flooring - indoor for partner suites',cat:'Flooring - Vinyl',name:'Tarkett Primo Premium',url:'https://www.tarkett.com.au',size:'Roll 2m × 23m | 2.0mm',price:'$23.85/m²',priceComp:'TBC: RML is price competitive Full sustainability credentials at lowest price — no certified comparable at this price point',supplier:'Tarkett',aoRec:'RECOMMENDED',circ:'EXCELLENT — AU ReStart® confirmed. 25.5% recycled. Module D: −3.08 kg CO₂eq/m². 20yr service life (shorter than iQ range)',fireClass:'CRF 10.5 kW/m² (AS/ISO 9239.1) | Smoke 62%.min',certs:'EPD EPD-IES-0001504:003 (valid 2030) | MHS EPEA 45597 v3.0 cross-referenced (Premium/Plus specific MHS to confirm) | Platinum VOC ≤10 µg/m³ | E1 formaldehyde | GreenTag Level A + HealthRATE Platinum | BEP PVC Licence TAR:FW01:2023:BP | AU ReStart®',status:'yes'}
+];
+
+// carry-forward app for RML grouped rows
+(function(){var last='';rmlRows.forEach(function(r){if(r.app)last=r.app;else r.app=last;});})();
+
+function populateT3(){
+  var apps=[],sups=[],sA={},sS={};
+  rmlRows.forEach(function(r){
+    if(r.app&&!sA[r.app]){sA[r.app]=true;apps.push(r.app);}
+    if(r.supplier&&!sS[r.supplier]){sS[r.supplier]=true;sups.push(r.supplier);}
+  });
+  addOpts('t3-app',apps);
+  var fixedSups=['Armstrong Flooring','AusFab','AusWood','Big River Group','Bluescope','Bolon AB','Evolution FP','ForestOne','GH Commercial','Interface','Laminex Group','Milliken & Company','Paintback','Porta Products','Tarkett','Tuff Group','Widely available'];
+  addOpts('t3-sup',fixedSups);
+}
+
+function aoRecFilter3(aoRec,filt){
+  if(!filt)return true;
+  var t=aoRec.toLowerCase();
+  if(filt==='rec-rml') return t.indexOf('recommended')>-1;
+  if(filt==='conditional') return t.indexOf('conditional')>-1||t.indexOf('consider')>-1;
+  /* rec-bench, ifsep, limit, limitrml — RML rows never match */
+  return false;
+}
+function renderT3(){
+  if(!$('t3-tbody'))return;
+  var fA=v('t3-app'),fC=v('t3-cat'),fRec=v('t3-rec'),fS=v('t3-sup');
+  var tbody=$('t3-tbody'),html='',total=0,rowNum=0,lastApp='';
+  rmlRows.forEach(function(r){
+    if((!fA||r.app===fA)&&(!fC||r.cat===fC)&&aoRecFilter3(r.aoRec,fRec)&&(!fS||supMatch(r.supplier,fS))){
+      total++; rowNum++;
+      if(r.app!==lastApp){
+        lastApp=r.app;
+        html+='<tr><td colspan="16" style="background:#f1f5f9;padding:8px 12px;font-weight:700;font-size:.73rem;color:#1E2886;text-transform:uppercase;letter-spacing:.4px;border-top:2px solid #e2e8f0;border-bottom:2px solid #0288CC;">'+esc(r.app)+'</td></tr>';
+      }
+      var bg=STATUS_BG[r.status]||'';
+      html+='<tr class="data-row" style="background:'+bg+';">'
+        +'<td><span class="ref-badge">'+rowNum+'</span></td>'
+        +'<td><span class="cell-small">'+esc(r.app)+'</span></td>'
+        +'<td><span class="cell-small">'+esc(r.cat)+'</span></td>'
+        +'<td><div class="mat-name">'+esc(r.name)+'</div></td>'
+        +'<td><span style="color:var(--slate-300);">—</span></td>'
+        +'<td><span class="cell-small" style="white-space:normal;">'+esc(r.size||'—')+'</span></td>'
+        +'<td><span class="cell-small" style="white-space:normal;">'+priceFmt(r.price)+'</span></td>'
+        +'<td><span class="cell-small" style="white-space:normal;">'+esc(r.priceComp||'—')+'</span></td>'
+        +'<td>'+supLink(r.supplier,r.url)+'</td>'
+        +'<td class="td-gap"></td>'
+        +'<td class="td-amber" style="text-align:center;">'+rmlStarBadge(r.aoRec,r.status)+'</td>'
+        +'<td class="td-amber"><span class="cell-text">'+esc(r.circ||'—')+'</span></td>'
+        +'<td class="td-amber"><span class="cell-text">'+esc(r.fireClass||'—')+'</span></td>'
+        +'<td class="td-amber"><span class="cell-text">'+esc(r.certs||'—')+'</span></td>'
+        +'</tr>';
+    }
+  });
+  if(!html)html='<tr><td colspan="16" class="empty-state">No materials match the selected filters.</td></tr>';
+  tbody.innerHTML=html;
+  countLabel(total,'t3-count');
+}
+function clearT3(){['t3-app','t3-cat','t3-rec','t3-sup'].forEach(function(id){var e=$(id);if(e)e.value='';});renderT3();}
+
+// ── INIT ─────────────────────────────────────────────────────────
+populateCombined(); renderCombined();
+if($('t2-tbody')){populateT2(); renderT2();}
+if($('t3-tbody')){populateT3(); renderT3();}
+</script>
+<!-- SVG icon defs for Responsible Methods tab -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+  <defs>
+    <symbol id="ico-layers" viewBox="0 0 20 20" fill="none">
+      <path d="M10 2L18 6.5L10 11L2 6.5L10 2Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+      <path d="M2 10L10 14.5L18 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M2 13.5L10 18L18 13.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="ico-wrench" viewBox="0 0 20 20" fill="none">
+      <path d="M14.5 2.5a3.5 3.5 0 0 1 0 7 3.47 3.47 0 0 1-1.5-.34L5.5 16.5A1.5 1.5 0 0 1 3.5 14.5l7.34-7.5A3.5 3.5 0 0 1 14.5 2.5Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M14.5 2.5V5H17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="ico-check" viewBox="0 0 20 20" fill="none">
+      <circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="1.5"/>
+      <path d="M6.5 10.5L9 13L13.5 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="ico-grid" viewBox="0 0 20 20" fill="none">
+      <rect x="2" y="2" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.5"/>
+      <rect x="11" y="2" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.5"/>
+      <rect x="2" y="11" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.5"/>
+      <rect x="11" y="11" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.5"/>
+    </symbol>
+    <symbol id="ico-bolt" viewBox="0 0 20 20" fill="none">
+      <path d="M11 2L4 11h6l-1 7 7-9h-6l1-7Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="ico-box" viewBox="0 0 20 20" fill="none">
+      <path d="M3 7l7-4 7 4v9l-7 4-7-4V7Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+      <path d="M10 3v13M3 7l7 4 7-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="ico-clipboard" viewBox="0 0 20 20" fill="none">
+      <rect x="4" y="4" width="12" height="14" rx="1.5" stroke="currentColor" stroke-width="1.5"/>
+      <path d="M7 4V3a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      <path d="M7 9h6M7 12h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="ico-tag" viewBox="0 0 20 20" fill="none">
+      <path d="M10.5 2H17v6.5L10 16a1.5 1.5 0 0 1-2 0L3 11a1.5 1.5 0 0 1 0-2L10.5 2Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+      <circle cx="14" cy="6" r="1.25" fill="currentColor"/>
+    </symbol>
+  </defs>
+</svg>
+</body>
+</html>
