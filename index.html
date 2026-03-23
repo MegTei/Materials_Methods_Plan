@@ -544,6 +544,7 @@ thead th.th-concern{background:linear-gradient(135deg,#7f1d1d 0%,#991b1b 100%);c
     <button class="tab-btn active" onclick="showTab('target',this)">Target Materials</button>
     <button class="tab-btn" onclick="showTab('pocket',this)">Responsible Methods</button>
     <button class="tab-btn" onclick="showTab('plan',this)">Incremental Framework</button>
+    <button class="tab-btn" onclick="showTab('resources',this)">Resources</button>
   </nav>
 </header>
 
@@ -697,7 +698,7 @@ thead th.th-concern{background:linear-gradient(135deg,#7f1d1d 0%,#991b1b 100%);c
       <div class="card-body">
         <div class="card-step">
           <div class="cs-icon"><svg width="18" height="18" style="color:#047857"><use href="#ico-bolt"/></svg></div>
-          <div><div class="cs-label">Step 1 — Materials matter</div><div class="cs-text">Consult the AO Target Materials List (TML) — choose materials that deliver your reuse targets or if not possible to reuse, the material can be recycled. The AO TML can tell you what to look for.</div></div>
+          <div><div class="cs-label">Step 1 — Materials matter</div><div class="cs-text"><strong>Consult the AO Target Materials List (TML)</strong> — choose materials that deliver your reuse targets or if not possible to reuse, the material can be recycled. The AO TML can tell you what to look for.</div></div>
         </div>
         <div class="p-card-divider"></div>
         <div class="card-step">
@@ -712,7 +713,7 @@ thead th.th-concern{background:linear-gradient(135deg,#7f1d1d 0%,#991b1b 100%);c
         <div class="p-card-divider"></div>
         <div class="card-step">
           <div class="cs-icon"><svg width="18" height="18" style="color:#047857"><use href="#ico-box"/></svg></div>
-          <div><div class="cs-label">Step 4 — Disassembly effort</div><div class="cs-text">Plan for time and labour needed to pack down and separate waste.</div></div>
+          <div><div class="cs-label">Step 4 — Disassembly effort</div><div class="cs-text"><strong>Plan for time and labour</strong> needed to pack down and separate waste.</div></div>
         </div>
         <div class="p-card-divider"></div>
         <div class="card-step">
@@ -768,7 +769,7 @@ thead th.th-concern{background:linear-gradient(135deg,#7f1d1d 0%,#991b1b 100%);c
           <div>
             <p style="margin:0 0 10px;font-weight:700;color:var(--navy);font-size:.93rem;">Use AO Target Materials where possible</p>
             <p style="margin:0 0 10px;">Many of the materials used today in the AO build are circular — that is, reusable and recyclable. It is how we treat and dispose of materials that creates waste. Finishes and how they are handled on bump-out can keep them out of landfill.</p>
-            <a href="#" style="display:inline-flex;align-items:center;gap:6px;font-size:.82rem;font-weight:700;color:#0091D2;text-decoration:none;border:1.5px solid #0091D2;border-radius:6px;padding:5px 12px;">
+            <a href="#" onclick="showTab('target',document.querySelectorAll('.tab-btn')[0]);return false;" style="display:inline-flex;align-items:center;gap:6px;font-size:.82rem;font-weight:700;color:#0091D2;text-decoration:none;border:1.5px solid #0091D2;border-radius:6px;padding:5px 12px;">
               <svg width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M10 3H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-5"/><path d="M15 3h2v2m0 0-7 7"/><path d="M13 3h4v4"/></svg>
               Find the AO Target Materials List here
             </a>
@@ -781,11 +782,11 @@ thead th.th-concern{background:linear-gradient(135deg,#7f1d1d 0%,#991b1b 100%);c
           <div style="min-width:32px;height:32px;border-radius:50%;background:var(--navy);color:white;font-size:.75rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;">03</div>
           <div>
             <p style="margin:0 0 10px;font-weight:700;color:var(--navy);font-size:.93rem;">Do all materials have a responsible alternative?</p>
-            <p style="margin:0 0 12px;">No — unfortunately not. Some waste is unavoidable because there aren't responsible alternatives and bump-out has time constraints. The materials that face a substitution challenge are MDF, SAV, outdoor flooring (decking).</p>
+            <p style="margin:0 0 12px;">Unfortunately some waste is unavoidable because there aren&#39;t responsible alternatives and bump-out faces time constraints. The materials that have a substitution challenge are MDF, SAV, outdoor flooring (decking).</p>
             <div style="display:flex;flex-direction:column;gap:10px;padding-left:8px;">
-              <div style="display:flex;gap:10px;"><span style="min-width:22px;color:#0091D2;font-weight:700;">i)</span><span>There are some alternatives for <strong>MDF</strong>, although they come at a higher premium — the requirement is, if using MDF, commit to modular design so that it can be reused rather than single-use straight to landfill.</span></div>
-              <div style="display:flex;gap:10px;"><span style="min-width:22px;color:#0091D2;font-weight:700;">ii)</span><span>Hi-res <strong>graphics</strong> typically use SAV or ACM (aluminium composite). If they can be separated from substrates some materials can be recovered — especially ACM where aluminium is high value on the secondary market.</span></div>
-              <div style="display:flex;gap:10px;"><span style="min-width:22px;color:#0091D2;font-weight:700;">iii)</span><span><strong>Decking</strong> has no end-of-life pathway — attempt to design components for reuse.</span></div>
+              <div style="display:flex;gap:10px;"><span style="min-width:22px;color:#0091D2;font-weight:700;">i)</span><span>There are some alternatives for MDF. Some are on par and some priced at a premium. We encourage consideration of the alternatives or if using MDF, commit to modular design so that it can be reused rather than single-use straight to landfill.</span></div>
+              <div style="display:flex;gap:10px;"><span style="min-width:22px;color:#0091D2;font-weight:700;">ii)</span><span>Hi-res graphics typically use SAV or ACM (aluminium composite). If they can be separated from substrates some materials can be recovered — especially ACM where aluminium is high value on the secondary market.</span></div>
+              <div style="display:flex;gap:10px;"><span style="min-width:22px;color:#0091D2;font-weight:700;">iii)</span><span>Decking has no end-of-life pathway — attempt to design components for reuse.</span></div>
             </div>
           </div>
         </div>
@@ -796,17 +797,17 @@ thead th.th-concern{background:linear-gradient(135deg,#7f1d1d 0%,#991b1b 100%);c
           <div style="min-width:32px;height:32px;border-radius:50%;background:var(--navy);color:white;font-size:.75rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;">04</div>
           <div style="width:100%;">
             <p style="margin:0 0 10px;font-weight:700;color:var(--navy);font-size:.93rem;">Interventions I can put into practice now</p>
-            <p style="margin:0 0 14px;">Begin with the end in mind — <em>"what will happen to a material at the end of the event?"</em> It is clear in design and procurement where it will end up — this is the opportunity to design waste out.</p>
+            <p style="margin:0 0 14px;">Begin with the end in mind. Consider "what will happen to a material at the end of the event?" It is clear in design and procurement where it will end up — this is the opportunity to design waste out.</p>
             <p style="margin:0 0 6px;font-weight:700;color:#334155;">Consider the treatments to materials</p>
             <p style="margin:0 0 16px;">Use of water-based paint, oils and untreated timbers allows them to be recycled.</p>
-            <p style="margin:0 0 8px;font-weight:700;color:#334155;">Can graphics use any of these options?</p>
+            <p style="margin:0 0 8px;font-weight:700;color:#334155;">For graphics consider the following</p>
             <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:16px;padding-left:8px;">
               <div style="display:flex;gap:10px;"><span style="color:#0091D2;font-weight:700;flex-shrink:0;">•</span><span>Fabric is an alternative (used in Ballpark AO26)</span></div>
-              <div style="display:flex;gap:10px;"><span style="color:#0091D2;font-weight:700;flex-shrink:0;">•</span><span>High-res graphics bonded to ACP or ply create unrecoverable composites — a high waste category. Aluminium has great resale value and material separation at bump-out keeps it out of landfill.</span></div>
+              <div style="display:flex;gap:10px;"><span style="color:#0091D2;font-weight:700;flex-shrink:0;">•</span><span>High-res graphics bonded to ACM or ply create unrecoverable composites — a high waste category. Aluminium has great resale value and material separation at bump-out keeps it out of landfill.</span></div>
               <div style="display:flex;gap:10px;"><span style="color:#0091D2;font-weight:700;flex-shrink:0;">•</span><span>Avoid Foamex where possible — many builders consider it inferior and it cannot be recycled easily.</span></div>
             </div>
             <p style="margin:0 0 8px;font-weight:700;color:#334155;">Consider wood products and treatments</p>
-            <p style="margin:0 0 10px;">There are many types of engineered wood — <a href="#" style="color:#0091D2;font-weight:600;text-decoration:none;">see our fact sheet</a>. The resins (glues) used in them can send them to landfill. The AO Target List recommends engineered wood and timber products that are suited to reuse and highlights where they can be recycled.</p>
+            <p style="margin:0 0 10px;">There are many types of engineered wood — <a href="#" onclick="showTab('resources',document.querySelectorAll('.tab-btn')[3]);return false;" style="color:#0091D2;font-weight:600;text-decoration:none;">see our fact sheet</a>. The resins (glues) used in them can send them to landfill. The AO Target List recommends engineered wood and timber products that are suited to reuse and highlights where they can be recycled.</p>
             <div style="background:#fef9c3;border-left:3px solid #fbbf24;border-radius:0 8px 8px 0;padding:12px 16px;font-size:.84rem;color:#78350f;">
               <strong>Note:</strong> There is extremely limited MDF recycling globally. The formaldehyde resin and fibre composite make it difficult to break down. MDF is the popular choice for joinery / cabinetry / wall flats. The AO request is — take a look at alternatives and consider if the premium is viable over a longer lifecycle, or if it is used, be sure it is in an evergreen element for reuse.
             </div>
@@ -1460,6 +1461,23 @@ thead th.th-concern{background:linear-gradient(135deg,#7f1d1d 0%,#991b1b 100%);c
     title="Incremental Framework">
   </iframe>
 </div><!-- /tab-plan -->
+
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- TAB — RESOURCES                                                 -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<div id="tab-resources" class="tab-panel">
+  <div style="margin-top:28px;">
+    <div class="section-title">Resources</div>
+    <div class="divider"></div>
+  </div>
+  <div style="margin-top:40px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px 0;">
+    <div style="font-size:2.2rem;margin-bottom:16px;">🚧</div>
+    <div style="font-size:1.1rem;font-weight:700;color:var(--navy);margin-bottom:8px;">Coming soon</div>
+    <div style="font-size:.88rem;color:var(--text-light);">Resources and reference materials will appear here.</div>
+  </div>
+</div><!-- /tab-resources -->
+
 
 </main>
 
