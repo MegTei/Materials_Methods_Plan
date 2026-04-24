@@ -207,13 +207,13 @@ thead th.th-concern{background:linear-gradient(135deg,#7f1d1d 0%,#991b1b 100%);c
 .cs-text{font-size:.82rem;color:var(--slate-600);line-height:1.55;}
 .cs-text strong{color:#1e293b;font-weight:700;}
 .p-card-divider{height:1px;background:var(--slate-100);margin:18px 0;}
-.card-prompt{border-radius:10px;padding:16px 18px;display:flex;gap:12px;align-items:flex-start;margin:4px 30px 24px;}
-.card-a .card-prompt{background:rgba(2,136,204,.06);border:1.5px solid rgba(2,136,204,.2);}
-.card-b .card-prompt{background:rgba(16,185,129,.06);border:1.5px solid rgba(16,185,129,.2);}
+.card-prompt{border-radius:10px;padding:16px 18px 16px 20px;display:flex;gap:12px;align-items:flex-start;margin:4px 30px 24px;border-left-width:4px !important;}
+.card-a .card-prompt{background:rgba(2,136,204,.06);border:1.5px solid rgba(2,136,204,.2);border-left-color:#0091D2 !important;}
+.card-b .card-prompt{background:rgba(16,185,129,.06);border:1.5px solid rgba(16,185,129,.2);border-left-color:#047857 !important;}
 .prompt-icon{flex-shrink:0;margin-top:1px;display:flex;}
 .prompt-lbl{font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.6px;margin-bottom:4px;}
 .card-a .prompt-lbl{color:#0091D2;}.card-b .prompt-lbl{color:#047857;}
-.prompt-text{font-size:.82rem;color:#64748b;font-style:italic;line-height:1.5;}
+.prompt-text{font-size:.86rem;color:#475569;font-style:italic;line-height:1.55;}
 .card-footer{padding:13px 30px;border-top:1px solid var(--slate-100);display:flex;justify-content:space-between;align-items:center;background:var(--slate-50);}
 .footer-mark{font-size:.7rem;font-weight:600;color:var(--slate-400);}
 .footer-steps{font-size:.7rem;font-weight:700;color:var(--slate-400);}
@@ -244,8 +244,12 @@ thead th.th-concern{background:linear-gradient(135deg,#7f1d1d 0%,#991b1b 100%);c
 .btn-expand:hover{text-decoration:underline;}
 
 /* Methods card accordion */
-.cs-label{cursor:pointer;user-select:none;display:flex;align-items:center;justify-content:space-between;}
-.cs-label-arrow{font-size:.65rem;color:var(--slate-400);transition:transform .2s;flex-shrink:0;margin-left:8px;}
+.cs-label{cursor:pointer;user-select:none;display:flex;align-items:center;justify-content:space-between;padding:2px 6px;margin:-2px -6px 3px;border-radius:5px;transition:background-color .15s;}
+.cs-label:hover{background:rgba(2,136,204,.06);}
+.card-b .cs-label:hover{background:rgba(16,185,129,.06);}
+.cs-label-text{font-size:.78rem;font-weight:700;text-transform:none;letter-spacing:0;color:#1e293b;}
+.cs-label-arrow{font-size:.7rem;color:var(--slate-400);transition:transform .2s;flex-shrink:0;margin-left:8px;}
+.cs-label:hover .cs-label-arrow{color:var(--slate-600);}
 .cs-step-body{overflow:hidden;transition:max-height .25s ease,opacity .2s ease;max-height:600px;opacity:1;}
 .cs-step-body.step-collapsed{max-height:0 !important;opacity:0;pointer-events:none;}
 
@@ -263,6 +267,52 @@ thead th.th-concern{background:linear-gradient(135deg,#7f1d1d 0%,#991b1b 100%);c
   .filter-group select,.filter-search-input{min-width:100%;width:100%;}
   .callouts-grid{grid-template-columns:1fr;}
   .how-to-body{grid-template-columns:1fr;}
+}
+
+/* Material-request prompt strip (Target Materials tab) */
+.material-request-strip{display:flex;align-items:center;gap:10px;background:linear-gradient(to right,rgba(2,136,204,.06),rgba(2,136,204,.02));border:1px solid rgba(2,136,204,.2);border-left:3px solid #0091D2;border-radius:8px;padding:10px 14px;margin:20px 0 14px;font-size:.85rem;color:var(--slate-700);}
+.material-request-strip svg{color:#0091D2;flex-shrink:0;}
+.material-request-strip a{color:#0091D2;font-weight:700;text-decoration:none;white-space:nowrap;}
+.material-request-strip a:hover{text-decoration:underline;}
+
+/* Material request form (Resources tab) */
+.mr-section{margin-top:48px;padding-top:36px;border-top:1px solid var(--slate-200);scroll-margin-top:24px;}
+.mr-section h2{font-size:1.35rem;font-weight:800;color:var(--navy);margin:0 0 8px;letter-spacing:-.01em;}
+.mr-section .mr-intro{font-size:.9rem;color:var(--slate-600);line-height:1.55;margin:0 0 24px;max-width:720px;}
+.mr-form{max-width:720px;background:var(--slate-50);border:1.5px solid var(--slate-200);border-radius:12px;padding:28px 28px 24px;}
+.mr-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:14px;}
+.mr-field{display:flex;flex-direction:column;gap:5px;margin-bottom:14px;}
+.mr-field.mr-half{margin-bottom:0;}
+.mr-field label{font-size:.74rem;font-weight:700;color:var(--slate-700);text-transform:uppercase;letter-spacing:.35px;}
+.mr-field label .mr-req{color:#dc2626;margin-left:2px;}
+.mr-field input[type="text"],.mr-field input[type="email"],.mr-field textarea,.mr-field select{font-family:inherit;font-size:.87rem;color:var(--slate-900);background:white;border:1.5px solid var(--slate-200);border-radius:7px;padding:9px 12px;outline:none;transition:border-color .15s,box-shadow .15s;width:100%;}
+.mr-field textarea{resize:vertical;min-height:92px;line-height:1.5;}
+.mr-field input:focus,.mr-field textarea:focus,.mr-field select:focus{border-color:#0091D2;box-shadow:0 0 0 3px rgba(2,136,204,.12);}
+.mr-field-hint{font-size:.74rem;color:var(--slate-500);margin-top:2px;}
+.mr-actions{display:flex;gap:12px;align-items:center;margin-top:22px;flex-wrap:wrap;}
+.mr-submit{font-family:inherit;font-size:.85rem;font-weight:700;color:white;background:#0091D2;border:none;border-radius:8px;padding:11px 22px;cursor:pointer;letter-spacing:.2px;transition:background-color .15s,transform .1s;}
+.mr-submit:hover{background:#0079B0;}
+.mr-submit:active{transform:translateY(1px);}
+.mr-note{font-size:.78rem;color:var(--slate-500);}
+.mr-success{display:none;background:rgba(16,185,129,.08);border:1.5px solid rgba(16,185,129,.3);border-left:3px solid #047857;color:#065f46;padding:14px 16px;border-radius:8px;font-size:.87rem;line-height:1.5;margin-top:16px;}
+.mr-success.show{display:block;}
+/* Material request modal */
+.mr-modal{position:fixed;inset:0;z-index:1000;background:rgba(13,31,60,.55);backdrop-filter:blur(3px);display:none;align-items:flex-start;justify-content:center;padding:40px 20px;overflow-y:auto;}
+.mr-modal.open{display:flex;}
+.mr-modal-dialog{position:relative;background:white;border-radius:14px;box-shadow:0 20px 60px rgba(0,0,0,.3);width:100%;max-width:760px;padding:36px 36px 30px;animation:mrModalIn .25s ease;}
+@keyframes mrModalIn{from{opacity:0;transform:translateY(-12px) scale(.98);}to{opacity:1;transform:none;}}
+.mr-modal-close{position:absolute;top:14px;right:14px;width:32px;height:32px;border-radius:50%;border:1px solid var(--slate-200);background:white;color:var(--slate-600);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .15s;z-index:2;}
+.mr-modal-close:hover{background:var(--slate-100);color:var(--slate-900);border-color:var(--slate-300);}
+.mr-modal .mr-section{margin-top:0;padding-top:0;border-top:none;}
+.mr-modal .mr-form{max-width:none;}
+@media(max-width:640px){
+  .mr-modal{padding:20px 12px;}
+  .mr-modal-dialog{padding:28px 20px 22px;}
+}
+@media(max-width:640px){
+  .mr-row{grid-template-columns:1fr;gap:0;}
+  .mr-field.mr-half{margin-bottom:14px;}
+  .mr-form{padding:22px 20px 20px;}
 }
 
 .ip-wrap{
@@ -615,6 +665,12 @@ thead th.th-concern{background:linear-gradient(135deg,#7f1d1d 0%,#991b1b 100%);c
     </div>
   </div>
 
+  <!-- Material-request prompt -->
+  <div class="material-request-strip">
+    <svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.5"/><path d="M10 6v4M10 13.5v.1"/></svg>
+    <span>Have a material you'd like to add to the list? <a href="#material-request" onclick="goToMaterialRequest();return false;">Let us know →</a></span>
+  </div>
+
   <div class="filter-bar" id="filter-bar-combined">
     <div class="filter-search-wrap">
       <label for="ct-search">Search</label>
@@ -691,43 +747,43 @@ thead th.th-concern{background:linear-gradient(135deg,#7f1d1d 0%,#991b1b 100%);c
     <!-- CARD A -->
     <div class="pocket-card card-a">
       <div class="card-head">
-        <div class="card-eyebrow">Track 1</div>
+        <div class="card-eyebrow">Phase 1 · Before the Build</div>
         <div class="card-title">Design Phase</div>
         <div class="card-subtitle">Design and material choices made upfront determine what's possible at bump-out. Lock these in the brief with builders.</div>
       </div>
       <div class="card-body">
         <div class="card-step">
-          <div class="cs-icon"><svg width="18" height="18" style="color:#0091D2"><use href="#ico-grid"/></svg></div>
-          <div><div class="cs-label">Step 1 — Evergreen Elements</div><div class="cs-text"><strong>Long-term design (3 year contracts) enable design and build of "evergreen" elements.</strong> These reusable assets amplify fan experience building on familiarity year on year. Create a realistic plan to achieve 30% reuse in year 3.</div></div>
+          <div class="cs-icon"><svg width="18" height="18" style="color:#0091D2"><use href="#ico-leaf"/></svg></div>
+          <div><div class="cs-label"><span class="cs-label-text">Evergreen Elements</span></div><div class="cs-text"><strong>Long-term design (3 year contracts) enable design and build of "evergreen" elements.</strong> These reusable assets amplify fan experience building on familiarity year on year. Create a realistic plan to achieve 30% reuse in year 3.</div></div>
         </div>
         <div class="p-card-divider"></div>
         <div class="card-step">
-          <div class="cs-icon"><svg width="18" height="18" style="color:#0091D2"><use href="#ico-layers"/></svg></div>
-          <div><div class="cs-label">Step 2 — Design Waste Out</div><div class="cs-text"><strong>Designers have a key role designing waste out.</strong> Identify which materials will be reused and which ones will go to a waste stream. Many materials used in AO venue overlays can be reused or recycled. Consider finishes that won't contaminate materials and handling at bump-out such as separating composite materials (e.g. ACM and ply facades).</div></div>
+          <div class="cs-icon"><svg width="18" height="18" style="color:#0091D2"><use href="#ico-pencil-bin"/></svg></div>
+          <div><div class="cs-label"><span class="cs-label-text">Design Waste Out</span></div><div class="cs-text"><strong>Designers have a key role designing waste out.</strong> Identify which materials will be reused and which ones will go to a waste stream. Many materials used in AO venue overlays can be reused or recycled. Consider finishes that won't contaminate materials and handling at bump-out such as separating composite materials (e.g. ACM and ply facades).</div></div>
         </div>
         <div class="p-card-divider"></div>
         <div class="card-step">
-          <div class="cs-icon"><svg width="18" height="18" style="color:#0091D2"><use href="#ico-box"/></svg></div>
-          <div><div class="cs-label">Step 3 — Circular Design</div><div class="cs-text"><strong>Modular Design and Design for Disassembly (DfD) create reusable systems.</strong> Systems design incorporating connectors — mechanical joinery (bolted, screwed, nailed connections) that don't need chemical bonds (glues, sealers, welding) will allow for disassembly and keep materials recoverable at bump-out.</div></div>
+          <div class="cs-icon"><svg width="18" height="18" style="color:#0091D2"><use href="#ico-puzzle"/></svg></div>
+          <div><div class="cs-label"><span class="cs-label-text">Circular Design</span></div><div class="cs-text"><strong>Modular Design and Design for Disassembly (DfD) create reusable systems.</strong> Systems design incorporating connectors — mechanical joinery (bolted, screwed, nailed connections) that don't need chemical bonds (glues, sealers, welding) will allow for disassembly and keep materials recoverable at bump-out.</div></div>
         </div>
         <div class="p-card-divider"></div>
         <div class="card-step">
-          <div class="cs-icon"><svg width="18" height="18" style="color:#0091D2"><use href="#ico-bolt"/></svg></div>
-          <div><div class="cs-label">Step 4 — Choose Materials for reuse</div><div class="cs-text"><strong>Consult the AO Target Materials List (TML)</strong> in design — zone in on whether the same outcome can be delivered that is not single use. The AO TML can tell you what to look for.</div></div>
+          <div class="cs-icon"><svg width="18" height="18" style="color:#0091D2"><use href="#ico-list-search"/></svg></div>
+          <div><div class="cs-label"><span class="cs-label-text">Choose Materials for Reuse</span></div><div class="cs-text"><strong>Consult the AO Target Materials List (TML)</strong> in design — zone in on whether the same outcome can be delivered that is not single use. The AO TML can tell you what to look for.</div></div>
         </div>
         <div class="p-card-divider"></div>
         <div class="card-step">
-          <div class="cs-icon"><svg width="18" height="18" style="color:#0091D2"><use href="#ico-clipboard"/></svg></div>
-          <div><div class="cs-label">Step 5 — Document modular and DfD</div><div class="cs-text"><strong>Documentation of the system and methods are essential</strong> — design plans illustrating how components work together so that future contractors can assemble and dismantle with care.</div></div>
+          <div class="cs-icon"><svg width="18" height="18" style="color:#0091D2"><use href="#ico-document"/></svg></div>
+          <div><div class="cs-label"><span class="cs-label-text">Document Modular &amp; DfD</span></div><div class="cs-text"><strong>Documentation of the system and methods are essential</strong> — design plans illustrating how components work together so that future contractors can assemble and dismantle with care.</div></div>
         </div>
         <div class="p-card-divider"></div>
         <div class="card-step">
-          <div class="cs-icon"><svg width="18" height="18" style="color:#0091D2"><use href="#ico-box"/></svg></div>
-          <div><div class="cs-label">Step 6 — Evaluate Build Effort &amp; Storage</div><div class="cs-text"><strong>Work with builders to evaluate which design elements are fit-for-purpose.</strong> Consider the effort for a builder to pack down on bump out. Storage logistics and which assets will be retained are considerations in the design stage, not at bump out.</div></div>
+          <div class="cs-icon"><svg width="18" height="18" style="color:#0091D2"><use href="#ico-warehouse"/></svg></div>
+          <div><div class="cs-label"><span class="cs-label-text">Evaluate Build Effort &amp; Storage</span></div><div class="cs-text"><strong>Work with builders to evaluate which design elements are fit-for-purpose.</strong> Consider the effort for a builder to pack down on bump out. Storage logistics and which assets will be retained are considerations in the design stage, not at bump out.</div></div>
         </div>
       </div>
       <div class="card-prompt">
-        <div class="prompt-icon"><svg width="18" height="18" style="color:#0091D2"><use href="#ico-check"/></svg></div>
+        <div class="prompt-icon"><svg width="18" height="18" style="color:#0091D2"><use href="#ico-quote"/></svg></div>
         <div>
           <div class="prompt-lbl">Design-Stage Prompt — Design with the end in mind</div>
           <div class="prompt-text">"Have I considered design with responsible materials and how to reuse or recover them? Have my methods ensured what we put on materials (paint/graphics) and how we build enables them to be reused or recovered?"</div>
@@ -741,43 +797,43 @@ thead th.th-concern{background:linear-gradient(135deg,#7f1d1d 0%,#991b1b 100%);c
     <!-- CARD B -->
     <div class="pocket-card card-b">
       <div class="card-head">
-        <div class="card-eyebrow">Track 2</div>
+        <div class="card-eyebrow">Phase 2 · During &amp; After</div>
         <div class="card-title">Build &amp; Deconstruct Phase</div>
         <div class="card-subtitle">Many materials in waste streams are perfectly reusable and recyclable. It is our methods that turns them into waste. Follow this on pack-down.</div>
       </div>
       <div class="card-body">
         <div class="card-step">
-          <div class="cs-icon"><svg width="18" height="18" style="color:#047857"><use href="#ico-bolt"/></svg></div>
-          <div><div class="cs-label">Step 1 — Materials matter</div><div class="cs-text"><strong>Consult the AO Target Materials List (TML)</strong> — choose materials that deliver your reuse targets or if not possible to reuse, the material can be recycled. The AO TML can tell you what to look for.</div></div>
+          <div class="cs-icon"><svg width="18" height="18" style="color:#047857"><use href="#ico-list-search"/></svg></div>
+          <div><div class="cs-label"><span class="cs-label-text">Materials Matter</span></div><div class="cs-text"><strong>Consult the AO Target Materials List (TML)</strong> — choose materials that deliver your reuse targets or if not possible to reuse, the material can be recycled. The AO TML can tell you what to look for.</div></div>
         </div>
         <div class="p-card-divider"></div>
         <div class="card-step">
           <div class="cs-icon"><svg width="18" height="18" style="color:#047857"><use href="#ico-wrench"/></svg></div>
-          <div><div class="cs-label">Step 2 — Methods matter</div><div class="cs-text"><strong>Methods to mitigate waste.</strong> Many materials we use today are circular. It is the application of finishes and how they are handled at bump-out that turns them into waste. Mechanical connectors allow disassembly without damage, water-based paint, wood treatments and separation of materials create clean resource streams.</div></div>
+          <div><div class="cs-label"><span class="cs-label-text">Methods Matter</span></div><div class="cs-text"><strong>Methods to mitigate waste.</strong> Many materials we use today are circular. It is the application of finishes and how they are handled at bump-out that turns them into waste. Mechanical connectors allow disassembly without damage, water-based paint, wood treatments and separation of materials create clean resource streams.</div></div>
         </div>
         <div class="p-card-divider"></div>
         <div class="card-step">
-          <div class="cs-icon"><svg width="18" height="18" style="color:#047857"><use href="#ico-clipboard"/></svg></div>
-          <div><div class="cs-label">Step 3 — Document modular and DfD</div><div class="cs-text"><strong>Documentation of the system and methods are essential</strong> — using the design illustrations build plans need to document how components work together so that contractors can assemble and dismantle with care.</div></div>
+          <div class="cs-icon"><svg width="18" height="18" style="color:#047857"><use href="#ico-document"/></svg></div>
+          <div><div class="cs-label"><span class="cs-label-text">Document Modular &amp; DfD</span></div><div class="cs-text"><strong>Documentation of the system and methods are essential</strong> — using the design illustrations build plans need to document how components work together so that contractors can assemble and dismantle with care.</div></div>
         </div>
         <div class="p-card-divider"></div>
         <div class="card-step">
-          <div class="cs-icon"><svg width="18" height="18" style="color:#047857"><use href="#ico-box"/></svg></div>
-          <div><div class="cs-label">Step 4 — Disassembly effort</div><div class="cs-text"><strong>Plan for time and labour</strong> needed to pack down and separate waste.</div></div>
+          <div class="cs-icon"><svg width="18" height="18" style="color:#047857"><use href="#ico-explode"/></svg></div>
+          <div><div class="cs-label"><span class="cs-label-text">Disassembly Effort</span></div><div class="cs-text"><strong>Plan for time and labour</strong> needed to pack down and separate waste.</div></div>
         </div>
         <div class="p-card-divider"></div>
         <div class="card-step">
-          <div class="cs-icon"><svg width="18" height="18" style="color:#047857"><use href="#ico-clipboard"/></svg></div>
-          <div><div class="cs-label">Step 5 — Plan Before You Start</div><div class="cs-text"><strong>Read the deconstruction (DfD) documentation.</strong> Plan effort and resources to pack down. Use the Design for Disassembly instructions, follow the specified steps to avoid damage.</div></div>
+          <div class="cs-icon"><svg width="18" height="18" style="color:#047857"><use href="#ico-route"/></svg></div>
+          <div><div class="cs-label"><span class="cs-label-text">Plan Before You Start</span></div><div class="cs-text"><strong>Read the deconstruction (DfD) documentation.</strong> Plan effort and resources to pack down. Use the Design for Disassembly instructions, follow the specified steps to avoid damage.</div></div>
         </div>
         <div class="p-card-divider"></div>
         <div class="card-step">
           <div class="cs-icon"><svg width="18" height="18" style="color:#047857"><use href="#ico-tag"/></svg></div>
-          <div><div class="cs-label">Step 6 — Track &amp; Tag</div><div class="cs-text"><strong>Record procurement costs and track reused assets</strong> — maintain a consistent material tracking log from specification stage through to bump-out and warehouse storage. Tag evergreen assets with circular status, age and condition. This is key in measuring circularity and financial ROI outcomes.</div></div>
+          <div><div class="cs-label"><span class="cs-label-text">Track &amp; Tag</span></div><div class="cs-text"><strong>Record procurement costs and track reused assets</strong> — maintain a consistent material tracking log from specification stage through to bump-out and warehouse storage. Tag evergreen assets with circular status, age and condition. This is key in measuring circularity and financial ROI outcomes.</div></div>
         </div>
       </div>
       <div class="card-prompt">
-        <div class="prompt-icon"><svg width="18" height="18" style="color:#047857"><use href="#ico-check"/></svg></div>
+        <div class="prompt-icon"><svg width="18" height="18" style="color:#047857"><use href="#ico-quote"/></svg></div>
         <div>
           <div class="prompt-lbl">Bump-Out — Planning Prompt</div>
           <div class="prompt-text">"Have I considered AO target materials and methods to reuse or recover resources? Have I allocated time to disassemble and to label assets with circular status as I pack them for storage?"</div>
@@ -1589,7 +1645,112 @@ thead th.th-concern{background:linear-gradient(135deg,#7f1d1d 0%,#991b1b 100%);c
     </div>
     <!-- /Tile: Waste Management Plan -->
 
+    <!-- Tile: Material Request -->
+    <div style="background:white;border-radius:14px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.08);border:1.5px solid var(--slate-200);display:flex;flex-direction:column;transition:box-shadow .2s;" onmouseover="this.style.boxShadow='0 6px 24px rgba(30,40,134,.13)'" onmouseout="this.style.boxShadow='0 2px 12px rgba(0,0,0,.08)'">
+
+      <!-- Tile image / photo -->
+      <div style="position:relative;overflow:hidden;height:180px;">
+        <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBAUEBAYFBQUGBgYHCQ4JCQgICRINDQoOFRIWFhUSFBQXGiEcFxgfGRQUHScdHyIjJSUlFhwpLCgkKyEkJST/2wBDAQYGBgkICREJCREkGBQYJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCT/wgARCAFoAlgDASIAAhEBAxEB/8QAGwABAQEBAQEBAQAAAAAAAAAAAAECAwQFBgf/xAAaAQEBAQADAQAAAAAAAAAAAAAAAQMCBAUG/9oADAMBAAIQAxAAAAH2CxRQKBSAFAAAAAABLKAiwSwAgJLBASwgJLBnWSSxJLKmdZISxAkQZsESkRGbBmwkuUIP0g4aUFAsoLEoAAAAAAAIUAlglgICCWCWCWEIJYSWEzYkllSWEiWIgzYSWVIiIgiElgiJEH6YcOdCrLCyiwUAAAAACAAFIACAgICAlhFhJYQgzYklhJZUlySWWSBJYZllSCZISWEliSWEFfprLnoUCwAKAAALKRRAJRBSUQAEBAQElgIJYIElhJYSXNiISXIzZZJciWEzZUIklhJYSCSWERX6iy56LLApFAApFAAACURYJRFVJRAQEWCWEWElElhJYSaySWJM2VIgzc2IhJYSFSWJJYSXIlhJYklhBX6ixlpbBQUAFSgAAAAACUQCVUlGVElgIJYJYSUSWGZrJM6ykiVM6ySXNklyIVJYSXKIgiCIIiJZUB+pS5aUCyiwUCwVBUFgAAAAEVUAgICCBCCWCIIgjIzcoyzSM0iIiElzSIiIJciIIiWIJZUB+psufNYWiKABYKgoAABCwApAILAEBBLCAhCSwkuSREkZplEkSkQRKREkBEEQREQIKksID9VZc9BYAoAAAKgoEsAAEvgmvufnubX9LPnfR5dYEgIQAhBEGbCZuRlLJm5Jm5sSQskLJLCQuQRC5BERARBCiD9XTLRZQCgAAAApAAAD535z6O+l9t8byfpfg8+fl/Xfmsdj5b9+Tn54ggIDNgiDNhMayZiWTNyTNzZIgiUiIiCWCICIiAgJSWECfrUZa2wVKLBUoAAAAAAxpL+X9/6b6Pj/AEv4z8v+4+btz/KY+j97veN9MbeelggIElhJcjLIyyMs2Ms2MslklWSJZIWQEBAiIQCFgIVAn6uy5arBUoBUFBUAFQVAASnv+n+b+x4Pc9fyfq/E83tflvofO+79N0Oqzt4RYQRJZUlyMoTFwMsWXDNMyIklWSJZIakhYhZCVIWBAAICFEH6wuWgoAoAAAACFlkoB09/Y6nyfn387v1v3Hn/AJ/ry+/97z8fN63Q+99v8d+j63b9qMOyiCIM3NkywMMDMzYzM2XMzVkISFSFQEAIABAAJYRZUB+ssuWiygFSgAAQFQKESt8uP0Pn+r4Xo+R6vzv1fma8PT5t+HXK+vh6s9M+KfT6+/2nDt5/rIgjNMMIxMFxOdmsZzZrOc1qZiaZGpIaZpYAApFgAlECQEBBX6yy5aAUAFEAAAqWAE7cvdlfP8P9d/Pr1emPI+m8L6Xi5eePoTwepy9f3/z/AO7+b9r8l9POnbmbjSMOdl5zmXnOVmsZ58pvPOJuYJuZGrimpKWqstEtEaGWhlRJRJqEliQgRX62y5aALKLBUFQtRFS0QWEPX499Tbf5b9J+c1y+F9T5nr+l8D1ZmNMOmuUP1Pr+f9L4v6qeP0eO6MZ5+l1tcs8k1zxy5TfPnzvHpjnlOk52t3FNamoW6XOtaM3dMXVMtlw3DM0MzUTM1DJCSxEQIP17TPTNojQioi1ctQk0JNDLUqKMqifK+r8XudP5t5va8TtnlOPP0TgvH7nt+b6fB+g6cuXDLXvy8/HlPRy83K8fTy8+U745WzVdDG+m5eW+214766XlrrqOWugw2XLUSSiRBmypLEksJEEREQIP2bbLTLQy1TF0MtFy0M2jLQzNjDcrM3DHxfufB7vQ8My9nxfVyc+v2UzN8Pbfl8vD936HDx5y09HLG6zO/U8mvb1l8HX3dl8HX3bl8XT2WXy69I4XrDE6QwsJKMyypLEmbCSypLlEuSSjMsSSwgP3bsy04u8OTqOTqOU7w4u1ODsXjO5ODsrk6w5zqrj+c/U/F7fT/Ovqz1fK+H6PZ6MdflT601z/AD/P73u8n1vzPs/WdOv2Pznq+zmcvna98l8N9cPK9MPO7w4Oss5Trk556w556Q5zpkxnpK5zcTnOmTE3mzE6ZMTcMTUsxNwxNQzncTDQ/ozuy04O8OLsOLsOLtDi7Di6ji7Q4uo4usrlOsOWe05ThO0s43oOTYy043E3FxOkjlOkOc6ReU6Q5565Oc3DnN5TM3lc53LOc6ZMZ6Q556ZMZ6SznnpkxnpkxncsxNQxNSzE1CZ1DKk/qU7M9OLqOU7Q5OqOLqOLqOU6jlOo5TrDlO0OM7Q4ztK4TvK4TvDhO8OM7SOU6w5TpI5zpDnOmTnOmV5t5MZ6Q556SuU6ZTGemTGemaxncOc3kznUMTUTE1KxncOc3LMTUMZ3LMTcMKP6w6M+fJ0HOdYc51hznWHOdBznQcnSHOdYc50hznSHOdBybJydIvKdYcp0HKdcxznSHPPSHObhzm4vObhzz0yYzuHOazWZqGJqJjO81nO8mM9MmM9MnPPTNmM9MmM9MmM9M2YmoYm5ZhR/XBnzQECAgICQECQEIkCQqQJAkCQiQMwMwJkMwXORM5FzkMwM5LMwMwrOQmQzAzksmQmRMwrMEmQgr//EAC4QAAICAgECBAUEAgMAAAAAAAARAQIDBBIFExAUUGAgISMwQCIxMjMVNENwoP/aAAgBAQABBQL/AMimbarjj/JWmI6rZa2/i2fY+1n4RfleePyiOJlrwnp255nH7FyfVzY9fvX2tK2uL5W/XrdPy9vb9iWh1mt8OXRtmx5uo7NslpmTmq6+C+W/sXVrFrRr4onqdcFNjqWng1cWTDSMXTv9X2Lqfyv+2xOGL7Gxr2r1H9U9PhavsXu9qcGbzOO8TauT6FLbGHayYr0vT2JNbFuFcEdQpjtj6hiyxs5tea0jViubbnUvqdR71vYVKuclYpHVc1cOnh2Yxb21hpOTSxYu9sbU5di165seTAtTU2I2MPsHXpxNvLPHrFadiuv3iupxx8LcK145NTDWdbptoza+vadHc+6/U6fyyZuNMWTzG/1DJ3NqL5IzVvsUj6vCvOt8NuG3ocqdQ6rg/Rhv3MXxsYxjGP1LH++es8elwtuL928f3H/Bf+7O4x68RPWeo0dOnS9b4mMYxjGP1Kla4qOueuzy6bOPPWtZzLJ5uXbNeuKNrlkjYreNXFfJGTHQrqeWj4GMmSZGTIx+D9S2/wBWPXcZOu5K5NjCVrQ7eM7eM4UFU6bXvRvVm9tJzjn5SMmSZJkmSZJkYxj9TmzrEqd/CVraCvMithWONjjY6Xk7OPZy1yTiy9qJkZMkyTJNibEyMY/sIQhembci8In5xIxmnP02TJNibE2JsTYmxyOQ/hQhCEIQvTd1zPGxwscMk24XiONhWNP5YpsTcm5Nybk3Juch+KIg4nE4nE4nEQhC9N2/5+Gv/bf9/DDdVtkJyk5CchyH4I4kVIoRQihwIocTicRCF+QhCEIQhC+/uf2Pww2WS1vmxk5FM5JH4xUjHJGIjERiIxEYjtnA4HEQvzELwQhC8EIQhCEIXihCEbtazfhU41M304UTXhU4VMkKxXFaxXTtJXRI1IPLQdiDtQds4HA4i9AQhCEIQhCEIQhCEIQvg2ta+W/kcx5HMZumZ8tf8fliPIZjyGYt0vNe2PpdaFcFKnGBCEIQhCEIXghCF+UhCEIQhCEIQhCEIQhCF4IQvuLxX3F+OhCEIQhCEIQhCEIXghCEIQhCEL4F4LwQhCEL7C+FCF+EhCEIQhCEIQhCEIQhCEIQhC8EIQvvoQhC8F95fZQhfiIQhCEIQhCF8S9EQhezF/0n/8QALBEAAQQBAgMHBAMAAAAAAAAAAQACAxESBCETQVAFECIjMTNRFEBSgXCAkf/aAAgBAwEBPwH+nkUL5TTAjo5htSIromi0zNPFupGtkpzF2hHjJY59DBo2mdpCSLxNTNdC1lDktbLmeiaeQEYIClO8Odt0OeUjZqY+QOsL6jw8/wDVbw8FaebP16C40LUj72+U+enYck6TIDByExvhg7JrsH30HhGXwhavQ8GntTo3FxTIHhcN7CDXooNCZ27lYFmzugRSYWtRP5ByUpPIrJ35LI/ktM8DTjE7qaQOaPnoOu9pftcPa1iFp/bHdatX30q+67Q9pUn+039qlAfLCy7qVLFUq+71gc5lNXBl+E6KTAClwZfhadpwFrFV0GlSr+Cv/8QALBEAAQMDAgUDAwUAAAAAAAAAAQACEQMEEiFQBRATMVEiM0EUICNAcICBkv/aAAgBAgEBPwH+HhIHdZDZXVNZTHJh02S4uhSqYQmXABa0juqTw7tsnE7dzX9f4UhzpKtKbmsGWx0mA6lPpU3MhyFiA7SP8hYtLFVp49thAkwqbflMoy3L5TacH1BGlpmRqnDIRsNW5bQGTlw3ihuC6m8QUCAAnVWrNrgQr7igtXAYyqdZlUZM2C5t+q5h8K2sx9UHNGkKmwRqFg3wsG+Fc0nm/wDUPSrS3dTrPPxsNkPy8shMKVX9w8o2Cw9zk33Xf1yrj8h+yVKlT+rsyGvkrrU/KFVnUJldan5Vw4ZmFkpU7BKlT+xX/8QANhAAAQIDBQUHAgUFAAAAAAAAAQACAxEhEjFBUWATIjJxkQQQM0JSYYEgoSNicoKSkKCx0fD/2gAIAQEABj8C/tFKVRo0LgBUhuv9J0PJTd3TQeKTqpP8Rt/voYNzKk3EpwOU+4j0lQznunQpC/2mu2VuWSdOE5u5L7q5OGaGzaTI35aGIIBVGAJkN07T5fNU1/DWzNNiAHeE6oczoYofqH+U10TZgi4uVkubE/KBaTDZLaXFN0NOcirgQpEdCpuBJHuiXktApzX4Z3RoWi2kb1WRJODGP3amuGa3O1s+TJfi9rbL9ae4QngTEq8U8UdjUYhwQZEbZJuOhPfFdnYeJzraa91WESdRRHdmDnQm3nJNPaA4Q77qFOsiUMkSpko48wkbsEyI28IPxx0FaOCl5nUVmQtUaz2TTEhwoQY2xNvmKEDbRWh822W3LZmLELbpWqIRRBESyZSiHiC7RDLRtJfZOguwWzdwO0FZkoTcAZoNwYJ/JRsRHMkME4Nj8WbQrW0+ya1zy6hTMogsFGEM1bxamOzGgZqK53lYnxfW77J3Idx/7FM+VaF7d4Jjhc/eTwgD5TLQG0fjcERWqjQi6biN0+ya2/krTazGNFLZE8ipGC4D3Qc5oEvdSNFAiMdItoeU1whGyKEz0BCITRNUFRSaq1vReGz+K8NnReGzovDZ0XAz+KbOVMgrNotHsnQ31loADJTU+7iK4ijvm9cZXEUZ1qhJOzOhfhHn3nnoQSWCvCk0Toq07zz0P+0/Qeeh/wBp+g6EqKq5XK02iaZYK5XKnddoKbJLy9Vc3qrO6PlAbtF5eq8vVXtAW86au/ocf//EAC0QAAMAAQMCBAUEAwEAAAAAAAABERAhMVEgQTBQYXFAYIGhwZGx0fBwgOHx/9oACAEBAAE/IfkZ+bvxH/hh/wCDn1P/AEgfy2/PH8kMeHh/IreGPL+R2P5JYx/I76H1XyxuacbYv+lwpOzGrUv0Nb3+o+3PjPDy8MY83F8rU9deVz6DUDb/AG9Bw3sOhBlqmg12KTv2Tnx2PLHl+Xo3T7jJatdI001Pp90vyPRE5bT9n/4OtaP9B+I8MY+hsfmEo0qhojdXT2C8OnIcfovmH+CbeKr4lYtD7F9XjNjGyjY2NjZfMEaibNUuH3ooM6SZa61Gims7l1OkbsvL/Q0GSjejT4iMbGxjY2NjY2UpcXFL5U6nyjmtcLDMOxSr2bH9Afqn0Q24J3tNbbjKFu2/v4jGxsY2NjY2UpSlKUvRS+TNV07BYbQODoxH6DO8su1/I0GuiVoKknoRdvDYxsY2NjY2NjZSlKXyyDYbgxeuv+oj1a1alov3C/X6VfcZErwSfg1m0T1IzS9GwxdQl2AjBsTZvwWNjY2NjY2NjY2UpcUvlhpiexCrSm6aLXW/qOx1K0aPQZWfY0/5GmraH94+yFlrj8Fc041o+mstrRGj/c9b5Uew6vD62NjY2NjY2NjY2Nl6L5YhHtavqNMj1Uv1HFd1Nd35X0ppQUtbyOC2DQhye6a/UaotXphrc8jjUJ34YixXcuWqXtTUQD5vM/h9VGxsbGxsbGxhspSlL5alQ0kOa0/0Rz+H+x9v3NNEXIabvDNLruq/Q3W2uRLzCC7oXtrfya83nvbo5uMtRTRS9Jd9DGxsbGGGGGHgpSlKUpfKlpu6kuWobEW77stfca9mi+yP771w/vsfZnmHXuI4Qh9UbMj91MyY2NjYwwwwww8FKUpS+WKDWDVVIm42gxdnVsKYmiU7i8pIhNX+A9MZ941BBa3rRyAEaSS9xkTq05EOk0y7oyf2OwavVCl9T1hsbGxh5A8Bhi4UpeqEIQhPJFtd/wCBEFtXBxk0r8w6e791Gl+NkIEv+GJG36Y0Fh2thS7ClKa+obVVpvKNYuHBsfWBVZeRS4WYQSIQhCEITyJrP2k9Owrbq3uNdHBBOt2SVE/gRkCkKS6xgdu4vQ1OmB9dUFl4KXCEhISEFkQhCEJ8BMQhPguxyNBNI1SH3DP/AEfA/AIKrDDNwkJCCKKCCCwQhCfGQhMQhCEzMLpQ9fBFPT09yZuPWHqo9dDNZ734DGoyzRCwUEEEEF0shPhJ4EzCEIQhCEIQg4pTfJteKS49Xosbjs1eCbpQFgLqkniP4QAQhCEIQhCEIQaGg9yKuUIrQR3InlE8ohEMDdlINfYa7DOBvA3gbxgQRXQ0J4Tw/EfQTpCeEAITobfgWHkCNHUbCfCVrcgJ9oRmxMb2hy3QtuJYk9iXYknoEIQhBohCDRCExCEIQhCEJhkzCfC/+iExTbsndnpYMrqb27GqLQlbmIT253NNea/sJdBLZY7PCEE6QaGiDRBohMMaIQeHmDXS18OENAEHkTMF0NEGjcQaGIQmHhoaIQh7CIaIQiIhoaIQhCYeHh/DAAATpBhh4HkQhMJg1gww8DExCEITBohIToEGhohCDWGhjWGiEIT4aZyAPqAnSEIQhMQhBohCEyPImEINDy0Mg8MawhCExCE6BCEIQhCEIQhCEIQhPFAAhCDQ1g0Qg1mDGsQgyEGiEGsNDRB4eX0Ma6RCEIQhCEIQhCEIQhCEIQhCEIQhCEINEIQhBohCEIMg0QaINEGhoaINEGiEy+hrDIQmEIQhCEIQhCEIQhCEIQhCEIQhCEIQhCDJh4Yxj6mPDHlj6YMa6XmZnTCYmIQhCEIQhMQmZ0NdTwxjwxkw8PqY8PofQx9DP//aAAwDAQACAAMAAAAQVgMUmeiCCG++OUI0UIo8eWq+W7AWtJfSABRQ3PUUEoSmOe+++yicAUUEE8UQu2yfwyNPegNJAyD/AFVPqrkvvvvqnvoHKCGGHkolrn/yRoS4uCbfs88LMGguggvqsrkjEPAKKKPJtioshSJkd8nIcQiwzAKmshushgjmpmoGKKNFJODvtu+blScuMcdMs88LrtktiAhlNsnkvmGMFBFEugtkzcpdiMNSQlv8MHlqrkrjjnvussuAJJJOJsnvhkzpLwtNfRjvz0MAbNlupjggghnsCDGBJEKJspv7S/bgAeSjj26MPKGjlqvvjglv6lpFIKJIJDglifvXyjbWFmg2xmDJqvgvvvPhu4yeLVxLOWWDkkqYgcgHfclo15pEPxompmNLGIwwX/d3ecWWcd/rtMRzATeKqt65iiParivjsAdTScec1U9Za8dS3pUO8IdBsmx++wmmDGmhpDTbSRVolR6xBKtvkR/qq7OZpuqs+w/6wpPOqESQcc4fIoaPq8savoE+h+xIYhglgitjmr/6gKdQfQ4zxlrsEJZ/BylvThtKu073wppOMPnkk7vKdeYTTHiHEjvZltkkKAvLTuLJvvUbUNGEcLuzzsbdTyhnmtAOiGxGpvwLWgIMsrM43BWz0McDrzjgz+4yuosltBK2grBw2MEqBRkbUTWyAX6BReP6ghtzz1aSE+RirsBsMDRArssqRW0pkCdnd6jSDH8+pvup4bY67fqU6i0/A7TKFCNxoYWhqeVvbofHPULFIqqmmjwvruMMEkf6x9punL3wSZnq6YqQnePCLFEEGGLMBPOK4suN62T6KFirIr/RPktYEgXsTIAAIIIHAPAnvPAIAw4Y34I3HIgY4fPonXX4P3wf/8QAKxEBAAIBAQQKAgMAAAAAAAAAAQARITFAQWGBECBQUXGRobHB8HDRgOHx/9oACAEDAQE/EP4eZDmO2zz6axFT2IUNVWv37UsloNPlDrKMue/98+w2AbpSKFKc4/qWFSmdMQAdTdz7EyZkjCiZ5vsN+zTWCEaq+fj4RGS+Z7SjLrXzQ/cYpqOwb/uRmHWFa1Ut7+XpKhl367+WfHEcbDLF1+4YxHR+YNl9VixdpDO/h2i5p4d0b6108z9RgE3m848Y/Yi1jBpCJjWOosWXL6tStjzm9MeMIt22e5GN1+cP9TPquJVFDxekcsWLLl9SpWzOmXqnvKHWGhbh0nGgo+EWMMMX0EEVKlStmeBxIQVPj8IKVnwjFrLPRIOiqVtNZLbnERN5YvxDvHrBkaeMDAEqVK21Lj0BAfgn/8QAKxEAAgEBBQYGAwAAAAAAAAAAAREAIRAxQEFhIDBRcZGhUIGxwdHwYHDh/9oACAECAQE/EPyUfteqQCR+CPZGiMQ5boYkhhQ5NkqwkB3dYwO5iDFcXq6wVoboAYJgW5GKojfDYANUjw5RpQPM6/yAqM2o6Dc2xFiVEJZ3CDCryR0fR++sG6g3gXfUoHjoQjsgRYoerHIC8mARADCzGfSD53fEq65HI/ED4v8AiVkBeaH2sapg9tNgCLFkyAq8iJTeYPOsDRh5CaPtNL0EMS+pcBT1cQNGlrrYBAIsM9twcjHpAYxvFivnwCCAIrXHHHHHhg7TYNbT3WdRgFj2QceFdgijaoKaeAoEQPeaGFmNiEo9hxxx4pwFQWZkl78YMHYJwTwAtcPhgtEG9//EACkQAQEBAAIBBAEEAwEBAQEAAAEAERAhMSBBUWFxMIGRobHB8NHh8UD/2gAIAQEAAT8Q9JH4j9EvPOfo/tz78M8s8PD3bM35me5mXuZyXZmZllmZZbZZZZS+09zMcZZxnGekPR55z1J6faePE+hmbOWZmWeCzPicnzMyzLMplyVllll+pZZZZYP0A9Xnj39exwz630bk8PLk/HKbPzMsyzMvcy8LMyyyyyyyyssssv1HHi+oiLOD0H6e28vbfXpeNmZmZmZnhZmZmZllmZlkm7e0s9zMyzLLP1HoPPId/oe1/V3xvLxvfq8TbLwvtfzb3e8vDyyyyzMzk9/MyTP9z1PDMvXiWWZlLZn7nxbMxHP9x+p49fv63h432nh4eGZmZZnzMzPUy2u58Twy8GZn+pmZmZ9B6M5P/wCD39T2zw9Wzw28efEszMs9yyzMzksuyzMzMz/U/czMszMzMRHvZxnp9+fa74z0PCT+PR36Hrh495n6mbOHj2nOFlmWWWWWWWWWXzLMsvUzLMszwyyxBznpyLLOc9T5nhJOXnfuZk5STn3mTZmfMyyzLLuyyzLLLLLLk9y5LLsy9yzLMz8zBEWesLr0Z6U5z4s4yyzh8TPo++GZJn+LzMzMzwfuWWWWWZZmZZupmfE8L7SzLPUcEc76ve+o9PXo8+bLLLx6Xrl9H54ZmZ+5mZl2WZZZZZZmZmXzLLLPebbZllnZeDk4H9DeOo530PobPqZmyefe0l4WWZ+JmZmfzKWZZmWW2fMssssuSyyyyz5lZbeCHj88Bbx5/S3jed3jeNt42Z4fEz1bbyuSyyyyylLKWUsssssvUssuyyy7LbPVss9TP5nzERyclvo223jb24887wttv3bxvDbwzw2zNvmWWWXgWWyyWWTssssyyyyyyyzLM298LMsxEX1wce1ttvG22/qeLzbxvG2y92zLM8Myy9SyyyylnvLLf4llnxLMuyyyyy/Eyyzw8Mz+YI/R8+v9ud4b34Znn343JZb8T4l4ZmZZZllJSlsvctssy/EssssyyyyyzMzbLPGfoPo+uN9Lfj9FtmeGbeHhllyZZZSy5LKWXuWX5l+Ziy2y27bLLLLaW28Myy9+Yv8AMce1l449vT7cEevLPiNCxdNqeQe1fgc92Og2+RXfjvvP2kjJ9nej+ZE+gjfyeP8AL658cM+llng8F7llLKUviWXqYsxWW2W3+JerZZfuWe5ZZZZ7428tmsWegj1ftb6947DABpm0617Gdv1h73S6w18A8A8AfBEkIF5XlHwnxNeCLYrfI/SJ+0p50j8beP8AV+/ze/LPc3mZ+JWZf2meH5Sy7KUsvcsllllZZZZZZZbZZ+LbZt5Zjk/W88b6NDz497HUfjBdX9j/ABMOPQ+AHx/UQvJFaIQGB9Qpdnfwf/f7xERnvkcP7yX542Xj82yyyy48FlKUssvApZ8S2yy2yyyyy2/Mzwzx4vbh88eeN43jbbb29W8+/HnhlfacPxpZTWYG8ajp9/NrR/QNzMj1tz9hK8h7TKHTMh3nUZnjHYayoPAfL4EdHbr88bNstsy2yy9y8CuyeAHBpMWW2WW2XJZZZZZccltltt9DNtsW2222w22tvHXG+g9G7Yi36Q8/cI+ZP9SXfhBPVf3h2OvGzwKpLtC6YodvA9pDR4+LqeIdIDW6/M8vDMs/iVllyC+/UADHgWYs/buekrbbLbbbLLbbno33n0HHXr2223gbbeNtt4AxNHP5ur9Vtw3p0/TuZHUNc35fYftDKzexft0Nj/Rb8noBwS6/kL7JnDx3wzLLLLkF6RRjGMYx1wWXq2eDbZZeN9C28L6N65z17x78bxsttvtx7owQbKEhQ6aiI/zlk/8Ai/wCdn5saBAOea509unO7ZsgPemaeCWwgIZ19s4Z4ZZlllZSziXBryvbds+UxjGL9yyyy222tttvq++di9oj88ZBefW+LxyzxvDQkL8mw3XQw7dcPPXlv4ia26uMQB257PpsOb4A/kIymYdqL+AqxtU5SHATR2cfaMk8dDS4iPnph6Y9v4Xfhtt4ZllllYWHMdXAHIseBZxwW22W2227vzy+ls4cIMvNnBERxnp/efWxGOEqj2PgfP8AFnHNu3lL9mMu8pCyCdIrp4fxsdqmveXMH314f/2JswFeTD7ny2l9WvUrOjtofWZaHbiD7J2O+MiVMviJ7wOTB9R8/wA+bZbcllllwddnw7+iXouiYtss8Ntn828bb6Hu8c7e3C98MReeO+C97edvFu8svG8HbmaxY9Hl7+y/mMNvP9xpG1OyYoeMCjeR/wDVvcN1B3fl8ws3gPNNJvevHedzn6x8dZgdkPaoYAa3XuZ7dMpuS7ulg32BP2LLlaAfYtJQD3wLCyyy/cs/pB/0XrNY8G2+9u28LzkEfpbMxHV44PSW222/oDsOjuQxAaqPlnbHOn/rylk7v5bM/gGBxCQIFigjmdSQxl0AvSr2X5Id3xEM4d2v8ydczAD4QH2gc8+HOn+UT94oQdesMNjZBt09yAd3Q/Od/wB8Msv0Dbr7OFjWvMZ4cB6t9GWWcZZZxk8vDwR8cF5jg5yyeHnPu/ngEVwDzMNiPKH8z4o0a+5mn7E//E+P4P5n/wBvvwH1/wDug/s39FobdNfLv+mE0SPxa/7hMdIoKWsQ/PrdP8z5nqXBlz33ej37eQ+qDYjxEFmwQWWSWWWdWb5knrhmbfQR6Pf0vpzk95Ql5+m68rJNPfUh4onkz/I1/iJBPRMYe/cGlRVCL47HvAL54wH48XnhEUO+r/UmccRXHnfxNMxwG73r2OrrGvQgIT36S1HoeDvqbhoQ6CvR9AdTyX38X38r9/Dv78DzezwG2PMCwR0j0ACSyyySy6mZmZngtt43jfVvrfH3dVWE+gxv+JUbJbJXutJgqM8Pb/UuH5f/AOS7Z2/8eJD2/wBk45/VvDlX+Sb/AOS1AskBHpgMigYwLBb7/OfE+Wns9w6h2fk/g5Z8X28PZB832X2cX2z6KHvgDBGoqx08cD25x6eT0TJJJ4ZlmZZYOMj1bbzvo2W3eCyESr3x9pGzr3psTqjV8b7WEf8AAJWdH7FsY8kHyH+51+QGB4w/9uv/AEn/AJf/AJxaBQKeTcf93aoh187JOgD8szu17XWyujh9vbLb7L4eZb3jULBZN4db6OAh9I36c6WSSbMzMzLM9EzZwyJrOGd2cZZZZZw2fdlmWXjjLI29Y39rTvEYkelb/JGH/LosZ5sHvEvvv/wi+b7IPmP5vM7fZfZfZd/mD5kfe7xr4k+LpkfaT4b6OH2c4e2MRTrx6WcJMsuS/EsyzMs8PfAWWWWQe1hZ1ZZydGz0D93BPqS6SfEJMfO29f8AA3dA4AMBN8xgIpaezeYhEfIf4Ij3sPeMHuDvu+67PMHzO+8raYK+8z98Pi6tva6/HD9F9EZ9ohzeskk9cLsuEzbLLMuTLbLLP54ZZlkFlkF8rLOCOTt6C142IA+rXBdn/PVo1uTARc7v9EJsLvu13uR9529ye7gGyPaV9pPiXfEvxP8AEh7WPtH1gEG68iWTMzM5MzwZJnJkkkmeTXDXxybvC3x+tu1a4at27foAcFDqRn+yf/uT7DsfP0SXpdHWz/8AWv8A9KVv0o9fi9xZTy2vnbS9d3u67DUufLWqGn02ftD8QfEAs3Wb0kkySRmSfxNmeeD4vlw7M9S2ybPjh9D8b7Fv4vLxM6X9JzP0lXYt5t4cq9tHju37lrxl29p14l+0CIgQve9ZY+3+b6sZQFUnuJbw0r5cn4M/DsSMEOfcM4ds53v2s5UsJjwIvay9lT4ggfAbZeAsB4LB7Tn2nM/Wf4zN2l+E+XU79rCQTH2STonUiekx1Me06JiQeCbJOJh28e09vEb9rPjqc2vGXVy8Ix+b93VucO57T9L+sb/M6ZP8TjxPtntk/X97ElA6RsH5ut22/wDDPm/oXhRy6cP2IOheFdwz4n/j/wDL6YAwsLtPfwTIbe3QjwZn1Yemxk+9/EsZXsS32n6Xf8yZB9yPifkTvyTj3n6zideLt+rt6n23RKLCY77k8sMsC/pMGSN8JHJFJWbISISe0n1JaW32y38Wz2vuXu63bf4tR9dun4gTjHbsd3Q8Xj7x9J3+7e+VP0n6Tgn+U+/bvknlvjdfDA/Ldjim/NiDk9mn82db7SafEJ2XV8/1dvf+JwvucPxdnx+IDD3kamXXxn7ScWTTd6geSQLs7iH6ZHzJN6/Eg0TGdHl1LdZ/8h+ZGbniR7H7X5JyfL9wb1AdupP0cnv56n8MkJni8s0LO8M/3Z3zb9ZLJz2lncoZ5k7sOzw+3Pv4uvta+Jn4T9LtI+Ly8SJ7cfwv6TFd3jMf3z9JnRwrxH95e7O/qM/d+PMvJ+RfTsiHzdPva9+85YB0XZ/7knnrr4nz2Ts7M7nE68Hif5XTIST4e8l/NjtyQHvI85Ofo+rEfEGJ2yR9/wB5KfU6PLJ58Mne+9o7mZB3bF3+pMPpsPC5dOl3bp5u3Tfc7OX8Z1Yvxs/E/Sxfhxfrw+HFrw9Z37X42k/SesufrKl34SuDju/GfpKfa6e0/ST2SdzOlpJSRkn4momYPUxBLzx1Ym9OrQg+0myb1dD1DTrqTviGdEnvDfac8E4z3vhfBkCz7c8yez/N0MfE4W7fGX4egvG38bz52+Xjna38Z+vFMmQe0/SYx3Zn+Vme08TG/jP1tbo4ds1fAn1JI3YWkjMYJXzPAXKkkczgwJR7XSd3zBkk7g5JI73IsOrSTDh5crX687xvG1rzmvWavixjH6TWtaxrWMczwGPaa9p4TGtawGzNO59vCz6Jx7ehR+l2T8uByT2kyTvxCbJ4Ehx8Z9Ft+PF+s8b85r9Zr3nvMa13NeJj9JrWt8prWPWRMYwTE+IdSEN4DgkyzN+HBOHhM8j1MmSEwHAkknchCQksFkhdrJCSQngSYkx5DGMYxifU8CSSJJJLskkkkkhIQyEJIQ+ZiQk4IzJMnIvvwZe54LMy4M7s7av/2Q==" alt="Material Request" style="width:100%;height:100%;object-fit:cover;object-position:center;">
+        <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 40%,rgba(0,0,0,.55) 100%);"></div>
+        <div style="position:absolute;bottom:12px;left:16px;display:flex;gap:6px;">
+          <span style="font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;background:rgba(0,0,0,.45);color:white;padding:3px 9px;border-radius:3px;backdrop-filter:blur(4px);">Form</span>
+          <span style="font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;background:rgba(30,40,134,.7);color:#00E3FF;padding:3px 9px;border-radius:3px;backdrop-filter:blur(4px);">Submission</span>
+        </div>
+      </div>
+
+      <!-- Tile body -->
+      <div style="padding:20px 22px 16px;flex:1;display:flex;flex-direction:column;gap:10px;">
+        <div style="font-size:16px;font-weight:700;color:var(--ao-navy);">Material Request</div>
+        <p style="font-size:13px;color:var(--slate-600);line-height:1.55;margin:0;flex:1;">Know of a responsible material we should consider for the Target Materials List? Tell us about it — recoverable, long-lifespan candidates welcome.</p>
+        <div style="display:flex;justify-content:space-between;align-items:center;padding-top:12px;border-top:1px solid var(--slate-100);margin-top:4px;">
+          <span style="font-size:.75rem;color:var(--text-light);">~2 min · Online form</span>
+          <a href="#material-request" onclick="openMaterialRequest();return false;" style="display:inline-flex;align-items:center;gap:6px;font-size:.78rem;font-weight:600;color:var(--blue);text-decoration:none;padding:6px 14px;border:1.5px solid var(--blue);border-radius:20px;transition:all .2s;" onmouseover="this.style.background='var(--blue)';this.style.color='white'" onmouseout="this.style.background='transparent';this.style.color='var(--blue)'">
+            <svg width="13" height="13" viewBox="0 0 16 16" fill="currentColor"><path d="M3 8h8.5L8.5 5l1-1 4.5 4-4.5 4-1-1 3-3H3z"/></svg>
+            Open form
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- /Tile: Material Request -->
+
   </div><!-- /tile grid -->
+
+  <!-- Material Request Modal (opens from tile / strip) -->
+  <div id="mr-modal" class="mr-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="mr-modal-title" onclick="if(event.target===this)closeMaterialRequest()">
+    <div class="mr-modal-dialog">
+      <button type="button" class="mr-modal-close" aria-label="Close" onclick="closeMaterialRequest()">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="3" x2="13" y2="13"/><line x1="13" y1="3" x2="3" y2="13"/></svg>
+      </button>
+      <section id="material-request" class="mr-section">
+        <h2 id="mr-modal-title">Material Request</h2>
+    <p class="mr-intro">If you have a material that you know is a responsible material — the guide is that it can be recovered or has a long lifespan — and you'd like it added to the Target Materials List, let us know.</p>
+
+    <form class="mr-form" id="mr-form" onsubmit="submitMaterialRequest(event)">
+      <div class="mr-row">
+        <div class="mr-field mr-half">
+          <label for="mr-name">Name <span class="mr-req">*</span></label>
+          <input type="text" id="mr-name" name="name" required autocomplete="name">
+        </div>
+        <div class="mr-field mr-half">
+          <label for="mr-business">Business name <span class="mr-req">*</span></label>
+          <input type="text" id="mr-business" name="business" required autocomplete="organization">
+        </div>
+      </div>
+
+      <div class="mr-field">
+        <label for="mr-email">Email <span class="mr-req">*</span></label>
+        <input type="email" id="mr-email" name="email" required autocomplete="email">
+      </div>
+
+      <div class="mr-field">
+        <label for="mr-material">Material name <span class="mr-req">*</span></label>
+        <input type="text" id="mr-material" name="material" required>
+      </div>
+
+      <div class="mr-field">
+        <label for="mr-usecase">Description of use &amp; why it's a candidate <span class="mr-req">*</span></label>
+        <textarea id="mr-usecase" name="usecase" required placeholder="How is it used? Why does it belong on the Responsible Materials list?"></textarea>
+      </div>
+
+      <div class="mr-field">
+        <label for="mr-composition">What is the material made of? <span class="mr-req">*</span></label>
+        <textarea id="mr-composition" name="composition" required placeholder="List the main components / raw materials."></textarea>
+      </div>
+
+      <div class="mr-row">
+        <div class="mr-field mr-half">
+          <label for="mr-certs">Environmental certifications?</label>
+          <select id="mr-certs" name="certs">
+            <option value="">Select…</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+            <option value="Don&#39;t know">Don't know</option>
+          </select>
+          <span class="mr-field-hint">If yes, name them in the description above.</span>
+        </div>
+        <div class="mr-field mr-half">
+          <label for="mr-recycle">Recyclable or take-back program?</label>
+          <select id="mr-recycle" name="recycle">
+            <option value="">Select…</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+            <option value="Don&#39;t know">Don't know</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="mr-actions">
+        <button type="submit" class="mr-submit">Submit request</button>
+        <span class="mr-note">Required fields marked with <span style="color:#dc2626;">*</span></span>
+      </div>
+
+      <div class="mr-success" id="mr-success">
+        <strong>Thanks!</strong> Your email client should have opened with your request pre-filled. If it didn't, copy the details above and email them to <a href="mailto:meg@esgfuture.net" style="color:#065f46;font-weight:700;">meg@esgfuture.net</a>.
+      </div>
+    </form>
+      </section>
+    </div><!-- /mr-modal-dialog -->
+  </div><!-- /mr-modal -->
 </div><!-- /tab-resources -->
 
 
@@ -1608,6 +1769,65 @@ function showTab(id,btn){
   document.querySelectorAll('.tab-btn').forEach(function(b){b.classList.remove('active');});
   $('tab-'+id).classList.add('active');
   btn.classList.add('active');
+}
+
+/* Open the Material Request modal (works from any tab) */
+function openMaterialRequest(){
+  var modal=document.getElementById('mr-modal');
+  if(!modal)return;
+  modal.classList.add('open');
+  modal.setAttribute('aria-hidden','false');
+  document.body.style.overflow='hidden';
+  var firstField=document.getElementById('mr-name');
+  if(firstField&&typeof firstField.focus==='function')setTimeout(function(){try{firstField.focus({preventScroll:true});}catch(e){firstField.focus();}},120);
+}
+function closeMaterialRequest(){
+  var modal=document.getElementById('mr-modal');
+  if(!modal)return;
+  modal.classList.remove('open');
+  modal.setAttribute('aria-hidden','true');
+  document.body.style.overflow='';
+}
+/* Back-compat: strip on Target Materials still calls goToMaterialRequest */
+function goToMaterialRequest(){ openMaterialRequest(); }
+/* ESC closes the modal */
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape'){
+    var m=document.getElementById('mr-modal');
+    if(m&&m.classList.contains('open'))closeMaterialRequest();
+  }
+});
+
+/* Material-request form submission.
+   Default: opens the user's mail client with a pre-filled message to meg@esgfuture.net.
+   To use a real backend, replace this function body with a fetch() call to Formspree,
+   Netlify Forms, Google Forms, or your own endpoint. */
+function submitMaterialRequest(e){
+  e.preventDefault();
+  var get=function(id){var el=document.getElementById(id);return el?el.value.trim():'';};
+  var name=get('mr-name'), business=get('mr-business'), email=get('mr-email');
+  var material=get('mr-material'), usecase=get('mr-usecase'), composition=get('mr-composition');
+  var certs=get('mr-certs')||'Not specified', recycle=get('mr-recycle')||'Not specified';
+
+  var subject='AO Target Materials — Request to add: '+material;
+  var body=
+    'Material request\n'+
+    '================\n\n'+
+    'Name: '+name+'\n'+
+    'Business: '+business+'\n'+
+    'Email: '+email+'\n\n'+
+    'Material name: '+material+'\n\n'+
+    'Description of use / why it is a candidate:\n'+usecase+'\n\n'+
+    'What the material is made of:\n'+composition+'\n\n'+
+    'Environmental certifications: '+certs+'\n'+
+    'Recyclable / take-back program: '+recycle+'\n';
+
+  var to='meg@esgfuture.net';
+  var href='mailto:'+to+'?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+  window.location.href=href;
+
+  var success=document.getElementById('mr-success');
+  if(success)success.classList.add('show');
 }
 function addOpts(selId,vals){
   var el=$(selId);
@@ -2221,29 +2441,34 @@ if($('t3-tbody')){populateT3(); renderT3();}
 
 // ── METHODS CARD ACCORDION ────────────────────────────────────────
 function initMethodsAccordion(){
-  document.querySelectorAll('.pocket-card .card-step').forEach(function(step){
-    var label=step.querySelector('.cs-label');
-    var body=step.querySelector('.cs-text');
-    if(!label||!body)return;
+  document.querySelectorAll('.pocket-card').forEach(function(card){
+    var steps=card.querySelectorAll('.card-step');
+    steps.forEach(function(step){
+      var label=step.querySelector('.cs-label');
+      var body=step.querySelector('.cs-text');
+      if(!label||!body)return;
 
-    // Wrap body in collapsible container
-    var wrapper=document.createElement('div');
-    wrapper.className='cs-step-body';
-    body.parentNode.insertBefore(wrapper,body);
-    wrapper.appendChild(body);
+      // Wrap body in collapsible container
+      var wrapper=document.createElement('div');
+      wrapper.className='cs-step-body';
+      body.parentNode.insertBefore(wrapper,body);
+      wrapper.appendChild(body);
 
-    // Add toggle arrow to label
-    var arrow=document.createElement('span');
-    arrow.className='cs-label-arrow';
-    arrow.textContent='▾';
-    label.appendChild(arrow);
+      // Add toggle arrow to label
+      var arrow=document.createElement('span');
+      arrow.className='cs-label-arrow';
+      arrow.textContent='▾';
+      label.appendChild(arrow);
 
-    var open=true;
-    label.addEventListener('click',function(){
-      open=!open;
-      wrapper.classList.toggle('step-collapsed',!open);
-      arrow.style.transform=open?'':'rotate(-90deg)';
-      arrow.style.opacity=open?'':'0.5';
+      // All steps start expanded on every viewport; users can toggle.
+      var open=true;
+
+      label.addEventListener('click',function(){
+        open=!open;
+        wrapper.classList.toggle('step-collapsed',!open);
+        arrow.style.transform=open?'':'rotate(-90deg)';
+        arrow.style.opacity=open?'':'0.5';
+      });
     });
   });
 }
@@ -2286,6 +2511,60 @@ initMethodsAccordion();
     <symbol id="ico-tag" viewBox="0 0 20 20" fill="none">
       <path d="M10.5 2H17v6.5L10 16a1.5 1.5 0 0 1-2 0L3 11a1.5 1.5 0 0 1 0-2L10.5 2Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
       <circle cx="14" cy="6" r="1.25" fill="currentColor"/>
+    </symbol>
+    <!-- Evergreen / long-life asset: leaf with growth mark -->
+    <symbol id="ico-leaf" viewBox="0 0 20 20" fill="none">
+      <path d="M17 3c0 7-4.5 12-10 12-1.2 0-2.2-.25-3-.7C4 10.5 7.5 3.5 17 3Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+      <path d="M4 17c1.5-3.5 4-6.5 8-9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+    </symbol>
+    <!-- Design waste out: pencil over bin -->
+    <symbol id="ico-pencil-bin" viewBox="0 0 20 20" fill="none">
+      <path d="M4 8h10v9a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V8Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+      <path d="M3 8h12M7 8V6h4v2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M7 11v4M11 11v4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+      <path d="M13 4.5l2.5-2.5 2 2L15 6.5l-2.5.5.5-2.5Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+    </symbol>
+    <!-- Modular / Design for Disassembly: puzzle piece -->
+    <symbol id="ico-puzzle" viewBox="0 0 20 20" fill="none">
+      <path d="M3 3h5v2.5a1.5 1.5 0 0 0 3 0V3h5v5h-2.5a1.5 1.5 0 0 0 0 3H17v5h-5v-2.5a1.5 1.5 0 0 0-3 0V17H4a1 1 0 0 1-1-1v-4h2.5a1.5 1.5 0 0 0 0-3H3V3Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+    </symbol>
+    <!-- Consult list / TML: list with magnifier -->
+    <symbol id="ico-list-search" viewBox="0 0 20 20" fill="none">
+      <path d="M3 4h10M3 8h7M3 12h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      <circle cx="13.5" cy="13" r="3" stroke="currentColor" stroke-width="1.5"/>
+      <path d="M15.8 15.3L17.5 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+    </symbol>
+    <!-- Document (page with lines) -->
+    <symbol id="ico-document" viewBox="0 0 20 20" fill="none">
+      <path d="M5 2h7l4 4v11a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+      <path d="M12 2v4h4" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+      <path d="M7 10h6M7 13h6M7 16h4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+    </symbol>
+    <!-- Warehouse / storage -->
+    <symbol id="ico-warehouse" viewBox="0 0 20 20" fill="none">
+      <path d="M2 8l8-5 8 5v9H2V8Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+      <rect x="6" y="10" width="8" height="7" stroke="currentColor" stroke-width="1.4"/>
+      <path d="M6 13h8" stroke="currentColor" stroke-width="1.4"/>
+    </symbol>
+    <!-- Exploded box / disassembly -->
+    <symbol id="ico-explode" viewBox="0 0 20 20" fill="none">
+      <rect x="2.5" y="2.5" width="5" height="5" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+      <rect x="12.5" y="2.5" width="5" height="5" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+      <rect x="2.5" y="12.5" width="5" height="5" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+      <rect x="12.5" y="12.5" width="5" height="5" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+      <path d="M9 5h2M9 15h2M5 9v2M15 9v2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+    </symbol>
+    <!-- Map / route (planning) -->
+    <symbol id="ico-route" viewBox="0 0 20 20" fill="none">
+      <circle cx="5" cy="5" r="2" stroke="currentColor" stroke-width="1.5"/>
+      <circle cx="15" cy="15" r="2" stroke="currentColor" stroke-width="1.5"/>
+      <path d="M5 7v3a3 3 0 0 0 3 3h4a3 3 0 0 1 3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <!-- Quote / reflection bubble -->
+    <symbol id="ico-quote" viewBox="0 0 20 20" fill="none">
+      <path d="M3 4h14a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-7l-4 3v-3H3a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+      <path d="M6.5 8.5c0-.8.7-1.5 1.5-1.5M11.5 8.5c0-.8.7-1.5 1.5-1.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+      <path d="M6.5 8.5v1a1.5 1.5 0 0 0 1.5 1.5M11.5 8.5v1a1.5 1.5 0 0 0 1.5 1.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
     </symbol>
   </defs>
 </svg>
