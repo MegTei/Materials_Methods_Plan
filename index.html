@@ -1745,7 +1745,7 @@ thead th.th-concern{background:linear-gradient(135deg,#7f1d1d 0%,#991b1b 100%);c
       </div>
 
       <div class="mr-success" id="mr-success">
-        <strong>Thanks!</strong> Your email client should have opened with your request pre-filled. If it didn't, copy the details above and email them to <a href="mailto:meg@esgfuture.net" style="color:#065f46;font-weight:700;">meg@esgfuture.net</a>.
+        <strong>Thanks!</strong> Your request has been sent to <a href="mailto:meg@esgfuture.net" style="color:#065f46;font-weight:700;">meg@esgfuture.net</a>. We'll be in touch soon.
       </div>
     </form>
       </section>
@@ -1788,8 +1788,13 @@ function closeMaterialRequest(){
   modal.setAttribute('aria-hidden','true');
   document.body.style.overflow='';
 }
-/* Back-compat: strip on Target Materials still calls goToMaterialRequest */
-function goToMaterialRequest(){ openMaterialRequest(); }
+/* Target Materials strip link: switch to Resources tab, then open the Material Request modal */
+function goToMaterialRequest(){
+  var resourcesBtn=document.querySelectorAll('.tab-btn')[3];
+  if(resourcesBtn&&typeof showTab==='function')showTab('resources',resourcesBtn);
+  // Small delay so the tab switch renders before the modal animates in
+  setTimeout(openMaterialRequest,60);
+}
 /* ESC closes the modal */
 document.addEventListener('keydown',function(e){
   if(e.key==='Escape'){
@@ -1799,9 +1804,11 @@ document.addEventListener('keydown',function(e){
 });
 
 /* Material-request form submission.
-   Default: opens the user's mail client with a pre-filled message to meg@esgfuture.net.
-   To use a real backend, replace this function body with a fetch() call to Formspree,
-   Netlify Forms, Google Forms, or your own endpoint. */
+   Submits to Formspree (https://formspree.io/f/xaqaakaq), which forwards the
+   message to meg@esgfuture.net. Falls back to a mailto: link if the network
+   request fails so no submission is ever lost. */
+var MR_FORMSPREE_ENDPOINT='https://formspree.io/f/xaqaakaq';
+
 function submitMaterialRequest(e){
   e.preventDefault();
   var get=function(id){var el=document.getElementById(id);return el?el.value.trim():'';};
@@ -1809,25 +1816,66 @@ function submitMaterialRequest(e){
   var material=get('mr-material'), usecase=get('mr-usecase'), composition=get('mr-composition');
   var certs=get('mr-certs')||'Not specified', recycle=get('mr-recycle')||'Not specified';
 
-  var subject='AO Target Materials — Request to add: '+material;
-  var body=
-    'Material request\n'+
-    '================\n\n'+
-    'Name: '+name+'\n'+
-    'Business: '+business+'\n'+
-    'Email: '+email+'\n\n'+
-    'Material name: '+material+'\n\n'+
-    'Description of use / why it is a candidate:\n'+usecase+'\n\n'+
-    'What the material is made of:\n'+composition+'\n\n'+
-    'Environmental certifications: '+certs+'\n'+
-    'Recyclable / take-back program: '+recycle+'\n';
+  var submitBtn=document.querySelector('#mr-form .mr-submit');
+  var originalBtnText=submitBtn?submitBtn.textContent:'Submit request';
+  if(submitBtn){submitBtn.disabled=true;submitBtn.textContent='Sending…';}
 
-  var to='meg@esgfuture.net';
-  var href='mailto:'+to+'?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
-  window.location.href=href;
+  var payload={
+    _subject:'AO Target Materials — Request to add: '+material,
+    _replyto:email,
+    name:name,
+    business:business,
+    email:email,
+    material_name:material,
+    description_and_why:usecase,
+    composition:composition,
+    environmental_certifications:certs,
+    recyclable_or_takeback:recycle
+  };
 
-  var success=document.getElementById('mr-success');
-  if(success)success.classList.add('show');
+  fetch(MR_FORMSPREE_ENDPOINT,{
+    method:'POST',
+    headers:{'Content-Type':'application/json','Accept':'application/json'},
+    body:JSON.stringify(payload)
+  }).then(function(response){
+    if(!response.ok) throw new Error('Formspree returned '+response.status);
+    // Success — show confirmation, reset the form, and close the modal after a moment
+    var success=document.getElementById('mr-success');
+    if(success){
+      success.innerHTML='<strong>Thanks!</strong> Your request has been sent to meg@esgfuture.net. We\'ll be in touch soon.';
+      success.classList.add('show');
+    }
+    var form=document.getElementById('mr-form');
+    if(form)form.reset();
+    if(submitBtn){submitBtn.disabled=false;submitBtn.textContent=originalBtnText;}
+    // Auto-close the modal after 3.5s so the user sees the confirmation
+    setTimeout(function(){
+      if(typeof closeMaterialRequest==='function')closeMaterialRequest();
+      if(success)success.classList.remove('show');
+    },3500);
+  }).catch(function(err){
+    // Network/Formspree failure — fall back to mailto so the user can still send
+    if(submitBtn){submitBtn.disabled=false;submitBtn.textContent=originalBtnText;}
+    var subject='AO Target Materials — Request to add: '+material;
+    var body=
+      'Material request\n'+
+      '================\n\n'+
+      'Name: '+name+'\n'+
+      'Business: '+business+'\n'+
+      'Email: '+email+'\n\n'+
+      'Material name: '+material+'\n\n'+
+      'Description of use / why it is a candidate:\n'+usecase+'\n\n'+
+      'What the material is made of:\n'+composition+'\n\n'+
+      'Environmental certifications: '+certs+'\n'+
+      'Recyclable / take-back program: '+recycle+'\n';
+    var href='mailto:meg@esgfuture.net?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+    var success=document.getElementById('mr-success');
+    if(success){
+      success.innerHTML='<strong>Couldn\'t send automatically.</strong> Your email client should have opened with your request pre-filled. If it didn\'t, copy the details above and email them to <a href="mailto:meg@esgfuture.net" style="color:#065f46;font-weight:700;">meg@esgfuture.net</a>.';
+      success.classList.add('show');
+    }
+    window.location.href=href;
+  });
 }
 function addOpts(selId,vals){
   var el=$(selId);
