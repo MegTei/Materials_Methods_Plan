@@ -3,9 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AO Target Materials</title>
+<title>AO Target Materials & Methods</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<!-- GitHub Pages compatible: single self-contained HTML file, no server dependencies -->
 <style>
 :root {
   --navy:#1E2886; --navy-dark:#141b5e;
@@ -21,66 +20,74 @@
 *{margin:0;padding:0;box-sizing:border-box;}
 body{font-family:'DM Sans',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;background:var(--slate-100);color:var(--text);min-height:100vh;}
 
-/* HEADER */
-.site-header{background:linear-gradient(135deg,var(--navy-dark) 0%,var(--navy) 60%,var(--blue-dark) 100%);padding:36px 60px 0;position:relative;overflow:hidden;}
-.site-header::before{content:'';position:absolute;top:-60px;right:-60px;width:320px;height:320px;background:radial-gradient(circle,rgba(0,227,255,.15) 0%,transparent 70%);border-radius:50%;}
-.header-inner{position:relative;z-index:1;display:flex;justify-content:space-between;align-items:flex-end;}
-.header-text h1{font-size:2.4rem;font-weight:800;color:white;letter-spacing:-.5px;line-height:1.1;}
+/* ── HEADER ─────────────────────────────────────────────────── */
+.site-header{background:linear-gradient(135deg,var(--navy-dark) 0%,var(--navy) 60%,var(--blue-dark) 100%);padding:20px 48px 0;position:relative;overflow:hidden;}
+.site-header::before{content:'';position:absolute;top:-60px;right:-60px;width:280px;height:280px;background:radial-gradient(circle,rgba(0,227,255,.15) 0%,transparent 70%);border-radius:50%;}
+.header-inner{position:relative;z-index:1;display:flex;justify-content:space-between;align-items:center;}
+.header-text h1{font-size:1.9rem;font-weight:800;color:white;letter-spacing:-.5px;line-height:1.1;}
 .header-text h1 em{color:var(--cyan);font-style:normal;}
-.header-text p{color:rgba(255,255,255,.7);font-size:.95rem;margin-top:6px;font-weight:300;}
-.header-meta{display:flex;gap:12px;align-items:center;padding-bottom:4px;}
-.hbadge{background:rgba(255,255,255,.12);color:rgba(255,255,255,.9);padding:6px 14px;border-radius:20px;font-size:.8rem;font-weight:600;border:1px solid rgba(255,255,255,.18);}
-
-/* TABS */
-.tab-nav{display:flex;gap:0;background:rgba(0,0,0,.2);overflow:hidden;border-top:1px solid rgba(255,255,255,.1);position:relative;z-index:1;margin-top:28px;}
-.tab-btn{padding:16px 36px;background:transparent;border:none;color:rgba(255,255,255,.55);font-family:'DM Sans',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;font-size:.92rem;font-weight:600;cursor:pointer;border-bottom:3px solid transparent;transition:all .2s;display:flex;align-items:center;gap:10px;white-space:nowrap;}
-.tab-btn .tab-num{background:rgba(255,255,255,.12);width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.74rem;flex-shrink:0;}
+.header-text p{color:rgba(255,255,255,.65);font-size:.85rem;margin-top:4px;font-weight:300;}
+.header-meta{display:flex;gap:10px;align-items:center;}
+.hbadge{background:rgba(255,255,255,.12);color:rgba(255,255,255,.9);padding:5px 12px;border-radius:20px;font-size:.75rem;font-weight:600;border:1px solid rgba(255,255,255,.18);}
+.mpmp-badge{display:inline-flex;align-items:center;padding:9px 22px;border-radius:50px;border:1.5px solid rgba(0,227,255,.55);background:rgba(0,20,60,.35);color:var(--cyan);font-size:.82rem;font-weight:700;letter-spacing:.025em;backdrop-filter:blur(6px);white-space:nowrap;}
+.tab-nav{display:flex;gap:0;background:rgba(0,0,0,.2);overflow:hidden;border-top:1px solid rgba(255,255,255,.1);position:relative;z-index:1;margin-top:20px;}
+.tab-btn{padding:12px 28px;background:transparent;border:none;color:rgba(255,255,255,.55);font-family:'DM Sans',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;font-size:.88rem;font-weight:600;cursor:pointer;border-bottom:3px solid transparent;transition:all .2s;white-space:nowrap;}
 .tab-btn:hover{color:rgba(255,255,255,.85);background:rgba(255,255,255,.06);}
 .tab-btn.active{color:var(--cyan);border-bottom-color:var(--cyan);background:rgba(0,227,255,.07);}
-.tab-btn.active .tab-num{background:var(--cyan);color:var(--navy);}
 .tab-panel{display:none;animation:fadeUp .25s ease;}
 .tab-panel.active{display:block;}
 @keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 
-/* MAIN */
-.main{padding:32px 60px 60px;max-width:1600px;margin:0 auto;}
-.section-title{font-size:1.3rem;font-weight:700;color:var(--navy);margin-bottom:6px;}
-.section-sub{color:var(--text-light);font-size:.9rem;margin-bottom:20px;font-weight:400;}
-.divider{height:3px;background:linear-gradient(90deg,var(--blue) 0%,var(--cyan) 50%,transparent 100%);border-radius:4px;margin-bottom:22px;width:120px;}
+/* ── MAIN ──────────────────────────────────────────────────── */
+.main{padding:24px 48px 48px;max-width:1600px;margin:0 auto;}
+.section-title{font-size:1.2rem;font-weight:700;color:var(--navy);margin-bottom:4px;}
+.section-sub{color:var(--text-light);font-size:.88rem;margin-bottom:14px;font-weight:400;}
+.divider{height:3px;background:linear-gradient(90deg,var(--blue) 0%,var(--cyan) 50%,transparent 100%);border-radius:4px;margin-bottom:18px;width:100px;}
 
-/* CALLOUTS */
-.callout{border-radius:12px;padding:14px 18px;display:flex;gap:10px;align-items:flex-start;font-size:.84rem;line-height:1.6;}
+/* ── CALLOUTS ─────────────────────────────────────────────── */
+.callout{border-radius:10px;padding:12px 16px;display:flex;gap:10px;align-items:flex-start;font-size:.84rem;line-height:1.6;}
 .callout-red{background:rgba(248,113,113,.08);border:1.5px solid rgba(248,113,113,.3);}
 .callout-green{background:rgba(16,185,129,.07);border:1.5px solid rgba(16,185,129,.25);}
 .callout-blue{background:rgba(2,136,204,.07);border:1.5px solid rgba(2,136,204,.2);}
 .callout-amber{background:rgba(251,191,36,.08);border:1.5px solid rgba(251,191,36,.35);}
 .callout-icon{font-size:1rem;flex-shrink:0;padding-top:1px;}
-.callouts-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:22px;}
+.callouts-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:18px;}
 
-/* HOW TO */
-.how-to{background:white;border-radius:14px;box-shadow:0 2px 10px rgba(0,0,0,.07);overflow:hidden;margin-bottom:22px;}
-.how-to-header{padding:12px 22px;background:linear-gradient(135deg,rgba(30,40,134,.06) 0%,rgba(2,136,204,.08) 100%);border-bottom:1px solid var(--slate-200);font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:var(--blue);}
-.how-to-body{padding:18px 22px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;}
+/* ── HOW-TO ───────────────────────────────────────────────── */
+.how-to{background:white;border-radius:12px;box-shadow:0 2px 10px rgba(0,0,0,.07);overflow:hidden;margin-bottom:18px;}
+.how-to-header{padding:10px 20px;background:linear-gradient(135deg,rgba(30,40,134,.06) 0%,rgba(2,136,204,.08) 100%);border-bottom:1px solid var(--slate-200);font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:var(--blue);}
+.how-to-body{padding:16px 20px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;}
 .how-to-step{display:flex;gap:10px;align-items:flex-start;}
-.step-num{width:26px;height:26px;border-radius:50%;background:var(--blue);color:white;font-weight:800;font-size:.8rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-.step-text{font-size:.81rem;color:var(--slate-600);line-height:1.55;padding-top:3px;}
+.step-num{width:24px;height:24px;border-radius:50%;background:var(--blue);color:white;font-weight:800;font-size:.78rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.step-text{font-size:.8rem;color:var(--slate-600);line-height:1.55;padding-top:2px;}
 
-/* FILTER BAR */
-.filter-bar{display:flex;gap:10px;flex-wrap:wrap;align-items:flex-end;margin-bottom:16px;background:white;border-radius:12px;padding:16px 20px;border:1.5px solid var(--slate-200);}
+/* ── FILTER BAR ──────────────────────────────────────────── */
+.filter-bar{display:flex;gap:10px;flex-wrap:wrap;align-items:flex-end;margin-bottom:14px;background:white;border-radius:10px;padding:14px 18px;border:1.5px solid var(--slate-200);}
 .filter-group{display:flex;flex-direction:column;gap:4px;}
-.filter-group label{font-size:.63rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text-light);}
-.filter-group select{font-family:inherit;font-size:.79rem;font-weight:500;color:var(--slate-900);background:var(--slate-50);border:1.5px solid var(--slate-200);border-radius:8px;padding:7px 28px 7px 10px;cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%230288CC' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 9px center;min-width:160px;}
+.filter-group label{font-size:.62rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text-light);}
+.filter-group select{font-family:inherit;font-size:.78rem;font-weight:500;color:var(--slate-900);background:var(--slate-50);border:1.5px solid var(--slate-200);border-radius:7px;padding:6px 26px 6px 10px;cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%230288CC' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 9px center;min-width:155px;}
 .filter-group select:focus{outline:none;border-color:var(--blue);}
-.btn-clear{font-family:inherit;font-size:.74rem;font-weight:600;color:var(--blue);background:rgba(2,136,204,.08);border:1.5px solid rgba(2,136,204,.25);border-radius:8px;padding:7px 14px;cursor:pointer;}
+.btn-clear{font-family:inherit;font-size:.73rem;font-weight:600;color:var(--blue);background:rgba(2,136,204,.08);border:1.5px solid rgba(2,136,204,.25);border-radius:7px;padding:6px 12px;cursor:pointer;}
 .btn-clear:hover{background:rgba(2,136,204,.14);}
-.result-count{font-size:.74rem;color:var(--slate-400);padding:7px 4px;align-self:center;}
+.result-count{font-size:.73rem;color:var(--slate-400);padding:6px 4px;align-self:center;}
+.filter-search-wrap{display:flex;flex-direction:column;gap:4px;position:relative;}
+.filter-search-wrap label{font-size:.62rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text-light);}
+.filter-search-icon{position:absolute;left:9px;bottom:8px;color:var(--slate-400);pointer-events:none;}
+.filter-search-input{font-family:inherit;font-size:.78rem;font-weight:500;color:var(--slate-900);background:var(--slate-50);border:1.5px solid var(--slate-200);border-radius:7px;padding:6px 10px 6px 28px;min-width:170px;}
+.filter-search-input:focus{outline:none;border-color:var(--blue);}
+.filter-active{border-color:var(--blue)!important;background:rgba(2,136,204,.06)!important;}
+.filter-active-count{display:none;background:var(--blue);color:white;border-radius:9px;padding:0 5px;font-size:.65rem;margin-left:3px;}
+.filter-active-count.visible{display:inline;}
+.material-request-strip{display:flex;align-items:center;gap:8px;background:rgba(2,136,204,.06);border:1.5px solid rgba(2,136,204,.18);border-radius:8px;padding:10px 14px;font-size:.82rem;color:var(--slate-600);margin-bottom:12px;}
+.material-request-strip a{color:var(--blue);font-weight:600;text-decoration:none;}
+.material-request-strip a:hover{text-decoration:underline;}
 
-/* LEGEND */
-.legend{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:16px;}
-.legend-label{font-size:.73rem;font-weight:700;color:var(--slate-600);}
-.legend-item{display:flex;align-items:center;gap:6px;padding:4px 11px;border-radius:7px;border:1.5px solid;}
-.legend-dot{width:9px;height:9px;border-radius:2px;flex-shrink:0;}
-.legend-text{font-size:.73rem;font-weight:600;}
+/* ── LEGEND ──────────────────────────────────────────────── */
+.legend{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:14px;}
+.legend-label{font-size:.72rem;font-weight:700;color:var(--slate-600);}
+.legend-item{display:flex;align-items:center;gap:6px;padding:3px 10px;border-radius:6px;border:1.5px solid;}
+.legend-dot{width:8px;height:8px;border-radius:2px;flex-shrink:0;}
+.legend-text{font-size:.72rem;font-weight:600;}
 .legend-yes{background:rgba(16,185,129,.07);border-color:rgba(16,185,129,.35);}
 .legend-yes .legend-dot{background:#10b981;} .legend-yes .legend-text{color:#059669;}
 .legend-no{background:rgba(248,113,113,.07);border-color:rgba(248,113,113,.3);}
@@ -88,648 +95,321 @@ body{font-family:'DM Sans',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI'
 .legend-maybe{background:rgba(251,191,36,.08);border-color:rgba(251,191,36,.4);}
 .legend-maybe .legend-dot{background:var(--amber);} .legend-maybe .legend-text{color:#92400e;}
 
-/* TABLE */
-.table-wrap{background:white;border-radius:12px;border:1.5px solid var(--slate-200);overflow:clip;}
+/* ── TABLE ───────────────────────────────────────────────── */
+.table-wrap{background:white;border-radius:10px;border:1.5px solid var(--slate-200);overflow:clip;}
 .table-scroll{overflow-x:auto;overflow-y:auto;max-height:70vh;}
 table{width:100%;border-collapse:collapse;}
 thead tr{background:linear-gradient(135deg,var(--navy) 0%,var(--blue-dark) 100%);color:white;}
-thead th{padding:11px 12px;text-align:left;font-size:.71rem;font-weight:700;letter-spacing:.3px;white-space:nowrap;position:sticky;top:0;z-index:2;background:linear-gradient(135deg,var(--navy) 0%,var(--blue-dark) 100%);color:white;}
+thead th{padding:10px 12px;text-align:left;font-size:.7rem;font-weight:700;letter-spacing:.3px;white-space:nowrap;position:sticky;top:0;z-index:2;background:linear-gradient(135deg,var(--navy) 0%,var(--blue-dark) 100%);color:white;}
 thead th.th-amber{background:linear-gradient(135deg,#b45309 0%,#d97706 100%);color:#fef9c3;}
 thead th.th-gap{background:var(--slate-100);padding:0;width:16px;border:none;}
 thead th.th-teal{background:linear-gradient(135deg,#0e7490 0%,#0891b2 100%);color:#e0f7fa;}
 thead th.th-concern{background:linear-gradient(135deg,#7f1d1d 0%,#991b1b 100%);color:#fee2e2;}
-
-.group-row td{background:var(--slate-100);padding:8px 12px;font-weight:700;font-size:.73rem;color:var(--navy);text-transform:uppercase;letter-spacing:.5px;border-top:2px solid var(--slate-200);border-bottom:2px solid var(--blue);letter-spacing:.4px;}
-.data-row td{padding:9px 12px;border-bottom:1px solid var(--slate-100);font-size:.79rem;vertical-align:top;}
+.group-row td{background:var(--slate-100);padding:7px 12px;font-weight:700;font-size:.72rem;color:var(--navy);text-transform:uppercase;letter-spacing:.4px;border-top:2px solid var(--slate-200);border-bottom:2px solid var(--blue);}
+.data-row td{padding:8px 12px;border-bottom:1px solid var(--slate-100);font-size:.79rem;vertical-align:top;}
 .data-row:hover td{background:rgba(2,136,204,.07) !important;}
 .td-gap{padding:0 !important;background:var(--slate-50) !important;border-left:1px solid var(--slate-200) !important;border-right:1px solid var(--slate-200) !important;width:16px;}
 .td-amber{background:rgba(251,191,36,.025) !important;border-bottom-color:rgba(251,191,36,.12) !important;}
-.td-teal{background:rgba(8,145,178,.025) !important;border-bottom-color:rgba(8,145,178,.1) !important;}
-.td-concern{background:rgba(248,113,113,.02) !important;border-bottom-color:rgba(248,113,113,.08) !important;}
-
 .mat-name{font-weight:700;color:var(--slate-900);font-size:.82rem;line-height:1.35;}
 .mat-sub{font-size:.73rem;color:var(--slate-400);margin-top:2px;line-height:1.4;}
 .cell-text{font-size:.77rem;color:var(--slate-600);line-height:1.5;}
 .cell-small{font-size:.73rem;color:var(--slate-500);line-height:1.45;}
-.cell-concern{font-size:.74rem;color:#7f1d1d;line-height:1.45;}
-.cell-gap{font-size:.72rem;color:var(--slate-400);line-height:1.45;font-style:italic;}
 .cell-link{color:var(--blue);font-size:.72rem;text-decoration:none;}
 .cell-link:hover{text-decoration:underline;}
 .price-text{white-space:nowrap;color:var(--slate-700);font-size:.8rem;font-weight:600;}
 .ref-badge{font-size:.72rem;color:var(--slate-400);font-weight:700;}
+.cell-trunc{overflow:hidden;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;}
+.cell-trunc.expanded{overflow:visible;display:block;-webkit-line-clamp:unset;}
+.btn-expand{font-size:.68rem;color:var(--blue);background:none;border:none;cursor:pointer;padding:2px 0;font-family:inherit;}
 
 /* STATUS BADGES */
-.badge{display:inline-block;padding:3px 8px;border-radius:6px;font-size:.68rem;font-weight:700;border:1px solid;white-space:nowrap;line-height:1.4;}
+.badge{display:inline-block;padding:3px 8px;border-radius:5px;font-size:.68rem;font-weight:700;border:1px solid;white-space:nowrap;line-height:1.4;}
 .badge-yes{background:rgba(16,185,129,.12);color:#059669;border-color:rgba(16,185,129,.35);}
 .badge-no{background:rgba(248,113,113,.12);color:var(--red-dark);border-color:rgba(248,113,113,.3);}
 .badge-maybe{background:rgba(251,191,36,.15);color:#92400e;border-color:rgba(251,191,36,.45);}
-
-/* AO REC PILL */
 .rec{display:inline-flex;align-items:center;gap:4px;padding:3px 9px;border-radius:18px;font-size:.7rem;font-weight:700;border:1.5px solid;white-space:nowrap;line-height:1.4;}
 .rec-green{background:#dcfce7;color:#15803d;border-color:#86efac;}
 .rec-blue{background:#e0f2fe;color:var(--blue-dark);border-color:#7dd3fc;}
 .rec-amber{background:#fef9c3;color:#854d0e;border-color:#fde047;}
 .rec-orange{background:#fff7ed;color:#c2410c;border-color:#fdba74;}
 .rec-red{background:#fee2e2;color:#b91c1c;border-color:#fca5a5;}
-
-/* RML STAR RATING */
 .rml-star{display:inline-flex;align-items:center;gap:4px;padding:3px 9px;border-radius:6px;font-size:.68rem;font-weight:800;letter-spacing:.2px;border:1.5px solid;}
 .rml-rec{background:#dcfce7;color:#15803d;border-color:#86efac;}
 .rml-cond{background:#fef9c3;color:#854d0e;border-color:#fde047;}
 .rml-limit{background:#fee2e2;color:#b91c1c;border-color:#fca5a5;}
-
-/* EPD / FSC CHIPS */
 .chip{display:inline-block;padding:2px 7px;border-radius:5px;font-size:.66rem;font-weight:700;margin:1px;}
 .chip-yes{background:rgba(16,185,129,.15);color:#047857;border:1px solid rgba(16,185,129,.3);}
 .chip-no{background:rgba(248,113,113,.12);color:#b91c1c;border:1px solid rgba(248,113,113,.25);}
 .chip-warn{background:rgba(251,191,36,.2);color:#78350f;border:1px solid rgba(251,191,36,.4);}
 .chip-na{background:var(--slate-100);color:var(--slate-400);border:1px solid var(--slate-200);}
-
-.empty-state{padding:40px;text-align:center;color:var(--slate-400);font-size:.88rem;}
-/* SUPPLIER CONCERTINA */
+.empty-state{padding:36px;text-align:center;color:var(--slate-400);font-size:.88rem;}
 .sup-toggle{font-size:.68rem;font-weight:700;color:var(--blue);background:rgba(2,136,204,.08);border:1px solid rgba(2,136,204,.22);border-radius:5px;padding:2px 8px;cursor:pointer;margin-top:4px;display:inline-block;font-family:inherit;}
 .sup-toggle:hover{background:rgba(2,136,204,.16);}
 .sup-detail-row>td{background:#f0f7ff!important;border-bottom:2px solid rgba(2,136,204,.18)!important;padding:0!important;}
-.sup-list{display:flex;flex-direction:column;gap:6px;}
-.sup-item{display:flex;align-items:center;gap:12px;font-size:.75rem;}
-.sup-item-name{font-weight:700;color:var(--slate-700);min-width:150px;}
-.sup-item-url a{color:var(--blue);text-decoration:none;font-size:.73rem;}
-.sup-item-url a:hover{text-decoration:underline;}
 
-/* ── Responsible Methods tab ─────────────────────────────────── */
-.did-you-know{background:linear-gradient(135deg,var(--navy-dark,#0a1628) 0%,var(--navy) 60%,var(--blue-dark,#0255a3) 100%);border-radius:14px;border:1.5px solid rgba(0,227,255,.25);box-shadow:0 2px 10px rgba(0,0,0,.12);padding:20px 24px;display:flex;gap:18px;align-items:flex-start;margin-bottom:22px;position:relative;overflow:hidden;}
-.did-you-know::after{content:'';position:absolute;right:-40px;top:-40px;width:180px;height:180px;background:radial-gradient(circle,rgba(0,227,255,.12) 0%,transparent 70%);border-radius:50%;}
-.dyk-icon{width:42px;height:42px;border-radius:10px;background:rgba(0,227,255,.15);border:1.5px solid rgba(0,227,255,.35);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-.dyk-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--cyan);margin-bottom:6px;}
-.dyk-text{font-size:.86rem;color:rgba(255,255,255,.88);line-height:1.65;}
-.legend-row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:18px;}
-.leg-item{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:7px;border:1.5px solid;font-size:.72rem;font-weight:600;}
-.leg-d{background:rgba(2,136,204,.08);border-color:rgba(2,136,204,.3);color:#0255a3;}
-.leg-pm{background:rgba(251,191,36,.1);border-color:rgba(251,191,36,.4);color:#92400e;}
-.leg-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
-.guide-table-wrap{background:white;border-radius:14px;overflow:hidden;border:1.5px solid var(--slate-200);box-shadow:0 2px 10px rgba(0,0,0,.07);}
+/* ── RESPONSIBLE METHODS TAB ─────────────────────────────── */
+.did-you-know{background:linear-gradient(135deg,var(--navy-dark,#0a1628) 0%,var(--navy) 60%,var(--blue-dark,#0255a3) 100%);border-radius:12px;border:1.5px solid rgba(0,227,255,.25);box-shadow:0 2px 10px rgba(0,0,0,.12);padding:18px 22px;display:flex;gap:16px;align-items:flex-start;margin-bottom:18px;position:relative;overflow:hidden;}
+.did-you-know::after{content:'';position:absolute;right:-40px;top:-40px;width:160px;height:160px;background:radial-gradient(circle,rgba(0,227,255,.12) 0%,transparent 70%);border-radius:50%;}
+.dyk-icon{width:40px;height:40px;border-radius:9px;background:rgba(0,227,255,.15);border:1.5px solid rgba(0,227,255,.35);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.dyk-label{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--cyan);margin-bottom:5px;}
+.dyk-text{font-size:.84rem;color:rgba(255,255,255,.88);line-height:1.65;}
+.guide-table-wrap{background:white;border-radius:12px;overflow:hidden;border:1.5px solid var(--slate-200);box-shadow:0 2px 10px rgba(0,0,0,.07);}
 .guide-table{width:100%;border-collapse:collapse;table-layout:fixed;}
 .guide-table .col-mat{width:44%;}.guide-table .col-prac{width:44%;}.guide-table .col-step{width:90px;}.guide-table .col-own{width:120px;}.guide-table .col-gap{width:12px;}
 .guide-table thead tr{background:linear-gradient(135deg,#0d1f3c 0%,#1a3a6e 100%);color:white;}
-.guide-table thead th{padding:13px 16px;text-align:left;font-size:.72rem;font-weight:700;letter-spacing:.3px;white-space:nowrap;}
+.guide-table thead th{padding:12px 16px;text-align:left;font-size:.71rem;font-weight:700;letter-spacing:.3px;white-space:nowrap;}
 .guide-table thead .th-mat{background:linear-gradient(135deg,#0e4f8a 0%,#0271ad 100%);color:#bae6fd;}
 .guide-table thead .th-prac{background:linear-gradient(135deg,#065f46 0%,#047857 100%);color:#d1fae5;}
 .guide-table thead .th-gap{background:var(--slate-100);padding:0;width:12px;border:none;}
 .guide-table tbody tr{border-bottom:1px solid var(--slate-100);}
-.guide-table td{padding:18px 16px;vertical-align:top;font-size:.82rem;line-height:1.6;color:var(--slate-600);}
+.guide-table td{padding:16px;vertical-align:top;font-size:.82rem;line-height:1.6;color:var(--slate-600);}
 .td-gap-col{padding:0!important;background:var(--slate-50)!important;border-left:1px solid var(--slate-200)!important;border-right:1px solid var(--slate-200)!important;width:12px;}
 .td-mat{border-left:4px solid rgba(2,136,204,.3);background:rgba(2,136,204,.018);}
 .td-prac{border-left:4px solid rgba(16,185,129,.3);background:rgba(16,185,129,.018);}
-.step-cell{padding:18px 14px!important;text-align:center;border-right:1px solid var(--slate-200);background:var(--slate-50);}
-.step-n{font-size:1.7rem;font-weight:800;color:var(--navy);line-height:1;}
-.step-lbl{font-size:.62rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--slate-400);margin-top:3px;}
+.step-cell{padding:16px 14px!important;text-align:center;border-right:1px solid var(--slate-200);background:var(--slate-50);}
+.step-n{font-size:1.6rem;font-weight:800;color:var(--navy);line-height:1;}
+.step-lbl{font-size:.6rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--slate-400);margin-top:3px;}
 .action-verb{font-weight:700;color:#1e293b;}
 .own-cell{text-align:center;vertical-align:middle;background:rgba(251,191,36,.08)!important;border-left:1px solid rgba(251,191,36,.25);}
 .own-chip{display:inline-block;font-size:.68rem;font-weight:700;padding:4px 10px;border-radius:6px;border:1.5px solid;white-space:nowrap;}
 .own-d{background:rgba(2,136,204,.08);border-color:rgba(2,136,204,.3);color:#0255a3;}
 .own-pm{background:rgba(251,191,36,.1);border-color:rgba(251,191,36,.4);color:#92400e;}
-.cards-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
-.pocket-card{background:white;border-radius:14px;overflow:hidden;border:1.5px solid var(--slate-200);box-shadow:0 4px 20px rgba(0,0,0,.08);display:flex;flex-direction:column;}
-.card-head{padding:28px 30px 22px;position:relative;overflow:hidden;}
-.card-head::before{content:'';position:absolute;right:-30px;top:-30px;width:140px;height:140px;background:radial-gradient(circle,rgba(0,0,0,.06) 0%,transparent 70%);border-radius:50%;}
+.cards-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+.pocket-card{background:white;border-radius:12px;overflow:hidden;border:1.5px solid var(--slate-200);box-shadow:0 4px 18px rgba(0,0,0,.07);display:flex;flex-direction:column;}
+.card-head{padding:22px 26px 18px;position:relative;overflow:hidden;}
+.card-head::before{content:'';position:absolute;right:-30px;top:-30px;width:120px;height:120px;background:radial-gradient(circle,rgba(0,0,0,.06) 0%,transparent 70%);border-radius:50%;}
 .card-a .card-head{background:linear-gradient(135deg,#0a1628 0%,#0d1f3c 60%,#0255a3 100%);border-bottom:3px solid #0091D2;}
 .card-b .card-head{background:linear-gradient(135deg,#064e3b 0%,#065f46 60%,#047857 100%);border-bottom:3px solid #10b981;}
-.card-eyebrow{font-size:.65rem;font-weight:700;letter-spacing:.9px;text-transform:uppercase;margin-bottom:6px;position:relative;z-index:1;}
+.card-eyebrow{font-size:.63rem;font-weight:700;letter-spacing:.9px;text-transform:uppercase;margin-bottom:5px;position:relative;z-index:1;}
 .card-a .card-eyebrow{color:#28F8E4;}.card-b .card-eyebrow{color:#6ee7b7;}
-.card-title{font-size:1.55rem;font-weight:800;color:white;line-height:1.15;margin-bottom:8px;position:relative;z-index:1;}
-.card-subtitle{font-size:.81rem;color:rgba(255,255,255,.6);line-height:1.5;position:relative;z-index:1;}
-.card-body{padding:24px 30px;flex:1;}
-.card-step{display:flex;gap:14px;margin-bottom:18px;align-items:flex-start;}
-.cs-icon{width:38px;height:38px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;border:1.5px solid;}
+.card-title{font-size:1.4rem;font-weight:800;color:white;line-height:1.15;margin-bottom:7px;position:relative;z-index:1;}
+.card-subtitle{font-size:.8rem;color:rgba(255,255,255,.6);line-height:1.5;position:relative;z-index:1;}
+.card-body{padding:20px 26px;flex:1;}
+.card-step{display:flex;gap:12px;margin-bottom:16px;align-items:flex-start;}
+.cs-icon{width:36px;height:36px;border-radius:7px;display:flex;align-items:center;justify-content:center;flex-shrink:0;border:1.5px solid;}
 .card-a .cs-icon{background:rgba(2,136,204,.08);border-color:rgba(2,136,204,.25);}
 .card-b .cs-icon{background:rgba(16,185,129,.08);border-color:rgba(16,185,129,.25);}
-.cs-label{font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:#64748b;margin-bottom:3px;}
-.cs-text{font-size:.82rem;color:var(--slate-600);line-height:1.55;}
+.cs-label{font-size:.63rem;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:#64748b;margin-bottom:2px;cursor:pointer;display:flex;align-items:center;gap:5px;}
+.cs-label-arrow{font-size:.8rem;transition:transform .2s,opacity .2s;display:inline-block;}
+.cs-step-body{overflow:hidden;transition:max-height .25s ease,opacity .25s ease;max-height:300px;opacity:1;}
+.cs-step-body.step-collapsed{max-height:0;opacity:0;}
+.cs-text{font-size:.81rem;color:var(--slate-600);line-height:1.55;}
 .cs-text strong{color:#1e293b;font-weight:700;}
-.p-card-divider{height:1px;background:var(--slate-100);margin:18px 0;}
-.card-prompt{border-radius:10px;padding:16px 18px 16px 20px;display:flex;gap:12px;align-items:flex-start;margin:4px 30px 24px;border-left-width:4px !important;}
+.p-card-divider{height:1px;background:var(--slate-100);margin:14px 0;}
+.card-prompt{border-radius:9px;padding:14px 16px 14px 18px;display:flex;gap:11px;align-items:flex-start;margin:4px 26px 20px;border-left-width:4px !important;}
 .card-a .card-prompt{background:rgba(2,136,204,.06);border:1.5px solid rgba(2,136,204,.2);border-left-color:#0091D2 !important;}
 .card-b .card-prompt{background:rgba(16,185,129,.06);border:1.5px solid rgba(16,185,129,.2);border-left-color:#047857 !important;}
 .prompt-icon{flex-shrink:0;margin-top:1px;display:flex;}
-.prompt-lbl{font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.6px;margin-bottom:4px;}
+.prompt-lbl{font-size:.63rem;font-weight:700;text-transform:uppercase;letter-spacing:.6px;margin-bottom:4px;}
 .card-a .prompt-lbl{color:#0091D2;}.card-b .prompt-lbl{color:#047857;}
-.prompt-text{font-size:.86rem;color:#475569;font-style:italic;line-height:1.55;}
-.card-footer{padding:13px 30px;border-top:1px solid var(--slate-100);display:flex;justify-content:space-between;align-items:center;background:var(--slate-50);}
-.footer-mark{font-size:.7rem;font-weight:600;color:var(--slate-400);}
-.footer-steps{font-size:.7rem;font-weight:700;color:var(--slate-400);}
-.prc-section-title{font-size:1.15rem;font-weight:700;color:var(--navy);margin-bottom:6px;}
+.prompt-text{font-size:.84rem;color:#475569;font-style:italic;line-height:1.55;}
+.card-footer{padding:11px 26px;border-top:1px solid var(--slate-100);display:flex;justify-content:space-between;align-items:center;background:var(--slate-50);}
+.footer-mark{font-size:.68rem;font-weight:600;color:var(--slate-400);}
+.prc-section-title{font-size:1.1rem;font-weight:700;color:var(--navy);margin-bottom:5px;}
+.legend-row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:16px;}
+.leg-item{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:7px;border:1.5px solid;font-size:.72rem;font-weight:600;}
+.leg-d{background:rgba(2,136,204,.08);border-color:rgba(2,136,204,.3);color:#0255a3;}
+.leg-pm{background:rgba(251,191,36,.1);border-color:rgba(251,191,36,.4);color:#92400e;}
+.leg-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
 
-/* ── UX IMPROVEMENTS ─────────────────────────────────────────── */
-
-/* Keyword search input */
-.filter-search-wrap{position:relative;display:flex;flex-direction:column;gap:4px;}
-.filter-search-wrap label{font-size:.63rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text-light);}
-.filter-search-icon{position:absolute;left:9px;bottom:8px;pointer-events:none;color:var(--slate-400);}
-.filter-search-input{font-family:inherit;font-size:.79rem;font-weight:500;color:var(--slate-900);background:var(--slate-50);border:1.5px solid var(--slate-200);border-radius:8px;padding:7px 10px 7px 32px;min-width:190px;outline:none;transition:border-color .15s;}
-.filter-search-input:focus{border-color:var(--blue);}
-.filter-search-input::placeholder{color:var(--slate-400);}
-
-/* Active filter highlight on selects */
-.filter-group select.filter-active{border-color:var(--blue);background-color:rgba(2,136,204,.05);}
-.filter-search-input.filter-active{border-color:var(--blue);background-color:rgba(2,136,204,.05);}
-
-/* Active-filter count badge next to Clear button */
-.filter-active-count{display:none;font-size:.68rem;font-weight:700;background:var(--blue);color:white;border-radius:10px;padding:2px 7px;margin-left:4px;vertical-align:middle;}
-.filter-active-count.visible{display:inline;}
-
-/* Truncatable long-text cells */
-.cell-trunc{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;line-height:1.5;}
-.cell-trunc.expanded{display:block;overflow:visible;}
-.btn-expand{display:inline-block;margin-top:5px;font-size:.68rem;font-weight:700;color:var(--blue);background:none;border:none;padding:0;cursor:pointer;font-family:inherit;letter-spacing:.2px;}
-.btn-expand:hover{text-decoration:underline;}
-
-/* Methods card accordion */
-.cs-label{cursor:pointer;user-select:none;display:flex;align-items:center;justify-content:space-between;padding:2px 6px;margin:-2px -6px 3px;border-radius:5px;transition:background-color .15s;}
-.cs-label:hover{background:rgba(2,136,204,.06);}
-.card-b .cs-label:hover{background:rgba(16,185,129,.06);}
-.cs-label-text{font-size:.78rem;font-weight:700;text-transform:none;letter-spacing:0;color:#1e293b;}
-.cs-label-arrow{font-size:.7rem;color:var(--slate-400);transition:transform .2s;flex-shrink:0;margin-left:8px;}
-.cs-label:hover .cs-label-arrow{color:var(--slate-600);}
-.cs-step-body{overflow:hidden;transition:max-height .25s ease,opacity .2s ease;max-height:600px;opacity:1;}
-.cs-step-body.step-collapsed{max-height:0 !important;opacity:0;pointer-events:none;}
-
-/* Responsive layout */
-@media(max-width:1100px){
-  .cards-grid{grid-template-columns:1fr;}
-  .main{padding:24px 32px 48px;}
-}
-@media(max-width:768px){
-  .site-header{padding:24px 20px 0;}
-  .main{padding:20px 16px 40px;}
-  .header-text h1{font-size:1.7rem;}
-  .tab-btn{padding:12px 18px;font-size:.82rem;}
-  .filter-bar{flex-direction:column;align-items:stretch;}
-  .filter-group select,.filter-search-input{min-width:100%;width:100%;}
-  .callouts-grid{grid-template-columns:1fr;}
-  .how-to-body{grid-template-columns:1fr;}
-}
-
-/* Material-request prompt strip (Target Materials tab) */
-.material-request-strip{display:flex;align-items:center;gap:10px;background:linear-gradient(to right,rgba(2,136,204,.06),rgba(2,136,204,.02));border:1px solid rgba(2,136,204,.2);border-left:3px solid #0091D2;border-radius:8px;padding:10px 14px;margin:20px 0 14px;font-size:.85rem;color:var(--slate-700);}
-.material-request-strip svg{color:#0091D2;flex-shrink:0;}
-.material-request-strip a{color:#0091D2;font-weight:700;text-decoration:none;white-space:nowrap;}
-.material-request-strip a:hover{text-decoration:underline;}
-
-/* Material request form (Resources tab) */
-.mr-section{margin-top:48px;padding-top:36px;border-top:1px solid var(--slate-200);scroll-margin-top:24px;}
-.mr-section h2{font-size:1.35rem;font-weight:800;color:var(--navy);margin:0 0 8px;letter-spacing:-.01em;}
-.mr-section .mr-intro{font-size:.9rem;color:var(--slate-600);line-height:1.55;margin:0 0 24px;max-width:720px;}
-.mr-form{max-width:720px;background:var(--slate-50);border:1.5px solid var(--slate-200);border-radius:12px;padding:28px 28px 24px;}
-.mr-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:14px;}
-.mr-field{display:flex;flex-direction:column;gap:5px;margin-bottom:14px;}
-.mr-field.mr-half{margin-bottom:0;}
-.mr-field label{font-size:.74rem;font-weight:700;color:var(--slate-700);text-transform:uppercase;letter-spacing:.35px;}
-.mr-field label .mr-req{color:#dc2626;margin-left:2px;}
-.mr-field input[type="text"],.mr-field input[type="email"],.mr-field textarea,.mr-field select{font-family:inherit;font-size:.87rem;color:var(--slate-900);background:white;border:1.5px solid var(--slate-200);border-radius:7px;padding:9px 12px;outline:none;transition:border-color .15s,box-shadow .15s;width:100%;}
-.mr-field textarea{resize:vertical;min-height:92px;line-height:1.5;}
-.mr-field input:focus,.mr-field textarea:focus,.mr-field select:focus{border-color:#0091D2;box-shadow:0 0 0 3px rgba(2,136,204,.12);}
-.mr-field-hint{font-size:.74rem;color:var(--slate-500);margin-top:2px;}
-.mr-actions{display:flex;gap:12px;align-items:center;margin-top:22px;flex-wrap:wrap;}
-.mr-submit{font-family:inherit;font-size:.85rem;font-weight:700;color:white;background:#0091D2;border:none;border-radius:8px;padding:11px 22px;cursor:pointer;letter-spacing:.2px;transition:background-color .15s,transform .1s;}
-.mr-submit:hover{background:#0079B0;}
-.mr-submit:active{transform:translateY(1px);}
-.mr-note{font-size:.78rem;color:var(--slate-500);}
-.mr-success{display:none;background:rgba(16,185,129,.08);border:1.5px solid rgba(16,185,129,.3);border-left:3px solid #047857;color:#065f46;padding:14px 16px;border-radius:8px;font-size:.87rem;line-height:1.5;margin-top:16px;}
+/* ── MATERIAL REQUEST MODAL ─────────────────────────────── */
+.mr-modal{position:fixed;inset:0;z-index:999;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.55);backdrop-filter:blur(3px);opacity:0;pointer-events:none;transition:opacity .2s;}
+.mr-modal.open{opacity:1;pointer-events:all;}
+.mr-modal-dialog{background:white;border-radius:16px;width:min(640px,94vw);max-height:90vh;overflow-y:auto;position:relative;padding:32px 36px;box-shadow:0 24px 60px rgba(0,0,0,.22);}
+.mr-modal-close{position:absolute;top:16px;right:16px;background:var(--slate-100);border:none;border-radius:7px;width:32px;height:32px;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--slate-600);}
+.mr-modal-close:hover{background:var(--slate-200);}
+.mr-section h2{font-size:1.3rem;font-weight:700;color:var(--navy);margin-bottom:6px;}
+.mr-intro{font-size:.88rem;color:var(--text-light);line-height:1.65;margin-bottom:24px;}
+.mr-form{display:flex;flex-direction:column;gap:16px;}
+.mr-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.mr-field{display:flex;flex-direction:column;gap:5px;}
+.mr-half{}
+.mr-field label{font-size:.75rem;font-weight:700;color:var(--slate-700);}
+.mr-field input,.mr-field textarea,.mr-field select{font-family:inherit;font-size:.85rem;border:1.5px solid var(--slate-200);border-radius:8px;padding:9px 12px;background:var(--slate-50);color:var(--text);transition:border-color .15s;}
+.mr-field input:focus,.mr-field textarea:focus,.mr-field select:focus{outline:none;border-color:var(--blue);}
+.mr-field textarea{min-height:90px;resize:vertical;line-height:1.55;}
+.mr-field-hint{font-size:.73rem;color:var(--slate-400);}
+.mr-req{color:#dc2626;}
+.mr-actions{display:flex;align-items:center;gap:14px;padding-top:4px;}
+.mr-submit{font-family:inherit;font-size:.88rem;font-weight:700;background:var(--blue);color:white;border:none;border-radius:9px;padding:11px 24px;cursor:pointer;transition:background .15s;}
+.mr-submit:hover{background:var(--blue-dark);}
+.mr-note{font-size:.78rem;color:var(--slate-400);}
+.mr-success{display:none;background:rgba(16,185,129,.08);border:1.5px solid rgba(16,185,129,.3);border-radius:10px;padding:14px 18px;font-size:.86rem;color:#065f46;line-height:1.6;}
 .mr-success.show{display:block;}
-/* Material request modal */
-.mr-modal{position:fixed;inset:0;z-index:1000;background:rgba(13,31,60,.55);backdrop-filter:blur(3px);display:none;align-items:flex-start;justify-content:center;padding:40px 20px;overflow-y:auto;}
-.mr-modal.open{display:flex;}
-.mr-modal-dialog{position:relative;background:white;border-radius:14px;box-shadow:0 20px 60px rgba(0,0,0,.3);width:100%;max-width:760px;padding:36px 36px 30px;animation:mrModalIn .25s ease;}
-@keyframes mrModalIn{from{opacity:0;transform:translateY(-12px) scale(.98);}to{opacity:1;transform:none;}}
-.mr-modal-close{position:absolute;top:14px;right:14px;width:32px;height:32px;border-radius:50%;border:1px solid var(--slate-200);background:white;color:var(--slate-600);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .15s;z-index:2;}
-.mr-modal-close:hover{background:var(--slate-100);color:var(--slate-900);border-color:var(--slate-300);}
-.mr-modal .mr-section{margin-top:0;padding-top:0;border-top:none;}
-.mr-modal .mr-form{max-width:none;}
-@media(max-width:640px){
-  .mr-modal{padding:20px 12px;}
-  .mr-modal-dialog{padding:28px 20px 22px;}
+
+
+/* ── START HERE — HERO BANNER ─────────────────────────────── */
+.sh-hero-banner{background:linear-gradient(135deg,#141b5e 0%,#1E2886 55%,#0271ad 100%);border-radius:16px;padding:30px 44px;color:white;margin-bottom:20px;position:relative;overflow:hidden;}
+.sh-hero-banner::before{content:'';position:absolute;top:-60px;right:-60px;width:280px;height:280px;background:radial-gradient(circle,rgba(0,227,255,.14) 0%,transparent 70%);border-radius:50%;pointer-events:none;}
+.sh-hero-banner::after{content:'';position:absolute;bottom:-40px;left:30%;width:200px;height:200px;background:radial-gradient(circle,rgba(2,136,204,.1) 0%,transparent 70%);border-radius:50%;pointer-events:none;}
+.sh-hero-banner h2{font-size:1.85rem;font-weight:800;line-height:1.15;margin-bottom:14px;position:relative;letter-spacing:-.02em;}
+.sh-hero-banner p{font-size:.91rem;line-height:1.78;color:rgba(255,255,255,.82);max-width:600px;position:relative;}
+
+/* ── START HERE — STAT STRIP ──────────────────────────────── */
+.sh-stat-strip{display:flex;align-items:center;gap:0;background:var(--navy-dark);border-radius:12px;border:1.5px solid var(--navy-dark);overflow:hidden;margin-bottom:20px;}
+.sh-stat-item{flex:1;padding:18px 22px;border-right:1px solid rgba(255,255,255,.12);}
+.sh-stat-item:last-child{border-right:none;}
+.sh-stat-label{font-size:.64rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:rgba(255,255,255,.55);margin-bottom:5px;}
+.sh-stat-val{font-size:1.8rem;font-weight:800;line-height:1;}
+.sh-stat-val.blue{color:var(--cyan);}
+.sh-stat-val.green{color:#4ade80;}
+.sh-stat-desc{font-size:.76rem;color:rgba(255,255,255,.65);margin-top:5px;line-height:1.4;}
+.sh-stat-intro{flex:2;padding:18px 26px;background:rgba(255,255,255,.07);border-left:1px solid rgba(255,255,255,.12);}
+.sh-stat-intro p{font-size:.87rem;color:rgba(255,255,255,.82);line-height:1.7;}
+
+/* 3-STEP PATHWAY */
+.pathway-wrap{display:flex;align-items:stretch;gap:0;margin-bottom:24px;border-radius:14px;overflow:hidden;border:1.5px solid var(--slate-200);background:white;}
+.pathway-step{flex:1;padding:22px 22px 20px;position:relative;border-right:1px solid var(--slate-200);display:flex;flex-direction:column;gap:10px;}
+.pathway-step:last-child{border-right:none;}
+.pathway-step::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;}
+.ps-1::before{background:linear-gradient(90deg,var(--navy),var(--blue));}
+.ps-2::before{background:linear-gradient(90deg,var(--blue),#0bb8d4);}
+.ps-3::before{background:linear-gradient(90deg,#0bb8d4,var(--navy));}
+.ps-num-wrap{display:flex;align-items:center;gap:10px;margin-bottom:2px;}
+.ps-num{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:800;flex-shrink:0;}
+.ps-1 .ps-num{background:rgba(30,40,134,.1);color:var(--navy);}
+.ps-2 .ps-num{background:rgba(2,136,204,.1);color:var(--blue-dark);}
+.ps-3 .ps-num{background:rgba(30,40,134,.12);color:var(--navy-dark);}
+.ps-step-label{font-size:.63rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text-light);}
+.ps-heading{font-size:1rem;font-weight:700;color:var(--navy);line-height:1.2;}
+.ps-desc{font-size:.78rem;color:var(--text-light);line-height:1.5;}
+.ps-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:2px;}
+.ps-tag{font-size:.67rem;font-weight:600;padding:3px 8px;border-radius:5px;background:var(--slate-100);color:var(--slate-600);}
+.ps-link{display:inline-flex;align-items:center;gap:5px;font-size:.8rem;font-weight:700;padding:8px 14px;border-radius:8px;border:none;cursor:pointer;font-family:inherit;margin-top:auto;transition:all .15s;text-decoration:none;}
+.ps-1 .ps-link{color:var(--navy);background:rgba(30,40,134,.07);border:1.5px solid rgba(30,40,134,.18);}
+.ps-1 .ps-link:hover{background:rgba(30,40,134,.12);}
+.ps-2 .ps-link{color:var(--blue-dark);background:rgba(2,136,204,.07);border:1.5px solid rgba(2,136,204,.22);}
+.ps-2 .ps-link:hover{background:rgba(2,136,204,.13);}
+.ps-3 .ps-link{color:white;background:var(--navy-dark);border:1.5px solid var(--navy-dark);}
+.ps-3 .ps-link:hover{background:#0d1248;}
+.pathway-connector{width:28px;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:var(--slate-50);border-right:1px solid var(--slate-200);color:var(--slate-400);font-size:.9rem;font-weight:700;}
+
+/* TIER 1 — PRIMARY CTA */
+.tier1-cta{display:flex;align-items:center;justify-content:space-between;gap:16px;background:linear-gradient(135deg,var(--navy-dark) 0%,var(--navy) 55%,var(--blue-dark) 100%);border-radius:14px;padding:24px 32px;text-decoration:none;margin-bottom:18px;box-shadow:0 6px 24px rgba(30,40,134,.28);cursor:pointer;transition:transform .15s,box-shadow .15s;border:none;width:100%;font-family:inherit;position:relative;overflow:hidden;}
+.tier1-cta::before{content:'';position:absolute;right:-40px;top:-40px;width:200px;height:200px;background:radial-gradient(circle,rgba(0,227,255,.12) 0%,transparent 70%);border-radius:50%;}
+.tier1-cta:hover{transform:translateY(-2px);box-shadow:0 10px 32px rgba(30,40,134,.38);}
+.cta-eyebrow{font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(0,227,255,.85);margin-bottom:5px;}
+.cta-title{font-size:1.2rem;font-weight:800;color:white;margin-bottom:4px;position:relative;}
+.cta-sub{font-size:.84rem;color:rgba(255,255,255,.65);position:relative;}
+.cta-arrow{font-size:2rem;color:rgba(255,255,255,.6);flex-shrink:0;font-weight:300;position:relative;}
+
+/* TIER 2 — SECONDARY ACTIONS */
+.tier2-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:24px;}
+.tier2-card{background:white;border:1.5px solid var(--slate-200);border-radius:12px;padding:18px 20px;display:flex;align-items:flex-start;gap:14px;cursor:pointer;font-family:inherit;text-align:left;transition:border-color .15s,box-shadow .15s;border-bottom:3px solid var(--slate-200);}
+.tier2-card:hover{border-color:var(--blue);box-shadow:0 4px 16px rgba(2,136,204,.12);}
+.tier2-card.tc-blue:hover{border-bottom-color:var(--blue);}
+.tier2-card.tc-green:hover{border-color:var(--green);border-bottom-color:var(--green);box-shadow:0 4px 16px rgba(16,185,129,.12);}
+.t2-icon-wrap{width:42px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.tc-blue .t2-icon-wrap{background:rgba(2,136,204,.1);}
+.tc-green .t2-icon-wrap{background:rgba(16,185,129,.1);}
+.t2-title{font-size:.95rem;font-weight:700;color:var(--navy);margin-bottom:4px;}
+.t2-desc{font-size:.8rem;color:var(--text-light);line-height:1.5;}
+.t2-caret{font-size:1rem;color:var(--slate-400);flex-shrink:0;margin-left:auto;align-self:center;}
+
+/* TIER 3 — ACCORDIONS */
+.accordion-group{display:flex;flex-direction:column;gap:8px;}
+.acc-item{background:white;border-radius:12px;border:1.5px solid var(--slate-200);overflow:hidden;}
+.acc-item#acc-why{background:var(--navy-dark);border-color:var(--navy-dark);}
+.acc-trigger{width:100%;background:none;border:none;padding:16px 20px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;font-family:inherit;text-align:left;transition:background .15s;}
+.acc-trigger:hover{background:rgba(30,40,134,.03);}
+.acc-item#acc-why .acc-trigger:hover{background:rgba(255,255,255,.06);}
+.acc-trigger-left{display:flex;align-items:center;gap:10px;}
+.acc-trigger-icon{width:30px;height:30px;border-radius:7px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.acc-trigger-icon.blue{background:rgba(30,40,134,.1);}
+.acc-item#acc-why .acc-trigger-icon.blue{background:rgba(255,255,255,.15);}
+.acc-trigger-icon.green{background:rgba(16,185,129,.1);}
+.acc-trigger-icon.amber{background:rgba(251,191,36,.12);}
+.acc-trigger-icon.navy{background:rgba(30,40,134,.1);}
+.acc-label{font-size:.92rem;font-weight:700;color:var(--navy);}
+.acc-item#acc-why .acc-label{color:white;}
+.acc-sublabel{font-size:.76rem;color:var(--text-light);margin-top:1px;}
+.acc-item#acc-why .acc-sublabel{color:rgba(255,255,255,.6);}
+.acc-chevron{font-size:.85rem;color:var(--navy);transition:transform .25s;flex-shrink:0;font-weight:700;}
+.acc-item#acc-why .acc-chevron{color:rgba(255,255,255,.7);}
+.acc-body{display:none;padding:0 20px 20px;border-top:1px solid var(--slate-100);}
+.acc-item#acc-why .acc-body{border-top-color:rgba(255,255,255,.18);padding:16px 16px 18px;background:var(--slate-100);}
+.acc-body.open{display:block;}
+.acc-item.open .acc-chevron{transform:rotate(180deg);}
+.acc-item.open .acc-trigger{background:rgba(30,40,134,.03);}
+.acc-item#acc-why.open .acc-trigger{background:rgba(255,255,255,.04);}
+
+/* ACCORDION INTERNALS */
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding-top:16px;}
+.why-card{background:white;border:1.5px solid var(--slate-200);border-radius:10px;padding:18px 20px;box-shadow:0 1px 4px rgba(0,0,0,.06);}
+.why-card .wc-icon{width:38px;height:38px;border-radius:9px;background:rgba(2,136,204,.1);display:flex;align-items:center;justify-content:center;margin-bottom:11px;}
+.why-card .wc-icon svg{width:18px;height:18px;stroke:var(--blue);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+.why-card h4{font-size:.88rem;font-weight:700;color:var(--navy);margin-bottom:6px;}
+.why-card p{font-size:.8rem;color:var(--text-light);line-height:1.62;}
+
+.cats-wrap{padding-top:16px;display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.cat-podium{display:flex;flex-direction:column;gap:8px;}
+.cat-item{display:flex;align-items:center;gap:12px;padding:11px 14px;background:var(--slate-50);border-radius:9px;border:1.5px solid var(--slate-200);}
+.cat-rank{width:28px;height:28px;border-radius:50%;background:var(--navy);color:white;font-size:.78rem;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.cat-name{font-size:.85rem;font-weight:700;color:var(--navy);}
+.cat-note{font-size:.76rem;color:var(--text-light);margin-top:1px;}
+.cat-extra-list{display:flex;flex-direction:column;gap:6px;padding-top:8px;}
+.cat-extra-item{display:flex;align-items:center;gap:8px;font-size:.8rem;color:var(--slate-600);}
+.cat-extra-num{font-size:.72rem;font-weight:700;color:var(--blue);min-width:18px;}
+
+.roles-wrap{padding-top:16px;display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.role-card{background:var(--slate-50);border:1.5px solid var(--slate-200);border-radius:10px;padding:14px 16px;}
+.role-card h4{font-size:.86rem;font-weight:700;color:var(--navy);display:flex;align-items:center;gap:8px;margin-bottom:6px;}
+.role-badge{font-size:.65rem;font-weight:700;padding:2px 7px;border-radius:4px;text-transform:uppercase;letter-spacing:.04em;}
+.rb-designer{background:rgba(2,136,204,.12);color:var(--blue-dark);}
+.rb-builder{background:rgba(16,185,129,.12);color:var(--green-dark);}
+.rb-pm{background:rgba(30,40,134,.1);color:var(--navy);}
+.rb-all{background:rgba(251,191,36,.15);color:#78350f;}
+.role-card p{font-size:.79rem;color:var(--text-light);line-height:1.6;}
+
+.hierarchy-wrap{padding-top:16px;}
+.hier-row{display:flex;align-items:stretch;margin-bottom:2px;}
+.hier-num{width:36px;font-size:.72rem;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;border-radius:6px 0 0 6px;}
+.hier-body{flex:1;padding:11px 14px;border-radius:0 6px 6px 0;display:flex;align-items:center;gap:10px;}
+.hier-title{font-size:.86rem;font-weight:700;margin-bottom:2px;}
+.hier-desc{font-size:.77rem;line-height:1.5;}
+.hier-1{background:rgba(7,21,69,.85);color:#ccd3ff;} .hier-1 .hier-body{background:rgba(7,21,69,.07);}
+.hier-2{background:rgba(40,47,141,.7);color:#dde0ff;} .hier-2 .hier-body{background:rgba(40,47,141,.06);}
+.hier-3{background:rgba(17,153,204,.65);color:#e0f5ff;} .hier-3 .hier-body{background:rgba(17,153,204,.06);}
+.hier-4{background:rgba(17,212,228,.55);color:#004a4f;} .hier-4 .hier-body{background:rgba(17,212,228,.05);}
+.hier-5{background:rgba(134,217,235,.55);color:#00444d;} .hier-5 .hier-body{background:rgba(134,217,235,.05);}
+.hier-6{background:rgba(204,238,245,.7);color:#005060;} .hier-6 .hier-body{background:rgba(204,238,245,.2);}
+.hier-7{background:rgba(200,218,0,.7);color:#333700;} .hier-7 .hier-body{background:rgba(200,218,0,.08);}
+.hier-num span{writing-mode:vertical-rl;transform:rotate(180deg);font-size:.58rem;letter-spacing:.05em;}
+.hier-body-inner .hier-title{color:#1e293b;}
+.hier-body-inner .hier-desc{color:var(--slate-600);}
+
+
+/* ── RESOURCES TILES ─────────────────────────────────────── */
+.res-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:20px;padding-bottom:40px;}
+
+/* ── IP WRAP (Incremental Framework) ──────────────────────── */
+.ip-wrap{display:block;}
+.ip-wrap .bg-canvas,.ip-wrap .bg-lines{display:none!important;}
+.ip-wrap .page{padding:20px 0 0;}
+.ip-wrap .header{display:none!important;}
+.ip-wrap .footer{margin-top:20px;}
+
+@media(max-width:960px){
+  .site-header{padding:16px 24px 0;}
+  .main{padding:18px 24px 40px;}
+  .pathway-wrap,.tier2-row,.why-grid,.cats-wrap,.roles-wrap{grid-template-columns:1fr;}
+  .pathway-connector{display:none;}
+  .cards-grid{grid-template-columns:1fr;}
+  .sh-stat-strip{flex-direction:column;}
+  .sh-stat-item{border-right:none;border-bottom:1px solid var(--slate-200);}
 }
-@media(max-width:640px){
-  .mr-row{grid-template-columns:1fr;gap:0;}
-  .mr-field.mr-half{margin-bottom:14px;}
-  .mr-form{padding:22px 20px 20px;}
-}
-
-.ip-wrap{
-    --navy:    #001E4C;
-    --blue:    #005EBC;
-    --teal:    #00B4D8;
-    --aqua:    #28F8E4;
-    --gold:    #F5C400;
-    --white:   #FFFFFF;
-    --offwhite:#F2F6FB;
-    --light:   #D6E8F8;
-    --muted:   #8AAAC8;
-    --dark:    #00122E;
-  }
-.ip-wrap *, .ip-wrap *::before, .ip-wrap *::after{ box-sizing: border-box; margin: 0; padding: 0; }
-.ip-wrap body{
-    font-family: 'Barlow', sans-serif;
-    background: var(--dark);
-    color: var(--white);
-    min-height: 100vh;
-    overflow-x: hidden;
-  }
-/* ── Background ── */
-.ip-wrap .bg-canvas{
-    position: fixed; inset: 0; z-index: 0; pointer-events: none;
-    background:
-      radial-gradient(ellipse 80% 60% at 10% 0%, rgba(0,94,188,0.30) 0%, transparent 60%),
-      radial-gradient(ellipse 60% 50% at 90% 100%, rgba(0,180,216,0.18) 0%, transparent 55%),
-      radial-gradient(ellipse 40% 30% at 50% 50%, rgba(40,248,228,0.05) 0%, transparent 60%),
-      linear-gradient(170deg, #00122E 0%, #001838 55%, #001228 100%);
-  }
-.ip-wrap .bg-lines{
-    position: fixed; inset: 0; z-index: 0; pointer-events: none; opacity: 0.06;
-    background-image:
-      repeating-linear-gradient(90deg, var(--teal) 0px, var(--teal) 1px, transparent 1px, transparent 80px),
-      repeating-linear-gradient(0deg,  var(--teal) 0px, var(--teal) 1px, transparent 1px, transparent 80px);
-  }
-/* ── Wrapper ── */
-.ip-wrap .page{
-    position: relative; z-index: 1;
-    max-width: 1440px;
-    margin: 0 auto;
-    padding: 56px 48px 80px;
-  }
-/* ── Header ── */
-.ip-wrap .header{
-    display: flex; align-items: flex-end; justify-content: space-between;
-    margin-bottom: 52px;
-    border-bottom: 1px solid rgba(0,180,216,0.25);
-    padding-bottom: 28px;
-  }
-.ip-wrap .header-left{}
-.ip-wrap .eyebrow{
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 11px; font-weight: 600; letter-spacing: 4px;
-    color: var(--aqua); text-transform: uppercase;
-    margin-bottom: 10px;
-    opacity: 0;
-    animation: fadeUp 0.6s 0.1s ease forwards;
-  }
-.ip-wrap .title{
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: clamp(48px, 6vw, 82px);
-    font-weight: 900; line-height: 0.92; text-transform: uppercase;
-    letter-spacing: -1px;
-    opacity: 0;
-    animation: fadeUp 0.6s 0.2s ease forwards;
-  }
-.ip-wrap .title span{ color: var(--teal); }
-.ip-wrap .header-right{
-    text-align: right;
-    opacity: 0;
-    animation: fadeUp 0.6s 0.35s ease forwards;
-  }
-.ip-wrap .header-tag{
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 13px; font-weight: 600; letter-spacing: 2px;
-    color: var(--muted); text-transform: uppercase;
-    line-height: 1.8;
-  }
-.ip-wrap .header-tag strong{ color: var(--gold); }
-/* ── Column labels ── */
-.ip-wrap .col-labels{
-    display: grid;
-    grid-template-columns: 180px repeat(5, 1fr);
-    gap: 1px;
-    margin-bottom: 2px;
-    opacity: 0;
-    animation: fadeUp 0.6s 0.45s ease forwards;
-  }
-.ip-wrap .col-label-empty{ background: transparent; }
-.ip-wrap .col-label{
-    padding: 10px 18px 14px;
-    background: rgba(0,94,188,0.12);
-    border-top: 2px solid var(--blue);
-    position: relative;
-    overflow: hidden;
-  }
-.ip-wrap .col-label::before{
-    content: '';
-    position: absolute; top: 0; left: 0; right: 0;
-    height: 2px;
-    background: var(--teal);
-    transform: scaleX(0); transform-origin: left;
-    transition: transform 0.4s ease;
-  }
-.ip-wrap .col-label:hover::before{ transform: scaleX(1); }
-.ip-wrap .col-num{
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 11px; font-weight: 700; letter-spacing: 3px;
-    color: var(--teal); text-transform: uppercase;
-    display: block; margin-bottom: 3px;
-  }
-.ip-wrap .col-name{
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 20px; font-weight: 700; text-transform: uppercase;
-    letter-spacing: 0.5px; color: var(--white); line-height: 1;
-  }
-/* ── Grid rows ── */
-.ip-wrap .plan-grid{
-    display: flex; flex-direction: column; gap: 2px;
-  }
-.ip-wrap .plan-row{
-    display: grid;
-    grid-template-columns: 180px repeat(5, 1fr);
-    gap: 2px;
-    opacity: 0;
-    animation: fadeUp 0.7s ease forwards;
-  }
-.ip-wrap .plan-row:nth-child(1){ animation-delay: 0.55s; }
-.ip-wrap .plan-row:nth-child(2){ animation-delay: 0.70s; }
-.ip-wrap .plan-row:nth-child(3){ animation-delay: 0.85s; }
-/* ── Year label ── */
-.ip-wrap .year-label{
-    display: flex; flex-direction: column; justify-content: flex-start;
-    padding: 22px 16px 22px 0;
-    gap: 6px;
-  }
-.ip-wrap .year-badge{
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 11px; font-weight: 700; letter-spacing: 3.5px;
-    text-transform: uppercase;
-    display: inline-block; margin-bottom: 2px;
-  }
-.ip-wrap .plan-row:nth-child(1) .year-badge{ color: var(--gold); }
-.ip-wrap .plan-row:nth-child(2) .year-badge{ color: var(--teal); }
-.ip-wrap .plan-row:nth-child(3) .year-badge{ color: var(--aqua); }
-.ip-wrap .ao-badge{
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 28px; font-weight: 900; letter-spacing: -0.5px;
-    line-height: 1;
-  }
-.ip-wrap .plan-row:nth-child(1) .ao-badge{ color: var(--gold); }
-.ip-wrap .plan-row:nth-child(2) .ao-badge{ color: var(--teal); }
-.ip-wrap .plan-row:nth-child(3) .ao-badge{ color: var(--aqua); }
-.ip-wrap .year-divider{
-    width: 28px; height: 2px; margin-top: 4px;
-  }
-.ip-wrap .plan-row:nth-child(1) .year-divider{ background: linear-gradient(90deg, var(--gold), transparent); }
-.ip-wrap .plan-row:nth-child(2) .year-divider{ background: linear-gradient(90deg, var(--teal), transparent); }
-.ip-wrap .plan-row:nth-child(3) .year-divider{ background: linear-gradient(90deg, var(--aqua), transparent); }
-/* ── Cells ── */
-.ip-wrap .cell{
-    padding: 22px 20px 24px;
-    background: rgba(0,18,46,0.55);
-    border: 1px solid rgba(0,94,188,0.18);
-    backdrop-filter: blur(8px);
-    position: relative;
-    overflow: hidden;
-    transition: background 0.3s, border-color 0.3s, transform 0.25s;
-    cursor: default;
-  }
-.ip-wrap .cell::after{
-    content: '';
-    position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
-    background: linear-gradient(90deg, transparent, var(--teal), transparent);
-    opacity: 0; transition: opacity 0.3s;
-  }
-.ip-wrap .cell:hover{
-    background: rgba(0,30,80,0.75);
-    border-color: rgba(0,180,216,0.35);
-    transform: translateY(-2px);
-  }
-.ip-wrap .cell:hover::after{ opacity: 1; }
-/* Row colour accents */
-.ip-wrap .plan-row:nth-child(1) .cell{ border-top: 2px solid rgba(245,196,0,0.5); }
-.ip-wrap .plan-row:nth-child(2) .cell{ border-top: 2px solid rgba(0,180,216,0.5); }
-.ip-wrap .plan-row:nth-child(3) .cell{ border-top: 2px solid rgba(40,248,228,0.5); }
-.ip-wrap .plan-row:nth-child(1) .cell::after{ background: linear-gradient(90deg, transparent, rgba(245,196,0,0.6), transparent); }
-.ip-wrap .plan-row:nth-child(2) .cell::after{ background: linear-gradient(90deg, transparent, rgba(0,180,216,0.6), transparent); }
-.ip-wrap .plan-row:nth-child(3) .cell::after{ background: linear-gradient(90deg, transparent, rgba(40,248,228,0.6), transparent); }
-/* Corner glow */
-.ip-wrap .cell::before{
-    content: '';
-    position: absolute; top: 0; right: 0;
-    width: 60px; height: 60px;
-    border-radius: 0 0 0 100%;
-    opacity: 0; transition: opacity 0.3s;
-  }
-.ip-wrap .plan-row:nth-child(1) .cell::before{ background: radial-gradient(circle at top right, rgba(245,196,0,0.12), transparent 70%); }
-.ip-wrap .plan-row:nth-child(2) .cell::before{ background: radial-gradient(circle at top right, rgba(0,180,216,0.12), transparent 70%); }
-.ip-wrap .plan-row:nth-child(3) .cell::before{ background: radial-gradient(circle at top right, rgba(40,248,228,0.12), transparent 70%); }
-.ip-wrap .cell:hover::before{ opacity: 1; }
-/* ── Cell content ── */
-.ip-wrap .cell-heading{
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 13px; font-weight: 700; letter-spacing: 2px;
-    text-transform: uppercase; margin-bottom: 12px;
-    padding-bottom: 8px;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-  }
-.ip-wrap .plan-row:nth-child(1) .cell-heading{ color: var(--gold); }
-.ip-wrap .plan-row:nth-child(2) .cell-heading{ color: var(--teal); }
-.ip-wrap .plan-row:nth-child(3) .cell-heading{ color: var(--aqua); }
-.ip-wrap .cell p{
-    font-size: 12.5px; font-weight: 400; line-height: 1.65;
-    color: rgba(255,255,255,0.78);
-    margin-bottom: 8px;
-  }
-.ip-wrap .cell p:last-child{ margin-bottom: 0; }
-.ip-wrap .cell ol, .ip-wrap .cell ul{
-    padding-left: 0; list-style: none;
-    display: flex; flex-direction: column; gap: 7px;
-  }
-.ip-wrap .cell ol li, .ip-wrap .cell ul li{
-    font-size: 12.5px; line-height: 1.6;
-    color: rgba(255,255,255,0.75);
-    padding-left: 18px; position: relative;
-  }
-.ip-wrap .cell ol{ counter-reset: item; }
-.ip-wrap .cell ol li{ counter-increment: item; }
-.ip-wrap .cell ol li::before{
-    content: counter(item);
-    position: absolute; left: 0; top: 0;
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 11px; font-weight: 700; letter-spacing: 0.5px;
-    width: 14px; text-align: right;
-    color: var(--teal);
-  }
-.ip-wrap .plan-row:nth-child(1) .cell ol li::before{ color: var(--gold); }
-.ip-wrap .plan-row:nth-child(3) .cell ol li::before{ color: var(--aqua); }
-.ip-wrap .cell ul li::before{
-    content: '›';
-    position: absolute; left: 0;
-    font-size: 14px; font-weight: 700;
-    color: var(--teal); line-height: 1.4;
-  }
-.ip-wrap .plan-row:nth-child(1) .cell ul li::before{ color: var(--gold); }
-.ip-wrap .plan-row:nth-child(3) .cell ul li::before{ color: var(--aqua); }
-/* Sub-sections inside Accountability */
-.ip-wrap .sub-section{ margin-bottom: 14px; }
-.ip-wrap .sub-section:last-child{ margin-bottom: 0; }
-.ip-wrap .sub-heading{
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 11px; font-weight: 700; letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.45);
-    margin-bottom: 5px;
-  }
-/* Row-specific sub-heading accent colours */
-.ip-wrap .plan-row:nth-child(1) .sub-heading{ color: var(--gold); }
-.ip-wrap .plan-row:nth-child(2) .sub-heading{ color: var(--teal); }
-.ip-wrap .plan-row:nth-child(3) .sub-heading{ color: var(--aqua); }
-/* Impact chip styling */
-.ip-wrap .impact-section{ margin-bottom: 14px; }
-.ip-wrap .impact-section:last-child{ margin-bottom: 0; }
-.ip-wrap .impact-label{
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 10px; font-weight: 800; letter-spacing: 2px;
-    text-transform: uppercase;
-    display: inline-block; margin-bottom: 8px;
-    padding: 3px 8px; border-radius: 2px;
-  }
-.ip-wrap .impact-label.direct{ background: rgba(245,196,0,0.15); color: var(--gold); }
-.ip-wrap .impact-label.knock{ background: rgba(245,196,0,0.10); color: var(--gold); }
-.ip-wrap em{ font-style: italic; color: inherit; }
-.ip-wrap strong{ font-weight: 600; color: rgba(255,255,255,0.95); }
-/* ── Animations ── */
-@keyframes fadeUp{
-    from { opacity: 0; transform: translateY(18px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-/* ── Footer ── */
-.ip-wrap .footer{
-    margin-top: 40px; padding-top: 20px;
-    border-top: 1px solid rgba(0,94,188,0.2);
-    display: flex; justify-content: space-between; align-items: center;
-    opacity: 0;
-    animation: fadeUp 0.6s 1.0s ease forwards;
-  }
-.ip-wrap .footer-note{
-    font-size: 11px; color: var(--muted); letter-spacing: 1px;
-    font-family: 'Barlow Condensed', sans-serif; text-transform: uppercase;
-  }
-.ip-wrap .ao-logo{
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 16px; font-weight: 900; letter-spacing: 3px;
-    text-transform: uppercase; color: var(--white);
-  }
-.ip-wrap .ao-logo span{ color: var(--teal); }
-
-/* Plan tab overrides */
-.ip-wrap { display:block; }
-.ip-wrap .bg-canvas, .ip-wrap .bg-lines { display:none !important; }
-.ip-wrap .page { padding: 24px 0 0; }
-.ip-wrap .header { display:none !important; }
-.ip-wrap .footer { margin-top:24px; }
-
-/* ── START HERE TAB ─────────────────────────────────────────── */
-.sh-hero{background:linear-gradient(135deg,var(--navy-dark) 0%,var(--navy) 60%,var(--blue-dark) 100%);border-radius:16px;padding:36px 44px;color:#fff;margin-bottom:32px;position:relative;overflow:hidden;}
-.sh-hero::before{content:'';position:absolute;top:-60px;right:-60px;width:300px;height:300px;background:radial-gradient(circle,rgba(0,227,255,.13) 0%,transparent 70%);border-radius:50%;pointer-events:none;}
-.sh-hero h2{font-size:2rem;font-weight:800;margin-bottom:.75rem;line-height:1.2;letter-spacing:-.02em;position:relative;}
-.sh-hero p{font-size:.95rem;line-height:1.8;opacity:.88;max-width:620px;position:relative;}
-
-.sh-targets{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:32px;}
-.sh-target{background:white;border-radius:14px;padding:24px 28px;border:1.5px solid;text-align:center;}
-.sh-target.blue{border-color:rgba(2,136,204,.35);background:rgba(2,136,204,.04);}
-.sh-target.green{border-color:rgba(16,185,129,.35);background:rgba(16,185,129,.04);}
-.sh-target-val{font-size:2.8rem;font-weight:800;line-height:1;}
-.sh-target.blue .sh-target-val{color:var(--blue);}
-.sh-target.green .sh-target-val{color:var(--green-dark);}
-.sh-target-lbl{font-size:.85rem;font-weight:600;margin-top:8px;line-height:1.4;}
-.sh-target.blue .sh-target-lbl{color:var(--blue-dark);}
-.sh-target.green .sh-target-lbl{color:var(--green-dark);}
-
-.sh-section-hd{display:flex;align-items:center;gap:10px;font-size:.72rem;font-weight:800;color:var(--navy);text-transform:uppercase;letter-spacing:.1em;margin-bottom:16px;}
-.sh-section-hd::before{content:'';display:block;width:4px;height:18px;border-radius:2px;background:linear-gradient(180deg,var(--blue),var(--green));flex-shrink:0;}
-.sh-section{margin-bottom:32px;}
-
-.sh-why-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
-.sh-why-card{background:white;border:1.5px solid var(--slate-200);border-radius:14px;padding:22px 24px;}
-.sh-why-card .sh-icon{width:42px;height:42px;margin-bottom:12px;display:flex;align-items:center;justify-content:center;background:rgba(2,136,204,.08);border-radius:10px;}
-.sh-why-card .sh-icon svg{width:20px;height:20px;stroke:var(--blue);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
-.sh-why-card h4{font-size:.88rem;font-weight:700;color:var(--navy);margin-bottom:6px;}
-.sh-why-card p{font-size:.8rem;color:var(--text-light);line-height:1.65;}
-
-.sh-top3{display:flex;gap:12px;margin-bottom:16px;}
-.sh-top3-item{flex:1;background:linear-gradient(160deg,var(--navy-dark) 0%,var(--blue-dark) 100%);border-radius:14px;padding:18px 14px;text-align:center;position:relative;overflow:hidden;}
-.sh-top3-item::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 80% 20%,rgba(255,255,255,.12) 0%,transparent 60%);pointer-events:none;}
-.sh-top3-item .rank-lbl{font-size:.65rem;font-weight:700;letter-spacing:.12em;color:rgba(255,255,255,.5);text-transform:uppercase;margin-bottom:8px;}
-.sh-top3-item .num{font-size:2.2rem;font-weight:900;color:#fff;letter-spacing:-.02em;line-height:1;}
-.sh-top3-item .cat{font-size:.75rem;color:rgba(255,255,255,.85);margin-top:8px;line-height:1.4;font-weight:600;}
-
-.sh-mat-grid{display:grid;grid-template-columns:1fr 340px;gap:24px;align-items:start;}
-.sh-tbox{display:flex;border-radius:10px;overflow:hidden;margin-bottom:12px;border:1.5px solid var(--slate-200);}
-.sh-tbar{width:26px;flex-shrink:0;display:flex;align-items:center;justify-content:center;}
-.sh-ttxt{color:#fff;font-size:.5rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;writing-mode:vertical-rl;transform:rotate(180deg);}
-.sh-ti{padding:14px 18px;flex:1;background:white;}
-.sh-tgt{font-size:.79rem;font-weight:700;margin-bottom:4px;color:var(--blue-dark);}
-.sh-tgi{font-size:.75rem;color:#333;line-height:1.75;}
-.sh-tcname{font-size:.81rem;font-weight:600;color:#222;}
-.sh-tcnote{font-size:.73rem;color:#666;padding-left:14px;}
-
-.sh-link-btn{display:inline-flex;align-items:center;gap:8px;font-size:.84rem;font-weight:700;color:var(--blue);text-decoration:none;padding:10px 18px;background:rgba(2,136,204,.07);border:1.5px solid rgba(2,136,204,.25);border-radius:10px;transition:background .15s;margin-bottom:16px;cursor:pointer;font-family:inherit;border-bottom-width:1.5px;}
-.sh-link-btn:hover{background:rgba(2,136,204,.14);}
-.sh-link-btn.green{color:var(--green-dark);background:rgba(16,185,129,.07);border-color:rgba(16,185,129,.3);}
-.sh-link-btn.green:hover{background:rgba(16,185,129,.14);}
-
-.sh-hier-wrap{display:grid;grid-template-columns:1fr 320px;gap:0;background:white;border-radius:14px;overflow:hidden;border:1.5px solid var(--slate-200);}
-.sh-hr-rows{border-right:1px solid var(--slate-200);}
-.sh-hr-row{height:72px;display:flex;flex-direction:column;justify-content:center;padding:0 18px 0 22px;border-bottom:0.5px solid #e8e5de;}
-.sh-hr-row:last-child{border-bottom:none;}
-.sh-hn{font-size:.65rem;font-weight:800;}
-.sh-hl{font-size:.85rem;font-weight:700;color:#1e293b;}
-.sh-hd{font-size:.74rem;color:#64748b;line-height:1.5;margin-top:2px;}
-
-.sh-sp-wrap{position:relative;width:100%;height:calc(7 * 72px);overflow:hidden;background:white;}
-.sh-sp-band{position:absolute;left:0;width:76.5%;height:calc(100% / 7);z-index:1;}
-.sh-sp-band:nth-child(1){top:calc(0 * 100% / 7);background:#071545;}
-.sh-sp-band:nth-child(2){top:calc(1 * 100% / 7);background:#282f8d;}
-.sh-sp-band:nth-child(3){top:calc(2 * 100% / 7);background:#1199cc;}
-.sh-sp-band:nth-child(4){top:calc(3 * 100% / 7);background:#11d4e4;}
-.sh-sp-band:nth-child(5){top:calc(4 * 100% / 7);background:#86d9eb;}
-.sh-sp-band:nth-child(6){top:calc(5 * 100% / 7);background:#cceef5;}
-.sh-sp-band:nth-child(7){top:calc(6 * 100% / 7);background:#d8ff00;}
-.sh-sp-wedge{position:absolute;inset:0;background:white;clip-path:polygon(76.5% 0,100% 0,100% 100%,0 100%);z-index:2;}
-.sh-sp-axis{position:absolute;left:76.5%;width:2px;transform:translateX(-50%);z-index:5;}
-.sh-sp-axis.des{top:0;height:calc(3*100%/7);background:#0798c7;}
-.sh-sp-axis.rml{top:calc(3*100%/7);height:calc(1*100%/7);background:#11D4E4;}
-.sh-sp-axis.circ{top:calc(4*100%/7);height:calc(2*100%/7);background:#86D9EB;}
-.sh-sp-axis.dead{top:calc(6*100%/7);height:calc(1*100%/7);background:#c6d900;}
-.sh-sp-arr::before,.sh-sp-arr::after{content:"";position:absolute;left:50%;transform:translateX(-50%);border-left:4px solid transparent;border-right:4px solid transparent;}
-.sh-sp-axis.des::before{top:-1px;border-bottom:8px solid #0798c7;}.sh-sp-axis.des::after{bottom:-1px;border-top:8px solid #0798c7;}
-.sh-sp-axis.rml::before{top:-1px;border-bottom:7px solid #11D4E4;}.sh-sp-axis.rml::after{bottom:-1px;border-top:7px solid #11D4E4;}
-.sh-sp-axis.circ::before{top:-1px;border-bottom:7px solid #86D9EB;}.sh-sp-axis.circ::after{bottom:-1px;border-top:7px solid #86D9EB;}
-.sh-sp-axis.dead::before{top:-1px;border-bottom:7px solid #c6d900;}.sh-sp-axis.dead::after{bottom:-1px;border-top:7px solid #c6d900;}
-.sh-sp-lbl{position:absolute;left:79%;z-index:6;font-weight:700;letter-spacing:.04em;line-height:1.2;display:flex;flex-direction:column;justify-content:center;font-size:.7rem;}
-.sh-sp-lbl.des{top:0;height:calc(3*100%/7);color:#0798c7;}
-.sh-sp-lbl.rml{top:calc(3*100%/7);height:calc(1*100%/7);color:#11D4E4;font-weight:800;}
-.sh-sp-lbl.circ{top:calc(4*100%/7);height:calc(2*100%/7);color:#86D9EB;font-weight:800;white-space:normal;line-height:1.2;}
-.sh-sp-lbl.dead{top:calc(6*100%/7);height:calc(1*100%/7);color:#c6d900;}
-
-.sh-resp-card{background:white;border:1.5px solid var(--slate-200);border-radius:14px;padding:18px 22px;margin-bottom:12px;}
-.sh-resp-card h4{font-size:.88rem;font-weight:700;color:var(--navy);margin-bottom:7px;display:flex;align-items:center;gap:10px;}
-.sh-resp-card h4 .sh-ico{width:32px;height:32px;background:rgba(2,136,204,.08);border-radius:7px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-.sh-resp-card h4 .sh-ico svg{width:15px;height:15px;stroke:var(--blue);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
-.sh-resp-card p{font-size:.82rem;color:var(--text-light);line-height:1.65;}
-
-.sh-plan-cta{background:linear-gradient(135deg,var(--blue-dark),#0a3d70);border-radius:14px;padding:24px 28px;display:flex;align-items:center;justify-content:space-between;gap:16px;cursor:pointer;transition:transform .15s,box-shadow .15s;box-shadow:0 4px 18px rgba(2,136,204,.35);text-decoration:none;margin-top:16px;}
-.sh-plan-cta:hover{transform:translateY(-2px);box-shadow:0 8px 26px rgba(2,136,204,.45);}
-.sh-plan-cta h4{font-size:1.05rem;font-weight:800;color:#fff;margin-bottom:4px;letter-spacing:.01em;}
-.sh-plan-cta p{font-size:.83rem;color:rgba(255,255,255,.75);}
-.sh-plan-arrow{font-size:1.6rem;color:rgba(255,255,255,.9);font-weight:700;flex-shrink:0;}
-@media(max-width:900px){.sh-mat-grid,.sh-hier-wrap{grid-template-columns:1fr;}.sh-mat-grid .sh-svg-col{display:none;}.sh-why-grid{grid-template-columns:1fr;}}
-
 </style>
 </head>
 <body>
 
-<!-- ═══════════════════════ HEADER ═══════════════════════ -->
+<!-- HEADER -->
 <header class="site-header">
   <div class="header-inner">
     <div class="header-text">
-      <h1>AO <em>Target Materials & Responsible Methods</em></h1>
-      <p>Maximum Play, Minimum Footprint &mdash; Circular Design Program</p>
+      <h1>AO <em>Target Materials &amp; Responsible Methods</em></h1>
     </div>
     <div class="header-meta">
+      <span class="mpmp-badge">Maximum Play, Minimum Footprint</span>
     </div>
   </div>
   <nav class="tab-nav">
@@ -743,190 +423,342 @@ thead th.th-concern{background:linear-gradient(135deg,#7f1d1d 0%,#991b1b 100%);c
 
 <main class="main">
 
-<!-- ══════════════════════════════════════════════════════════════
-     TAB 0 — START HERE
-══════════════════════════════════════════════════════════════ -->
+<!-- ═══════════════════════ TAB 0 — START HERE ═══════════════════════ -->
 <div id="tab-starthere" class="tab-panel active">
-<div style="margin-top:28px;">
+<div style="margin-top:20px;">
 
-  <!-- HERO -->
-  <div class="sh-hero">
-    <h2>Everything we build has an impact.</h2>
-    <p>The PMs, Agencies, Designers and Builders delivering the AO play a direct role in reducing environmental impact and optimising a positive experience. Materials Management is how we plan, track and improve. Use this tool to document your materials, set targets, and report on outcomes at bump-out.</p>
-  </div>
-
-  <!-- AO27 TARGETS -->
-  <div class="sh-section">
-    <div class="sh-section-hd">AO27 Waste Reduction Targets</div>
-    <div class="sh-targets">
-      <div class="sh-target blue"><div class="sh-target-val">10%</div><div class="sh-target-lbl">Reduce total waste volume per year</div></div>
-      <div class="sh-target green"><div class="sh-target-val">10%</div><div class="sh-target-lbl">Increase reuse per year</div></div>
+  <!-- STAT STRIP -->
+  <div class="sh-stat-strip">
+    <div class="sh-stat-item">
+      <div class="sh-stat-label">AO27 Target</div>
+      <div class="sh-stat-val blue">10%</div>
+      <div class="sh-stat-desc">Reduce total waste per year</div>
+    </div>
+    <div class="sh-stat-item">
+      <div class="sh-stat-label">AO27 Target</div>
+      <div class="sh-stat-val green">10%</div>
+      <div class="sh-stat-desc">Increase material reuse per year</div>
+    </div>
+    <div class="sh-stat-item">
+      <div class="sh-stat-label">TML Materials</div>
+      <div class="sh-stat-val" style="color:white;">60+</div>
+      <div class="sh-stat-desc">Approved with circularity ratings</div>
+    </div>
+    <div class="sh-stat-intro">
+      <p><strong style="font-size:.95rem;font-weight:800;color:white;line-height:1.3;display:block;margin-bottom:7px;">Everything we build has an impact.</strong>PMs, Agencies, Designers and Builders delivering the AO play a direct role in reducing environmental impact. Use this tool to plan, track and improve &mdash; document your materials, set targets, and report outcomes at bump-out.</p>
     </div>
   </div>
 
-  <!-- WHY IT MATTERS -->
-  <div class="sh-section">
-    <div class="sh-section-hd">Why it matters</div>
-    <div class="sh-why-grid">
-      <div class="sh-why-card">
-        <div class="sh-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
-        <h4>Cost savings</h4>
-        <p>Building from scratch every year doesn't make commercial sense. Reusing materials saves significant costs.</p>
+  <!-- 3-STEP PATHWAY -->
+  <div class="pathway-wrap">
+    <div class="pathway-step ps-1">
+      <div class="ps-num-wrap">
+        <div class="ps-num">01</div>
+        <div class="ps-step-label">Step one</div>
       </div>
-      <div class="sh-why-card">
-        <div class="sh-icon"><svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
-        <h4>Social licence to operate</h4>
-        <p>Maintains the right to host by aligning with rising expectations from fans, partners, CoM and the grand slam circuit on waste and responsible delivery.</p>
+      <div class="ps-heading">Understand circular design practices</div>
+      <div class="ps-desc">Learn the principles and discover responsible methods before you specify anything.</div>
+      <div class="ps-tags">
+        <span class="ps-tag">Methods</span>
+        <span class="ps-tag">Interventions</span>
       </div>
-      <div class="sh-why-card">
-        <div class="sh-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
-        <h4>Supply chain resilience</h4>
-        <p>Circularity and reusing materials reduces exposure to supply chain shocks, material scarcity and price volatility.</p>
+      <button class="ps-link" onclick="showTab('pocket',document.querySelectorAll('.tab-btn')[2])">Go to Responsible Methods &#8599;</button>
+    </div>
+    <div class="pathway-connector">&#8594;</div>
+    <div class="pathway-step ps-2">
+      <div class="ps-num-wrap">
+        <div class="ps-num">02</div>
+        <div class="ps-step-label">Step two</div>
       </div>
-      <div class="sh-why-card">
-        <div class="sh-icon"><svg viewBox="0 0 24 24"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-4"/></svg></div>
-        <h4>Revenue potential</h4>
-        <p>Every time we bin a material we throw money away. Recovered materials can be resold, creating real value.</p>
+      <div class="ps-heading">Plan Your Materials</div>
+      <div class="ps-desc">Consult the Target Materials List during design and procurement.</div>
+      <div class="ps-tags">
+        <span class="ps-tag">Materials</span>
+        <span class="ps-tag">Procurement</span>
       </div>
+      <button class="ps-link" onclick="showTab('target',document.querySelectorAll('.tab-btn')[1])">Open Target Materials &#8599;</button>
+    </div>
+    <div class="pathway-connector">&#8594;</div>
+    <div class="pathway-step ps-3">
+      <div class="ps-num-wrap">
+        <div class="ps-num">03</div>
+        <div class="ps-step-label">Step three</div>
+      </div>
+      <div class="ps-heading">Deliver &amp; Report</div>
+      <div class="ps-desc">Asset tracking through build and bump-out. Record actual outcomes and report circularity.</div>
+      <div class="ps-tags">
+        <span class="ps-tag">Tracking</span>
+        <span class="ps-tag">Reporting</span>
+      </div>
+      <a class="ps-link" href="https://megtei.github.io/Materials-Management/" target="_blank">Start your plan &rarr;</a>
     </div>
   </div>
 
-  <!-- TARGET MATERIALS -->
-  <div class="sh-section">
-    <div class="sh-section-hd">Target Materials</div>
-    <button class="sh-link-btn" onclick="showTab('target',document.querySelectorAll('.tab-btn')[1])">Go to AO Target Materials List &#8599;</button>
-    <p style="font-size:.88rem;color:var(--text-light);line-height:1.7;margin-bottom:16px;">Waste analysis reveals that a small number of material types make up most of the waste. When working with these material types consult the <a href="#" onclick="showTab('target',document.querySelectorAll('.tab-btn')[1]);return false;" style="color:var(--blue);font-weight:600;">AO Target Materials List</a>. The list contains both current highly reusable materials already in use at the AO and some new responsible materials.</p>
-    <div class="sh-top3">
-      <div class="sh-top3-item"><div class="rank-lbl">Rank</div><div class="num">1</div><div class="cat">Wood / Timber / Engineered Wood</div></div>
-      <div class="sh-top3-item"><div class="rank-lbl">Rank</div><div class="num">2</div><div class="cat">Cladding &amp; Facades</div></div>
-      <div class="sh-top3-item"><div class="rank-lbl">Rank</div><div class="num">3</div><div class="cat">Flooring</div></div>
-    </div>
-    <div class="sh-mat-grid">
-      <div>
-        <div class="sh-tbox">
-          <div class="sh-tbar" style="background:#0A2240;"><span class="sh-ttxt">Choose recommended materials</span></div>
-          <div class="sh-ti">
-            <div style="margin-bottom:10px;"><div class="sh-tgt">Wood / timber / engineered wood</div><div class="sh-tgi">1&nbsp;&nbsp;Engineered Wood – MDF, LDF</div><div class="sh-tgi">2&nbsp;&nbsp;Engineered Wood – Plywood, Formply, Particleboard</div><div class="sh-tgi">3&nbsp;&nbsp;Wood / Timber / Pallets</div></div>
-            <div style="margin-bottom:10px;"><div class="sh-tgt">Facades / graphics / skins</div><div class="sh-tgi">4&nbsp;&nbsp;PVC sail track banners</div><div class="sh-tgi">5&nbsp;&nbsp;ACM / ACP</div><div class="sh-tgi">6&nbsp;&nbsp;SAV</div><div class="sh-tgi">7&nbsp;&nbsp;Textiles / Fabrics</div></div>
-            <div class="sh-tgt">8&nbsp;&nbsp;Flooring (carpet / vinyl)</div>
+
+  <!-- ACCORDIONS -->
+  <div class="accordion-group">
+
+    <!-- WHY IT MATTERS — open by default -->
+    <div class="acc-item open" id="acc-why">
+      <button class="acc-trigger" onclick="toggleAcc('acc-why')">
+        <div class="acc-trigger-left">
+          <div class="acc-trigger-icon blue">
+            <svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="var(--navy)" stroke-width="1.8" stroke-linecap="round"><circle cx="10" cy="10" r="8"/><path d="M10 9v4M10 6.5v.1"/></svg>
+          </div>
+          <div>
+            <div class="acc-label">Why it matters</div>
+            <div class="acc-sublabel">Cost, licence, resilience and revenue — the business case for circular design</div>
           </div>
         </div>
-        <div class="sh-tbox">
-          <div class="sh-tbar" style="background:#1D9E75;"><span class="sh-ttxt">Highly Circular</span></div>
-          <div class="sh-ti">
-            <div style="margin-bottom:8px;"><div class="sh-tcname">9&nbsp;&nbsp;Water-based Paint</div><div class="sh-tcnote">Doesn't contaminate wood / timber</div></div>
-            <div style="margin-bottom:8px;"><div class="sh-tcname">10&nbsp;&nbsp;Steel</div></div>
-            <div><div class="sh-tcname">11&nbsp;&nbsp;Aluminium</div><div class="sh-tcnote">High secondary market value — don't bin it</div></div>
+        <span class="acc-chevron" style="transform:rotate(180deg);color:rgba(255,255,255,.7);">&#8964;</span>
+      </button>
+      <div class="acc-body open" id="acc-why-body">
+        <div class="why-grid">
+          <div class="why-card">
+            <div class="wc-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+            <h4>Cost savings</h4>
+            <p>Building from scratch every year doesn't make commercial sense. Reusing materials saves significant costs across the build cycle.</p>
+          </div>
+          <div class="why-card">
+            <div class="wc-icon"><svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
+            <h4>Social licence to operate</h4>
+            <p>Maintains the right to host by aligning with rising expectations from fans, partners, CoM and the grand slam circuit on waste and responsible delivery.</p>
+          </div>
+          <div class="why-card">
+            <div class="wc-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+            <h4>Supply chain resilience</h4>
+            <p>Circularity reduces exposure to supply chain shocks, material scarcity and price volatility from single-use purchasing patterns.</p>
+          </div>
+          <div class="why-card">
+            <div class="wc-icon"><svg viewBox="0 0 24 24"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-4"/></svg></div>
+            <h4>Revenue potential</h4>
+            <p>Every time we bin a material we throw money away. Recovered materials can be resold or repurposed, creating real residual value.</p>
           </div>
         </div>
       </div>
-      <div class="sh-svg-col">
-        <div style="background:white;border-radius:10px;overflow:hidden;border:1.5px solid var(--slate-200);">
-          <svg viewBox="0 0 1447 1350" width="100%" role="img" style="display:block;">
-            <defs><marker id="tm-arrow" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L14,7 L0,14 z" fill="#3d3d3d"/></marker></defs>
-            <line stroke="#3d3d3d" stroke-width="7" stroke-linecap="square" marker-end="url(#tm-arrow)" x1="82" y1="1250" x2="82" y2="331"/>
-            <line stroke="#3d3d3d" stroke-width="7" stroke-linecap="square" marker-end="url(#tm-arrow)" x1="82" y1="1250" x2="997" y2="1250"/>
-            <text font-size="45" fill="#3d3d3d" font-weight="400" letter-spacing="-1" x="87" y="1306">Increasing Environmental Impact</text>
-            <text font-size="45" fill="#3d3d3d" font-weight="400" letter-spacing="-1" transform="translate(58 1228) rotate(-90)">Increasing Volume/ Spend</text>
-            <g transform="translate(268 385)"><clipPath id="tm-gridClip"><rect width="730" height="730"/></clipPath><rect width="730" height="730" fill="#efefef"/><g opacity=".96" clip-path="url(#tm-gridClip)"><rect x="91.25" y="0" width="91.25" height="638.75" fill="#e4f7fd"/><rect x="182.5" y="0" width="91.25" height="638.75" fill="#d0f0f8"/><rect x="273.75" y="0" width="91.25" height="638.75" fill="#bde9f4"/><rect x="365" y="0" width="91.25" height="638.75" fill="#92dbef"/><rect x="456.25" y="0" width="91.25" height="456.25" fill="#149bd0"/><rect x="547.5" y="0" width="91.25" height="456.25" fill="#087aa2"/><rect x="638.75" y="0" width="91.25" height="456.25" fill="#253491"/><rect x="365" y="91.25" width="365" height="91.25" fill="#61cbea" opacity=".65"/><rect x="365" y="182.5" width="365" height="91.25" fill="#26b7df" opacity=".75"/><rect x="365" y="273.75" width="365" height="91.25" fill="#0c9bd0" opacity=".9"/><rect x="365" y="365" width="365" height="91.25" fill="#07a2d0" opacity=".95"/><rect x="365" y="456.25" width="365" height="91.25" fill="#80d7ee" opacity=".9"/><rect x="365" y="547.5" width="365" height="91.25" fill="#d7f3fa" opacity=".85"/></g>
-            <g><line stroke="white" stroke-opacity=".35" stroke-width="3" x1="91.25" y1="0" x2="91.25" y2="730"/><line stroke="white" stroke-opacity=".35" stroke-width="3" x1="182.5" y1="0" x2="182.5" y2="730"/><line stroke="white" stroke-opacity=".35" stroke-width="3" x1="273.75" y1="0" x2="273.75" y2="730"/><line stroke="white" stroke-opacity=".35" stroke-width="3" x1="365" y1="0" x2="365" y2="730"/><line stroke="white" stroke-opacity=".35" stroke-width="3" x1="456.25" y1="0" x2="456.25" y2="730"/><line stroke="white" stroke-opacity=".35" stroke-width="3" x1="547.5" y1="0" x2="547.5" y2="730"/><line stroke="white" stroke-opacity=".35" stroke-width="3" x1="638.75" y1="0" x2="638.75" y2="730"/><line stroke="white" stroke-opacity=".35" stroke-width="3" x1="0" y1="91.25" x2="730" y2="91.25"/><line stroke="white" stroke-opacity=".35" stroke-width="3" x1="0" y1="182.5" x2="730" y2="182.5"/><line stroke="white" stroke-opacity=".35" stroke-width="3" x1="0" y1="273.75" x2="730" y2="273.75"/><line stroke="white" stroke-opacity=".35" stroke-width="3" x1="0" y1="365" x2="730" y2="365"/><line stroke="white" stroke-opacity=".35" stroke-width="3" x1="0" y1="456.25" x2="730" y2="456.25"/><line stroke="white" stroke-opacity=".35" stroke-width="3" x1="0" y1="547.5" x2="730" y2="547.5"/><line stroke="white" stroke-opacity=".35" stroke-width="3" x1="0" y1="638.75" x2="730" y2="638.75"/></g></g>
-            <g><circle fill="rgba(255,255,255,.05)" stroke="black" stroke-width="5" cx="231" cy="580" r="54"/><text font-size="31" font-weight="700" fill="#4a4a4a" text-anchor="middle" dominant-baseline="middle" x="231" y="580">3</text><circle fill="rgba(255,255,255,.05)" stroke="black" stroke-width="5" cx="602" cy="435" r="54"/><text font-size="31" font-weight="700" fill="#4a4a4a" text-anchor="middle" dominant-baseline="middle" x="602" y="435">6</text><circle fill="rgba(255,255,255,.05)" stroke="black" stroke-width="5" cx="681" cy="435" r="55"/><text font-size="31" font-weight="700" fill="#4a4a4a" text-anchor="middle" dominant-baseline="middle" x="681" y="435">2</text><circle fill="rgba(255,255,255,.05)" stroke="white" stroke-width="5" cx="759" cy="435" r="55"/><text font-size="31" font-weight="700" fill="white" text-anchor="middle" dominant-baseline="middle" x="759" y="435">5</text><circle fill="rgba(255,255,255,.05)" stroke="white" stroke-width="5" cx="880" cy="435" r="55"/><text font-size="31" font-weight="700" fill="white" text-anchor="middle" dominant-baseline="middle" x="880" y="435">1</text><circle fill="rgba(255,255,255,.05)" stroke="white" stroke-width="5" cx="982" cy="435" r="55"/><text font-size="31" font-weight="700" fill="white" text-anchor="middle" dominant-baseline="middle" x="982" y="435">11</text><circle fill="rgba(255,255,255,.05)" stroke="white" stroke-width="5" cx="959" cy="514" r="54"/><text font-size="31" font-weight="700" fill="white" text-anchor="middle" dominant-baseline="middle" x="959" y="514">10</text><circle fill="rgba(255,255,255,.05)" stroke="white" stroke-width="5" cx="854" cy="593" r="55"/><text font-size="31" font-weight="700" fill="white" text-anchor="middle" dominant-baseline="middle" x="854" y="593">8</text><circle fill="rgba(255,255,255,.05)" stroke="white" stroke-width="5" cx="952" cy="594" r="55"/><text font-size="31" font-weight="700" fill="white" text-anchor="middle" dominant-baseline="middle" x="952" y="594">4</text><circle fill="rgba(255,255,255,.05)" stroke="white" stroke-width="5" cx="727" cy="703" r="55"/><text font-size="31" font-weight="700" fill="white" text-anchor="middle" dominant-baseline="middle" x="727" y="703">7</text><circle fill="rgba(255,255,255,.05)" stroke="black" stroke-width="5" cx="686" cy="766" r="55"/><text font-size="31" font-weight="700" fill="#4a4a4a" text-anchor="middle" dominant-baseline="middle" x="686" y="766">9</text></g>
-          </svg>
+    </div>
+
+    <!-- TOP WASTE CATEGORIES -->
+    <div class="acc-item" id="acc-categories">
+      <button class="acc-trigger" onclick="toggleAcc('acc-categories')">
+        <div class="acc-trigger-left">
+          <div class="acc-trigger-icon amber">
+            <svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="#d97706" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l4-12 3 6 2-3 5 9H3Z"/></svg>
+          </div>
+          <div>
+            <div class="acc-label">Top waste categories at the AO</div>
+            <div class="acc-sublabel">A small number of material types make up most of the waste — focus here first</div>
+          </div>
+        </div>
+        <span class="acc-chevron">&#8964;</span>
+      </button>
+      <div class="acc-body" id="acc-categories-body">
+        <div style="display:grid;grid-template-columns:1fr 340px;gap:20px;align-items:start;padding-top:16px;">
+          <!-- LEFT: content boxes -->
+          <div>
+            <!-- Choose Recommended Materials box -->
+            <div style="display:flex;border-radius:10px;overflow:hidden;margin-bottom:10px;border:1.5px solid var(--slate-200);">
+              <div style="width:26px;flex-shrink:0;background:#0A2240;display:flex;align-items:center;justify-content:center;">
+                <span style="color:#fff;font-size:.48rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;writing-mode:vertical-rl;transform:rotate(180deg);">Choose recommended materials</span>
+              </div>
+              <div style="padding:14px 16px;flex:1;background:white;">
+                <div style="margin-bottom:10px;">
+                  <div style="font-size:.79rem;font-weight:700;margin-bottom:4px;color:var(--blue-dark);">Wood / timber / engineered wood</div>
+                  <div style="font-size:.75rem;color:#333;line-height:1.75;">1&nbsp;&nbsp;Engineered Wood – MDF, LDF</div>
+                  <div style="font-size:.75rem;color:#333;line-height:1.75;">2&nbsp;&nbsp;Engineered Wood – Plywood, Formply, Particleboard</div>
+                  <div style="font-size:.75rem;color:#333;line-height:1.75;">3&nbsp;&nbsp;Wood / Timber / Pallets</div>
+                </div>
+                <div style="margin-bottom:10px;">
+                  <div style="font-size:.79rem;font-weight:700;margin-bottom:4px;color:var(--blue-dark);">Facades / graphics / skins</div>
+                  <div style="font-size:.75rem;color:#333;line-height:1.75;">4&nbsp;&nbsp;PVC sail track banners</div>
+                  <div style="font-size:.75rem;color:#333;line-height:1.75;">5&nbsp;&nbsp;ACM / ACP</div>
+                  <div style="font-size:.75rem;color:#333;line-height:1.75;">6&nbsp;&nbsp;SAV</div>
+                  <div style="font-size:.75rem;color:#333;line-height:1.75;">7&nbsp;&nbsp;Textiles / Fabrics</div>
+                </div>
+                <div style="font-size:.81rem;font-weight:600;color:#222;">8&nbsp;&nbsp;Flooring (carpet / vinyl)</div>
+              </div>
+            </div>
+            <!-- Highly Circular box -->
+            <div style="display:flex;border-radius:10px;overflow:hidden;border:1.5px solid rgba(16,185,129,.3);">
+              <div style="width:26px;flex-shrink:0;background:#1D9E75;display:flex;align-items:center;justify-content:center;">
+                <span style="color:#fff;font-size:.48rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;writing-mode:vertical-rl;transform:rotate(180deg);">Highly Circular</span>
+              </div>
+              <div style="padding:14px 16px;flex:1;background:white;">
+                <div style="margin-bottom:8px;"><div style="font-size:.81rem;font-weight:600;color:#222;">9&nbsp;&nbsp;Water-based Paint</div><div style="font-size:.73rem;color:#666;padding-left:14px;">Doesn't contaminate wood / timber</div></div>
+                <div style="margin-bottom:8px;"><div style="font-size:.81rem;font-weight:600;color:#222;">10&nbsp;&nbsp;Steel</div></div>
+                <div><div style="font-size:.81rem;font-weight:600;color:#222;">11&nbsp;&nbsp;Aluminium</div><div style="font-size:.73rem;color:#666;padding-left:14px;">High secondary market value — don't bin it</div></div>
+              </div>
+            </div>
+            <div style="margin-top:12px;">
+              <button onclick="showTab('target',document.querySelectorAll('.tab-btn')[1])" style="font-size:.78rem;font-weight:700;color:var(--blue);background:rgba(2,136,204,.07);border:1.5px solid rgba(2,136,204,.22);border-radius:7px;padding:7px 14px;cursor:pointer;font-family:inherit;">View full Target Materials List &#8599;</button>
+            </div>
+          </div>
+          <!-- RIGHT: bubble chart -->
+          <div style="background:white;border-radius:10px;overflow:hidden;border:1.5px solid var(--slate-200);">
+            <svg viewBox="0 0 1447 1350" width="100%" role="img" style="display:block;">
+              <defs><marker id="tm-arrow2" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L14,7 L0,14 z" fill="#3d3d3d"/></marker></defs>
+              <line stroke="#3d3d3d" stroke-width="7" stroke-linecap="square" marker-end="url(#tm-arrow2)" x1="82" y1="1250" x2="82" y2="331"/>
+              <line stroke="#3d3d3d" stroke-width="7" stroke-linecap="square" marker-end="url(#tm-arrow2)" x1="82" y1="1250" x2="997" y2="1250"/>
+              <text font-size="45" fill="#3d3d3d" font-weight="400" letter-spacing="-1" x="87" y="1306">Increasing Environmental Impact</text>
+              <text font-size="45" fill="#3d3d3d" font-weight="400" letter-spacing="-1" transform="translate(58 1228) rotate(-90)">Increasing Volume/ Spend</text>
+              <g transform="translate(268 385)"><clipPath id="tm-gridClip2"><rect width="730" height="730"/></clipPath><rect width="730" height="730" fill="#efefef"/><g opacity=".96" clip-path="url(#tm-gridClip2)"><rect x="91.25" y="0" width="91.25" height="638.75" fill="#e4f7fd"/><rect x="182.5" y="0" width="91.25" height="638.75" fill="#d0f0f8"/><rect x="273.75" y="0" width="91.25" height="638.75" fill="#bde9f4"/><rect x="365" y="0" width="91.25" height="638.75" fill="#92dbef"/><rect x="456.25" y="0" width="91.25" height="456.25" fill="#149bd0"/><rect x="547.5" y="0" width="91.25" height="456.25" fill="#087aa2"/><rect x="638.75" y="0" width="91.25" height="456.25" fill="#253491"/><rect x="365" y="91.25" width="365" height="91.25" fill="#61cbea" opacity=".65"/><rect x="365" y="182.5" width="365" height="91.25" fill="#26b7df" opacity=".75"/><rect x="365" y="273.75" width="365" height="91.25" fill="#0c9bd0" opacity=".9"/><rect x="365" y="365" width="365" height="91.25" fill="#07a2d0" opacity=".95"/><rect x="365" y="456.25" width="365" height="91.25" fill="#80d7ee" opacity=".9"/><rect x="365" y="547.5" width="365" height="91.25" fill="#d7f3fa" opacity=".85"/></g>
+              <g><line stroke="white" stroke-opacity=".35" stroke-width="3" x1="91.25" y1="0" x2="91.25" y2="730"/><line stroke="white" stroke-opacity=".35" stroke-width="3" x1="182.5" y1="0" x2="182.5" y2="730"/><line stroke="white" stroke-opacity=".35" stroke-width="3" x1="273.75" y1="0" x2="273.75" y2="730"/><line stroke="white" stroke-opacity=".35" stroke-width="3" x1="365" y1="0" x2="365" y2="730"/><line stroke="white" stroke-opacity=".35" stroke-width="3" x1="456.25" y1="0" x2="456.25" y2="730"/><line stroke="white" stroke-opacity=".35" stroke-width="3" x1="547.5" y1="0" x2="547.5" y2="730"/><line stroke="white" stroke-opacity=".35" stroke-width="3" x1="638.75" y1="0" x2="638.75" y2="730"/><line stroke="white" stroke-opacity=".35" stroke-width="3" x1="0" y1="91.25" x2="730" y2="91.25"/><line stroke="white" stroke-opacity=".35" stroke-width="3" x1="0" y1="182.5" x2="730" y2="182.5"/><line stroke="white" stroke-opacity=".35" stroke-width="3" x1="0" y1="273.75" x2="730" y2="273.75"/><line stroke="white" stroke-opacity=".35" stroke-width="3" x1="0" y1="365" x2="730" y2="365"/><line stroke="white" stroke-opacity=".35" stroke-width="3" x1="0" y1="456.25" x2="730" y2="456.25"/><line stroke="white" stroke-opacity=".35" stroke-width="3" x1="0" y1="547.5" x2="730" y2="547.5"/><line stroke="white" stroke-opacity=".35" stroke-width="3" x1="0" y1="638.75" x2="730" y2="638.75"/></g></g>
+              <g><circle fill="rgba(255,255,255,.05)" stroke="black" stroke-width="5" cx="231" cy="580" r="54"/><text font-size="31" font-weight="700" fill="#4a4a4a" text-anchor="middle" dominant-baseline="middle" x="231" y="580">3</text><circle fill="rgba(255,255,255,.05)" stroke="black" stroke-width="5" cx="602" cy="435" r="54"/><text font-size="31" font-weight="700" fill="#4a4a4a" text-anchor="middle" dominant-baseline="middle" x="602" y="435">6</text><circle fill="rgba(255,255,255,.05)" stroke="black" stroke-width="5" cx="681" cy="435" r="55"/><text font-size="31" font-weight="700" fill="#4a4a4a" text-anchor="middle" dominant-baseline="middle" x="681" y="435">2</text><circle fill="rgba(255,255,255,.05)" stroke="white" stroke-width="5" cx="759" cy="435" r="55"/><text font-size="31" font-weight="700" fill="white" text-anchor="middle" dominant-baseline="middle" x="759" y="435">5</text><circle fill="rgba(255,255,255,.05)" stroke="white" stroke-width="5" cx="880" cy="435" r="55"/><text font-size="31" font-weight="700" fill="white" text-anchor="middle" dominant-baseline="middle" x="880" y="435">1</text><circle fill="rgba(255,255,255,.05)" stroke="white" stroke-width="5" cx="982" cy="435" r="55"/><text font-size="31" font-weight="700" fill="white" text-anchor="middle" dominant-baseline="middle" x="982" y="435">11</text><circle fill="rgba(255,255,255,.05)" stroke="white" stroke-width="5" cx="959" cy="514" r="54"/><text font-size="31" font-weight="700" fill="white" text-anchor="middle" dominant-baseline="middle" x="959" y="514">10</text><circle fill="rgba(255,255,255,.05)" stroke="white" stroke-width="5" cx="854" cy="593" r="55"/><text font-size="31" font-weight="700" fill="white" text-anchor="middle" dominant-baseline="middle" x="854" y="593">8</text><circle fill="rgba(255,255,255,.05)" stroke="white" stroke-width="5" cx="952" cy="594" r="55"/><text font-size="31" font-weight="700" fill="white" text-anchor="middle" dominant-baseline="middle" x="952" y="594">4</text><circle fill="rgba(255,255,255,.05)" stroke="white" stroke-width="5" cx="727" cy="703" r="55"/><text font-size="31" font-weight="700" fill="white" text-anchor="middle" dominant-baseline="middle" x="727" y="703">7</text><circle fill="rgba(255,255,255,.05)" stroke="black" stroke-width="5" cx="686" cy="766" r="55"/><text font-size="31" font-weight="700" fill="#4a4a4a" text-anchor="middle" dominant-baseline="middle" x="686" y="766">9</text></g>
+            </svg>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- CIRCULAR DESIGN HIERARCHY -->
-  <div class="sh-section">
-    <div class="sh-section-hd">Methods matter</div>
-    <button class="sh-link-btn green" onclick="showTab('pocket',document.querySelectorAll('.tab-btn')[2])">Go to Circular Design methods &#8599;</button>
-    <p style="font-size:.88rem;color:var(--text-light);line-height:1.7;margin-bottom:20px;">The majority of materials used in AO venue overlays are reusable and recyclable. It is how we treat, finish and handle them at bump-out that creates waste. We can change that. Observe the design hierarchy and the responsible methods guide for material-specific circularity pathways.</p>
-    <div class="sh-section-hd" style="margin-bottom:10px;">The Circular Design Hierarchy</div>
-    <p style="font-size:.88rem;color:var(--text-light);line-height:1.7;margin-bottom:18px;">Follow this hierarchy when making material and design decisions. Starting at the top delivers the most cost-effective and lowest-impact outcomes.</p>
-    <div class="sh-hier-wrap">
-      <div class="sh-hr-rows">
-        <div class="sh-hr-row"><div style="display:flex;align-items:baseline;gap:7px;margin-bottom:2px;"><span class="sh-hn" style="color:#071545;">01</span><span class="sh-hl">Reduce</span></div><p class="sh-hd">Rethink need and/or decrease raw materials through reductive design.</p></div>
-        <div class="sh-hr-row"><div style="display:flex;align-items:baseline;gap:7px;margin-bottom:2px;"><span class="sh-hn" style="color:#282F8D;">02</span><span class="sh-hl">Reuse / rent / lease</span></div><p class="sh-hd">Can existing assets be redeployed? Are there rent or lease options rather than buying new?</p></div>
-        <div class="sh-hr-row"><div style="display:flex;align-items:baseline;gap:7px;margin-bottom:2px;"><span class="sh-hn" style="color:#1199CC;">03</span><span class="sh-hl">Modular: repurpose or refurbish</span></div><p class="sh-hd">Reassemble assets. Repair and revive products and materials to apply in another form or function.</p></div>
-        <div class="sh-hr-row"><div style="display:flex;align-items:baseline;gap:7px;margin-bottom:2px;"><span class="sh-hn" style="color:#11D4E4;">04</span><span class="sh-hl">Responsible material choice</span></div><p class="sh-hd">Replace high impact materials with sustainability certified products and materials.</p></div>
-        <div class="sh-hr-row"><div style="display:flex;align-items:baseline;gap:7px;margin-bottom:2px;"><span class="sh-hn" style="color:#86D9EB;">05</span><span class="sh-hl">Re-commerce</span></div><p class="sh-hd">Is there a secondary market to resell for cost recovery and keep the asset in life?</p></div>
-        <div class="sh-hr-row"><div style="display:flex;align-items:baseline;gap:7px;margin-bottom:2px;"><span class="sh-hn" style="color:#86D9EB;">06</span><span class="sh-hl">End-of-life pathways &amp; recycling</span></div><p class="sh-hd">Find resource recovery options where materials can be recycled, avoiding landfill.</p></div>
-        <div class="sh-hr-row"><div style="display:flex;align-items:baseline;gap:7px;margin-bottom:2px;"><span class="sh-hn" style="color:#A6BC00;">07</span><span class="sh-hl">Waste to Landfill</span></div><p class="sh-hd">Dead end. Last resort only — every step above should be explored first.</p></div>
-      </div>
-      <div class="sh-sp-wrap">
-        <div class="sh-sp-band"></div><div class="sh-sp-band"></div><div class="sh-sp-band"></div><div class="sh-sp-band"></div><div class="sh-sp-band"></div><div class="sh-sp-band"></div><div class="sh-sp-band"></div>
-        <div class="sh-sp-wedge"></div>
-        <div class="sh-sp-axis des sh-sp-arr"></div>
-        <div class="sh-sp-axis rml sh-sp-arr"></div>
-        <div class="sh-sp-axis circ sh-sp-arr"></div>
-        <div class="sh-sp-axis dead sh-sp-arr"></div>
-        <div class="sh-sp-lbl des">DESIGN</div>
-        <div class="sh-sp-lbl rml">RML</div>
-        <div class="sh-sp-lbl circ">CIRCULAR<br>ECONOMY</div>
-        <div class="sh-sp-lbl dead">DEAD</div>
-      </div>
-    </div>
-  </div>
+    <!-- DESIGN HIERARCHY -->
+    <div class="acc-item" id="acc-hierarchy">
+      <button class="acc-trigger" onclick="toggleAcc('acc-hierarchy')">
+        <div class="acc-trigger-left">
+          <div class="acc-trigger-icon navy">
+            <svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="var(--navy)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2l7 4v8l-7 4-7-4V6l7-4z"/><path d="M10 2v14M3 6l7 4 7-4"/></svg>
+          </div>
+          <div>
+            <div class="acc-label">The Circular Design Hierarchy</div>
+            <div class="acc-sublabel">Follow this decision order &mdash; starting at the top delivers the most cost-effective outcomes</div>
+          </div>
+        </div>
+        <span class="acc-chevron">&#8964;</span>
+      </button>
+      <div class="acc-body" id="acc-hierarchy-body">
+        <div class="hierarchy-wrap">
+          <div style="font-size:.8rem;color:var(--text-light);line-height:1.65;margin-bottom:14px;padding-top:4px;">The majority of materials used in AO venue overlays are reusable and recyclable. It is how we treat, finish and handle them at bump-out that creates waste. Follow this hierarchy when making material and design decisions.</div>
 
-  <!-- WHO DOES WHAT -->
-  <div class="sh-section">
-    <div class="sh-section-hd">Who does what</div>
-    <div class="sh-resp-card">
-      <h4><span class="sh-ico"><svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></span> TA PMs / Delivery Teams</h4>
-      <p>Material choices made upfront determine what's possible at bump-out. Complete this plan during design. Work with contractors during procurement to track materials in the plan.</p>
-    </div>
-    <div class="sh-resp-card">
-      <h4><span class="sh-ico"><svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></span> Designers – Design waste out</h4>
-      <p>Material choices made upfront determine what's possible at bump-out. Complete this plan during design and lock choices into the brief with builders. Design for Disassembly (DfD) and modular approaches make the biggest difference.</p>
-    </div>
-    <div class="sh-resp-card">
-      <h4><span class="sh-ico"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></span> Builders – Procure responsibly</h4>
-      <p>Update the plan as you procure materials. Brief your team and subcontractors. Modular design and DfD create reusable systems that cut waste across multiple events.</p>
-    </div>
-    <div class="sh-resp-card">
-      <h4><span class="sh-ico"><svg viewBox="0 0 24 24"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg></span> All – Track assets</h4>
-      <p>This plan is your baseline asset tracker. Agencies and builders will be asked to report on material and asset status post-event. Complete fields 1 to 6 before the event, field 7 at bump-out.</p>
-    </div>
-    <div class="sh-resp-card">
-      <h4><span class="sh-ico"><svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></span> AO Waste Services</h4>
-      <p>Segregating materials on bump-out and shipping direct to recovery partners significantly increases recovery rates. AO26: PVC banners, water-based paint and timber were segregated. More streams will be added this year.</p>
+          <!-- Hierarchy grid: rows + right-side grouping labels -->
+          <div style="display:grid;grid-template-columns:1fr 80px;gap:0 8px;">
+
+            <!-- LEFT: the 7 rows -->
+            <div style="display:flex;flex-direction:column;gap:3px;">
+
+              <div style="display:flex;align-items:stretch;border-radius:6px;overflow:hidden;">
+                <div style="width:44px;flex-shrink:0;background:#071545;display:flex;align-items:center;justify-content:center;"><span style="font-size:.72rem;font-weight:800;color:white;letter-spacing:.02em;">01</span></div>
+                <div style="flex:1;padding:10px 14px;background:rgba(7,21,69,.05);"><div style="font-size:.88rem;font-weight:700;color:#071545;margin-bottom:2px;">Reduce</div><div style="font-size:.76rem;color:var(--slate-600);">Rethink need and/or decrease raw materials through reductive design.</div></div>
+              </div>
+
+              <div style="display:flex;align-items:stretch;border-radius:6px;overflow:hidden;">
+                <div style="width:44px;flex-shrink:0;background:#282f8d;display:flex;align-items:center;justify-content:center;"><span style="font-size:.72rem;font-weight:800;color:white;letter-spacing:.02em;">02</span></div>
+                <div style="flex:1;padding:10px 14px;background:rgba(40,47,141,.05);"><div style="font-size:.88rem;font-weight:700;color:#282f8d;margin-bottom:2px;">Reuse / rent / lease</div><div style="font-size:.76rem;color:var(--slate-600);">Can existing assets be redeployed? Are there rent or lease options rather than buying new?</div></div>
+              </div>
+
+              <div style="display:flex;align-items:stretch;border-radius:6px;overflow:hidden;">
+                <div style="width:44px;flex-shrink:0;background:#1199cc;display:flex;align-items:center;justify-content:center;"><span style="font-size:.72rem;font-weight:800;color:white;letter-spacing:.02em;">03</span></div>
+                <div style="flex:1;padding:10px 14px;background:rgba(17,153,204,.05);"><div style="font-size:.88rem;font-weight:700;color:#1199cc;margin-bottom:2px;">Modular — repurpose or refurbish</div><div style="font-size:.76rem;color:var(--slate-600);">Reassemble assets. Repair and revive products for another form or function. Mechanical connectors over chemical bonds.</div></div>
+              </div>
+
+              <div style="display:flex;align-items:stretch;border-radius:6px;overflow:hidden;">
+                <div style="width:44px;flex-shrink:0;background:#11d4e4;display:flex;align-items:center;justify-content:center;"><span style="font-size:.72rem;font-weight:800;color:#004a4f;letter-spacing:.02em;">04</span></div>
+                <div style="flex:1;padding:10px 14px;background:rgba(17,212,228,.04);"><div style="font-size:.88rem;font-weight:700;color:#0e7490;margin-bottom:2px;">Responsible material choice</div><div style="font-size:.76rem;color:var(--slate-600);">Replace high-impact materials with sustainability-certified products. Consult the AO Target Materials List.</div></div>
+              </div>
+
+              <div style="display:flex;align-items:stretch;border-radius:6px;overflow:hidden;">
+                <div style="width:44px;flex-shrink:0;background:#86d9eb;display:flex;align-items:center;justify-content:center;"><span style="font-size:.72rem;font-weight:800;color:#00444d;letter-spacing:.02em;">05</span></div>
+                <div style="flex:1;padding:10px 14px;background:rgba(134,217,235,.06);"><div style="font-size:.88rem;font-weight:700;color:#0e7490;margin-bottom:2px;">Re-commerce</div><div style="font-size:.76rem;color:var(--slate-600);">Is there a secondary market to resell for cost recovery and keep the asset in life?</div></div>
+              </div>
+
+              <div style="display:flex;align-items:stretch;border-radius:6px;overflow:hidden;">
+                <div style="width:44px;flex-shrink:0;background:#cceef5;display:flex;align-items:center;justify-content:center;"><span style="font-size:.72rem;font-weight:800;color:#005060;letter-spacing:.02em;">06</span></div>
+                <div style="flex:1;padding:10px 14px;background:rgba(204,238,245,.15);"><div style="font-size:.88rem;font-weight:700;color:#0e7490;margin-bottom:2px;">End-of-life &amp; recycling</div><div style="font-size:.76rem;color:var(--slate-600);">Find resource recovery options where materials can be recycled, avoiding landfill.</div></div>
+              </div>
+
+              <div style="display:flex;align-items:stretch;border-radius:6px;overflow:hidden;">
+                <div style="width:44px;flex-shrink:0;background:#d8ff00;display:flex;align-items:center;justify-content:center;"><span style="font-size:.72rem;font-weight:800;color:#333700;letter-spacing:.02em;">07</span></div>
+                <div style="flex:1;padding:10px 14px;background:rgba(216,255,0,.07);"><div style="font-size:.88rem;font-weight:700;color:#78350f;margin-bottom:2px;">Waste to landfill</div><div style="font-size:.76rem;color:var(--slate-600);">Dead end. Last resort only — every step above should be explored first.</div></div>
+              </div>
+
+            </div>
+
+            <!-- RIGHT: grouping labels with proportional spans -->
+            <div style="display:flex;flex-direction:column;gap:3px;height:100%;">
+              <!-- DESIGN: rows 01-03 = 3 units -->
+              <div style="flex:3;border-left:3px solid #0798c7;padding-left:7px;display:flex;align-items:center;min-height:100px;">
+                <span style="font-size:.58rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#0798c7;writing-mode:vertical-rl;transform:rotate(180deg);">DESIGN</span>
+              </div>
+              <!-- RML: row 04 = 1 unit -->
+              <div style="flex:1;border-left:3px solid #11D4E4;padding-left:7px;display:flex;align-items:center;min-height:34px;">
+                <span style="font-size:.58rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#11D4E4;writing-mode:vertical-rl;transform:rotate(180deg);">RML</span>
+              </div>
+              <!-- CIRCULAR ECONOMY: rows 05-06 = 2 units -->
+              <div style="flex:2;border-left:3px solid #86D9EB;padding-left:7px;display:flex;align-items:center;min-height:68px;">
+                <span style="font-size:.55rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#86D9EB;writing-mode:vertical-rl;transform:rotate(180deg);line-height:1.2;">CIRCULAR ECONOMY</span>
+              </div>
+              <!-- DEAD: row 07 = 1 unit -->
+              <div style="flex:1;border-left:3px solid #c6d900;padding-left:7px;display:flex;align-items:center;min-height:34px;">
+                <span style="font-size:.58rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#c6d900;writing-mode:vertical-rl;transform:rotate(180deg);">DEAD</span>
+              </div>
+            </div>
+
+          </div><!-- /hierarchy grid -->
+
+          <div style="margin-top:14px;">
+            <button onclick="showTab('pocket',document.querySelectorAll('.tab-btn')[2])" style="font-size:.78rem;font-weight:700;color:var(--green-dark);background:rgba(16,185,129,.07);border:1.5px solid rgba(16,185,129,.25);border-radius:7px;padding:7px 14px;cursor:pointer;font-family:inherit;">Read Responsible Methods guide &#8599;</button>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <!-- CTA -->
-    <a class="sh-plan-cta" href="https://megtei.github.io/Materials-Management/">
-      <div>
-        <h4>Start your Materials Management plan</h4>
-        <p>Capture your assets, materials and expected outcomes for AO27</p>
+    <!-- WHO DOES WHAT -->
+    <div class="acc-item" id="acc-roles">
+      <button class="acc-trigger" onclick="toggleAcc('acc-roles')">
+        <div class="acc-trigger-left">
+          <div class="acc-trigger-icon green">
+            <svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="var(--green-dark)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="6" r="3"/><path d="M2 18c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M14 3c1.7 0 3 1.3 3 3s-1.3 3-3 3"/><path d="M18 18c0-2.2-1.3-4.1-3-5"/></svg>
+          </div>
+          <div>
+            <div class="acc-label">Who does what &mdash; responsibilities by role</div>
+            <div class="acc-sublabel">Designers, builders and PMs each have distinct points of leverage</div>
+          </div>
+        </div>
+        <span class="acc-chevron">&#8964;</span>
+      </button>
+      <div class="acc-body" id="acc-roles-body">
+        <div class="roles-wrap">
+          <div class="role-card">
+            <h4><span class="role-badge rb-pm">TA PMs</span></h4>
+            <p>Drives material choices upfront. Complete this plan during design. Work with contractors during procurement to track materials in the plan. Material choices made now determine what's possible at bump-out.</p>
+          </div>
+          <div class="role-card">
+            <h4><span class="role-badge rb-designer">Designers</span></h4>
+            <p>Design waste out. Lock material choices into the brief with builders. Design for Disassembly (DfD) and modular approaches make the biggest difference. Document how components work together for future contractors.</p>
+          </div>
+          <div class="role-card">
+            <h4><span class="role-badge rb-builder">Builders</span></h4>
+            <p>Update the plan as you procure materials. Brief your team and subcontractors. Use mechanical connectors, water-based paint and material separation. Plan time and labour for careful bump-out disassembly.</p>
+          </div>
+          <div class="role-card">
+            <h4><span class="role-badge rb-all">All Parties</span></h4>
+            <p>Track assets end-to-end. Segregate materials on bump-out and ship direct to recovery partners. Use AO Waste Services streams for PVC banners, water-based paint and timber. Complete plan fields 1–6 pre-event, field 7 at bump-out.</p>
+          </div>
+        </div>
       </div>
-      <div class="sh-plan-arrow">&#8594;</div>
-    </a>
-  </div>
+    </div>
+
+  </div><!-- /accordion-group -->
 
 </div>
-</div><!-- end #tab-starthere -->
-<div id="tab-target" class="tab-panel">
+</div><!-- /tab-starthere -->
 
-  <div style="margin-top:28px;">
+<!-- ═══════════════════════ TAB 1 — TARGET MATERIALS ═══════════════════════ -->
+<div id="tab-target" class="tab-panel">
+  <div style="margin-top:22px;">
     <div class="section-title">Target Materials</div>
     <div class="divider"></div>
   </div>
-
-  <div class="how-to" style="margin-top:24px;">
+  <div class="how-to" style="margin-top:18px;">
     <div class="how-to-header">How to use this list</div>
     <div class="how-to-body">
       <div class="how-to-step"><div class="step-num">1</div><div class="step-text">The AO target materials list contains both current state materials in use at the AO together with some new responsible materials. Check the AO recommendation column for advice.</div></div>
-      <div class="how-to-step"><div class="step-num">2</div><div class="step-text">Methods matter. Most of the materials on this list are reusable/ recyclable. It is how we treat and dispose of materials that creates waste. We can change that. Check the "Circularity" column and "What to ask for"</div></div>
+      <div class="how-to-step"><div class="step-num">2</div><div class="step-text">Methods matter. Most of the materials on this list are reusable/recyclable. It is how we treat and dispose of materials that creates waste. Check the "Circularity" column and "What to ask for."</div></div>
       <div class="how-to-step"><div class="step-num">3</div><div class="step-text">Use the filters to find materials that are ideal for evergreen design, within budget and have an end of life pathway.</div></div>
     </div>
   </div>
-
-  <!-- Material-request prompt -->
   <div class="material-request-strip">
-    <svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.5"/><path d="M10 6v4M10 13.5v.1"/></svg>
-    <span>Have a material you'd like to add to the list? <a href="#material-request" onclick="goToMaterialRequest();return false;">Let us know →</a></span>
+    <svg width="15" height="15" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="7.5"/><path d="M10 6v4M10 13.5v.1"/></svg>
+    <span>Have a material you'd like to add to the list? <a href="#material-request" onclick="openMaterialRequest();return false;">Let us know &rarr;</a></span>
   </div>
-
   <div class="filter-bar" id="filter-bar-combined">
     <div class="filter-search-wrap">
       <label for="ct-search">Search</label>
@@ -950,36 +782,29 @@ thead th.th-concern{background:linear-gradient(135deg,#7f1d1d 0%,#991b1b 100%);c
     <button class="btn-clear" id="btn-clear-combined" onclick="clearCombined()">&#10005; Clear <span class="filter-active-count" id="ct-active-count"></span></button>
     <div id="ct-count" class="result-count"></div>
   </div>
-
   <div class="table-wrap"><div class="table-scroll">
     <table style="min-width:1800px;">
       <thead><tr>
-        <!-- A --> <th style="width:52px;">Ref</th>
-        <!-- src --> <th style="width:80px;">Type</th>
-        <!-- B --> <th style="min-width:150px;">Precinct Application</th>
-        <!-- C --> <th style="min-width:120px;">Category</th>
-        <!-- D --> <th style="min-width:220px;">Product Name</th>
-        <!-- F --> <th style="min-width:110px;">Unit Size</th>
-        <!-- G --> <th style="min-width:120px;">Price</th>
-        <!-- H --> <th style="min-width:200px;">Price Comparison</th>
-        <!-- I --> <th style="min-width:160px;">Supplier</th>
+        <th style="width:52px;">Ref</th>
+        <th style="width:80px;">Type</th>
+        <th style="min-width:150px;">Precinct Application</th>
+        <th style="min-width:120px;">Category</th>
+        <th style="min-width:220px;">Product Name</th>
+        <th style="min-width:110px;">Unit Size</th>
+        <th style="min-width:120px;">Price</th>
+        <th style="min-width:200px;">Price Comparison</th>
+        <th style="min-width:160px;">Supplier</th>
         <th class="th-gap"></th>
-        <!-- J --> <th class="th-amber" style="min-width:160px;text-align:center;">AO Recommendation</th>
-        <!-- K --> <th class="th-amber" style="min-width:220px;">Circularity / EOL</th>
-        <!-- L --> <th class="th-amber" style="min-width:200px;">What to ask for</th>
+        <th class="th-amber" style="min-width:160px;text-align:center;">AO Recommendation</th>
+        <th class="th-amber" style="min-width:220px;">Circularity / EOL</th>
+        <th class="th-amber" style="min-width:200px;">What to ask for</th>
       </tr></thead>
       <tbody id="ct-tbody"></tbody>
     </table>
   </div></div>
-
 </div><!-- /tab-target -->
 
-
-
-
-<!-- ═══════════════════════════════════════════════════════════════ -->
-<!-- TAB 4 — POCKET REFERENCE CARDS                                 -->
-<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- ═══════════════════════ TAB 2 — RESPONSIBLE METHODS ═══════════════════════ -->
 <div id="tab-pocket" class="tab-panel">
   <div class="section-title" style="margin-top:28px;">Responsible Methods</div>
   <div class="divider"></div>
@@ -1046,7 +871,7 @@ thead th.th-concern{background:linear-gradient(135deg,#7f1d1d 0%,#991b1b 100%);c
         </div>
       </div>
       <div class="card-footer">
-        <span class="footer-mark">Maximum Play, Minimum Footprint</span>
+        
       </div>
     </div>
 
@@ -1096,7 +921,7 @@ thead th.th-concern{background:linear-gradient(135deg,#7f1d1d 0%,#991b1b 100%);c
         </div>
       </div>
       <div class="card-footer">
-        <span class="footer-mark">Maximum Play, Minimum Footprint</span>
+        
       </div>
     </div>
 
@@ -1181,13 +1006,7 @@ thead th.th-concern{background:linear-gradient(135deg,#7f1d1d 0%,#991b1b 100%);c
 
 </div><!-- /tab-pocket -->
 
-
-
-
-
-<!-- ═══════════════════════════════════════════════════════════════ -->
-<!-- TAB — INCREMENTAL PLAN                                         -->
-<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- ═══════════════════════ TAB 3 — INCREMENTAL FRAMEWORK ═══════════════════════ -->
 <div id="tab-plan" class="tab-panel">
   <iframe srcdoc="<!DOCTYPE html>
 <html lang=&quot;en&quot;>
@@ -1823,10 +1642,7 @@ thead th.th-concern{background:linear-gradient(135deg,#7f1d1d 0%,#991b1b 100%);c
   </iframe>
 </div><!-- /tab-plan -->
 
-
-<!-- ═══════════════════════════════════════════════════════════════ -->
-<!-- TAB — RESOURCES                                                 -->
-<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- ═══════════════════════ TAB 4 — RESOURCES ═══════════════════════ -->
 <div id="tab-resources" class="tab-panel">
   <div style="margin-top:28px;">
     <div class="section-title">Resources</div>
@@ -2008,7 +1824,6 @@ thead th.th-concern{background:linear-gradient(135deg,#7f1d1d 0%,#991b1b 100%);c
     </div><!-- /mr-modal-dialog -->
   </div><!-- /mr-modal -->
 </div><!-- /tab-resources -->
-
 
 </main>
 
@@ -2729,6 +2544,28 @@ function initMethodsAccordion(){
   });
 }
 initMethodsAccordion();
+</script>
+
+
+<script>
+// ── ACCORDION TOGGLE ────────────────────────────────────────────
+function toggleAcc(id){
+  var item=document.getElementById(id);
+  if(!item)return;
+  var body=document.getElementById(id+'-body');
+  var isOpen=item.classList.contains('open');
+  item.classList.toggle('open',!isOpen);
+  if(body)body.classList.toggle('open',!isOpen);
+}
+function openAcc(id){
+  var item=document.getElementById(id);
+  if(!item)return;
+  var body=document.getElementById(id+'-body');
+  item.classList.add('open');
+  if(body)body.classList.add('open');
+  // Scroll into view
+  setTimeout(function(){item.scrollIntoView({behavior:'smooth',block:'start'});},150);
+}
 </script>
 <!-- SVG icon defs for Responsible Methods tab -->
 <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
