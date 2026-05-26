@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AO Target Materials</title>
+<title>AO Target Materials &amp; Responsible Methods</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <!-- GitHub Pages compatible: single self-contained HTML file, no server dependencies -->
 <style>
@@ -621,6 +621,103 @@ thead th.th-concern{background:linear-gradient(135deg,#7f1d1d 0%,#991b1b 100%);c
 .ip-wrap .header { display:none !important; }
 .ip-wrap .footer { margin-top:24px; }
 
+/* ── START HERE TAB ─────────────────────────────────────────── */
+.sh-hero{background:linear-gradient(135deg,var(--navy-dark) 0%,var(--navy) 60%,var(--blue-dark) 100%);border-radius:16px;padding:36px 44px;color:#fff;margin-bottom:32px;position:relative;overflow:hidden;}
+.sh-hero::before{content:'';position:absolute;top:-60px;right:-60px;width:300px;height:300px;background:radial-gradient(circle,rgba(0,227,255,.13) 0%,transparent 70%);border-radius:50%;pointer-events:none;}
+.sh-hero h2{font-size:2rem;font-weight:800;margin-bottom:.75rem;line-height:1.2;letter-spacing:-.02em;position:relative;}
+.sh-hero p{font-size:.95rem;line-height:1.8;opacity:.88;max-width:620px;position:relative;}
+
+.sh-targets{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:32px;}
+.sh-target{background:white;border-radius:14px;padding:24px 28px;border:1.5px solid;text-align:center;}
+.sh-target.blue{border-color:rgba(2,136,204,.35);background:rgba(2,136,204,.04);}
+.sh-target.green{border-color:rgba(16,185,129,.35);background:rgba(16,185,129,.04);}
+.sh-target-val{font-size:2.8rem;font-weight:800;line-height:1;}
+.sh-target.blue .sh-target-val{color:var(--blue);}
+.sh-target.green .sh-target-val{color:var(--green-dark);}
+.sh-target-lbl{font-size:.85rem;font-weight:600;margin-top:8px;line-height:1.4;}
+.sh-target.blue .sh-target-lbl{color:var(--blue-dark);}
+.sh-target.green .sh-target-lbl{color:var(--green-dark);}
+
+.sh-section-hd{display:flex;align-items:center;gap:10px;font-size:.72rem;font-weight:800;color:var(--navy);text-transform:uppercase;letter-spacing:.1em;margin-bottom:16px;}
+.sh-section-hd::before{content:'';display:block;width:4px;height:18px;border-radius:2px;background:linear-gradient(180deg,var(--blue),var(--green));flex-shrink:0;}
+.sh-section{margin-bottom:32px;}
+
+.sh-why-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.sh-why-card{background:white;border:1.5px solid var(--slate-200);border-radius:14px;padding:22px 24px;}
+.sh-why-card .sh-icon{width:42px;height:42px;margin-bottom:12px;display:flex;align-items:center;justify-content:center;background:rgba(2,136,204,.08);border-radius:10px;}
+.sh-why-card .sh-icon svg{width:20px;height:20px;stroke:var(--blue);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+.sh-why-card h4{font-size:.88rem;font-weight:700;color:var(--navy);margin-bottom:6px;}
+.sh-why-card p{font-size:.8rem;color:var(--text-light);line-height:1.65;}
+
+.sh-top3{display:flex;gap:12px;margin-bottom:16px;}
+.sh-top3-item{flex:1;background:linear-gradient(160deg,var(--navy-dark) 0%,var(--blue-dark) 100%);border-radius:14px;padding:18px 14px;text-align:center;position:relative;overflow:hidden;}
+.sh-top3-item::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 80% 20%,rgba(255,255,255,.12) 0%,transparent 60%);pointer-events:none;}
+.sh-top3-item .rank-lbl{font-size:.65rem;font-weight:700;letter-spacing:.12em;color:rgba(255,255,255,.5);text-transform:uppercase;margin-bottom:8px;}
+.sh-top3-item .num{font-size:2.2rem;font-weight:900;color:#fff;letter-spacing:-.02em;line-height:1;}
+.sh-top3-item .cat{font-size:.75rem;color:rgba(255,255,255,.85);margin-top:8px;line-height:1.4;font-weight:600;}
+
+.sh-mat-grid{display:grid;grid-template-columns:1fr 340px;gap:24px;align-items:start;}
+.sh-tbox{display:flex;border-radius:10px;overflow:hidden;margin-bottom:12px;border:1.5px solid var(--slate-200);}
+.sh-tbar{width:26px;flex-shrink:0;display:flex;align-items:center;justify-content:center;}
+.sh-ttxt{color:#fff;font-size:.5rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;writing-mode:vertical-rl;transform:rotate(180deg);}
+.sh-ti{padding:14px 18px;flex:1;background:white;}
+.sh-tgt{font-size:.79rem;font-weight:700;margin-bottom:4px;color:var(--blue-dark);}
+.sh-tgi{font-size:.75rem;color:#333;line-height:1.75;}
+.sh-tcname{font-size:.81rem;font-weight:600;color:#222;}
+.sh-tcnote{font-size:.73rem;color:#666;padding-left:14px;}
+
+.sh-link-btn{display:inline-flex;align-items:center;gap:8px;font-size:.84rem;font-weight:700;color:var(--blue);text-decoration:none;padding:10px 18px;background:rgba(2,136,204,.07);border:1.5px solid rgba(2,136,204,.25);border-radius:10px;transition:background .15s;margin-bottom:16px;cursor:pointer;font-family:inherit;border-bottom-width:1.5px;}
+.sh-link-btn:hover{background:rgba(2,136,204,.14);}
+.sh-link-btn.green{color:var(--green-dark);background:rgba(16,185,129,.07);border-color:rgba(16,185,129,.3);}
+.sh-link-btn.green:hover{background:rgba(16,185,129,.14);}
+
+.sh-hier-wrap{display:grid;grid-template-columns:1fr 320px;gap:0;background:white;border-radius:14px;overflow:hidden;border:1.5px solid var(--slate-200);}
+.sh-hr-rows{border-right:1px solid var(--slate-200);}
+.sh-hr-row{height:72px;display:flex;flex-direction:column;justify-content:center;padding:0 18px 0 22px;border-bottom:0.5px solid #e8e5de;}
+.sh-hr-row:last-child{border-bottom:none;}
+.sh-hn{font-size:.65rem;font-weight:800;}
+.sh-hl{font-size:.85rem;font-weight:700;color:#1e293b;}
+.sh-hd{font-size:.74rem;color:#64748b;line-height:1.5;margin-top:2px;}
+
+.sh-sp-wrap{position:relative;width:100%;height:calc(7 * 72px);overflow:hidden;background:white;}
+.sh-sp-band{position:absolute;left:0;width:76.5%;height:calc(100% / 7);z-index:1;}
+.sh-sp-band:nth-child(1){top:calc(0 * 100% / 7);background:#071545;}
+.sh-sp-band:nth-child(2){top:calc(1 * 100% / 7);background:#282f8d;}
+.sh-sp-band:nth-child(3){top:calc(2 * 100% / 7);background:#1199cc;}
+.sh-sp-band:nth-child(4){top:calc(3 * 100% / 7);background:#11d4e4;}
+.sh-sp-band:nth-child(5){top:calc(4 * 100% / 7);background:#86d9eb;}
+.sh-sp-band:nth-child(6){top:calc(5 * 100% / 7);background:#cceef5;}
+.sh-sp-band:nth-child(7){top:calc(6 * 100% / 7);background:#d8ff00;}
+.sh-sp-wedge{position:absolute;inset:0;background:white;clip-path:polygon(76.5% 0,100% 0,100% 100%,0 100%);z-index:2;}
+.sh-sp-axis{position:absolute;left:76.5%;width:2px;transform:translateX(-50%);z-index:5;}
+.sh-sp-axis.des{top:0;height:calc(3*100%/7);background:#0798c7;}
+.sh-sp-axis.rml{top:calc(3*100%/7);height:calc(1*100%/7);background:#11D4E4;}
+.sh-sp-axis.circ{top:calc(4*100%/7);height:calc(2*100%/7);background:#86D9EB;}
+.sh-sp-axis.dead{top:calc(6*100%/7);height:calc(1*100%/7);background:#c6d900;}
+.sh-sp-arr::before,.sh-sp-arr::after{content:"";position:absolute;left:50%;transform:translateX(-50%);border-left:4px solid transparent;border-right:4px solid transparent;}
+.sh-sp-axis.des::before{top:-1px;border-bottom:8px solid #0798c7;}.sh-sp-axis.des::after{bottom:-1px;border-top:8px solid #0798c7;}
+.sh-sp-axis.rml::before{top:-1px;border-bottom:7px solid #11D4E4;}.sh-sp-axis.rml::after{bottom:-1px;border-top:7px solid #11D4E4;}
+.sh-sp-axis.circ::before{top:-1px;border-bottom:7px solid #86D9EB;}.sh-sp-axis.circ::after{bottom:-1px;border-top:7px solid #86D9EB;}
+.sh-sp-axis.dead::before{top:-1px;border-bottom:7px solid #c6d900;}.sh-sp-axis.dead::after{bottom:-1px;border-top:7px solid #c6d900;}
+.sh-sp-lbl{position:absolute;left:79%;z-index:6;font-weight:700;letter-spacing:.04em;line-height:1.2;display:flex;flex-direction:column;justify-content:center;font-size:.7rem;}
+.sh-sp-lbl.des{top:0;height:calc(3*100%/7);color:#0798c7;}
+.sh-sp-lbl.rml{top:calc(3*100%/7);height:calc(1*100%/7);color:#11D4E4;font-weight:800;}
+.sh-sp-lbl.circ{top:calc(4*100%/7);height:calc(2*100%/7);color:#86D9EB;font-weight:800;white-space:normal;line-height:1.2;}
+.sh-sp-lbl.dead{top:calc(6*100%/7);height:calc(1*100%/7);color:#c6d900;}
+
+.sh-resp-card{background:white;border:1.5px solid var(--slate-200);border-radius:14px;padding:18px 22px;margin-bottom:12px;}
+.sh-resp-card h4{font-size:.88rem;font-weight:700;color:var(--navy);margin-bottom:7px;display:flex;align-items:center;gap:10px;}
+.sh-resp-card h4 .sh-ico{width:32px;height:32px;background:rgba(2,136,204,.08);border-radius:7px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.sh-resp-card h4 .sh-ico svg{width:15px;height:15px;stroke:var(--blue);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+.sh-resp-card p{font-size:.82rem;color:var(--text-light);line-height:1.65;}
+
+.sh-plan-cta{background:linear-gradient(135deg,var(--blue-dark),#0a3d70);border-radius:14px;padding:24px 28px;display:flex;align-items:center;justify-content:space-between;gap:16px;cursor:pointer;transition:transform .15s,box-shadow .15s;box-shadow:0 4px 18px rgba(2,136,204,.35);text-decoration:none;margin-top:16px;}
+.sh-plan-cta:hover{transform:translateY(-2px);box-shadow:0 8px 26px rgba(2,136,204,.45);}
+.sh-plan-cta h4{font-size:1.05rem;font-weight:800;color:#fff;margin-bottom:4px;letter-spacing:.01em;}
+.sh-plan-cta p{font-size:.83rem;color:rgba(255,255,255,.75);}
+.sh-plan-arrow{font-size:1.6rem;color:rgba(255,255,255,.9);font-weight:700;flex-shrink:0;}
+@media(max-width:900px){.sh-mat-grid,.sh-hier-wrap{grid-template-columns:1fr;}.sh-mat-grid .sh-svg-col{display:none;}.sh-why-grid{grid-template-columns:1fr;}}
+
 </style>
 </head>
 <body>
@@ -637,7 +734,8 @@ thead th.th-concern{background:linear-gradient(135deg,#7f1d1d 0%,#991b1b 100%);c
     </div>
   </div>
   <nav class="tab-nav">
-    <button class="tab-btn active" onclick="showTab('target',this)">Target Materials</button>
+    <button class="tab-btn active" onclick="showTab('starthere',this)">Start here</button>
+    <button class="tab-btn" onclick="showTab('target',this)">Target Materials</button>
     <button class="tab-btn" onclick="showTab('pocket',this)">Responsible Methods</button>
     <button class="tab-btn" onclick="showTab('plan',this)">Incremental Framework</button>
     <button class="tab-btn" onclick="showTab('resources',this)">Resources</button>
@@ -647,9 +745,168 @@ thead th.th-concern{background:linear-gradient(135deg,#7f1d1d 0%,#991b1b 100%);c
 <main class="main">
 
 <!-- ══════════════════════════════════════════════════════════════
-     TAB 1 — TARGET MATERIALS
+     TAB 0 — START HERE
 ══════════════════════════════════════════════════════════════ -->
-<div id="tab-target" class="tab-panel active">
+<div id="tab-starthere" class="tab-panel active">
+<div style="margin-top:28px;">
+
+  <!-- HERO -->
+  <div class="sh-hero">
+    <h2>Everything we build has an impact.</h2>
+    <p>The PMs, Agencies, Designers and Builders delivering the AO play a direct role in reducing environmental impact and optimising a positive experience. Materials Management is how we plan, track and improve. Use this tool to document your materials, set targets, and report on outcomes at bump-out.</p>
+  </div>
+
+  <!-- AO27 TARGETS -->
+  <div class="sh-section">
+    <div class="sh-section-hd">AO27 Waste Reduction Targets</div>
+    <div class="sh-targets">
+      <div class="sh-target blue"><div class="sh-target-val">10%</div><div class="sh-target-lbl">Reduce total waste volume per year</div></div>
+      <div class="sh-target green"><div class="sh-target-val">10%</div><div class="sh-target-lbl">Increase reuse per year</div></div>
+    </div>
+  </div>
+
+  <!-- WHY IT MATTERS -->
+  <div class="sh-section">
+    <div class="sh-section-hd">Why it matters</div>
+    <div class="sh-why-grid">
+      <div class="sh-why-card">
+        <div class="sh-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+        <h4>Cost savings</h4>
+        <p>Building from scratch every year doesn't make commercial sense. Reusing materials saves significant costs.</p>
+      </div>
+      <div class="sh-why-card">
+        <div class="sh-icon"><svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
+        <h4>Social licence to operate</h4>
+        <p>Maintains the right to host by aligning with rising expectations from fans, partners, CoM and the grand slam circuit on waste and responsible delivery.</p>
+      </div>
+      <div class="sh-why-card">
+        <div class="sh-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+        <h4>Supply chain resilience</h4>
+        <p>Circularity and reusing materials reduces exposure to supply chain shocks, material scarcity and price volatility.</p>
+      </div>
+      <div class="sh-why-card">
+        <div class="sh-icon"><svg viewBox="0 0 24 24"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-4"/></svg></div>
+        <h4>Revenue potential</h4>
+        <p>Every time we bin a material we throw money away. Recovered materials can be resold, creating real value.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- TARGET MATERIALS -->
+  <div class="sh-section">
+    <div class="sh-section-hd">Target Materials</div>
+    <button class="sh-link-btn" onclick="showTab('target',document.querySelectorAll('.tab-btn')[1])">Go to AO Target Materials List &#8599;</button>
+    <p style="font-size:.88rem;color:var(--text-light);line-height:1.7;margin-bottom:16px;">Waste analysis reveals that a small number of material types make up most of the waste. When working with these material types consult the <a href="#" onclick="showTab('target',document.querySelectorAll('.tab-btn')[1]);return false;" style="color:var(--blue);font-weight:600;">AO Target Materials List</a>. The list contains both current highly reusable materials already in use at the AO and some new responsible materials.</p>
+    <div class="sh-top3">
+      <div class="sh-top3-item"><div class="rank-lbl">Rank</div><div class="num">1</div><div class="cat">Wood / Timber / Engineered Wood</div></div>
+      <div class="sh-top3-item"><div class="rank-lbl">Rank</div><div class="num">2</div><div class="cat">Cladding &amp; Facades</div></div>
+      <div class="sh-top3-item"><div class="rank-lbl">Rank</div><div class="num">3</div><div class="cat">Flooring</div></div>
+    </div>
+    <div class="sh-mat-grid">
+      <div>
+        <div class="sh-tbox">
+          <div class="sh-tbar" style="background:#0A2240;"><span class="sh-ttxt">Choose recommended materials</span></div>
+          <div class="sh-ti">
+            <div style="margin-bottom:10px;"><div class="sh-tgt">Wood / timber / engineered wood</div><div class="sh-tgi">1&nbsp;&nbsp;Engineered Wood – MDF, LDF</div><div class="sh-tgi">2&nbsp;&nbsp;Engineered Wood – Plywood, Formply, Particleboard</div><div class="sh-tgi">3&nbsp;&nbsp;Wood / Timber / Pallets</div></div>
+            <div style="margin-bottom:10px;"><div class="sh-tgt">Facades / graphics / skins</div><div class="sh-tgi">4&nbsp;&nbsp;PVC sail track banners</div><div class="sh-tgi">5&nbsp;&nbsp;ACM / ACP</div><div class="sh-tgi">6&nbsp;&nbsp;SAV</div><div class="sh-tgi">7&nbsp;&nbsp;Textiles / Fabrics</div></div>
+            <div class="sh-tgt">8&nbsp;&nbsp;Flooring (carpet / vinyl)</div>
+          </div>
+        </div>
+        <div class="sh-tbox">
+          <div class="sh-tbar" style="background:#1D9E75;"><span class="sh-ttxt">Highly Circular</span></div>
+          <div class="sh-ti">
+            <div style="margin-bottom:8px;"><div class="sh-tcname">9&nbsp;&nbsp;Water-based Paint</div><div class="sh-tcnote">Doesn't contaminate wood / timber</div></div>
+            <div style="margin-bottom:8px;"><div class="sh-tcname">10&nbsp;&nbsp;Steel</div></div>
+            <div><div class="sh-tcname">11&nbsp;&nbsp;Aluminium</div><div class="sh-tcnote">High secondary market value — don't bin it</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="sh-svg-col">
+        <div style="background:white;border-radius:10px;overflow:hidden;border:1.5px solid var(--slate-200);">
+          <svg viewBox="0 0 1447 1350" width="100%" role="img" style="display:block;">
+            <defs><marker id="tm-arrow" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L14,7 L0,14 z" fill="#3d3d3d"/></marker></defs>
+            <line stroke="#3d3d3d" stroke-width="7" stroke-linecap="square" marker-end="url(#tm-arrow)" x1="82" y1="1250" x2="82" y2="331"/>
+            <line stroke="#3d3d3d" stroke-width="7" stroke-linecap="square" marker-end="url(#tm-arrow)" x1="82" y1="1250" x2="997" y2="1250"/>
+            <text font-size="45" fill="#3d3d3d" font-weight="400" letter-spacing="-1" x="87" y="1306">Increasing Environmental Impact</text>
+            <text font-size="45" fill="#3d3d3d" font-weight="400" letter-spacing="-1" transform="translate(58 1228) rotate(-90)">Increasing Volume/ Spend</text>
+            <g transform="translate(268 385)"><clipPath id="tm-gridClip"><rect width="730" height="730"/></clipPath><rect width="730" height="730" fill="#efefef"/><g opacity=".96" clip-path="url(#tm-gridClip)"><rect x="91.25" y="0" width="91.25" height="638.75" fill="#e4f7fd"/><rect x="182.5" y="0" width="91.25" height="638.75" fill="#d0f0f8"/><rect x="273.75" y="0" width="91.25" height="638.75" fill="#bde9f4"/><rect x="365" y="0" width="91.25" height="638.75" fill="#92dbef"/><rect x="456.25" y="0" width="91.25" height="456.25" fill="#149bd0"/><rect x="547.5" y="0" width="91.25" height="456.25" fill="#087aa2"/><rect x="638.75" y="0" width="91.25" height="456.25" fill="#253491"/><rect x="365" y="91.25" width="365" height="91.25" fill="#61cbea" opacity=".65"/><rect x="365" y="182.5" width="365" height="91.25" fill="#26b7df" opacity=".75"/><rect x="365" y="273.75" width="365" height="91.25" fill="#0c9bd0" opacity=".9"/><rect x="365" y="365" width="365" height="91.25" fill="#07a2d0" opacity=".95"/><rect x="365" y="456.25" width="365" height="91.25" fill="#80d7ee" opacity=".9"/><rect x="365" y="547.5" width="365" height="91.25" fill="#d7f3fa" opacity=".85"/></g>
+            <g><line stroke="white" stroke-opacity=".35" stroke-width="3" x1="91.25" y1="0" x2="91.25" y2="730"/><line stroke="white" stroke-opacity=".35" stroke-width="3" x1="182.5" y1="0" x2="182.5" y2="730"/><line stroke="white" stroke-opacity=".35" stroke-width="3" x1="273.75" y1="0" x2="273.75" y2="730"/><line stroke="white" stroke-opacity=".35" stroke-width="3" x1="365" y1="0" x2="365" y2="730"/><line stroke="white" stroke-opacity=".35" stroke-width="3" x1="456.25" y1="0" x2="456.25" y2="730"/><line stroke="white" stroke-opacity=".35" stroke-width="3" x1="547.5" y1="0" x2="547.5" y2="730"/><line stroke="white" stroke-opacity=".35" stroke-width="3" x1="638.75" y1="0" x2="638.75" y2="730"/><line stroke="white" stroke-opacity=".35" stroke-width="3" x1="0" y1="91.25" x2="730" y2="91.25"/><line stroke="white" stroke-opacity=".35" stroke-width="3" x1="0" y1="182.5" x2="730" y2="182.5"/><line stroke="white" stroke-opacity=".35" stroke-width="3" x1="0" y1="273.75" x2="730" y2="273.75"/><line stroke="white" stroke-opacity=".35" stroke-width="3" x1="0" y1="365" x2="730" y2="365"/><line stroke="white" stroke-opacity=".35" stroke-width="3" x1="0" y1="456.25" x2="730" y2="456.25"/><line stroke="white" stroke-opacity=".35" stroke-width="3" x1="0" y1="547.5" x2="730" y2="547.5"/><line stroke="white" stroke-opacity=".35" stroke-width="3" x1="0" y1="638.75" x2="730" y2="638.75"/></g></g>
+            <g><circle fill="rgba(255,255,255,.05)" stroke="black" stroke-width="5" cx="231" cy="580" r="54"/><text font-size="31" font-weight="700" fill="#4a4a4a" text-anchor="middle" dominant-baseline="middle" x="231" y="580">3</text><circle fill="rgba(255,255,255,.05)" stroke="black" stroke-width="5" cx="602" cy="435" r="54"/><text font-size="31" font-weight="700" fill="#4a4a4a" text-anchor="middle" dominant-baseline="middle" x="602" y="435">6</text><circle fill="rgba(255,255,255,.05)" stroke="black" stroke-width="5" cx="681" cy="435" r="55"/><text font-size="31" font-weight="700" fill="#4a4a4a" text-anchor="middle" dominant-baseline="middle" x="681" y="435">2</text><circle fill="rgba(255,255,255,.05)" stroke="white" stroke-width="5" cx="759" cy="435" r="55"/><text font-size="31" font-weight="700" fill="white" text-anchor="middle" dominant-baseline="middle" x="759" y="435">5</text><circle fill="rgba(255,255,255,.05)" stroke="white" stroke-width="5" cx="880" cy="435" r="55"/><text font-size="31" font-weight="700" fill="white" text-anchor="middle" dominant-baseline="middle" x="880" y="435">1</text><circle fill="rgba(255,255,255,.05)" stroke="white" stroke-width="5" cx="982" cy="435" r="55"/><text font-size="31" font-weight="700" fill="white" text-anchor="middle" dominant-baseline="middle" x="982" y="435">11</text><circle fill="rgba(255,255,255,.05)" stroke="white" stroke-width="5" cx="959" cy="514" r="54"/><text font-size="31" font-weight="700" fill="white" text-anchor="middle" dominant-baseline="middle" x="959" y="514">10</text><circle fill="rgba(255,255,255,.05)" stroke="white" stroke-width="5" cx="854" cy="593" r="55"/><text font-size="31" font-weight="700" fill="white" text-anchor="middle" dominant-baseline="middle" x="854" y="593">8</text><circle fill="rgba(255,255,255,.05)" stroke="white" stroke-width="5" cx="952" cy="594" r="55"/><text font-size="31" font-weight="700" fill="white" text-anchor="middle" dominant-baseline="middle" x="952" y="594">4</text><circle fill="rgba(255,255,255,.05)" stroke="white" stroke-width="5" cx="727" cy="703" r="55"/><text font-size="31" font-weight="700" fill="white" text-anchor="middle" dominant-baseline="middle" x="727" y="703">7</text><circle fill="rgba(255,255,255,.05)" stroke="black" stroke-width="5" cx="686" cy="766" r="55"/><text font-size="31" font-weight="700" fill="#4a4a4a" text-anchor="middle" dominant-baseline="middle" x="686" y="766">9</text></g>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CIRCULAR DESIGN HIERARCHY -->
+  <div class="sh-section">
+    <div class="sh-section-hd">Methods matter</div>
+    <button class="sh-link-btn green" onclick="showTab('pocket',document.querySelectorAll('.tab-btn')[2])">Go to Circular Design methods &#8599;</button>
+    <p style="font-size:.88rem;color:var(--text-light);line-height:1.7;margin-bottom:20px;">The majority of materials used in AO venue overlays are reusable and recyclable. It is how we treat, finish and handle them at bump-out that creates waste. We can change that. Observe the design hierarchy and the responsible methods guide for material-specific circularity pathways.</p>
+    <div class="sh-section-hd" style="margin-bottom:10px;">The Circular Design Hierarchy</div>
+    <p style="font-size:.88rem;color:var(--text-light);line-height:1.7;margin-bottom:18px;">Follow this hierarchy when making material and design decisions. Starting at the top delivers the most cost-effective and lowest-impact outcomes.</p>
+    <div class="sh-hier-wrap">
+      <div class="sh-hr-rows">
+        <div class="sh-hr-row"><div style="display:flex;align-items:baseline;gap:7px;margin-bottom:2px;"><span class="sh-hn" style="color:#071545;">01</span><span class="sh-hl">Reduce</span></div><p class="sh-hd">Rethink need and/or decrease raw materials through reductive design.</p></div>
+        <div class="sh-hr-row"><div style="display:flex;align-items:baseline;gap:7px;margin-bottom:2px;"><span class="sh-hn" style="color:#282F8D;">02</span><span class="sh-hl">Reuse / rent / lease</span></div><p class="sh-hd">Can existing assets be redeployed? Are there rent or lease options rather than buying new?</p></div>
+        <div class="sh-hr-row"><div style="display:flex;align-items:baseline;gap:7px;margin-bottom:2px;"><span class="sh-hn" style="color:#1199CC;">03</span><span class="sh-hl">Modular: repurpose or refurbish</span></div><p class="sh-hd">Reassemble assets. Repair and revive products and materials to apply in another form or function.</p></div>
+        <div class="sh-hr-row"><div style="display:flex;align-items:baseline;gap:7px;margin-bottom:2px;"><span class="sh-hn" style="color:#11D4E4;">04</span><span class="sh-hl">Responsible material choice</span></div><p class="sh-hd">Replace high impact materials with sustainability certified products and materials.</p></div>
+        <div class="sh-hr-row"><div style="display:flex;align-items:baseline;gap:7px;margin-bottom:2px;"><span class="sh-hn" style="color:#86D9EB;">05</span><span class="sh-hl">Re-commerce</span></div><p class="sh-hd">Is there a secondary market to resell for cost recovery and keep the asset in life?</p></div>
+        <div class="sh-hr-row"><div style="display:flex;align-items:baseline;gap:7px;margin-bottom:2px;"><span class="sh-hn" style="color:#86D9EB;">06</span><span class="sh-hl">End-of-life pathways &amp; recycling</span></div><p class="sh-hd">Find resource recovery options where materials can be recycled, avoiding landfill.</p></div>
+        <div class="sh-hr-row"><div style="display:flex;align-items:baseline;gap:7px;margin-bottom:2px;"><span class="sh-hn" style="color:#A6BC00;">07</span><span class="sh-hl">Waste to Landfill</span></div><p class="sh-hd">Dead end. Last resort only — every step above should be explored first.</p></div>
+      </div>
+      <div class="sh-sp-wrap">
+        <div class="sh-sp-band"></div><div class="sh-sp-band"></div><div class="sh-sp-band"></div><div class="sh-sp-band"></div><div class="sh-sp-band"></div><div class="sh-sp-band"></div><div class="sh-sp-band"></div>
+        <div class="sh-sp-wedge"></div>
+        <div class="sh-sp-axis des sh-sp-arr"></div>
+        <div class="sh-sp-axis rml sh-sp-arr"></div>
+        <div class="sh-sp-axis circ sh-sp-arr"></div>
+        <div class="sh-sp-axis dead sh-sp-arr"></div>
+        <div class="sh-sp-lbl des">DESIGN</div>
+        <div class="sh-sp-lbl rml">RML</div>
+        <div class="sh-sp-lbl circ">CIRCULAR<br>ECONOMY</div>
+        <div class="sh-sp-lbl dead">DEAD</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WHO DOES WHAT -->
+  <div class="sh-section">
+    <div class="sh-section-hd">Who does what</div>
+    <div class="sh-resp-card">
+      <h4><span class="sh-ico"><svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></span> TA PMs / Delivery Teams</h4>
+      <p>Material choices made upfront determine what's possible at bump-out. Complete this plan during design. Work with contractors during procurement to track materials in the plan.</p>
+    </div>
+    <div class="sh-resp-card">
+      <h4><span class="sh-ico"><svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></span> Designers – Design waste out</h4>
+      <p>Material choices made upfront determine what's possible at bump-out. Complete this plan during design and lock choices into the brief with builders. Design for Disassembly (DfD) and modular approaches make the biggest difference.</p>
+    </div>
+    <div class="sh-resp-card">
+      <h4><span class="sh-ico"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></span> Builders – Procure responsibly</h4>
+      <p>Update the plan as you procure materials. Brief your team and subcontractors. Modular design and DfD create reusable systems that cut waste across multiple events.</p>
+    </div>
+    <div class="sh-resp-card">
+      <h4><span class="sh-ico"><svg viewBox="0 0 24 24"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg></span> All – Track assets</h4>
+      <p>This plan is your baseline asset tracker. Agencies and builders will be asked to report on material and asset status post-event. Complete fields 1 to 6 before the event, field 7 at bump-out.</p>
+    </div>
+    <div class="sh-resp-card">
+      <h4><span class="sh-ico"><svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></span> AO Waste Services</h4>
+      <p>Segregating materials on bump-out and shipping direct to recovery partners significantly increases recovery rates. AO26: PVC banners, water-based paint and timber were segregated. More streams will be added this year.</p>
+    </div>
+
+    <!-- CTA -->
+    <a class="sh-plan-cta" href="https://megtei.github.io/Materials-Management/">
+      <div>
+        <h4>Start your Materials Management plan</h4>
+        <p>Capture your assets, materials and expected outcomes for AO27</p>
+      </div>
+      <div class="sh-plan-arrow">&#8594;</div>
+    </a>
+  </div>
+
+</div>
+</div><!-- end #tab-starthere -->
+<div id="tab-target" class="tab-panel">
 
   <div style="margin-top:28px;">
     <div class="section-title">Target Materials</div>
@@ -747,7 +1004,7 @@ thead th.th-concern{background:linear-gradient(135deg,#7f1d1d 0%,#991b1b 100%);c
     <!-- CARD A -->
     <div class="pocket-card card-a">
       <div class="card-head">
-        <div class="card-eyebrow">Track 1</div>
+        <div class="card-eyebrow">Phase 1 · Before the Build</div>
         <div class="card-title">Design Phase</div>
         <div class="card-subtitle">Design and material choices made upfront determine what's possible at bump-out. Lock these in the brief with builders.</div>
       </div>
@@ -797,7 +1054,7 @@ thead th.th-concern{background:linear-gradient(135deg,#7f1d1d 0%,#991b1b 100%);c
     <!-- CARD B -->
     <div class="pocket-card card-b">
       <div class="card-head">
-        <div class="card-eyebrow">Track 2</div>
+        <div class="card-eyebrow">Phase 2 · During &amp; After</div>
         <div class="card-title">Build &amp; Deconstruct Phase</div>
         <div class="card-subtitle">Many materials in waste streams are perfectly reusable and recyclable. It is our methods that turns them into waste. Follow this on pack-down.</div>
       </div>
@@ -1745,7 +2002,7 @@ thead th.th-concern{background:linear-gradient(135deg,#7f1d1d 0%,#991b1b 100%);c
       </div>
 
       <div class="mr-success" id="mr-success">
-        <strong>Thanks!</strong> Your request has been sent to <a href="mailto:meg@esgfuture.net" style="color:#065f46;font-weight:700;">meg@esgfuture.net</a>. We'll be in touch soon.
+        <strong>Thanks!</strong> Your email client should have opened with your request pre-filled. If it didn't, copy the details above and email them to <a href="mailto:meg@esgfuture.net" style="color:#065f46;font-weight:700;">meg@esgfuture.net</a>.
       </div>
     </form>
       </section>
@@ -1788,13 +2045,8 @@ function closeMaterialRequest(){
   modal.setAttribute('aria-hidden','true');
   document.body.style.overflow='';
 }
-/* Target Materials strip link: switch to Resources tab, then open the Material Request modal */
-function goToMaterialRequest(){
-  var resourcesBtn=document.querySelectorAll('.tab-btn')[3];
-  if(resourcesBtn&&typeof showTab==='function')showTab('resources',resourcesBtn);
-  // Small delay so the tab switch renders before the modal animates in
-  setTimeout(openMaterialRequest,60);
-}
+/* Back-compat: strip on Target Materials still calls goToMaterialRequest */
+function goToMaterialRequest(){ openMaterialRequest(); }
 /* ESC closes the modal */
 document.addEventListener('keydown',function(e){
   if(e.key==='Escape'){
@@ -1804,11 +2056,9 @@ document.addEventListener('keydown',function(e){
 });
 
 /* Material-request form submission.
-   Submits to Formspree (https://formspree.io/f/xaqaakaq), which forwards the
-   message to meg@esgfuture.net. Falls back to a mailto: link if the network
-   request fails so no submission is ever lost. */
-var MR_FORMSPREE_ENDPOINT='https://formspree.io/f/xaqaakaq';
-
+   Default: opens the user's mail client with a pre-filled message to meg@esgfuture.net.
+   To use a real backend, replace this function body with a fetch() call to Formspree,
+   Netlify Forms, Google Forms, or your own endpoint. */
 function submitMaterialRequest(e){
   e.preventDefault();
   var get=function(id){var el=document.getElementById(id);return el?el.value.trim():'';};
@@ -1816,66 +2066,25 @@ function submitMaterialRequest(e){
   var material=get('mr-material'), usecase=get('mr-usecase'), composition=get('mr-composition');
   var certs=get('mr-certs')||'Not specified', recycle=get('mr-recycle')||'Not specified';
 
-  var submitBtn=document.querySelector('#mr-form .mr-submit');
-  var originalBtnText=submitBtn?submitBtn.textContent:'Submit request';
-  if(submitBtn){submitBtn.disabled=true;submitBtn.textContent='Sending…';}
+  var subject='AO Target Materials — Request to add: '+material;
+  var body=
+    'Material request\n'+
+    '================\n\n'+
+    'Name: '+name+'\n'+
+    'Business: '+business+'\n'+
+    'Email: '+email+'\n\n'+
+    'Material name: '+material+'\n\n'+
+    'Description of use / why it is a candidate:\n'+usecase+'\n\n'+
+    'What the material is made of:\n'+composition+'\n\n'+
+    'Environmental certifications: '+certs+'\n'+
+    'Recyclable / take-back program: '+recycle+'\n';
 
-  var payload={
-    _subject:'AO Target Materials — Request to add: '+material,
-    _replyto:email,
-    name:name,
-    business:business,
-    email:email,
-    material_name:material,
-    description_and_why:usecase,
-    composition:composition,
-    environmental_certifications:certs,
-    recyclable_or_takeback:recycle
-  };
+  var to='meg@esgfuture.net';
+  var href='mailto:'+to+'?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+  window.location.href=href;
 
-  fetch(MR_FORMSPREE_ENDPOINT,{
-    method:'POST',
-    headers:{'Content-Type':'application/json','Accept':'application/json'},
-    body:JSON.stringify(payload)
-  }).then(function(response){
-    if(!response.ok) throw new Error('Formspree returned '+response.status);
-    // Success — show confirmation, reset the form, and close the modal after a moment
-    var success=document.getElementById('mr-success');
-    if(success){
-      success.innerHTML='<strong>Thanks!</strong> Your request has been sent to meg@esgfuture.net. We\'ll be in touch soon.';
-      success.classList.add('show');
-    }
-    var form=document.getElementById('mr-form');
-    if(form)form.reset();
-    if(submitBtn){submitBtn.disabled=false;submitBtn.textContent=originalBtnText;}
-    // Auto-close the modal after 3.5s so the user sees the confirmation
-    setTimeout(function(){
-      if(typeof closeMaterialRequest==='function')closeMaterialRequest();
-      if(success)success.classList.remove('show');
-    },3500);
-  }).catch(function(err){
-    // Network/Formspree failure — fall back to mailto so the user can still send
-    if(submitBtn){submitBtn.disabled=false;submitBtn.textContent=originalBtnText;}
-    var subject='AO Target Materials — Request to add: '+material;
-    var body=
-      'Material request\n'+
-      '================\n\n'+
-      'Name: '+name+'\n'+
-      'Business: '+business+'\n'+
-      'Email: '+email+'\n\n'+
-      'Material name: '+material+'\n\n'+
-      'Description of use / why it is a candidate:\n'+usecase+'\n\n'+
-      'What the material is made of:\n'+composition+'\n\n'+
-      'Environmental certifications: '+certs+'\n'+
-      'Recyclable / take-back program: '+recycle+'\n';
-    var href='mailto:meg@esgfuture.net?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
-    var success=document.getElementById('mr-success');
-    if(success){
-      success.innerHTML='<strong>Couldn\'t send automatically.</strong> Your email client should have opened with your request pre-filled. If it didn\'t, copy the details above and email them to <a href="mailto:meg@esgfuture.net" style="color:#065f46;font-weight:700;">meg@esgfuture.net</a>.';
-      success.classList.add('show');
-    }
-    window.location.href=href;
-  });
+  var success=document.getElementById('mr-success');
+  if(success)success.classList.add('show');
 }
 function addOpts(selId,vals){
   var el=$(selId);
