@@ -610,6 +610,7 @@ thead th.th-concern{background:linear-gradient(135deg,#7f1d1d 0%,#991b1b 100%);c
         </div>
       </div>
 
+    </div><!-- /acc-circular -->
         <!-- TOP WASTE CATEGORIES -->
     <div class="acc-item" id="acc-categories">
       <button class="acc-trigger" onclick="toggleAcc('acc-categories')">
@@ -1636,7 +1637,7 @@ thead th.th-concern{background:linear-gradient(135deg,#7f1d1d 0%,#991b1b 100%);c
       <!-- Materials -->
       <div class=&quot;cell&quot;>
         <div class=&quot;cell-heading&quot;>Best practice</div>
-        <p>Approach grounded in IOC principles — less, better, and <span style="display:inline-flex;align-items:center;gap:4px;vertical-align:middle;"><svg width="16" height="13" viewBox="0 0 16 13" fill="none" xmlns="http://www.w3.org/2000/svg"><polyline points="1,11 4,6 7,8 10,2 15,0.5" stroke="#4ade80" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><polyline points="12,0.5 15,0.5 15,3.5" stroke="#4ade80" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>&nbsp;long term.</span></p>
+        <p>Shift from product led vs AO standard. Aligned with IOC Olympic standards.</p>
         <p>Activity-based Scope 3 carbon accounting for Site Preparation.</p>
       </div>
 
@@ -2004,7 +2005,7 @@ function expandCell(id,btn){
   var el=document.getElementById(id);
   if(!el)return;
   var expanded=el.classList.toggle('expanded');
-  btn.textContent=expanded?'↓ less':'▼ read more';
+  btn.textContent=expanded?'▲ less':'▼ read more';
 }
 
 /* Active filter indicator — highlights active selects and shows count on Clear */
