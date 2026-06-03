@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AO Target Materials & Methods</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
 <style>*{margin:0;padding:0;box-sizing:border-box;}
 html{font-size:14px;}
 
@@ -18,31 +19,44 @@ html{font-size:14px;}
   --slate-50:#f8fafc; --slate-100:#f1f5f9; --slate-200:#e2e8f0;
   --slate-400:#94a3b8; --slate-600:#475569; --slate-900:#0f172a;
   --text:#1e293b; --text-light:#64748b;
+  --gutter:clamp(20px,4vw,56px); --shell:1320px;
 }
 
-body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility;font-size:.93rem;font-family:'DM Sans',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;background:var(--slate-100);color:var(--text);min-height:100vh;}
+body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility;font-size:.93rem;font-family:'DM Sans',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;background:
+    radial-gradient(ellipse 70% 50% at 12% -8%, rgba(2,136,204,.07) 0%, transparent 55%),
+    radial-gradient(ellipse 55% 45% at 100% 0%, rgba(0,227,255,.06) 0%, transparent 50%),
+    linear-gradient(180deg,#f4f7fb 0%,var(--slate-100) 100%);
+  background-attachment:fixed;color:var(--text);min-height:100vh;}
 
 /* ── HEADER ─────────────────────────────────────────────────── */
-.site-header{background:linear-gradient(135deg,var(--navy-dark) 0%,var(--navy) 60%,var(--blue-dark) 100%);padding:14px 36px 0;position:sticky;top:0;z-index:100;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.25);}
+.site-header{background:linear-gradient(135deg,var(--navy-dark) 0%,var(--navy) 60%,var(--blue-dark) 100%);padding:16px 0 0;position:sticky;top:0;z-index:100;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.25);}
 .site-header::before{content:'';position:absolute;top:-60px;right:-60px;width:280px;height:280px;background:radial-gradient(circle,rgba(0,227,255,.15) 0%,transparent 70%);border-radius:50%;}
-.header-inner{position:relative;z-index:1;display:flex;justify-content:space-between;align-items:center;}
-.header-text h1{font-size:1.45rem;font-weight:800;color:white;letter-spacing:-.5px;line-height:1.1;}
+.header-inner{position:relative;z-index:1;display:flex;justify-content:space-between;align-items:center;max-width:var(--shell);margin:0 auto;padding:0 var(--gutter);}
+.header-text h1{font-family:'Barlow Condensed',sans-serif;font-size:1.85rem;font-weight:700;color:white;letter-spacing:.2px;line-height:1.02;text-transform:uppercase;}
 .header-text h1 em{color:var(--cyan);font-style:normal;}
 .header-text p{color:rgba(255,255,255,.65);font-size:.85rem;margin-top:4px;font-weight:300;}
 .header-meta{display:flex;gap:10px;align-items:center;}
 .hbadge{background:rgba(255,255,255,.12);color:rgba(255,255,255,.9);padding:5px 12px;border-radius:20px;font-size:.75rem;font-weight:600;border:1px solid rgba(255,255,255,.18);}
 .mpmp-badge{display:inline-flex;align-items:center;padding:5px 14px;border-radius:50px;border:1.5px solid rgba(0,227,255,.55);background:rgba(0,20,60,.35);color:var(--cyan);font-size:.72rem;font-weight:700;letter-spacing:.025em;backdrop-filter:blur(6px);white-space:nowrap;}
-.tab-nav{display:flex;gap:0;background:rgba(0,0,0,.2);overflow:hidden;border-top:1px solid rgba(255,255,255,.1);position:relative;z-index:1;margin-top:10px;}
+.tab-nav{display:flex;gap:0;background:rgba(0,0,0,.2);overflow:hidden;border-top:1px solid rgba(255,255,255,.1);position:relative;z-index:1;margin:14px auto 0;max-width:var(--shell);padding:0 calc(var(--gutter) - 22px);}
 .tab-btn{padding:8px 22px;background:transparent;border:none;color:rgba(255,255,255,.55);font-family:'DM Sans',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;font-size:.78rem;font-weight:600;cursor:pointer;border-bottom:2px solid transparent;transition:all .2s;white-space:nowrap;}
 .tab-btn:hover{color:rgba(255,255,255,.85);background:rgba(255,255,255,.06);}
 .tab-btn.active{color:var(--cyan);border-bottom-color:var(--cyan);background:rgba(0,227,255,.07);}
-.tab-panel{display:none;animation:fadeUp .25s ease;}
+.tab-panel{display:none;animation:fadeUp .45s cubic-bezier(.22,.61,.36,1);}
 .tab-panel.active{display:block;}
+/* orchestrated staggered reveal on the most visible grids */
+.pathway-wrap>*,.cards-grid>*,.sh-stat-strip>*{animation:fadeUp .55s cubic-bezier(.22,.61,.36,1) both;}
+.pathway-wrap>*:nth-child(1),.cards-grid>*:nth-child(1),.sh-stat-strip>*:nth-child(1){animation-delay:.06s;}
+.pathway-wrap>*:nth-child(2),.cards-grid>*:nth-child(2),.sh-stat-strip>*:nth-child(2){animation-delay:.13s;}
+.pathway-wrap>*:nth-child(3),.cards-grid>*:nth-child(3),.sh-stat-strip>*:nth-child(3){animation-delay:.2s;}
+.pathway-wrap>*:nth-child(4),.sh-stat-strip>*:nth-child(4){animation-delay:.27s;}
+.pathway-wrap>*:nth-child(5){animation-delay:.34s;}
+@media(prefers-reduced-motion:reduce){.tab-panel,.pathway-wrap>*,.cards-grid>*,.sh-stat-strip>*{animation:none;}}
 @keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 
 /* ── MAIN ──────────────────────────────────────────────────── */
-.main{padding:16px 36px 40px;max-width:1600px;margin:0 auto;}
-.section-title{font-size:.98rem;font-weight:700;color:var(--navy);margin-bottom:3px;}
+.main{padding:30px var(--gutter) 72px;max-width:var(--shell);margin:0 auto;}
+.section-title{font-family:'Barlow Condensed',sans-serif;font-size:1.6rem;font-weight:700;color:var(--navy);letter-spacing:.3px;line-height:1.05;margin-bottom:4px;text-transform:uppercase;}
 .section-sub{color:var(--text-light);font-size:.76rem;margin-bottom:10px;font-weight:400;}
 .divider{height:3px;background:linear-gradient(90deg,var(--blue) 0%,var(--cyan) 50%,transparent 100%);border-radius:4px;margin-bottom:18px;width:100px;}
 
@@ -914,12 +928,12 @@ thead th.th-concern{background:linear-gradient(135deg,#7f1d1d 0%,#991b1b 100%);c
         <div class="p-card-divider"></div>
         <div class="card-step">
           <div class="cs-icon"><svg width="18" height="18" style="color:#0091D2"><use href="#ico-pencil-bin"/></svg></div>
-          <div><div class="cs-label"><span class="cs-label-text">Design Waste Out</span></div><div class="cs-text"><strong>Designers have a key role designing waste out.</strong> Identify which materials will be reused and which ones will go to a waste stream. Many materials used in AO venue overlays can be reused or recycled. Consider finishes that won't contaminate materials and handling at bump-out such as separating composite materials (e.g. ACM and ply facades).</div></div>
+          <div><div class="cs-label"><span class="cs-label-text">Design waste out - reductive &amp; evergreen elements</span></div><div class="cs-text"><strong>Designers have a key role designing waste out.</strong> Identify which materials will be reused and which ones will go to a waste stream. Many materials used in AO venue overlays can be reused or recycled. Consider finishes that won't contaminate materials and handling at bump-out such as separating composite materials (e.g. ACM and ply facades).</div></div>
         </div>
         <div class="p-card-divider"></div>
         <div class="card-step">
           <div class="cs-icon"><svg width="18" height="18" style="color:#0091D2"><use href="#ico-puzzle"/></svg></div>
-          <div><div class="cs-label"><span class="cs-label-text">Circular Design</span></div><div class="cs-text"><strong>Modular Design and Design for Disassembly (DfD) create reusable systems.</strong> Systems design incorporating connectors — mechanical joinery (bolted, screwed, nailed connections) that don't need chemical bonds (glues, sealers, welding) will allow for disassembly and keep materials recoverable at bump-out.</div></div>
+          <div><div class="cs-label"><span class="cs-label-text">Modular Design and Design for Disassembly (DfD)</span></div><div class="cs-text"><strong>Create reusable systems.</strong> Systems design incorporating connectors — mechanical joinery (bolted, screwed, nailed connections) that don't need chemical bonds (glues, sealers, welding) will allow for disassembly and keep materials recoverable at bump-out.</div></div>
         </div>
         <div class="p-card-divider"></div>
         <div class="card-step">
