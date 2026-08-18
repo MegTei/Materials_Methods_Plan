@@ -138,6 +138,53 @@ body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-r
 .filter-search-input{font-family:inherit;font-size:.78rem;font-weight:500;color:var(--slate-900);background:var(--slate-50);border:1.5px solid var(--slate-200);border-radius:7px;padding:6px 10px 6px 28px;min-width:170px;}
 .filter-search-input:focus{outline:none;border-color:var(--blue);}
 .filter-active{border-color:var(--blue)!important;background:rgba(0,145,210,.06)!important;}
+
+/* ── VIEW TOGGLE ─────────────────────────────────────────── */
+.view-toggle{display:inline-flex;background:var(--slate-50);border:1.5px solid var(--slate-200);border-radius:8px;padding:2px;gap:2px;}
+.view-toggle button{font-family:inherit;font-size:.73rem;font-weight:700;color:var(--text-light);background:transparent;border:none;border-radius:6px;padding:6px 12px;cursor:pointer;display:inline-flex;align-items:center;gap:5px;transition:background .15s,color .15s;}
+.view-toggle button svg{width:13px;height:13px;flex-shrink:0;}
+.view-toggle button.active{background:var(--navy);color:#fff;}
+.view-toggle button:not(.active):hover{background:var(--slate-100);color:var(--navy);}
+
+/* ── ACTIVE FILTER CHIPS ─────────────────────────────────── */
+.chips-row{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:0 0 10px;}
+.chips-row:empty{display:none;}
+.filter-chip{display:inline-flex;align-items:center;gap:6px;background:rgba(0,145,210,.09);border:1.5px solid rgba(0,145,210,.25);color:var(--blue-dark);font-size:.71rem;font-weight:600;padding:4px 6px 4px 10px;border-radius:999px;}
+.filter-chip b{font-weight:700;}
+.filter-chip button{font-family:inherit;background:rgba(0,145,210,.15);border:none;color:var(--blue-dark);width:16px;height:16px;border-radius:50%;cursor:pointer;font-size:.62rem;line-height:1;display:inline-flex;align-items:center;justify-content:center;padding:0;}
+.filter-chip button:hover{background:rgba(0,145,210,.3);}
+
+/* ── CARD VIEW ────────────────────────────────────────────── */
+.cards-group-title{background:#f1f5f9;padding:9px 14px;font-weight:700;font-size:.73rem;color:#1E2886;text-transform:uppercase;letter-spacing:.4px;border-radius:8px;margin:18px 0 10px;}
+.cards-group-title:first-child{margin-top:0;}
+.mat-cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:12px;margin-bottom:4px;}
+.mat-card{background:#fff;border:1.5px solid var(--slate-200);border-left:4px solid var(--slate-300);border-radius:10px;padding:13px 14px;display:flex;flex-direction:column;gap:8px;transition:box-shadow .15s,transform .15s;}
+.mat-card:hover{box-shadow:0 4px 14px rgba(0,42,68,.09);}
+.mat-card.status-yes{border-left-color:#15803d;}
+.mat-card.status-no{border-left-color:#c2410c;}
+.mat-card.status-maybe{border-left-color:#92610a;}
+.mat-card.status-amberGreen{border-left-color:#a3a30a;}
+.mat-card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;}
+.mat-card-refwrap{display:flex;align-items:center;gap:7px;}
+.mat-card-name{font-weight:700;color:var(--slate-900);font-size:.86rem;line-height:1.3;margin:2px 0 0;}
+.mat-card-meta{font-size:.68rem;color:var(--text-light);display:flex;flex-wrap:wrap;gap:4px 8px;}
+.mat-card-meta span{white-space:nowrap;}
+.mat-card-row{display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:.75rem;}
+.mat-card-price{font-weight:700;color:var(--slate-900);font-size:.78rem;}
+.mat-card-sup{font-size:.75rem;}
+.mat-card-circ{display:flex;gap:7px;align-items:flex-start;font-size:.72rem;color:var(--slate-600);line-height:1.5;background:var(--slate-50);border-radius:7px;padding:7px 9px;}
+.mat-card-circ svg{flex-shrink:0;margin-top:1px;color:var(--green);width:13px;height:13px;}
+.mat-card.status-no .mat-card-circ svg,.mat-card.status-maybe .mat-card-circ svg{color:var(--amber);}
+.mat-card-details{display:none;border-top:1px solid var(--slate-200);margin-top:2px;padding-top:8px;flex-direction:column;gap:6px;}
+.mat-card.expanded .mat-card-details{display:flex;}
+.mat-card-detail-label{font-size:.6rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--text-light);margin-bottom:1px;}
+.mat-card-detail-text{font-size:.72rem;color:var(--slate-600);line-height:1.5;}
+.mat-card-toggle{align-self:flex-start;font-family:inherit;font-size:.7rem;font-weight:700;color:var(--blue);background:none;border:none;cursor:pointer;padding:2px 0;display:inline-flex;align-items:center;gap:4px;}
+.mat-card-toggle:hover{text-decoration:underline;}
+.mat-card-toggle svg{width:11px;height:11px;transition:transform .15s;}
+.mat-card.expanded .mat-card-toggle svg{transform:rotate(180deg);}
+.mat-card-suplist a,.mat-card-suplist div{display:block;font-size:.73rem;font-weight:600;margin-bottom:3px;}
+@media(max-width:640px){.mat-cards-grid{grid-template-columns:1fr;}}
 .filter-active-count{display:none;background:var(--blue);color:white;border-radius:9px;padding:0 5px;font-size:.65rem;margin-left:3px;}
 .filter-active-count.visible{display:inline;}
 .material-request-strip{display:flex;align-items:center;gap:8px;background:rgba(0,145,210,.06);border:1.5px solid rgba(0,145,210,.18);border-radius:8px;padding:6px 12px;font-size:.72rem;color:var(--slate-600);margin-bottom:12px;}
@@ -159,23 +206,29 @@ body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-r
 
 /* ── TABLE ───────────────────────────────────────────────── */
 .table-wrap{background:white;border-radius:10px;border:1.5px solid var(--slate-200);overflow:clip;}
-.table-scroll{overflow-x:auto;overflow-y:auto;max-height:78vh;}
+.hscroll-track{height:14px;background:var(--slate-100);border-bottom:1.5px solid var(--slate-200);position:relative;cursor:pointer;padding:2px 3px;}
+.hscroll-thumb{position:absolute;top:3px;height:8px;background:var(--slate-400);border-radius:5px;cursor:grab;transition:background .12s;}
+.hscroll-thumb:hover{background:var(--blue);}
+.hscroll-thumb.dragging{cursor:grabbing;background:var(--blue-dark);}
+.table-scroll{overflow-x:auto;overflow-y:auto;max-height:74vh;cursor:grab;}
+.table-scroll.panning{cursor:grabbing;user-select:none;}
+.table-scroll.panning *{user-select:none;}
 table{width:100%;border-collapse:collapse;}
 thead tr{background:#fff;}
-thead th{padding:12px 12px;text-align:left;font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text-light);white-space:nowrap;position:sticky;top:0;z-index:2;background:#fff;border-bottom:2px solid var(--navy);}
+thead th{padding:7px 10px;text-align:left;font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text-light);white-space:nowrap;position:sticky;top:0;z-index:2;background:#fff;border-bottom:2px solid var(--navy);}
 thead th.th-amber{background:#fffaf0;color:#92610a;border-bottom:2px solid var(--amber);}
 thead th.th-gap{background:#fff;padding:0;width:14px;border:none;border-bottom:2px solid var(--slate-200);}
 thead th.th-teal{background:#f0fbfd;color:#0e6f86;border-bottom:2px solid var(--cyan);}
 thead th.th-concern{background:#fdf2f2;color:var(--red-dark);border-bottom:2px solid var(--red);}
-.group-row td{background:var(--slate-50);padding:9px 12px;font-weight:700;font-size:.65rem;color:var(--navy);text-transform:uppercase;letter-spacing:.06em;border-top:1px solid var(--slate-200);border-bottom:1px solid var(--slate-200);}
-.data-row td{padding:11px 12px;border-bottom:1px solid var(--slate-200);font-size:.74rem;vertical-align:top;}
-.data-row:hover td{background:rgba(0,145,210,.08) !important;}
+.group-row td{background:var(--slate-50);padding:6px 10px;font-weight:700;font-size:.68rem;color:var(--navy);text-transform:uppercase;letter-spacing:.06em;border-top:1px solid var(--slate-200);border-bottom:1px solid var(--slate-200);}
+.data-row td{padding:6px 10px;border-bottom:1px solid var(--slate-200);font-size:.78rem;vertical-align:top;}
+.data-row:hover td{background:rgba(0,145,210,.07) !important;}
 .td-gap{padding:0 !important;background:#fff !important;border-left:1px solid var(--slate-200) !important;border-right:1px solid var(--slate-200) !important;width:14px;}
 .td-amber{background:transparent !important;border-bottom-color:var(--slate-200) !important;}
-.mat-name{font-weight:700;color:var(--slate-900);font-size:.74rem;line-height:1.35;}
+.mat-name{font-weight:700;color:var(--slate-900);font-size:.82rem;line-height:1.35;}
 .mat-sub{font-size:.73rem;color:var(--slate-400);margin-top:2px;line-height:1.4;}
-.cell-text{font-size:.70rem;color:var(--slate-600);line-height:1.5;}
-.cell-small{font-size:.67rem;color:var(--slate-500);line-height:1.45;}
+.cell-text{font-size:.76rem;color:var(--slate-600);line-height:1.55;}
+.cell-small{font-size:.73rem;color:var(--slate-500);line-height:1.5;}
 .cell-link{color:var(--blue);font-size:.72rem;text-decoration:none;}
 .cell-link:hover{text-decoration:underline;}
 .price-text{white-space:nowrap;color:var(--slate-700);font-size:.8rem;font-weight:600;}
@@ -209,7 +262,8 @@ thead th.th-concern{background:#fdf2f2;color:var(--red-dark);border-bottom:2px s
 .chip-warn{background:rgba(251,191,36,.2);color:#78350f;border:1px solid rgba(251,191,36,.4);}
 .chip-na{background:var(--slate-100);color:var(--slate-400);border:1px solid var(--slate-200);}
 .empty-state{padding:36px;text-align:center;color:var(--slate-400);font-size:.88rem;}
-.sup-toggle{font-size:.68rem;font-weight:700;color:var(--blue);background:rgba(0,145,210,.08);border:1px solid rgba(0,145,210,.22);border-radius:5px;padding:2px 8px;cursor:pointer;margin-top:4px;display:inline-block;font-family:inherit;}
+.sup-toggle{font-size:.72rem;font-weight:600;color:var(--blue);background:none;border:none;padding:0;cursor:pointer;display:inline-flex;align-items:center;gap:3px;font-family:inherit;}
+.sup-toggle:hover{text-decoration:underline;}
 .sup-toggle:hover{background:rgba(0,145,210,.16);}
 .sup-detail-row>td{background:#f0f7ff!important;border-bottom:2px solid rgba(0,145,210,.18)!important;padding:0!important;}
 
@@ -932,12 +986,12 @@ thead th.th-concern{background:#fdf2f2;color:var(--red-dark);border-bottom:2px s
     <div class="filter-search-wrap">
       <label for="ct-search">Search</label>
       <svg class="filter-search-icon" width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="8.5" cy="8.5" r="5.5"/><line x1="14" y1="14" x2="17" y2="17"/></svg>
-      <input type="text" id="ct-search" class="filter-search-input" placeholder="Search materials…" oninput="renderCombined();updateFilterHighlights()">
+      <input type="text" id="ct-search" class="filter-search-input" placeholder="Search materials…" oninput="renderAll();updateFilterHighlights()">
     </div>
-    <div class="filter-group"><label>Precinct Application</label><select id="ct-app" onchange="renderCombined();updateFilterHighlights()"><option value="">All applications</option></select></div>
-    <div class="filter-group"><label>Material Category</label><select id="ct-cat" onchange="renderCombined();updateFilterHighlights()"><option value="">All categories</option></select></div>
+    <div class="filter-group"><label>Precinct Application</label><select id="ct-app" onchange="renderAll();updateFilterHighlights()"><option value="">All applications</option></select></div>
+    <div class="filter-group"><label>Material Category</label><select id="ct-cat" onchange="renderAll();updateFilterHighlights()"><option value="">All categories</option></select></div>
     <div class="filter-group"><label>AO Recommendation</label>
-      <select id="ct-rec" onchange="renderCombined();updateFilterHighlights()">
+      <select id="ct-rec" onchange="renderAll();updateFilterHighlights()">
         <option value="">All recommendations</option>
         <option value="recommended">✓ Recommended — current materials</option>
         <option value="rec-rml">✓ Recommended — new materials</option>
@@ -947,31 +1001,41 @@ thead th.th-concern{background:#fdf2f2;color:var(--red-dark);border-bottom:2px s
         <option value="conditional">Conditional / consider</option>
       </select>
     </div>
-    <div class="filter-group"><label>Supplier</label><select id="ct-sup" onchange="renderCombined();updateFilterHighlights()"><option value="">All suppliers</option></select></div>
+    <div class="filter-group"><label>Supplier</label><select id="ct-sup" onchange="renderAll();updateFilterHighlights()"><option value="">All suppliers</option></select></div>
     <button class="btn-clear" id="btn-clear-combined" onclick="clearCombined()">&#10005; Clear <span class="filter-active-count" id="ct-active-count"></span></button>
+    <div style="flex:1;"></div>
+    <div class="view-toggle" role="group" aria-label="Choose view">
+      <button id="btn-view-table" class="active" onclick="setView('table')"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2.5" y="3.5" width="15" height="13" rx="1.5"/><line x1="2.5" y1="8" x2="17.5" y2="8"/><line x1="2.5" y1="12.3" x2="17.5" y2="12.3"/></svg>Table</button>
+      <button id="btn-view-cards" onclick="setView('cards')"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2.5" y="2.5" width="6.5" height="6.5" rx="1"/><rect x="11" y="2.5" width="6.5" height="6.5" rx="1"/><rect x="2.5" y="11" width="6.5" height="6.5" rx="1"/><rect x="11" y="11" width="6.5" height="6.5" rx="1"/></svg>Cards</button>
+    </div>
     <div id="ct-count" class="result-count"></div>
   </div>
-  <div class="table-wrap"><div class="table-scroll">
-    <table style="min-width:1650px;">
+  <div id="ct-chips" class="chips-row"></div>
+  <div class="table-wrap" id="ct-table-wrap">
+    <div class="hscroll-track" id="ct-hscroll-track"><div class="hscroll-thumb" id="ct-hscroll-thumb"></div></div>
+    <div class="table-scroll" id="ct-scroll-main">
+    <table id="ct-table">
       <thead><tr>
         <th style="width:52px;">Ref</th>
-        <th style="width:80px;">Type</th>
-        <th style="min-width:100px;">Precinct Application</th>
-        <th style="min-width:120px;">Category</th>
-        <th style="min-width:170px;">Product Name</th>
-        <th style="min-width:130px;">Unit Size</th>
-        <th style="min-width:120px;">Price</th>
-        <th style="min-width:150px;">Price Comparison</th>
-        <th style="min-width:160px;">Supplier</th>
+        <th style="width:68px;">Type</th>
+        <th style="min-width:190px;">Product Name</th>
+        <th style="min-width:110px;">Category</th>
+        <th style="min-width:95px;">Unit Size</th>
+        <th style="min-width:150px;">Price</th>
+        <th style="min-width:115px;">Supplier</th>
         <th class="th-gap"></th>
-        <th class="th-amber" style="min-width:90px;text-align:center;">AO Recommendation</th>
-        <th class="th-amber" style="min-width:120px;">Circular (recyclable/ reusable)</th>
-        <th class="th-amber" style="min-width:50px;">TA Fire/Safety Guidance</th>
-        <th class="th-amber" style="min-width:150px;">What to ask for</th>
+        <th class="th-amber" style="min-width:100px;text-align:center;">AO Recommendation</th>
+        <th class="th-amber" style="min-width:160px;">Circular (recyclable/ reusable)</th>
+        <th class="th-amber" style="min-width:170px;">TA Fire/Safety Guidance</th>
+        <th class="th-amber" style="min-width:190px;">What to ask for</th>
       </tr></thead>
       <tbody id="ct-tbody"></tbody>
     </table>
-  </div></div>
+    </div>
+  </div>
+  <div id="ct-cards-wrap" style="display:none;">
+    <div id="ct-cards"></div>
+  </div>
 </div><!-- /tab-target -->
 
 <!-- ═══════════════════════ TAB 2 — RESPONSIBLE METHODS ═══════════════════════ -->
@@ -1851,7 +1915,7 @@ thead th.th-concern{background:#fdf2f2;color:var(--red-dark);border-bottom:2px s
   </div>
 
   <!-- Tools tile grid -->
-  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px;padding-bottom:40px;">
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:24px;padding-bottom:40px;">
 
     <!-- Tile: Material Request -->
     <div style="background:white;border-radius:14px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.08);border:1.5px solid var(--slate-200);display:flex;flex-direction:column;transition:box-shadow .2s;" onmouseover="this.style.boxShadow='0 6px 24px rgba(30,40,134,.13)'" onmouseout="this.style.boxShadow='0 2px 12px rgba(0,0,0,.08)'">
@@ -1918,7 +1982,7 @@ thead th.th-concern{background:#fdf2f2;color:var(--red-dark);border-bottom:2px s
   </div>
 
   <!-- Resources tile grid -->
-  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px;padding-bottom:48px;">
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:24px;padding-bottom:48px;">
 
     <!-- Tile: AO Circular Design Workshop Deck -->
     <div style="background:white;border-radius:14px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.08);border:1.5px solid var(--slate-200);display:flex;flex-direction:column;transition:box-shadow .2s;" onmouseover="this.style.boxShadow='0 6px 24px rgba(30,40,134,.13)'" onmouseout="this.style.boxShadow='0 2px 12px rgba(0,0,0,.08)'">
@@ -2071,7 +2135,7 @@ function v(id){var el=document.getElementById(id);return el?el.value:"";}
 function $(id){return document.getElementById(id);}
 function esc(s){
   if(!s)return '—';
-  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\n/g,'<br>');
 }
 function showTab(id,btn){
   document.querySelectorAll('.tab-panel').forEach(function(p){p.classList.remove('active');});
@@ -2312,7 +2376,7 @@ function toggleSup(id,btn){
 function renderCombined(){
   var fA=v('ct-app'),fC=v('ct-cat'),fRec=v('ct-rec'),fS=v('ct-sup');
   var fQ=(($('ct-search')||{}).value||'').toLowerCase().trim();
-  var html='',total=0,uid=0;
+  var html='',total=0;
 
   var GROUPS=[
     'Framing & structures',
@@ -2370,7 +2434,7 @@ function renderCombined(){
       groupMap[key].sups.push({name:item.r.supplier,url:item.r.url});
     });
 
-    html+='<tr><td colspan="14" style="background:#f1f5f9;padding:8px 12px;font-weight:700;font-size:.73rem;color:#1E2886;text-transform:uppercase;letter-spacing:.4px;border-top:2px solid #e2e8f0;border-bottom:2px solid #0288CC;">'+esc(grp)+'</td></tr>';
+    html+='<tr><td colspan="12" style="background:#f1f5f9;padding:10px 14px;font-weight:700;font-size:.76rem;color:#1E2886;text-transform:uppercase;letter-spacing:.4px;border-top:2px solid #e2e8f0;border-bottom:2px solid #0288CC;">'+esc(grp)+'</td></tr>';
 
     groupOrder.forEach(function(key){
       total++;
@@ -2381,32 +2445,37 @@ function renderCombined(){
 
       /* First supplier for primary display */
       var s0=sups[0];
-      /* URL baked into supplier name — always show dash in URL column */
-      var urlCell='<span style="color:var(--slate-300);">—</span>';
 
       /* Supplier cell — single or multi */
       var supCellContent;
       if(sups.length===1){
         supCellContent=supLink(s0.name,s0.url);
       } else {
-        uid++;
-        var rowId='sup-expand-'+uid;
-        supCellContent='<button class="sup-toggle" onclick="toggleSup(&apos;'+rowId+'&apos;,this)" data-count="'+sups.length+'">'+'&#9662; '+sups.length+' suppliers</button>';
+        supCellContent=sups.map(function(s){
+          var h=s.url?(s.url.indexOf('http')===0?s.url:'https://'+s.url):'';
+          if(s.name&&s.name.trim()===PLACEHOLDER_SUP)h='';
+          return h
+            ?'<div style="margin-bottom:2px;"><a href="'+esc(h)+'" target="_blank" class="cell-link" style="font-size:.75rem;font-weight:600;color:var(--blue);">'+esc(s.name)+'</a></div>'
+            :'<div style="margin-bottom:2px;font-size:.75rem;font-weight:600;color:var(--slate-700);">'+esc(s.name)+'</div>';
+        }).join('');
       }
       var srcBadge=item.src==='bench'
         ?'<span class="t-badge current">CURRENT</span>'
         :'<span class="t-badge new">New</span>';
 
+      /* Ref, Type badge, and Name as separate cells — Name column is sticky */
+      var refCell='<td><span class="ref-badge">'+esc(refVal)+'</span></td>';
+      var typeCell='<td style="text-align:center;">'+srcBadge+'</td>';
+      var nameCell='<td><div class="mat-name">'+esc(r.name)+'</div></td>';
+      /* Price cell — price + comparison note underneath */
+      var priceCell='<td><div class="cell-small" style="white-space:normal;font-weight:700;color:var(--slate-900);">'+priceFmt(r.price)+'</div>'+(r.priceComp?'<div class="cell-small" style="white-space:normal;margin-top:2px;">'+esc(r.priceComp)+'</div>':'')+'</td>';
+
       if(item.src==='bench'){
         html+='<tr class="data-row" style="background:'+bg+';">'
-          +'<td><span class="ref-badge">'+esc(refVal)+'</span></td>'
-          +'<td style="text-align:center;">'+srcBadge+'</td>'
-          +'<td><span class="cell-small">'+esc(r.app)+'</span></td>'
+          +refCell+typeCell+nameCell
           +'<td><span class="cell-small">'+esc(r.cat)+'</span></td>'
-          +'<td><div class="mat-name">'+esc(r.name)+'</div></td>'
           +'<td><span class="cell-small" style="white-space:normal;">'+esc(r.size||'—')+'</span></td>'
-          +'<td><span class="cell-small" style="white-space:normal;">'+priceFmt(r.price)+'</span></td>'
-          +'<td>'+truncCell(r.priceComp,'cell-small')+'</td>'
+          +priceCell
           +'<td>'+supCellContent+'</td>'
           +'<td class="td-gap"></td>'
           +'<td class="td-amber" style="text-align:center;">'+recBadge2(r.aoRec)+'</td>'
@@ -2416,14 +2485,10 @@ function renderCombined(){
           +'</tr>';
       } else {
         html+='<tr class="data-row" style="background:'+bg+';">'
-          +'<td><span class="ref-badge">'+esc(refVal)+'</span></td>'
-          +'<td style="text-align:center;">'+srcBadge+'</td>'
-          +'<td><span class="cell-small">'+esc(r.app)+'</span></td>'
+          +refCell+typeCell+nameCell
           +'<td><span class="cell-small">'+esc(r.cat)+'</span></td>'
-          +'<td><div class="mat-name">'+esc(r.name)+'</div></td>'
           +'<td><span class="cell-small" style="white-space:normal;">'+esc(r.size||'—')+'</span></td>'
-          +'<td><span class="cell-small" style="white-space:normal;">'+priceFmt(r.price)+'</span></td>'
-          +'<td>'+truncCell(r.priceComp,'cell-small')+'</td>'
+          +priceCell
           +'<td>'+supCellContent+'</td>'
           +'<td class="td-gap"></td>'
           +'<td class="td-amber" style="text-align:center;">'+rmlStarBadge(r.aoRec,r.status)+'</td>'
@@ -2432,45 +2497,261 @@ function renderCombined(){
           +'<td class="td-amber"><span style="color:var(--slate-300);">—</span></td>'
           +'</tr>';
       }
-
-      /* Concertina sub-row for multiple suppliers — aligns under URL (col5) and Supplier (col9) */
-      if(sups.length>1){
-        var rowId2='sup-expand-'+uid;
-        var subBg=bg||'#f0f7ff';
-        /* Supplier name hyperlinked to URL — displayed in Supplier column only */
-        var nameStack='';
-        sups.forEach(function(s){
-          var h=s.url?(s.url.indexOf('http')===0?s.url:'https://'+s.url):'';
-          if(s.name&&s.name.trim()===PLACEHOLDER_SUP)h='';
-          nameStack+=h
-            ?'<div style="margin-bottom:5px;"><a href="'+esc(h)+'" target="_blank" class="cell-link" style="font-size:.75rem;font-weight:600;color:var(--blue);">'+esc(s.name)+'</a></div>'
-            :'<div style="margin-bottom:5px;font-size:.75rem;font-weight:600;color:var(--slate-700);">'+esc(s.name)+'</div>';
-        });
-        html+='<tr id="'+rowId2+'" class="sup-detail-row" style="display:none;">'
-          /* cols 0-4: Ref, Source, App, Cat, Name — spacers */
-          +'<td colspan="5" style="border:none;background:'+subBg+'!important;padding:0!important;border-bottom:none!important;"></td>'
-          /* cols 5-7: Size, Price, PriceComp — spacers (URL col removed) */
-          +'<td colspan="3" style="border:none;background:'+subBg+'!important;padding:0!important;border-bottom:none!important;"></td>'
-          /* col 9: Supplier — hyperlinked names, left-aligned */
-          +'<td style="vertical-align:top;padding:8px 12px 10px 12px;text-align:left;background:'+subBg+'!important;border-bottom:2px solid rgba(2,136,204,.18)!important;">'+nameStack+'</td>'
-          /* col 10: gap */
-          +'<td class="td-gap" style="background:'+subBg+'!important;border-bottom:2px solid rgba(2,136,204,.18)!important;padding:0!important;"></td>'
-          /* cols 11-15: amber cols — empty */
-          +'<td colspan="4" style="border:none;background:'+subBg+'!important;border-bottom:2px solid rgba(2,136,204,.18)!important;"></td>'
-          +'</tr>';
-      }
     });
   });
 
-  if(!html)html='<tr><td colspan="14" class="empty-state">No materials match your search and filters. <button onclick="clearCombined()" style="margin-left:6px;font-family:inherit;font-size:.78rem;font-weight:700;color:var(--blue);background:none;border:none;text-decoration:underline;cursor:pointer;">Clear all</button></td></tr>';
+  if(!html)html='<tr><td colspan="12" class="empty-state">No materials match your search and filters. <button onclick="clearCombined()" style="margin-left:6px;font-family:inherit;font-size:.78rem;font-weight:700;color:var(--blue);background:none;border:none;text-decoration:underline;cursor:pointer;">Clear all</button></td></tr>';
   $('ct-tbody').innerHTML=html;
   countLabel(total,'ct-count');
+  updateHScrollThumb();
+}
+/* ════════════ CARD VIEW — same filter/group logic as renderCombined, card markup instead of table rows ════════════ */
+var _mcId=0;
+function toggleCard(id,btn){
+  var el=document.getElementById(id);
+  if(!el)return;
+  var card=btn.closest('.mat-card');
+  var expanded=card?card.classList.toggle('expanded'):el.classList.toggle('expanded');
+  btn.querySelector('span').textContent=expanded?'Hide details':'Show details';
+}
+function circIcon(){return '<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 4l3 3-3 3"/><path d="M16 7H7a4 4 0 0 0-4 4v1"/><path d="M7 16l-3-3 3-3"/><path d="M4 13h9a4 4 0 0 0 4-4v-1"/></svg>';}
+function renderCards(){
+  var fA=v('ct-app'),fC=v('ct-cat'),fRec=v('ct-rec'),fS=v('ct-sup');
+  var fQ=(($('ct-search')||{}).value||'').toLowerCase().trim();
+  var html='',total=0;
+
+  var GROUPS=[
+    'Framing & structures','Flooring - indoor','Flooring - outdoor',
+    'F&B container facades - standardised structures','Graphics/ surfaces',
+    'Internal precinct hoardings','Joinery/ Cabinetry/ wall flats',
+    'Modular structures (Space Cubes/Highline) & Marquee projections',
+    'Precinct facades & cladding','Shade legs'
+  ];
+
+  GROUPS.forEach(function(grp){
+    if(fA && fA!==grp) return;
+    var rawRows=[];
+
+    var benchGroups={},benchGroupOrder=[];
+    benchRows.forEach(function(r){
+      if(r.app!==grp)return;
+      if(fC&&r.cat!==fC)return;
+      var gk=r.ref+'|'+r.app;
+      if(!benchGroups[gk]){benchGroups[gk]=[];benchGroupOrder.push(gk);}
+      benchGroups[gk].push(r);
+    });
+    benchGroupOrder.forEach(function(gk){
+      var rows=benchGroups[gk];
+      var primary=rows[0];
+      for(var i=0;i<rows.length;i++){if(rows[i].aoRec&&rows[i].aoRec.trim()){primary=rows[i];break;}}
+      if(!recFilter2(primary.aoRec,fRec))return;
+      var supFiltered=fS?rows.filter(function(r){return supMatch(r.supplier,fS);}):rows;
+      if(!supFiltered.length)return;
+      if(fQ){supFiltered=supFiltered.filter(function(r){return matchSearch(r,fQ);});}
+      if(!supFiltered.length)return;
+      supFiltered.forEach(function(r){rawRows.push({src:'bench',r:r});});
+    });
+    rmlRows.forEach(function(r){
+      if(normApp(r.app)===grp && (!fC||r.cat===fC) && aoRecFilter3(r.aoRec,fRec) && (!fS||supMatch(r.supplier,fS)) && matchSearch(r,fQ)){
+        rawRows.push({src:'rml',r:r});
+      }
+    });
+
+    if(!rawRows.length) return;
+
+    var groupMap={},groupOrder=[];
+    rawRows.forEach(function(item){
+      var key=item.r.ref+'|'+item.r.app+'|'+item.src;
+      if(!groupMap[key]){groupMap[key]={item:item,sups:[]};groupOrder.push(key);}
+      groupMap[key].sups.push({name:item.r.supplier,url:item.r.url});
+    });
+
+    html+='<div class="cards-group-title">'+esc(grp)+'</div><div class="mat-cards-grid">';
+
+    groupOrder.forEach(function(key){
+      total++;
+      var g=groupMap[key];
+      var item=g.item,r=item.r,sups=g.sups;
+      var refVal=r.ref||'—';
+      var statusCls='status-'+(r.status||'no');
+      var srcBadge=item.src==='bench'?'<span class="t-badge current">CURRENT</span>':'<span class="t-badge new">New</span>';
+      var recHtml=item.src==='bench'?recBadge2(r.aoRec):rmlStarBadge(r.aoRec,r.status);
+
+      /* Supplier display — single link or expandable list within details */
+      var s0=sups[0];
+      var supTop=sups.length===1?supLink(s0.name,s0.url):(supLink(s0.name,s0.url)+' <span style="color:var(--slate-400);font-size:.68rem;">+'+(sups.length-1)+' more</span>');
+      var supListHtml='';
+      if(sups.length>1){
+        supListHtml='<div class="mat-card-detail-label">Suppliers</div><div class="mat-card-suplist">';
+        sups.forEach(function(s){
+          var h=s.url?(s.url.indexOf('http')===0?s.url:'https://'+s.url):'';
+          if(s.name&&s.name.trim()===PLACEHOLDER_SUP)h='';
+          supListHtml+=h?'<a href="'+esc(h)+'" target="_blank" class="cell-link" style="color:var(--blue);">'+esc(s.name)+'</a>':'<div>'+esc(s.name)+'</div>';
+        });
+        supListHtml+='</div>';
+      }
+
+      var detId='mc-det-'+(++_mcId);
+      var hasFireDetail=item.src==='bench'?(r.fireClass||r.whatToAsk):(r.fireClass||r.certs);
+
+      html+='<div class="mat-card '+statusCls+'">'
+        +'<div class="mat-card-top"><div class="mat-card-refwrap"><span class="ref-badge">'+esc(refVal)+'</span>'+srcBadge+'</div>'+recHtml+'</div>'
+        +'<div class="mat-card-name">'+esc(r.name)+'</div>'
+        +'<div class="mat-card-meta"><span>'+esc(r.cat)+'</span></div>'
+        +'<div class="mat-card-row"><span class="mat-card-price">'+priceFmt(r.price)+'</span><span class="mat-card-sup">'+supTop+'</span></div>'
+        +(r.circ?'<div class="mat-card-circ">'+circIcon()+'<span>'+esc(r.circ)+'</span></div>':'')
+        +'<div id="'+detId+'" class="mat-card-details">'
+          +(r.size?'<div><div class="mat-card-detail-label">Unit size</div><div class="mat-card-detail-text">'+esc(r.size)+'</div></div>':'')
+          +(r.priceComp?'<div><div class="mat-card-detail-label">Price comparison</div><div class="mat-card-detail-text">'+esc(r.priceComp)+'</div></div>':'')
+          +(r.fireClass?'<div><div class="mat-card-detail-label">TA Fire/Safety guidance</div><div class="mat-card-detail-text">'+esc(r.fireClass)+'</div></div>':'')
+          +(item.src==='bench'&&r.whatToAsk?'<div><div class="mat-card-detail-label">What to ask for</div><div class="mat-card-detail-text">'+esc(r.whatToAsk)+'</div></div>':'')
+          +(item.src==='rml'&&r.certs?'<div><div class="mat-card-detail-label">Certifications</div><div class="mat-card-detail-text">'+esc(r.certs)+'</div></div>':'')
+          +supListHtml
+        +'</div>'
+        +((hasFireDetail||r.size||r.priceComp||sups.length>1)?'<button class="mat-card-toggle" onclick="toggleCard(\''+detId+'\',this)"><span>Show details</span><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 7l5 6 5-6"/></svg></button>':'')
+        +'</div>';
+    });
+
+    html+='</div>';
+  });
+
+  if(!html)html='<div class="empty-state" style="padding:26px 10px;text-align:center;">No materials match your search and filters. <button onclick="clearCombined()" style="margin-left:6px;font-family:inherit;font-size:.78rem;font-weight:700;color:var(--blue);background:none;border:none;text-decoration:underline;cursor:pointer;">Clear all</button></div>';
+  $('ct-cards').innerHTML=html;
+  return total;
+}
+
+/* ════════════ VIEW SWITCHING + CHIPS + UNIFIED RENDER ════════════ */
+var currentView='table';
+function setView(mode){
+  currentView=mode;
+  $('ct-cards-wrap').style.display=mode==='cards'?'':'none';
+  $('ct-table-wrap').style.display=mode==='table'?'':'none';
+  $('btn-view-cards').classList.toggle('active',mode==='cards');
+  $('btn-view-table').classList.toggle('active',mode==='table');
+  if(mode==='table')updateHScrollThumb();
+}
+
+/* ── Custom always-visible horizontal scrollbar (native OS scrollbars are often hidden/overlay-only, e.g. on macOS, so they don't reliably solve "how do I scroll sideways") ── */
+function updateHScrollThumb(){
+  var main=$('ct-scroll-main'),track=$('ct-hscroll-track'),thumb=$('ct-hscroll-thumb');
+  if(!main||!track||!thumb)return;
+  var trackW=track.clientWidth-6; /* minus track padding */
+  var visible=main.clientWidth,total=main.scrollWidth;
+  if(total<=visible+1){track.style.visibility='hidden';return;}
+  track.style.visibility='visible';
+  var thumbW=Math.max(30,(visible/total)*trackW);
+  var maxThumbLeft=trackW-thumbW;
+  var maxScroll=total-visible;
+  var thumbLeft=maxScroll>0?(main.scrollLeft/maxScroll)*maxThumbLeft:0;
+  thumb.style.width=thumbW+'px';
+  thumb.style.left=(3+thumbLeft)+'px';
+}
+function initTableScrollControls(){
+  var main=$('ct-scroll-main'),track=$('ct-hscroll-track'),thumb=$('ct-hscroll-thumb');
+  if(!main||!track||!thumb)return;
+
+  updateHScrollThumb();
+  main.addEventListener('scroll',updateHScrollThumb);
+  window.addEventListener('resize',updateHScrollThumb);
+
+  /* Drag the thumb directly */
+  var dragging=false,dragStartX=0,dragStartScroll=0;
+  thumb.addEventListener('mousedown',function(e){
+    dragging=true;dragStartX=e.clientX;dragStartScroll=main.scrollLeft;
+    thumb.classList.add('dragging');e.preventDefault();
+  });
+  window.addEventListener('mousemove',function(e){
+    if(!dragging)return;
+    var trackW=track.clientWidth-6,thumbW=thumb.offsetWidth;
+    var maxThumbLeft=trackW-thumbW,maxScroll=main.scrollWidth-main.clientWidth;
+    if(maxThumbLeft<=0)return;
+    var dx=e.clientX-dragStartX;
+    var deltaScroll=(dx/maxThumbLeft)*maxScroll;
+    main.scrollLeft=dragStartScroll+deltaScroll;
+  });
+  window.addEventListener('mouseup',function(){
+    if(dragging){dragging=false;thumb.classList.remove('dragging');}
+  });
+
+  /* Click anywhere on the track to jump */
+  track.addEventListener('mousedown',function(e){
+    if(e.target===thumb)return;
+    var rect=track.getBoundingClientRect();
+    var clickX=e.clientX-rect.left;
+    var trackW=track.clientWidth-6,thumbW=thumb.offsetWidth;
+    var targetLeft=clickX-thumbW/2;
+    var maxThumbLeft=trackW-thumbW;
+    targetLeft=Math.max(0,Math.min(maxThumbLeft,targetLeft));
+    var maxScroll=main.scrollWidth-main.clientWidth;
+    main.scrollLeft=maxThumbLeft>0?(targetLeft/maxThumbLeft)*maxScroll:0;
+  });
+
+  /* Click-and-drag to pan the table content itself, in any direction — the main fix for "scroll all the way to the bottom to move sideways" */
+  var panning=false,panStartX=0,panStartY=0,panScrollL=0,panScrollT=0,panMoved=false;
+  main.addEventListener('mousedown',function(e){
+    if(e.button!==0)return;
+    /* Don't hijack drags that start on a link, button, or other interactive element — let those work normally */
+    if(e.target.closest('a,button,input,select,textarea')) return;
+    panning=true;panMoved=false;
+    panStartX=e.clientX;panStartY=e.clientY;
+    panScrollL=main.scrollLeft;panScrollT=main.scrollTop;
+  });
+  window.addEventListener('mousemove',function(e){
+    if(!panning)return;
+    var dx=e.clientX-panStartX,dy=e.clientY-panStartY;
+    if(!panMoved&&(Math.abs(dx)>4||Math.abs(dy)>4)){panMoved=true;main.classList.add('panning');}
+    if(panMoved){
+      e.preventDefault();
+      main.scrollLeft=panScrollL-dx;
+      main.scrollTop=panScrollT-dy;
+    }
+  });
+  window.addEventListener('mouseup',function(e){
+    if(panning&&panMoved){
+      /* Swallow the click that would otherwise fire on mouseup after a drag, so links/buttons don't accidentally activate */
+      var swallow=function(ce){ce.stopPropagation();ce.preventDefault();};
+      main.addEventListener('click',swallow,{capture:true,once:true});
+    }
+    panning=false;panMoved=false;main.classList.remove('panning');
+  });
+}
+var CHIP_LABELS={
+  'recommended':'✓ Recommended — current','rec-rml':'✓ Recommended — new','ifsep':'⇌ Recyclable if separated',
+  'limit':'⚠ Limit use','limitrml':'⚠ No circular alternative yet','conditional':'Conditional / consider'
+};
+function renderChips(){
+  var wrap=$('ct-chips');if(!wrap)return;
+  var chips=[];
+  var fA=v('ct-app'),fC=v('ct-cat'),fRec=v('ct-rec'),fS=v('ct-sup');
+  var fQ=(($('ct-search')||{}).value||'').trim();
+  if(fQ)chips.push({label:'“'+fQ+'”',clear:function(){$('ct-search').value='';}});
+  if(fA)chips.push({label:fA,clear:function(){$('ct-app').value='';}});
+  if(fC)chips.push({label:fC,clear:function(){$('ct-cat').value='';}});
+  if(fRec)chips.push({label:CHIP_LABELS[fRec]||fRec,clear:function(){$('ct-rec').value='';}});
+  if(fS)chips.push({label:fS,clear:function(){$('ct-sup').value='';}});
+  if(!chips.length){wrap.innerHTML='';return;}
+  var html='';
+  chips.forEach(function(c,i){
+    html+='<span class="filter-chip">'+esc(c.label)+'<button onclick="clearChip('+i+')" aria-label="Remove filter">&#10005;</button></span>';
+  });
+  wrap.innerHTML=html;
+  wrap._clears=chips.map(function(c){return c.clear;});
+}
+function clearChip(i){
+  var wrap=$('ct-chips');
+  if(wrap&&wrap._clears&&wrap._clears[i]){wrap._clears[i]();renderAll();updateFilterHighlights();}
+}
+function renderAll(){
+  renderCombined();
+  var n=renderCards();
+  countLabel(n,'ct-count');
+  renderChips();
 }
 function clearCombined(){
   ['ct-app','ct-cat','ct-rec','ct-sup'].forEach(function(id){var e=$(id);if(e)e.value='';});
   var s=$('ct-search');if(s)s.value='';
   updateFilterHighlights();
-  renderCombined();
+  renderAll();
 }
 
 
@@ -2490,7 +2771,7 @@ var benchRows = [
   {ref:'C2',app:'Precinct facades & cladding',cat:'Engineered wood',name:'Structural ply (Type A-bond)',url:'www.auswood.com.au',size:'2400x1200',price:'12mm $40\n19mm $75',priceComp:'Contact AO preferred supplier for better than market rates',supplier:'Auswood',aoRec:'Recommended (Current material) keep using supplier or TA preferred partner pricing',circ:'Yes - can be recycled',fireClass:'Material currently used - TA likely already have a F/S rating',whatToAsk:'FSC or PEFC \nChoose: A-Bond Phenol Formaldehyde - PF',status:'yes'},
   {ref:'C2',app:'Precinct facades & cladding',cat:'Engineered wood',name:'Structural ply (Type A-bond)',url:'https://evolutionfp.com.au',size:'2400x1200',price:'12mm $40\n19mm $75',priceComp:'Contact AO preferred supplier for better than market rates',supplier:'Evolution FP',aoRec:'Recommended (Current material) keep using supplier or TA preferred partner pricing',circ:'Yes - can be recycled',fireClass:'Material currently used - TA likely already have a F/S rating',whatToAsk:'FSC or PEFC \nChoose: A-Bond Phenol Formaldehyde - PF',status:'yes'},
   {ref:'C19',app:'Precinct facades & cladding',cat:'Engineered wood',name:'MDF (Décor/ MR)',url:'',size:'2400x1200',price:'6mm $20-$25\n18mm $25-$40',priceComp:'',supplier:'',aoRec:'Limit use',circ:'No - has toxic MUF/ UF cannot be recycled (waste stream)\nConsider alternatives:\nMelamine/ Formica/ Compact Laminate',fireClass:'Material currently used - TA likely already have a F/S rating',whatToAsk:'',status:'no'},
-  {ref:'C12',app:'Precinct facades & cladding',cat:'Facade graphics & cladding',name:'ACM/ ACP (aluminium composite panel)',url:'',size:'1220X2440',price:'$120 p/sheet',priceComp:'',supplier:'Current material - widely available',aoRec:'Use if can be separated to recycle',circ:'Yes - ACM can be recycled if separated \n! Aluminium has high value',fireClass:'Material currently used - TA likely already have a F/S rating',whatToAsk:'',status:'maybe'},
+  {ref:'C12',app:'Precinct facades & cladding',cat:'Facade graphics & cladding',name:'ACM/ ACP (aluminium composite panel)',url:'',size:'1220X2440',price:'$120 p/sheet',priceComp:'',supplier:'Current material - widely available',aoRec:'Use if can be separated to recycle',circ:'Yes - ACM can be recycled if separated. Note: Aluminium has high value - keep it out of landfill',fireClass:'Material currently used - TA likely already have a F/S rating',whatToAsk:'',status:'maybe'},
   {ref:'C3',app:'F&B container facades - standardised structures',cat:'Engineered wood',name:'AA Grade Marine Plywood\nBS1088',url:'www.auswood.com.au',size:'2400x1200',price:'9mm $55-$80\n15-25mm $90-$150',priceComp:'Contact AO preferred supplier for better than market rates',supplier:'Auswood',aoRec:'Recommended if reuse 3+ years (Current material) keep using supplier or TA preferred partner pricing',circ:'While it is a sound material for reuse it has MUF/ UF and cannot be recycled (waste stream)\nConsider alternatives: F17 Radiata Pine ply/ formply',fireClass:'Material currently used - TA likely already have a F/S rating',whatToAsk:'FSC or PEFC\nChoose BS1088 standard or Australian',status:'yes'},
   {ref:'C2',app:'F&B container facades - standardised structures',cat:'Engineered wood',name:'Structural ply (Type A-bond)',url:'www.bigrivergroup.com.au',size:'2400x1200',price:'12mm $40\n19mm $75',priceComp:'Contact AO preferred supplier for better than market rates',supplier:'Big River group',aoRec:'Recommended (Current material) keep using supplier or TA preferred partner pricing',circ:'Yes - can be recycled',fireClass:'Material currently used - TA likely already have a F/S rating',whatToAsk:'FSC or PEFC \nChoose: A-Bond Phenol Formaldehyde - PF',status:'yes'},
   {ref:'C2',app:'F&B container facades - standardised structures',cat:'Engineered wood',name:'Structural ply (Type A-bond)',url:'www.auswood.com.au',size:'2400x1200',price:'12mm $40\n19mm $75',priceComp:'Contact AO preferred supplier for better than market rates',supplier:'Auswood',aoRec:'Recommended (Current material) keep using supplier or TA preferred partner pricing',circ:'Yes - can be recycled',fireClass:'Material currently used - TA likely already have a F/S rating',whatToAsk:'FSC or PEFC \nChoose: A-Bond Phenol Formaldehyde - PF',status:'yes'},
@@ -2503,12 +2784,12 @@ var benchRows = [
   {ref:'C2',app:'Modular structures (Space Cubes/Highline) & Marquee projections',cat:'Engineered wood',name:'Structural ply (Type A-bond)',url:'https://evolutionfp.com.au',size:'2400x1200',price:'12mm $40\n19mm $75',priceComp:'Contact AO preferred supplier for better than market rates',supplier:'Evolution FP',aoRec:'Recommended (Current material) keep using supplier or TA preferred partner pricing',circ:'Yes - can be recycled',fireClass:'Material currently used - TA likely already have a F/S rating',whatToAsk:'FSC or PEFC \nChoose: A-Bond Phenol Formaldehyde - PF',status:'yes'},
   {ref:'C3',app:'Internal precinct hoardings',cat:'Engineered wood',name:'AA Grade Marine  Plywood\nBS1088',url:'www.auswood.com.au',size:'2400x1200',price:'9mm $55-$80\n15-25mm $90-$150',priceComp:'Contact AO preferred supplier for better than market rates',supplier:'Auswood',aoRec:'Recommended if reuse 3+ years (Current material) keep using supplier or TA preferred partner pricing',circ:'While it is a sound material for reuse it has MUF/ UF and cannot be recycled (waste stream)\nConsider alternatives: F17 Radiata Pine ply/ formply',fireClass:'Material currently used - TA likely already have a F/S rating',whatToAsk:'FSC or PEFC\nChoose BS1088 standard or Australian',status:'yes'},
   {ref:'C21',app:'Internal precinct hoardings',cat:'Facade graphics & cladding',name:'Foamex hoarding sheets\nXPS (Extruded Polystyrene)',url:'',size:'2240x 2060\n3000 x 1200',price:'6mm  $50\n12mm $150',priceComp:'',supplier:'',aoRec:'Limit use',circ:'No - cannot be recycled\n(waste stream)\n- inferior to other materials, warps in heat',fireClass:'If using indoor/ outdoor seek Fire/Safety test and provide a rating',whatToAsk:'',status:'yes'},
-  {ref:'C12',app:'Shade legs',cat:'Facade graphics & cladding',name:'ACP (aluminium composite panel)',url:'',size:'1220X2440',price:'$120 p/sheet',priceComp:'',supplier:'Current material - widely available',aoRec:'Use if can be separated to recycle',circ:'Yes - ACM can be recycled if separated \n! Aluminium has high value',fireClass:'Material currently used - TA likely already have a F/S rating',whatToAsk:'',status:'maybe'},
-  {ref:'C13',app:'Shade legs',cat:'Facade graphics & cladding',name:'Tetrik fabric\nEasy to wrap, suitable to many applications. Tested successfully at Ballpark AO26',url:'www.tetrikstructures.com/tetrik',size:'',price:'Low cost',priceComp:'Far cheaper than ACM+ply composite\n\nContact AO preferred supplier for better than market rates',supplier:'Tetrik Structures',aoRec:'Recommended (Current material) keep using supplier or TA preferred partner pricing',circ:'Recovery pathways in development',fireClass:'TBC',whatToAsk:'Sublimation base- stretch lycra derived from 80% PET reclaimed\nSolid colour material- Mechanical stretch polyester derived from 80% PET reclaimed',status:'yes'},
+  {ref:'C12',app:'Shade legs',cat:'Facade graphics & cladding',name:'ACP (aluminium composite panel)',url:'',size:'1220X2440',price:'$120 p/sheet',priceComp:'',supplier:'Current material - widely available',aoRec:'Use if can be separated to recycle',circ:'Yes - ACM can be recycled if separated. Note: Aluminium has high value - keep it out of landfill',fireClass:'Material currently used - TA likely already have a F/S rating',whatToAsk:'',status:'maybe'},
+  {ref:'C13',app:'Shade legs',cat:'Facade graphics & cladding',name:'Tetrik fabric\nEasy to wrap, suitable to many applications',url:'www.tetrikstructures.com/tetrik',size:'',price:'Low cost',priceComp:'Far cheaper than ACM+ply composite. Tested successfully AO26. Contact AO preferred supplier for better than market rates',supplier:'Tetrik Structures',aoRec:'Recommended (Current material) keep using supplier or TA preferred partner pricing',circ:'Recovery pathways in development',fireClass:'TBC',whatToAsk:'Sublimation base- stretch lycra derived from 80% PET reclaimed\nSolid colour material- Mechanical stretch polyester derived from 80% PET reclaimed',status:'yes'},
   {ref:'C4',app:'Shade legs',cat:'Timber/ wood',name:'90x45 MGP 10 untreated pine\nChoose blue',url:'www.bigrivergroup.com.au',size:'',price:'$4 - $5 p/ lm',priceComp:'Contact AO preferred supplier for better than market rates',supplier:'Big River group',aoRec:'Recommended (Current material) keep using supplier or TA preferred partner pricing',circ:'Yes - can be recycled\n(Note: Green moisture treatment cannot be recycled)',fireClass:'Material currently used - TA likely already have a F/S rating',whatToAsk:'FSC or PEFC',status:'yes'},
   {ref:'C4',app:'Shade legs',cat:'Timber/ wood',name:'90x45 MGP 10 untreated pine\nChoose blue',url:'www.auswood.com.au',size:'',price:'$4 - $5 p/ lm',priceComp:'Contact AO preferred supplier for better than market rates',supplier:'Auswood',aoRec:'Recommended (Current material) keep using supplier or TA preferred partner pricing',circ:'Yes - can be recycled\n(Note: Green moisture treatment cannot be recycled)',fireClass:'Material currently used - TA likely already have a F/S rating',whatToAsk:'FSC or PEFC',status:'yes'},
   {ref:'C4',app:'Shade legs',cat:'Timber/ wood',name:'90x45 MGP 10 untreated pine\nChoose blue',url:'https://evolutionfp.com.au',size:'',price:'$4 - $5 p/ lm',priceComp:'Contact AO preferred supplier for better than market rates',supplier:'Evolution FP',aoRec:'Recommended (Current material) keep using supplier or TA preferred partner pricing',circ:'Yes - can be recycled\n(Note: Green moisture treatment cannot be recycled)',fireClass:'Material currently used - TA likely already have a F/S rating',whatToAsk:'FSC or PEFC',status:'yes'},
-  {ref:'C19',app:'Joinery/ Cabinetry/ wall flats',cat:'Engineered wood',name:'MDF (Décor/ MR)\n* Consider alternatives:\nMelamine/ Formica/ Compact Laminate',url:'',size:'2400x1200',price:'6mm $20-$25\n18mm $25-$40',priceComp:'',supplier:'',aoRec:'Limit use',circ:'No - has MUF/ UF cannot be recycled (waste stream)\nConsider alternatives: Melamine/ Formica/ Compact Laminate',fireClass:'Material currently used - TA likely already have a F/S rating',whatToAsk:'',status:'no'},
+  {ref:'C19',app:'Joinery/ Cabinetry/ wall flats',cat:'Engineered wood',name:'MDF (Décor/ MR)\n* Consider alternatives:\nMelamine/ Formica/ Compact Laminate',url:'',size:'2400x1200',price:'6mm $20-$25\n18mm $25-$40',priceComp:'',supplier:'',aoRec:'Limit use',circ:'No - has MUF/ UF cannot be recycled (waste stream)\nConsider alternatives:\nMelamine/ Formica/ Compact Laminate',fireClass:'Material currently used - TA likely already have a F/S rating',whatToAsk:'',status:'no'},
   {ref:'C20',app:'Joinery/ Cabinetry/ wall flats',cat:'Engineered wood',name:'Raw MDF',url:'',size:'2400x1200',price:'9mm $31\n18mm $49',priceComp:'',supplier:'',aoRec:'Limit use',circ:'No - has MUF/ UF cannot be recycled \n(waste stream)',fireClass:'Material currently used - TA likely already have a F/S rating',whatToAsk:'',status:'no'},
   {ref:'C5',app:'Joinery/ Cabinetry/ wall flats',cat:'Engineered wood',name:'FormPly\nChoose particleboard substrate\nF14 -F17 (depending on load bearing)',url:'www.bigrivergroup.com.au',size:'2400x1200',price:'$30-$37 p/m²',priceComp:'Contact AO preferred supplier for better than market rates',supplier:'Big River group',aoRec:'Recommended (Current material) keep using supplier or TA preferred partner pricing',circ:'Yes - can be recycled',fireClass:'Material currently used - TA likely already have a F/S rating',whatToAsk:'Particleboard substrate \nno MUF/ UF',status:'yes'},
   {ref:'C5',app:'Joinery/ Cabinetry/ wall flats',cat:'Engineered wood',name:'FormPly\nChoose particleboard substrate\nF14 -F17 (depending on load bearing)',url:'www.auswood.com.au',size:'2400x1200',price:'$30-$37 p/m²',priceComp:'Contact AO preferred supplier for better than market rates',supplier:'Auswood',aoRec:'Recommended (Current material) keep using supplier or TA preferred partner pricing',circ:'Yes - can be recycled',fireClass:'Material currently used - TA likely already have a F/S rating',whatToAsk:'Particleboard substrate \nno MUF/ UF',status:'yes'},
@@ -2538,7 +2819,7 @@ var benchRows = [
   {ref:'C14',app:'Graphics/ surfaces',cat:'Branding/ Graphics/ skins on facades',name:'Wattyl ID water based',url:'https://wattyl.com.au/wattyl-id-advanced/',size:'Various',price:'Standard market rates',priceComp:'',supplier:'Wattyl',aoRec:'Recommended (Current material) keep using supplier or TA preferred partner pricing',circ:'Yes - can be recycled.\nChoose waterbased for timber use so that it can be recycled',fireClass:'Not flammable in liquid state',whatToAsk:'Choose UV water based',status:'yes'},
   {ref:'C26',app:'Graphics/ surfaces',cat:'Branding/ Graphics/ skins on facades',name:'FX Australia range',url:'https://www.fxaustralia.com.au/',size:'Various',price:'Standard market rates',priceComp:'',supplier:'FX Australia',aoRec:'Recommended (Current material) keep using supplier or TA preferred partner pricing',circ:'Yes - can be recycled.\nChoose waterbased for timber use so that it can be recycled',fireClass:'Not flammable in liquid state',whatToAsk:'Choose UV water based',status:'yes'},
   {ref:'C27',app:'Graphics/ surfaces',cat:'Branding/ Graphics/ skins on facades',name:'Dulux Enviro range',url:'https://www.dulux.com.au/specifier/products/enviro2',size:'Various',price:'Standard market rates',priceComp:'',supplier:'Dulux',aoRec:'Recommended (Current material) keep using supplier or TA preferred partner pricing',circ:'Yes - can be recycled.\nChoose waterbased for timber use so that it can be recycled',fireClass:'Not flammable in liquid state',whatToAsk:'Choose UV water based',status:'yes'},
-  {ref:'C13',app:'Graphics/ surfaces',cat:'Branding/ Graphics/ skins on facades',name:'Fabric façades and structures delivering 3D elements/ experience. Supports sublimation printing and secondary print materials',url:'www.tetrikstructures.com/tetrik',size:'Various',price:'Low cost',priceComp:'Far cheaper than ACM+ply composite\n\nContact AO preferred supplier for better than market rates',supplier:'Tetrik Structures',aoRec:'Recommended (Current material) keep using supplier or TA preferred partner pricing',circ:'Recovery pathways in development',fireClass:'TBC',whatToAsk:'Sublimation base- stretch lycra derived from 80% PET reclaimed\nSolid colour material- Mechanical stretch polyester derived from 80% PET reclaimed',status:'yes'}
+  {ref:'C13',app:'Graphics/ surfaces',cat:'Branding/ Graphics/ skins on facades',name:'Fabric façades and structures delivering 3D elements/ experience. Supports sublimation printing and secondary print materials',url:'www.tetrikstructures.com/tetrik',size:'Various',price:'Low cost',priceComp:'Far cheaper than ACM+ply composite. Tested successfully AO26. Contact AO preferred supplier for better than market rates',supplier:'Tetrik Structures',aoRec:'Recommended (Current material) keep using supplier or TA preferred partner pricing',circ:'Recovery pathways in development',fireClass:'TBC',whatToAsk:'Sublimation base- stretch lycra derived from 80% PET reclaimed\nSolid colour material- Mechanical stretch polyester derived from 80% PET reclaimed',status:'yes'}
 ];
 
 // carry-forward app for sub-rows
@@ -2658,60 +2939,52 @@ var rmlRows = [
   {ref:'26',app:'Flooring - indoor',cat:'Flooring - engineered wood',name:'Corsica Oak Engineered Timber Flooring 5G Insta Clic® floating.',url:'www.ghcommercial.com',size:'190×1900mm; 14mm; 3mm wear',price:'<200m² $70 /m²\n>500m²  $60 /m²',priceComp:'Price competitive',supplier:'GH Commercial',aoRec:'RECOMMENDED',circ:'Eligible for take back rehome program\n5G Insta Clic® board reuse possible.',fireClass:'Confirm with Manufacturer:\nTested to AS 9239.1 \nResult must be: miniumum 2.2kW/m2 Critical Radient Flex',certs:'PEFC CoC\nGBCA VOC\nISO 9001/14001',status:'yes'},
   {ref:'27',app:'Flooring - indoor',cat:'Flooring - carpet',name:'Curious Path Broadloom Carpet (roll)',url:'www.ghcommercial.com',size:'4.00m roll; 6.5mm',price:'<200m² $65 /lm\n>500m²  $55 /lm',priceComp:'Price competitive',supplier:'GH Commercial',aoRec:'CONSIDER',circ:'No take-back, roll difficult to recycle',fireClass:'Confirm with Manufacturer:\nTested to AS 9239.1 \nResult must be: miniumum 2.2kW/m2 Critical Radient Flex',certs:'Declare Red List Free\nECS Level 4+ (Cert #20120)\nGBCA VOC\nISO 9001/14001/45001\nAustralian Made\nPVC Free',status:'maybe'},
   {ref:'28',app:'Flooring - indoor',cat:'Flooring - carpet',name:'Thematic Thread Carpet Tiles & Planks 5G Insta Clic® floating.',url:'www.ghcommercial.com',size:'250×1000mm tiles',price:'<200m² $33 /m²\n>500m²  $27 /m²',priceComp:'Price competitive',supplier:'GH Commercial',aoRec:'RECOMMENDED',circ:'Tiles well suited to GH take-back rehome program\nModular tile format supports DfD.\nEPD, Declare Red List Free, Australian Made',fireClass:'Confirm with Manufacturer\nTested to AS 9239.1 \nResult must be: miniumum 2.2kW/m2 Critical Radient Flex',certs:'EPD (IBU 2025–2030)\nDeclare Red List Free\nECS Level 4+ (Cert #21157)\nACCS Contract EHD 4★\nAustralian Made\nPVC Free\nISO 9001/14001/45001',status:'yes'},
-  {ref:'29',app:'Flooring - indoor',cat:'Flooring - carpet',name:'Netcorp 100% Wool Broadloom Carpet 5G Insta Clic® floating.\nUnique natural credentials-  biodegradable',url:'www.ghcommercial.com',size:'3.66m roll; 8mm',price:'$39 /m2',priceComp:'Price competitive',supplier:'GH Commercial',aoRec:'CONSIDER',circ:'Roll carpet difficult to recycle\n100% Wool and Jute are biodegradable/compostable. No active composting program confirmed.',fireClass:'Confirm with Manufacturer\nTested to AS 9239.1 \nResult must be: miniumum 2.2kW/m2 Critical Radient Flex',certs:'Declare Red List Free\nECS Level 4+ (Cert #22061)\nNCC C1.10\nPVC Free\nGBCA VOC\nISO 9001/14001\n100% Natural Materials',status:'maybe'},
-  {ref:'30',app:'Flooring - indoor',cat:'Flooring - carpet',name:'Long Grain II Carpet Tiles',url:'www.ghcommercial.com',size:'500×500mm tiles',price:'<200m² $19 /m²\n>500m²  $24 /m²',priceComp:'Below market rates',supplier:'GH Commercial',aoRec:'RECOMMENDED',circ:'Tiles well suited to GH take-back  rehome program\nOptimal for modular & DfD.',fireClass:'Confirm with Manufacturer\nTested to AS 9239.1 \nResult must be: miniumum 2.2kW/m2 Critical Radient Flex',certs:'EPD (IBU 2025–2030)\nDeclare Red List Free\nECS Level 4+ (Cert #19128)\nCRF 8.8 kW/m² Class 1\nACCS Contract EHD 4★\nPVC/BPA/Phthalate Free\nAustralian Made\nISO 9001/14001/45001',status:'yes'},
+  {ref:'29',app:'Flooring - indoor',cat:'Flooring - carpet',name:'Netcorp 100% Wool Broadloom Carpet 5G Insta Clic® floating.\nUnique natural credentials-  biodegradable',url:'www.ghcommercial.com',size:'3.66m roll; 8mm',price:'$39 /m2',priceComp:'Price competitive',supplier:'GH Commercial',aoRec:'CONSIDER',circ:'Roll carpet difficult to recycle\n100% Wool and Jute are biodegradable/ compostable. No active composting program confirmed.',fireClass:'Confirm with Manufacturer\nTested to AS 9239.1 \nResult must be: miniumum 2.2kW/m2 Critical Radient Flex',certs:'Declare Red List Free\nECS Level 4+ (Cert #22061)\nNCC C1.10\nPVC Free\nGBCA VOC\nISO 9001/14001\n100% Natural Materials',status:'maybe'},
+  {ref:'30',app:'Flooring - indoor',cat:'Flooring - carpet',name:'Long Grain II Carpet Tiles',url:'www.ghcommercial.com',size:'500×500mm tiles',price:'<200m² $19 /m²\n>500m²  $24 /m²',priceComp:'Below market rates',supplier:'GH Commercial',aoRec:'RECOMMENDED',circ:'Tiles well suited to GH take-back rehome program.\nOptimal for modular & DfD.',fireClass:'Confirm with Manufacturer\nTested to AS 9239.1 \nResult must be: miniumum 2.2kW/m2 Critical Radient Flex',certs:'EPD (IBU 2025–2030)\nDeclare Red List Free\nECS Level 4+ (Cert #19128)\nCRF 8.8 kW/m² Class 1\nACCS Contract EHD 4★\nPVC/BPA/Phthalate Free\nAustralian Made\nISO 9001/14001/45001',status:'yes'},
   {ref:'31',app:'Flooring - indoor',cat:'Flooring - Vinyl',name:'Bolon Flooring — RIFF\nHeavy commerical (events/ hospitality)',url:'www.bolon.com',size:'Tiles & Acoustic Tiles: 500×500mm',price:'$100 – $110/m²',priceComp:'10–25% premium over standard',supplier:'Bolon AB',aoRec:'TBC',circ:'Back2Bolon -  recycling system. Tack tiles -  (no glue)  qualify for take-back - TA logistics need to separate and ship to Bolon',fireClass:'Confirm with Manufacturer\nTested to AS 9239.1 \nResult must be: miniumum 2.2kW/m2 Critical Radient Flex',certs:'EPD (EN 15804 + ISO 14025, environdec.com)\nGreenTag GreenRate (Tiles only)\nGreenTag PHD (all)\nDeclare (Living Future Institute)\nECOproduct\nISO 14001:2015\nEcoVadis',status:'maybe'},
   {ref:'32',app:'Flooring - indoor',cat:'Flooring - Vinyl',name:'Bolon Flooring — ELEMENTS\nHeavy commerical (events/ hospitality)',url:'www.bolon.com',size:'Rolls: 2000mm × 25m \nTiles & acoustic tiles: 500×500mm',price:'$100 – $110/m²',priceComp:'10–25% premium over standard',supplier:'Bolon AB',aoRec:'TBC',circ:'Back2Bolon- recycling system.   Tiles/Acoustic Tiles (IOBAC tack, non-permanent)\nTA logistics need to separate and ship to Bolon',fireClass:'Confirm with Manufacturer\nTested to AS 9239.1 \nResult must be: miniumum 2.2kW/m2 Critical Radient Flex',certs:'EPD (EN 15804 + ISO 14025, environdec.com)\nGreenTag GreenRate\nGreenTag PHD (all)\nDeclare (Living Future Institute)\nM1 (Finnish low-emission)\nFloorScore (SCS Global)\nISO 14001:2015\nEcoVadis',status:'maybe'},
-  {ref:'33',app:'Flooring - indoor',cat:'Flooring - carpet',name:'Milliken AMPLIFIER — Beats/Echo/Treble/Octave',url:'https://www.milliken.com/en-us/flooring/products/carpet-tiles',size:'500×500mm tiles',price:'$22/m²',priceComp:'Price competitive',supplier:'Milliken & Company',aoRec:'RECOMMENDED',circ:'N/XT Life™ 100% recyclable, zero landfill guarantee. Installation off-cuts and  used tiles can be sent back for recycling into Renasci. Milliken cover transport fees contractors palletise for Milliken to ship.',fireClass:'Confirm with Manufacturer\nTest required:\nClass 9b AS ISO 9239-1 PASS',certs:'Declare Red List Free\nC2C Silver\nECS Level 4+\nCRI Green Label Plus™\nWorks with WELL\nEcoVadis Gold\nSBTi Net Zero',status:'yes'},
-  {ref:'33',app:'Flooring - indoor',cat:'Flooring - carpet',name:'Milliken AMPLIFIER — Beats/Echo/Treble/Octave',url:'https://www.milliken.com/en-us/flooring/products/carpet-tiles',size:'500×500mm tiles',price:'$22/m²',priceComp:'Price competitive',supplier:'JJ Contract Carpets',aoRec:'RECOMMENDED',circ:'N/XT Life™ 100% recyclable, zero landfill guarantee. Installation off-cuts and  used tiles can be sent back for recycling into Renasci. Milliken cover transport fees contractors palletise for Milliken to ship.',fireClass:'Confirm with Manufacturer\nTest required:\nClass 9b AS ISO 9239-1 PASS',certs:'Declare Red List Free\nC2C Silver\nECS Level 4+\nCRI Green Label Plus™\nWorks with WELL\nEcoVadis Gold\nSBTi Net Zero',status:'yes'},
-  {ref:'33',app:'Flooring - indoor',cat:'Flooring - carpet',name:'Milliken AMPLIFIER — Beats/Echo/Treble/Octave',url:'https://www.milliken.com/en-us/flooring/products/carpet-tiles',size:'500×500mm tiles',price:'$22/m²',priceComp:'Price competitive',supplier:'Citrus Commercial Group',aoRec:'RECOMMENDED',circ:'N/XT Life™ 100% recyclable, zero landfill guarantee. Installation off-cuts and  used tiles can be sent back for recycling into Renasci. Milliken cover transport fees contractors palletise for Milliken to ship.',fireClass:'Confirm with Manufacturer\nTest required:\nClass 9b AS ISO 9239-1 PASS',certs:'Declare Red List Free\nC2C Silver\nECS Level 4+\nCRI Green Label Plus™\nWorks with WELL\nEcoVadis Gold\nSBTi Net Zero',status:'yes'},
-  {ref:'34',app:'Flooring - indoor',cat:'Flooring - carpet',name:'Milliken DISTINCT FORMS — Cement/Construction',url:'www.milliken.com/en-us/segments/floor-covering',size:'500×500mm tiles',price:'$25/m²',priceComp:'Price competitive',supplier:'Milliken & Company',aoRec:'RECOMMENDED',circ:'N/XT Life™ 100% recyclable, zero landfill guarantee.\n Installation off-cuts and  used tiles can be sent back for recycling into Renasci. Milliken cover transport fees contractors palletise for Milliken to ship.',fireClass:'Confirm with Manufacturer\nTest required:\nClass 9b AS ISO 9239-1 PASS',certs:'Declare Red List Free\nC2C Silver\nECS Level 4+\nCRI Green Label Plus™\nWorks with WELL\nEcoVadis Gold\nSBTi Net Zero',status:'yes'},
-  {ref:'34',app:'Flooring - indoor',cat:'Flooring - carpet',name:'Milliken DISTINCT FORMS — Cement/Construction',url:'www.milliken.com/en-us/segments/floor-covering',size:'500×500mm tiles',price:'$25/m²',priceComp:'Price competitive',supplier:'JJ Contract Carpets',aoRec:'RECOMMENDED',circ:'N/XT Life™ 100% recyclable, zero landfill guarantee.\n Installation off-cuts and  used tiles can be sent back for recycling into Renasci. Milliken cover transport fees contractors palletise for Milliken to ship.',fireClass:'Confirm with Manufacturer\nTest required:\nClass 9b AS ISO 9239-1 PASS',certs:'Declare Red List Free\nC2C Silver\nECS Level 4+\nCRI Green Label Plus™\nWorks with WELL\nEcoVadis Gold\nSBTi Net Zero',status:'yes'},
-  {ref:'34',app:'Flooring - indoor',cat:'Flooring - carpet',name:'Milliken DISTINCT FORMS — Cement/Construction',url:'www.milliken.com/en-us/segments/floor-covering',size:'500×500mm tiles',price:'$25/m²',priceComp:'Price competitive',supplier:'Citrus Commercial Group',aoRec:'RECOMMENDED',circ:'N/XT Life™ 100% recyclable, zero landfill guarantee.\n Installation off-cuts and  used tiles can be sent back for recycling into Renasci. Milliken cover transport fees contractors palletise for Milliken to ship.',fireClass:'Confirm with Manufacturer\nTest required:\nClass 9b AS ISO 9239-1 PASS',certs:'Declare Red List Free\nC2C Silver\nECS Level 4+\nCRI Green Label Plus™\nWorks with WELL\nEcoVadis Gold\nSBTi Net Zero',status:'yes'},
-  {ref:'35',app:'Flooring - indoor',cat:'Flooring - carpet',name:'Milliken MAJOR FREQUENCY ONE — Vibration/Distortion',url:'https://www.milliken.com/en-us/flooring/products/carpet-tiles',size:'25×100cm planks',price:'$34/m²',priceComp:'Price competitive',supplier:'Milliken & Company',aoRec:'RECOMMENDED',circ:'N/XT Life™ 100% recyclable, zero landfill guarantee.\n Installation off-cuts and  used tiles can be sent back for recycling into Renasci. Milliken cover transport fees contractors palletise for Milliken to ship.',fireClass:'Confirm with Manufacturer\nTest required:\nClass 9b AS ISO 9239-1 PASS',certs:'Declare Red List Free\nC2C Silver\nECS Level 4+\nCRI Green Label Plus™\nWorks with WELL\nEcoVadis Gold\nSBTi Net Zero',status:'yes'},
-  {ref:'35',app:'Flooring - indoor',cat:'Flooring - carpet',name:'Milliken MAJOR FREQUENCY ONE — Vibration/Distortion',url:'https://www.milliken.com/en-us/flooring/products/carpet-tiles',size:'25×100cm planks',price:'$34/m²',priceComp:'Price competitive',supplier:'JJ Contract Carpets',aoRec:'RECOMMENDED',circ:'N/XT Life™ 100% recyclable, zero landfill guarantee.\n Installation off-cuts and  used tiles can be sent back for recycling into Renasci. Milliken cover transport fees contractors palletise for Milliken to ship.',fireClass:'Confirm with Manufacturer\nTest required:\nClass 9b AS ISO 9239-1 PASS',certs:'Declare Red List Free\nC2C Silver\nECS Level 4+\nCRI Green Label Plus™\nWorks with WELL\nEcoVadis Gold\nSBTi Net Zero',status:'yes'},
-  {ref:'35',app:'Flooring - indoor',cat:'Flooring - carpet',name:'Milliken MAJOR FREQUENCY ONE — Vibration/Distortion',url:'https://www.milliken.com/en-us/flooring/products/carpet-tiles',size:'25×100cm planks',price:'$34/m²',priceComp:'Price competitive',supplier:'Citrus Commercial Group',aoRec:'RECOMMENDED',circ:'N/XT Life™ 100% recyclable, zero landfill guarantee.\n Installation off-cuts and  used tiles can be sent back for recycling into Renasci. Milliken cover transport fees contractors palletise for Milliken to ship.',fireClass:'Confirm with Manufacturer\nTest required:\nClass 9b AS ISO 9239-1 PASS',certs:'Declare Red List Free\nC2C Silver\nECS Level 4+\nCRI Green Label Plus™\nWorks with WELL\nEcoVadis Gold\nSBTi Net Zero',status:'yes'},
-  {ref:'36',app:'Flooring - indoor',cat:'Flooring - carpet',name:'Milliken WHALE SONG AUNZ — Beluga/Humpback',url:'https://www.milliken.com/en-us/flooring/products/carpet-tiles',size:'500×500mm tiles',price:'$37/m²',priceComp:'Price competitive',supplier:'Milliken & Company',aoRec:'RECOMMENDED',circ:'N/XT Life™ 100% recyclable, zero landfill guarantee.\n Installation off-cuts and  used tiles can be sent back for recycling into Renasci. Milliken cover transport fees contractors palletise for Milliken to ship.',fireClass:'Confirm with Manufacturer\nTest required:\nClass 9b AS ISO 9239-1 PASS',certs:'Declare Red List Free\nC2C Silver\nECS Level 4+\nCRI Green Label Plus™\nWorks with WELL\nEcoVadis Gold\nSBTi Net Zero',status:'yes'},
-  {ref:'36',app:'Flooring - indoor',cat:'Flooring - carpet',name:'Milliken WHALE SONG AUNZ — Beluga/Humpback',url:'https://www.milliken.com/en-us/flooring/products/carpet-tiles',size:'500×500mm tiles',price:'$37/m²',priceComp:'Price competitive',supplier:'JJ Contract Carpets',aoRec:'RECOMMENDED',circ:'N/XT Life™ 100% recyclable, zero landfill guarantee.\n Installation off-cuts and  used tiles can be sent back for recycling into Renasci. Milliken cover transport fees contractors palletise for Milliken to ship.',fireClass:'Confirm with Manufacturer\nTest required:\nClass 9b AS ISO 9239-1 PASS',certs:'Declare Red List Free\nC2C Silver\nECS Level 4+\nCRI Green Label Plus™\nWorks with WELL\nEcoVadis Gold\nSBTi Net Zero',status:'yes'},
-  {ref:'36',app:'Flooring - indoor',cat:'Flooring - carpet',name:'Milliken WHALE SONG AUNZ — Beluga/Humpback',url:'https://www.milliken.com/en-us/flooring/products/carpet-tiles',size:'500×500mm tiles',price:'$37/m²',priceComp:'Price competitive',supplier:'Citrus Commercial Group',aoRec:'RECOMMENDED',circ:'N/XT Life™ 100% recyclable, zero landfill guarantee.\n Installation off-cuts and  used tiles can be sent back for recycling into Renasci. Milliken cover transport fees contractors palletise for Milliken to ship.',fireClass:'Confirm with Manufacturer\nTest required:\nClass 9b AS ISO 9239-1 PASS',certs:'Declare Red List Free\nC2C Silver\nECS Level 4+\nCRI Green Label Plus™\nWorks with WELL\nEcoVadis Gold\nSBTi Net Zero',status:'yes'},
-  {ref:'37',app:'Flooring - indoor',cat:'Flooring - carpet',name:'Milliken SALT LAKE — Fata Morgana/Strata/Crystals',url:'https://www.milliken.com/en-us/flooring/products/carpet-tiles',size:'250×1000mm plank & 100×100cm tile',price:'$39/m²',priceComp:'Price competitive',supplier:'Milliken & Company',aoRec:'RECOMMENDED',circ:'N/XT Life™ 100% recyclable, zero landfill guarantee.\n Installation off-cuts and  used tiles can be sent back for recycling into Renasci. Milliken cover transport fees contractors palletise for Milliken to ship.',fireClass:'Confirm with Manufacturer\nTest required:\nClass 9b AS ISO 9239-1 PASS',certs:'Declare Red List Free\nC2C Silver\nECS Level 4+\nCRI Green Label Plus™\nWorks with WELL\nEcoVadis Gold\nSBTi Net Zero',status:'yes'},
-  {ref:'37',app:'Flooring - indoor',cat:'Flooring - carpet',name:'Milliken SALT LAKE — Fata Morgana/Strata/Crystals',url:'https://www.milliken.com/en-us/flooring/products/carpet-tiles',size:'250×1000mm plank & 100×100cm tile',price:'$39/m²',priceComp:'Price competitive',supplier:'JJ Contract Carpets',aoRec:'RECOMMENDED',circ:'N/XT Life™ 100% recyclable, zero landfill guarantee.\n Installation off-cuts and  used tiles can be sent back for recycling into Renasci. Milliken cover transport fees contractors palletise for Milliken to ship.',fireClass:'Confirm with Manufacturer\nTest required:\nClass 9b AS ISO 9239-1 PASS',certs:'Declare Red List Free\nC2C Silver\nECS Level 4+\nCRI Green Label Plus™\nWorks with WELL\nEcoVadis Gold\nSBTi Net Zero',status:'yes'},
-  {ref:'37',app:'Flooring - indoor',cat:'Flooring - carpet',name:'Milliken SALT LAKE — Fata Morgana/Strata/Crystals',url:'https://www.milliken.com/en-us/flooring/products/carpet-tiles',size:'250×1000mm plank & 100×100cm tile',price:'$39/m²',priceComp:'Price competitive',supplier:'Citrus Commercial Group',aoRec:'RECOMMENDED',circ:'N/XT Life™ 100% recyclable, zero landfill guarantee.\n Installation off-cuts and  used tiles can be sent back for recycling into Renasci. Milliken cover transport fees contractors palletise for Milliken to ship.',fireClass:'Confirm with Manufacturer\nTest required:\nClass 9b AS ISO 9239-1 PASS',certs:'Declare Red List Free\nC2C Silver\nECS Level 4+\nCRI Green Label Plus™\nWorks with WELL\nEcoVadis Gold\nSBTi Net Zero',status:'yes'},
-  {ref:'38',app:'Flooring - indoor',cat:'Flooring - carpet',name:'Milliken HEAVY META — Alloy/Foundry',url:'https://www.milliken.com/en-us/flooring/products/carpet-tiles',size:'250×1000mm planks',price:'$46/m²',priceComp:'10% premium',supplier:'Milliken & Company',aoRec:'RECOMMENDED',circ:'N/XT Life™ 100% recyclable, zero landfill guarantee.\n Installation off-cuts and  used tiles can be sent back for recycling into Renasci. Milliken cover transport fees contractors palletise for Milliken to ship.',fireClass:'Confirm with Manufacturer\nTest required:\nClass 9b AS ISO 9239-1 PASS',certs:'Declare Red List Free\nC2C Silver\nECS Level 4+\nCRI Green Label Plus™\nWorks with WELL\nEcoVadis Gold\nSBTi Net Zero',status:'yes'},
-  {ref:'38',app:'Flooring - indoor',cat:'Flooring - carpet',name:'Milliken HEAVY META — Alloy/Foundry',url:'https://www.milliken.com/en-us/flooring/products/carpet-tiles',size:'250×1000mm planks',price:'$46/m²',priceComp:'10% premium',supplier:'JJ Contract Carpets',aoRec:'RECOMMENDED',circ:'N/XT Life™ 100% recyclable, zero landfill guarantee.\n Installation off-cuts and  used tiles can be sent back for recycling into Renasci. Milliken cover transport fees contractors palletise for Milliken to ship.',fireClass:'Confirm with Manufacturer\nTest required:\nClass 9b AS ISO 9239-1 PASS',certs:'Declare Red List Free\nC2C Silver\nECS Level 4+\nCRI Green Label Plus™\nWorks with WELL\nEcoVadis Gold\nSBTi Net Zero',status:'yes'},
-  {ref:'38',app:'Flooring - indoor',cat:'Flooring - carpet',name:'Milliken HEAVY META — Alloy/Foundry',url:'https://www.milliken.com/en-us/flooring/products/carpet-tiles',size:'250×1000mm planks',price:'$46/m²',priceComp:'10% premium',supplier:'Citrus Commercial Group',aoRec:'RECOMMENDED',circ:'N/XT Life™ 100% recyclable, zero landfill guarantee.\n Installation off-cuts and  used tiles can be sent back for recycling into Renasci. Milliken cover transport fees contractors palletise for Milliken to ship.',fireClass:'Confirm with Manufacturer\nTest required:\nClass 9b AS ISO 9239-1 PASS',certs:'Declare Red List Free\nC2C Silver\nECS Level 4+\nCRI Green Label Plus™\nWorks with WELL\nEcoVadis Gold\nSBTi Net Zero',status:'yes'},
-  {ref:'39',app:'Flooring - indoor',cat:'Flooring - Vinyl',name:'Milliken TOPIARY — Rigid Core LVT',url:'https://www.milliken.com/en-us/flooring/products/carpet-tiles',size:'6mm 232×1532mm planks; 0.50mm wear layer',price:'$34/m²',priceComp:'Price competitive',supplier:'Milliken & Company',aoRec:'RECOMMENDED',circ:'Resiloop program for resilient flooring - accept off-cuts to be recycled',fireClass:'Confirm with Manufacturer\nTest required:\nClass 9b AS ISO 9239-1 PASS',certs:'✓ Declare RED LIST FREE\nEPD\nGreenRate Global GreenTag\nBest Practice PVC\nWorks with WELL\nM/PACT™ Carbon Neutral',status:'yes'},
-  {ref:'39',app:'Flooring - indoor',cat:'Flooring - Vinyl',name:'Milliken TOPIARY — Rigid Core LVT',url:'https://www.milliken.com/en-us/flooring/products/carpet-tiles',size:'6mm 232×1532mm planks; 0.50mm wear layer',price:'$34/m²',priceComp:'Price competitive',supplier:'JJ Contract Carpets',aoRec:'RECOMMENDED',circ:'Resiloop program for resilient flooring - accept off-cuts to be recycled',fireClass:'Confirm with Manufacturer\nTest required:\nClass 9b AS ISO 9239-1 PASS',certs:'✓ Declare RED LIST FREE\nEPD\nGreenRate Global GreenTag\nBest Practice PVC\nWorks with WELL\nM/PACT™ Carbon Neutral',status:'yes'},
-  {ref:'39',app:'Flooring - indoor',cat:'Flooring - Vinyl',name:'Milliken TOPIARY — Rigid Core LVT',url:'https://www.milliken.com/en-us/flooring/products/carpet-tiles',size:'6mm 232×1532mm planks; 0.50mm wear layer',price:'$34/m²',priceComp:'Price competitive',supplier:'Citrus Commercial Group',aoRec:'RECOMMENDED',circ:'Resiloop program for resilient flooring - accept off-cuts to be recycled',fireClass:'Confirm with Manufacturer\nTest required:\nClass 9b AS ISO 9239-1 PASS',certs:'✓ Declare RED LIST FREE\nEPD\nGreenRate Global GreenTag\nBest Practice PVC\nWorks with WELL\nM/PACT™ Carbon Neutral',status:'yes'},
-  {ref:'40',app:'Flooring - indoor',cat:'Flooring - Vinyl',name:'Milliken RENASCI — Circular Mixed Polymer Flooring',url:'https://www.milliken.com/en-us/flooring/products/carpet-tiles',size:'500×1000mm tiles; 6.5mm; 0.50mm integrated PU wear layer',price:'$55/m²',priceComp:'20% premium',supplier:'Milliken & Company',aoRec:'RECOMMENDED',circ:'RENASCI is made FROM 80% carpet waste + 20% soft plastic waste  — the  N/XT Life™ circular loop.  Installation off-cuts and  used tiles can be sent back for recycling into Renasci. Milliken cover transport fees contractors palletise for Milliken to ship.',fireClass:'(TBC Confirm with Manufacturer) Test:\nClass 9b AS ISO 9239-1 PASS',certs:'N/XT Life™ (physical product)\nPatent Pending technology\nP3 & R10 slip resistance',status:'yes'},
-  {ref:'40',app:'Flooring - indoor',cat:'Flooring - Vinyl',name:'Milliken RENASCI — Circular Mixed Polymer Flooring',url:'https://www.milliken.com/en-us/flooring/products/carpet-tiles',size:'500×1000mm tiles; 6.5mm; 0.50mm integrated PU wear layer',price:'$55/m²',priceComp:'20% premium',supplier:'JJ Contract Carpets',aoRec:'RECOMMENDED',circ:'RENASCI is made FROM 80% carpet waste + 20% soft plastic waste  — the  N/XT Life™ circular loop.  Installation off-cuts and  used tiles can be sent back for recycling into Renasci. Milliken cover transport fees contractors palletise for Milliken to ship.',fireClass:'(TBC Confirm with Manufacturer) Test:\nClass 9b AS ISO 9239-1 PASS',certs:'N/XT Life™ (physical product)\nPatent Pending technology\nP3 & R10 slip resistance',status:'yes'},
-  {ref:'40',app:'Flooring - indoor',cat:'Flooring - Vinyl',name:'Milliken RENASCI — Circular Mixed Polymer Flooring',url:'https://www.milliken.com/en-us/flooring/products/carpet-tiles',size:'500×1000mm tiles; 6.5mm; 0.50mm integrated PU wear layer',price:'$55/m²',priceComp:'20% premium',supplier:'Citrus Commercial Group',aoRec:'RECOMMENDED',circ:'RENASCI is made FROM 80% carpet waste + 20% soft plastic waste  — the  N/XT Life™ circular loop.  Installation off-cuts and  used tiles can be sent back for recycling into Renasci. Milliken cover transport fees contractors palletise for Milliken to ship.',fireClass:'(TBC Confirm with Manufacturer) Test:\nClass 9b AS ISO 9239-1 PASS',certs:'N/XT Life™ (physical product)\nPatent Pending technology\nP3 & R10 slip resistance',status:'yes'},
+  {ref:'33',app:'Flooring - indoor',cat:'Flooring - carpet',name:'Milliken AMPLIFIER — Beats/Echo/Treble/Octave',url:'https://www.jjcontractcarpets.com.au/',size:'500×500mm tiles',price:'$22/m²',priceComp:'Price competitive',supplier:'JJ carpets',aoRec:'RECOMMENDED',circ:'N/XT Life™ 100% recyclable, zero landfill guarantee. Installation off-cuts and  used tiles can be sent back for recycling into Renasci. Milliken cover transport fees contractors palletise for Milliken to ship.',fireClass:'Confirm with Manufacturer\nTest required:\nClass 9b AS ISO 9239-1 PASS',certs:'Declare Red List Free\nC2C Silver\nECS Level 4+\nCRI Green Label Plus™\nWorks with WELL\nEcoVadis Gold\nSBTi Net Zero',status:'yes'},
+  {ref:'33',app:'Flooring - indoor',cat:'Flooring - carpet',name:'Milliken AMPLIFIER — Beats/Echo/Treble/Octave',url:'https://citruscommercialgroup.com.au/',size:'500×500mm tiles',price:'$22/m²',priceComp:'Price competitive',supplier:'Citrus group',aoRec:'RECOMMENDED',circ:'N/XT Life™ 100% recyclable, zero landfill guarantee. Installation off-cuts and  used tiles can be sent back for recycling into Renasci. Milliken cover transport fees contractors palletise for Milliken to ship.',fireClass:'Confirm with Manufacturer\nTest required:\nClass 9b AS ISO 9239-1 PASS',certs:'Declare Red List Free\nC2C Silver\nECS Level 4+\nCRI Green Label Plus™\nWorks with WELL\nEcoVadis Gold\nSBTi Net Zero',status:'yes'},
+  {ref:'34',app:'Flooring - indoor',cat:'Flooring - carpet',name:'Milliken DISTINCT FORMS — Cement/Construction',url:'https://www.jjcontractcarpets.com.au/',size:'500×500mm tiles',price:'$25/m²',priceComp:'Price competitive',supplier:'JJ carpets',aoRec:'RECOMMENDED',circ:'N/XT Life™ 100% recyclable, zero landfill guarantee.\n Installation off-cuts and  used tiles can be sent back for recycling into Renasci. Milliken cover transport fees contractors palletise for Milliken to ship.',fireClass:'Confirm with Manufacturer\nTest required:\nClass 9b AS ISO 9239-1 PASS',certs:'Declare Red List Free\nC2C Silver\nECS Level 4+\nCRI Green Label Plus™\nWorks with WELL\nEcoVadis Gold\nSBTi Net Zero',status:'yes'},
+  {ref:'34',app:'Flooring - indoor',cat:'Flooring - carpet',name:'Milliken DISTINCT FORMS — Cement/Construction',url:'https://citruscommercialgroup.com.au/',size:'500×500mm tiles',price:'$25/m²',priceComp:'Price competitive',supplier:'Citrus group',aoRec:'RECOMMENDED',circ:'N/XT Life™ 100% recyclable, zero landfill guarantee.\n Installation off-cuts and  used tiles can be sent back for recycling into Renasci. Milliken cover transport fees contractors palletise for Milliken to ship.',fireClass:'Confirm with Manufacturer\nTest required:\nClass 9b AS ISO 9239-1 PASS',certs:'Declare Red List Free\nC2C Silver\nECS Level 4+\nCRI Green Label Plus™\nWorks with WELL\nEcoVadis Gold\nSBTi Net Zero',status:'yes'},
+  {ref:'35',app:'Flooring - indoor',cat:'Flooring - carpet',name:'Milliken MAJOR FREQUENCY ONE — Vibration/Distortion',url:'https://www.jjcontractcarpets.com.au/',size:'25×100cm planks',price:'$34/m²',priceComp:'Price competitive',supplier:'JJ carpets',aoRec:'RECOMMENDED',circ:'N/XT Life™ 100% recyclable, zero landfill guarantee.\n Installation off-cuts and  used tiles can be sent back for recycling into Renasci. Milliken cover transport fees contractors palletise for Milliken to ship.',fireClass:'Confirm with Manufacturer\nTest required:\nClass 9b AS ISO 9239-1 PASS',certs:'Declare Red List Free\nC2C Silver\nECS Level 4+\nCRI Green Label Plus™\nWorks with WELL\nEcoVadis Gold\nSBTi Net Zero',status:'yes'},
+  {ref:'35',app:'Flooring - indoor',cat:'Flooring - carpet',name:'Milliken MAJOR FREQUENCY ONE — Vibration/Distortion',url:'https://citruscommercialgroup.com.au/',size:'25×100cm planks',price:'$34/m²',priceComp:'Price competitive',supplier:'Citrus group',aoRec:'RECOMMENDED',circ:'N/XT Life™ 100% recyclable, zero landfill guarantee.\n Installation off-cuts and  used tiles can be sent back for recycling into Renasci. Milliken cover transport fees contractors palletise for Milliken to ship.',fireClass:'Confirm with Manufacturer\nTest required:\nClass 9b AS ISO 9239-1 PASS',certs:'Declare Red List Free\nC2C Silver\nECS Level 4+\nCRI Green Label Plus™\nWorks with WELL\nEcoVadis Gold\nSBTi Net Zero',status:'yes'},
+  {ref:'36',app:'Flooring - indoor',cat:'Flooring - carpet',name:'Milliken WHALE SONG AUNZ — Beluga/Humpback',url:'https://www.jjcontractcarpets.com.au/',size:'500×500mm tiles',price:'$37/m²',priceComp:'Price competitive',supplier:'JJ carpets',aoRec:'RECOMMENDED',circ:'N/XT Life™ 100% recyclable, zero landfill guarantee.\n Installation off-cuts and  used tiles can be sent back for recycling into Renasci. Milliken cover transport fees contractors palletise for Milliken to ship.',fireClass:'Confirm with Manufacturer\nTest required:\nClass 9b AS ISO 9239-1 PASS',certs:'Declare Red List Free\nC2C Silver\nECS Level 4+\nCRI Green Label Plus™\nWorks with WELL\nEcoVadis Gold\nSBTi Net Zero',status:'yes'},
+  {ref:'36',app:'Flooring - indoor',cat:'Flooring - carpet',name:'Milliken WHALE SONG AUNZ — Beluga/Humpback',url:'https://citruscommercialgroup.com.au/',size:'500×500mm tiles',price:'$37/m²',priceComp:'Price competitive',supplier:'Citrus group',aoRec:'RECOMMENDED',circ:'N/XT Life™ 100% recyclable, zero landfill guarantee.\n Installation off-cuts and  used tiles can be sent back for recycling into Renasci. Milliken cover transport fees contractors palletise for Milliken to ship.',fireClass:'Confirm with Manufacturer\nTest required:\nClass 9b AS ISO 9239-1 PASS',certs:'Declare Red List Free\nC2C Silver\nECS Level 4+\nCRI Green Label Plus™\nWorks with WELL\nEcoVadis Gold\nSBTi Net Zero',status:'yes'},
+  {ref:'37',app:'Flooring - indoor',cat:'Flooring - carpet',name:'Milliken SALT LAKE — Fata Morgana/Strata/Crystals',url:'https://www.jjcontractcarpets.com.au/',size:'250×1000mm plank & 100×100cm tile',price:'$39/m²',priceComp:'Price competitive',supplier:'JJ carpets',aoRec:'RECOMMENDED',circ:'N/XT Life™ 100% recyclable, zero landfill guarantee.\n Installation off-cuts and  used tiles can be sent back for recycling into Renasci. Milliken cover transport fees contractors palletise for Milliken to ship.',fireClass:'Confirm with Manufacturer\nTest required:\nClass 9b AS ISO 9239-1 PASS',certs:'Declare Red List Free\nC2C Silver\nECS Level 4+\nCRI Green Label Plus™\nWorks with WELL\nEcoVadis Gold\nSBTi Net Zero',status:'yes'},
+  {ref:'37',app:'Flooring - indoor',cat:'Flooring - carpet',name:'Milliken SALT LAKE — Fata Morgana/Strata/Crystals',url:'https://citruscommercialgroup.com.au/',size:'250×1000mm plank & 100×100cm tile',price:'$39/m²',priceComp:'Price competitive',supplier:'Citrus group',aoRec:'RECOMMENDED',circ:'N/XT Life™ 100% recyclable, zero landfill guarantee.\n Installation off-cuts and  used tiles can be sent back for recycling into Renasci. Milliken cover transport fees contractors palletise for Milliken to ship.',fireClass:'Confirm with Manufacturer\nTest required:\nClass 9b AS ISO 9239-1 PASS',certs:'Declare Red List Free\nC2C Silver\nECS Level 4+\nCRI Green Label Plus™\nWorks with WELL\nEcoVadis Gold\nSBTi Net Zero',status:'yes'},
+  {ref:'38',app:'Flooring - indoor',cat:'Flooring - carpet',name:'Milliken HEAVY META — Alloy/Foundry',url:'https://www.jjcontractcarpets.com.au/',size:'250×1000mm planks',price:'$46/m²',priceComp:'10% premium',supplier:'JJ carpets',aoRec:'RECOMMENDED',circ:'N/XT Life™ 100% recyclable, zero landfill guarantee.\n Installation off-cuts and  used tiles can be sent back for recycling into Renasci. Milliken cover transport fees contractors palletise for Milliken to ship.',fireClass:'Confirm with Manufacturer\nTest required:\nClass 9b AS ISO 9239-1 PASS',certs:'Declare Red List Free\nC2C Silver\nECS Level 4+\nCRI Green Label Plus™\nWorks with WELL\nEcoVadis Gold\nSBTi Net Zero',status:'yes'},
+  {ref:'38',app:'Flooring - indoor',cat:'Flooring - carpet',name:'Milliken HEAVY META — Alloy/Foundry',url:'https://citruscommercialgroup.com.au/',size:'250×1000mm planks',price:'$46/m²',priceComp:'10% premium',supplier:'Citrus group',aoRec:'RECOMMENDED',circ:'N/XT Life™ 100% recyclable, zero landfill guarantee.\n Installation off-cuts and  used tiles can be sent back for recycling into Renasci. Milliken cover transport fees contractors palletise for Milliken to ship.',fireClass:'Confirm with Manufacturer\nTest required:\nClass 9b AS ISO 9239-1 PASS',certs:'Declare Red List Free\nC2C Silver\nECS Level 4+\nCRI Green Label Plus™\nWorks with WELL\nEcoVadis Gold\nSBTi Net Zero',status:'yes'},
+  {ref:'39',app:'Flooring - indoor',cat:'Flooring - Vinyl',name:'Milliken TOPIARY — Rigid Core LVT',url:'https://www.jjcontractcarpets.com.au/',size:'6mm 232×1532mm planks; 0.50mm wear layer',price:'$34/m²',priceComp:'Price competitive',supplier:'JJ carpets',aoRec:'RECOMMENDED',circ:'Resiloop program for resilient flooring - accept off-cuts to be recycled',fireClass:'Confirm with Manufacturer\nTest required:\nClass 9b AS ISO 9239-1 PASS',certs:'✓ Declare RED LIST FREE\nEPD\nGreenRate Global GreenTag\nBest Practice PVC\nWorks with WELL\nM/PACT™ Carbon Neutral',status:'yes'},
+  {ref:'39',app:'Flooring - indoor',cat:'Flooring - Vinyl',name:'Milliken TOPIARY — Rigid Core LVT',url:'https://citruscommercialgroup.com.au/',size:'6mm 232×1532mm planks; 0.50mm wear layer',price:'$34/m²',priceComp:'Price competitive',supplier:'Citrus group',aoRec:'RECOMMENDED',circ:'Resiloop program for resilient flooring - accept off-cuts to be recycled',fireClass:'Confirm with Manufacturer\nTest required:\nClass 9b AS ISO 9239-1 PASS',certs:'✓ Declare RED LIST FREE\nEPD\nGreenRate Global GreenTag\nBest Practice PVC\nWorks with WELL\nM/PACT™ Carbon Neutral',status:'yes'},
+  {ref:'40',app:'Flooring - indoor',cat:'Flooring - Vinyl',name:'Milliken RENASCI — Circular Mixed Polymer Flooring',url:'https://www.jjcontractcarpets.com.au/',size:'500×1000mm tiles; 6.5mm; 0.50mm integrated PU wear layer',price:'$55/m²',priceComp:'20% premium',supplier:'JJ carpets',aoRec:'RECOMMENDED',circ:'RENASCI is made FROM 80% carpet waste + 20% soft plastic waste  — the  N/XT Life™ circular loop.  Installation off-cuts and  used tiles can be sent back for recycling into Renasci. Milliken cover transport fees contractors palletise for Milliken to ship.',fireClass:'(TBC Confirm with Manufacturer) Test:\nClass 9b AS ISO 9239-1 PASS',certs:'N/XT Life™ (physical product)\nPatent Pending technology\nP3 & R10 slip resistance',status:'yes'},
+  {ref:'40',app:'Flooring - indoor',cat:'Flooring - Vinyl',name:'Milliken RENASCI — Circular Mixed Polymer Flooring',url:'https://citruscommercialgroup.com.au/',size:'500×1000mm tiles; 6.5mm; 0.50mm integrated PU wear layer',price:'$55/m²',priceComp:'20% premium',supplier:'Citrus group',aoRec:'RECOMMENDED',circ:'RENASCI is made FROM 80% carpet waste + 20% soft plastic waste  — the  N/XT Life™ circular loop.  Installation off-cuts and  used tiles can be sent back for recycling into Renasci. Milliken cover transport fees contractors palletise for Milliken to ship.',fireClass:'(TBC Confirm with Manufacturer) Test:\nClass 9b AS ISO 9239-1 PASS',certs:'N/XT Life™ (physical product)\nPatent Pending technology\nP3 & R10 slip resistance',status:'yes'},
   {ref:'41',app:'Flooring - indoor',cat:'Flooring - carpet',name:'DESSO Desert EcoBase\nAir Purifying. Adhesive free install with Tarket tape',url:'https://professionals.tarkett.com/en_EU/collection-C001036-desert',size:'Carpet tile 500×500mm\n6.0mm thick',price:'$35 /m²',priceComp:'Price competitive',supplier:'Tarkett',aoRec:'RECOMMENDED',circ:'Made with 58% recycled content\nAU ReStart® -  Desso carpet tiles with Ecobase backing can be recycled at end of life at mill in The Netherlands.  A complete closed-loop product range and the leader in the market (verified by EPD’s) and  have  lowest carbon footprint.',fireClass:'Confirm with Manufacturer\nTest required: CRF 8.8 kW/m² (AS/ISO 9239.1) — meets Class 1 (≥4.5 kW/m²)',certs:'EPD S-P-09339\nMHS EPEA 39935.4 v3.0 (exp May 2026)\nGreenTag Level A\nC2C Material Health Silver\nGUT/Prodis\nAU ReStart®',status:'yes'},
   {ref:'42',app:'Flooring - indoor',cat:'Flooring - carpet',name:'DESSO Stratos EcoBase\nAir Purifying. Adhesive free install with Tarket tape',url:'https://professionals.tarkett.com/en_EU/collection-C001078-stratos',size:'Carpet tile 500×500mm\n5.5mm thick',price:'$31 /m²',priceComp:'Price competitive',supplier:'Tarkett',aoRec:'RECOMMENDED',circ:'Made with 70% recycled content\nAU ReStart® -  Desso carpet tiles with Ecobase backing can be recycled at end of life at mill in The Netherlands.  A complete closed-loop product range and the leader in the market (verified by EPD’s) and  have  lowest carbon footprint.',fireClass:'Confirm with Manufacturer\nTest required:\nCRF 6.1 kW/m² (AS/ISO 9239.1) — meets Class 1',certs:'EPD-IES-0014288\nMHS EPEA 39935.4 v3.0 (exp May 2026)\nGreenTag Level A\nC2C Material Health Silver\nGUT/Prodis\nAU ReStart®',status:'yes'},
   {ref:'43',app:'Flooring - indoor',cat:'Flooring - Vinyl',name:'Tarkett iD Square Loose-Lay LVT (No Adhesive)',url:'https://professionals.tarkett.com/en_EU/collection-C000117-id-square-loose-lay',size:'Modular LVT plank 200mm x 1200mm\n250mm x 1000mm\n129mm x 646mm',price:'$43 /m² plank',priceComp:'Price competitive. Loose-lay eliminates adhesive cost and improves DfD and circular EOL',supplier:'Tarkett',aoRec:'RECOMMENDED',circ:'20% post-industrial recycled content.\nGlobal ReStart® LVT.  Recycling via European mill  turned into part of the backing for new HE vinyl.',fireClass:'Confirm with Manufacturer\nTest required:\nAU CRF (AS 9239.1)',certs:'EPD EPD-EIS-01352 v3 (valid 2030)\nMHS EPEA 45605 v3.0 (exp Oct 2027)\nPlatinum VOC ≤10 µg/m³\nBEP PVC Licence (TAR:FW01:2023:BP)',status:'yes'},
   {ref:'44',app:'Flooring - indoor',cat:'Flooring - Vinyl',name:'Tarkett iD Tilt HIT LVT (Heavy Industrial) (No Adhesive)',url:'https://professionals.tarkett.com.au/en_AU/collection-C002187-id-tilt-hit',size:'Interlocking LVT\n6.0mm total\n2.70mm wear layer (3–4× standard) \n645mm x 645mm',price:'$67 /m² — highest price in Tarkett AU range',priceComp:'20% premium. For I43 Heavy industrial applications requiring maximum wear resistance',supplier:'Tarkett',aoRec:'RECOMMENDED',circ:'15% post-industrial recycled content.\nRecycling via European mill  turned into part of the backing for new HE vinyl.   iD Tilt Hit is one of the only modular products with an “Industrial” rating and should be able to be used for many events before needing recycling.',fireClass:'Confirm with Manufacturer\nTest required: CRF ≥11.0 kW/m² (AS/ISO 9239.1) — meets Class 1 (≥4.5 kW/m²)',certs:'EPD S-P-08634 (valid 2028)\nMHS EPEA 40579.2 v3.0 (exp Oct 2026)\nPlatinum VOC ≤10 µg/m³\nGreenTag Level A\nBEP PVC Licence',status:'yes'},
   {ref:'45',app:'Flooring - indoor',cat:'Flooring - Vinyl',name:'Tarkett Granit Safe.T (Safety/Slip-Resistant - R11/P4)',url:'https://professionals.tarkett.com.au/en_AU/collection-C000096-granit-safe-t',size:'Roll 2m × 25m\n2.0mm',price:'$35 /m²',priceComp:'Price competitive',supplier:'Tarkett',aoRec:'RECOMMENDED',circ:'20% post-industrial recycled content.\nGlobal ReStart® LVT.  Recycling via European mill  turned into part of the backing for new HE vinyl.',fireClass:'Confirm with Manufacturer\nTest required:\nCRF 11.0 kW/m² (AS/ISO 9239.1)\nSmoke 88%.min',certs:'EPD EPD-IES-0001346:006 (valid 2030)\nMHS EPEA 45597 v3.0 (exp Aug 2027)\nPlatinum VOC ≤10 µg/m³\nGreenTag Level A + HealthRATE Platinum\nBEP PVC Licence TAR:FW01:2023:BP\nAU ReStart®',status:'yes'},
-  {ref:'51',app:'Joinery/ Cabinetry/ wall flats',cat:'Engineered wood',name:'Paperock SOLID \nPhenolic Paper Composite (Compact Laminate equivalent)',url:'www.paperock.com.au/paperock-solid',size:'6mm up to 25mm\n2450 x1230mm\n3050 x 1230mm sheets',price:'$110/ m²',priceComp:'An alternative to MDF\n2x price however is highly suited to modular design/ storage & refurb\nDiscounts apply: \n0-20 sheets 5% \n21 - 35 sheets 7.5% \n36 - 50 sheets 10% \n51+ sheets 15%',supplier:'Paperock',aoRec:'RECOMMENDED',circ:'Non recyclable; no take-back. Excellent durability = long service life reduces replacement frequency.\n\n— confirm fire Group rating (AS 5637.1), commission EPD, and obtain formal E0 formaldehyde certificate before AO programme specification.',fireClass:'All cabinetry / wall flats that are permanently affixed to floors or walls need to have a Group 1 or 2 rating with a minimum Critical Radiant Flux of  2.2 kW/m2',certs:'Silica FREE\nAustralian Made\nNone — no LBC Declaration for SOLID (LBC Declaration',status:'yes'},
-  {ref:'52',app:'Joinery/ Cabinetry/ wall flats',cat:'Engineered wood',name:'Paperock PLY - good for refurb\nFSC Birch Plywood with Phenolic Paper Composite Faces',url:'www.paperock.com.au/paperock-ply',size:'19mm - 28mm\n2400×1200mm sheets',price:'$200/ m²',priceComp:'An alternative to MDF\n3x price however is highly suited to modular design/ storage and refurb\nDiscounts apply: \n0-20 sheets 5% \n21 - 35 sheets 7.5% \n36 - 50 sheets 10% \n51+ sheets 15%',supplier:'Paperock',aoRec:'CONDITIONAL',circ:'Composite bonded panel difficult to recycle.',fireClass:'All cabinetry / wall flats that are permanently affixed to floors or walls need to have a Group 1 or 2 rating with a minimum Critical Radiant Flux of  2.2 kW/m2',certs:'Australian Made\nNone — LBC Declaration (12 May 2025) \n— provide current FSC certificate (expired Oct 2024), fire Group rating (AS 5637.1), and commission EPD before AO programme specification.',status:'maybe'},
-  {ref:'53',app:'Joinery/ Cabinetry/ wall flats',cat:'Engineered wood',name:'Paperock TACTILE\nHPL-Faced FSC Birch Plywood',url:'www.paperock.com.au/paperock-tactile',size:'19mm- 25mm\n 2400×1200mm sheets',price:'$198 /m²',priceComp:'An alternative to MDF\n3x price however is highly suited to modular design/ storage and refurb\nDiscounts apply: \n0-20 sheets 5% \n21 - 35 sheets 7.5% \n36 - 50 sheets 10% \n51+ sheets 15%',supplier:'Paperock',aoRec:'CONDITIONAL',circ:'Composite panel difficult to recycle. Durable surface extends service life.',fireClass:'All cabinetry / wall flats that are permanently affixed to floors or walls need to have a Group 1 or 2 rating with a minimum Critical Radiant Flux of  2.2 kW/m2',certs:'Silica FREE\nAustralian Made\nLBC Declaration Letter \nRenew GREENGUARD Gold certificate (expired May 2025), obtain current FSC plywood certificate (expired Oct 2024)',status:'maybe'},
+  {ref:'51',app:'Joinery/ Cabinetry/ wall flats',cat:'Engineered wood',name:'Paperock SOLID \nPhenolic Paper Composite (Compact Laminate equivalent)\n* Alternative to MDF suited to modular design/ storage & refurb',url:'www.paperock.com.au/paperock-solid',size:'6mm up to 25mm\n2450 x1230mm\n3050 x 1230mm sheets',price:'$110/ m²',priceComp:'2x price. Discounts apply: <20 sheets 5% to 51+ sheets 15%',supplier:'Paperock',aoRec:'RECOMMENDED',circ:'Non recyclable; no take-back. Excellent durability = long service life reduces replacement frequency.',fireClass:'All cabinetry / wall flats that are permanently affixed to floors or walls need to have a Group 1 or 2 rating with a minimum Critical Radiant Flux of  2.2 kW/m2',certs:'Silica FREE\nAustralian Made\nNone — no LBC Declaration for SOLID (LBC Declaration',status:'yes'},
+  {ref:'52',app:'Joinery/ Cabinetry/ wall flats',cat:'Engineered wood',name:'Paperock PLY - good for refurb\nFSC Birch Plywood with Phenolic Paper Composite Faces\n* Alternative to MDF suited to modular design/ storage & refurb',url:'www.paperock.com.au/paperock-ply',size:'19mm - 28mm\n2400×1200mm sheets',price:'$200/ m²',priceComp:'3x price. Discounts apply: <20 sheets 5% to 51+ sheets 15%',supplier:'Paperock',aoRec:'CONDITIONAL',circ:'Composite bonded panel difficult to recycle.',fireClass:'All cabinetry / wall flats that are permanently affixed to floors or walls need to have a Group 1 or 2 rating with a minimum Critical Radiant Flux of  2.2 kW/m2',certs:'Australian Made\nNone — LBC Declaration (12 May 2025) \n— provide current FSC certificate (expired Oct 2024), fire Group rating (AS 5637.1), and commission EPD before AO programme specification.',status:'maybe'},
+  {ref:'53',app:'Joinery/ Cabinetry/ wall flats',cat:'Engineered wood',name:'Paperock TACTILE\nHPL-Faced FSC Birch Plywood\n* Alternative to MDF suited to modular design/ storage & refurb',url:'www.paperock.com.au/paperock-tactile',size:'19mm- 25mm\n 2400×1200mm sheets',price:'$198 /m²',priceComp:'3x price. Discounts apply: <20 sheets 5% to 51+ sheets 15%',supplier:'Paperock',aoRec:'CONDITIONAL',circ:'Composite panel difficult to recycle. Durable surface extends service life.',fireClass:'All cabinetry / wall flats that are permanently affixed to floors or walls need to have a Group 1 or 2 rating with a minimum Critical Radiant Flux of  2.2 kW/m2',certs:'Silica FREE\nAustralian Made\nLBC Declaration Letter \nRenew GREENGUARD Gold certificate (expired May 2025), obtain current FSC plywood certificate (expired Oct 2024)',status:'maybe'},
   {ref:'54',app:'Joinery/ Cabinetry/ wall flats',cat:'Engineered wood',name:'Low Pressure Melamine Particleboard  LPM STD Particleboard',url:'www.polytec.com.au/melamine/',size:'9mm- 25mm\nSheets: 2400×1200mm',price:'16mm from $35/m²\n18mm from $40/m²\n 25mm from $55/m²\n (Matt finish)',priceComp:'Price competitive',supplier:'Porta Products',aoRec:'RECOMMENDED',circ:'TBC - if can be recycled.  EOL: energy recovery or landfill. Biomass incineration is viable EOL.',fireClass:'All cabinetry / wall flats that are permanently affixed to floors or walls need to have a Group 1 or 2 rating with a minimum Critical Radiant Flux of  2.2 kW/m2',certs:'EPD: BOR:CP01:2025:EP (Global GreenTag, valid Jul 2030)\nPEFC/Responsible Wood CoC: EWPAA-RW-COC-253 (valid Jul 2028)\nGreenTag GreenRate Level A: BOR:CP02:2024:GR (STD, expires 17 Feb 2026 — RENEW)\nAustralian Made and Owned\nEWPAA Formaldehyde E1 Cert\n\n— Upgrade to E0 substrate and confirm GreenTag renewal (expiring Feb 2026) to strengthen.',status:'yes'},
   {ref:'55',app:'Joinery/ Cabinetry/ wall flats',cat:'Engineered wood - recycled plastic alternative',name:'EKOply Board — 100% Recycled Post-Consumer Plastic',url:'www.ausfab.com.au/ekoply/',size:'2440 × 1220mm sheets \n19mm\n12.5mm Anti-Slip\n20mm',price:'12.5 mm  $272\n19 mm $291',priceComp:'$TBC',supplier:'AusFab',aoRec:'CONDITIONAL',circ:'TBC - if can be recycled.  Resolve fire performance gap and EPD programme compatibility',fireClass:'All cabinetry / wall flats that are permanently affixed to floors or walls need to have a Group 1 or 2 rating with a minimum Critical Radiant Flux of  2.2 kW/m2',certs:'',status:'maybe'},
-  {ref:'56',app:'Joinery/ Cabinetry/ wall flats',cat:'Engineered wood',name:'Laminex Compact Laminate Multipurpose  (HPL-Type, Phenolic Core)',url:'www.laminex.com.au/products/compact-laminate',size:'13mm (18.46 kg/m²)\n18mm (25.2 kg/m²)\nPanels: 3600×1500mm or 3600×750mm',price:'13mm: $140/m²\n18mm: $185 /m²',priceComp:'An alternative to MDF\n3x price however is highly suited to modular design/ storage and refurb',supplier:'Laminex Group',aoRec:'RECOMMENDED',circ:'Diffcicult to recycle\nEOL:  landfill or energy recovery.',fireClass:'All cabinetry / wall flats that are permanently affixed to floors or walls need to have a Group 1 or 2 rating with a minimum Critical Radiant Flux of  2.2 kW/m2',certs:'EPD: LGLP04 2023EP (Global GreenTag, valid Jul 2028)\nPEFC/Responsible Wood CoC\nDeclare Red List Approved\nGECA\nISO 14001\nSVHC-free',status:'yes'},
-  {ref:'57',app:'Joinery/ Cabinetry/ wall flats',cat:'Engineered wood',name:'Laminex Decorated Particleboard (Low Pressure Melamine)',url:'www.laminex.com.au/products/particleboard',size:'18mm (11.4 kg/m²)\n25mm (17.6 kg/m²)\nRange: 9mm–38mm',price:'18mm: $30 /m²\n25mm: $37 /m²',priceComp:'A price competitive alternative to MDF',supplier:'Laminex Group',aoRec:'RECOMMENDED',circ:'Particleboard subsrate should be recyclable\n\nSpecify E0 grade; confirm fire Group rating;',fireClass:'All cabinetry / wall flats that are permanently affixed to floors or walls need to have a Group 1 or 2 rating with a minimum Critical Radiant Flux of  2.2 kW/m2',certs:'EPD: IES-0017524:001 (Intl EPD System, valid to 2030)\nPEFC/Responsible Wood CoC\nDeclare Red List Approved\nGECA\nISO 14001',status:'yes'},
-  {ref:'58',app:'Joinery/ Cabinetry/ wall flats',cat:'Engineered wood',name:'Laminex Raw Particleboard (Trade Essentials®)',url:'www.laminex.com.au/products/particleboard',size:'16mm (10 kg/m²)\n18mm (11 kg/m²)\n25mm (15 kg/m²)\n33mm (21 kg/m²)\nRange: 9mm–38mm',price:'16mm: $10 /m²\n18mm: $12 /m²\n25mm: $17 /m²\n33mm: $25 /m²',priceComp:'Price competitive',supplier:'Laminex Group',aoRec:'RECOMMENDED',circ:'Particleboard subsrate should be recyclable\nconfirm fire Group rating',fireClass:'All cabinetry / wall flats that are permanently affixed to floors or walls need to have a Group 1 or 2 rating with a minimum Critical Radiant Flux of  2.2 kW/m2',certs:'EPD: IES-0017522:001 (Intl EPD System, valid to 2030)\nPEFC/Responsible Wood CoC\nDeclare Red List Approved\nGECA\nISO 14001\n— Outstanding EPD credentials (negative-carbon, 2025). Specify MR E0 grade;',status:'yes'},
-  {ref:'59',app:'Flooring - indoor',cat:'Flooring - engineered wood',name:'EnduraFloor by Laminex — Particleboard Flooring',url:'www.laminex.com.au',size:'19mm and 22mm thickness; sheet dimensions not stated in TDS — confirm via Part 2',price:'TBC',priceComp:'TBC if price competitive',supplier:'Laminex Group',aoRec:'CONDITIONAL',circ:'Particleboard generally non-recyclable — primary pathway is landfill.',fireClass:'(TBC confirm with manufacturer)\nClass 1 PASS — Critical Heat Flux 5.6 kW/m² (threshold ≥4.5 kW/m²). Smoke Value 9% min. Tested to AS/NZS 1860.1.',certs:'AS/NZS 1860.1 (product tested to)\nAS/NZS 1860.2 (installation standard)\nNo sustainability certifications declared',status:'maybe'},
-  {ref:'60',app:'Graphics/ surfaces',cat:'Surfaces - paint',name:'Paintback Greyscale water-based Paint',url:'paintback.com.au',size:'Standard litre containers — sizes not declared in SDS. Confirm with supplier',price:'$6.60/L',priceComp:'~30% less than commercial paints',supplier:'Paintback',aoRec:'RECOMMENDED',circ:'Highly circular paint product with 99%+ PCR content, active AU take-back, Green Star VOC compliance, and Australian manufacture.',fireClass:'Not flammable in liquid state. \nNo test required\nNCC VIC C2D11(3) - requirements for Fire Hazard Properties do not apply to paint',certs:'CONDITIONAL pending EPD, TDS, fire data, and Dec/Jan supply confirmation.',status:'yes'},
-  {ref:'61',app:'Graphics/ surfaces',cat:'Surfaces - paint',name:'Paintback Tinted water-based rWBP',url:'paintback.com.au',size:'Standard litre containers — sizes not declared. Confirm with supplier',price:'$7.20/L',priceComp:'Price competitive',supplier:'Paintback',aoRec:'RECOMMENDED',circ:'Most relevant Paintback product for AO brand colour requirements. 99%+ PCR base, active AU take-back, Australian made. Custom colour matching enables project-specific palette.',fireClass:'Not flammable in liquid state. \nNo test required\nNCC VIC C2D11(3) - requirements for Fire Hazard Properties do not apply to paint',certs:'CONDITIONAL pending EPD, TDS, tinted VOC confirmation, and Dec/Jan supply.',status:'yes'},
-  {ref:'62',app:'Joinery/ Cabinetry/ wall flats',cat:'Engineered wood',name:'SELEX® Plywood — Structural B/D & Non-Structural Pine  Structural CD',url:'https://forest.one',size:'2400×1200mm\n7–25mm.',price:'B/D 18mm: $80\nCD 18mm: $65',priceComp:'TBC: 20% Premium over local CD-pine  - verified EPD negative carbon',supplier:'Forest One',aoRec:'RECOMMENDED',circ:'Recyclable at EOL.',fireClass:'All cabinetry / wall flats that are permanently affixed to floors or walls need to have a Group 1 or 2 rating with a minimum Critical Radiant Flux of  2.2 kW/m2',certs:'EPD: S-P-02010 (Intl EPD System, valid 2027)\nClimate Declaration S-P-02010\nFSC® + PEFC™ CoC',status:'yes'},
+  {ref:'56',app:'Joinery/ Cabinetry/ wall flats',cat:'Engineered wood',name:'Laminex Compact Laminate Multipurpose  (HPL-Type, Phenolic Core)\n* Alternative to MDF suited to modular design/ storage & refurb',url:'www.laminex.com.au/products/compact-laminate',size:'13mm (18.46 kg/m²)\n18mm (25.2 kg/m²)\nPanels: 3600×1500mm or 3600×750mm',price:'13mm: $140/m²\n18mm: $185 /m²',priceComp:'An alternative to MDF',supplier:'Laminex Group',aoRec:'RECOMMENDED',circ:'Diffcicult to recycle\nEOL:  landfill or energy recovery.',fireClass:'All cabinetry / wall flats that are permanently affixed to floors or walls need to have a Group 1 or 2 rating with a minimum Critical Radiant Flux of  2.2 kW/m2',certs:'EPD: LGLP04 2023EP (Global GreenTag, valid Jul 2028)\nPEFC/Responsible Wood CoC\nDeclare Red List Approved\nGECA\nISO 14001\nSVHC-free',status:'yes'},
+  {ref:'57',app:'Joinery/ Cabinetry/ wall flats',cat:'Engineered wood',name:'Laminex Decorated Particleboard (Low Pressure Melamine)',url:'www.laminex.com.au/products/particleboard',size:'18mm (11.4 kg/m²)\n25mm (17.6 kg/m²)\nRange: 9mm–38mm',price:'18mm: $30 /m²\n25mm: $37 /m²',priceComp:'A price competitive alternative to MDF',supplier:'Laminex Group',aoRec:'RECOMMENDED',circ:'Particleboard subsrate should be recyclable\n\nSpecify E0 grade.',fireClass:'All cabinetry / wall flats that are permanently affixed to floors or walls need to have a Group 1 or 2 rating with a minimum Critical Radiant Flux of  2.2 kW/m2',certs:'EPD: IES-0017524:001 (Intl EPD System, valid to 2030)\nPEFC/Responsible Wood CoC\nDeclare Red List Approved\nGECA\nISO 14001',status:'yes'},
+  {ref:'58',app:'Joinery/ Cabinetry/ wall flats',cat:'Engineered wood',name:'Laminex Raw Particleboard (Trade Essentials®)',url:'www.laminex.com.au/products/particleboard',size:'16mm (10 kg/m²)\n18mm (11 kg/m²)\n25mm (15 kg/m²)\n33mm (21 kg/m²)\nRange: 9mm–38mm',price:'16mm: $10 /m²\n18mm: $12 /m²\n25mm: $17 /m²\n33mm: $25 /m²',priceComp:'Price competitive',supplier:'Laminex Group',aoRec:'RECOMMENDED',circ:'Particleboard subsrate should be recyclable',fireClass:'All cabinetry / wall flats that are permanently affixed to floors or walls need to have a Group 1 or 2 rating with a minimum Critical Radiant Flux of  2.2 kW/m2',certs:'EPD: IES-0017522:001 (Intl EPD System, valid to 2030)\nPEFC/Responsible Wood CoC\nDeclare Red List Approved\nGECA\nISO 14001\n— Outstanding EPD credentials (negative-carbon, 2025). Specify MR E0 grade;',status:'yes'},
+  {ref:'59',app:'Flooring - indoor',cat:'Flooring - engineered wood',name:'EnduraFloor by Laminex — Particleboard Flooring',url:'www.laminex.com.au',size:'19mm and 22mm thickness; sheet dimensions not stated in TDS — confirm via Part 2',price:'TBC',priceComp:'Confirm with supplier',supplier:'Laminex Group',aoRec:'CONDITIONAL',circ:'Particleboard generally non-recyclable — primary pathway is landfill.',fireClass:'(TBC confirm with manufacturer)\nClass 1 PASS — Critical Heat Flux 5.6 kW/m² (threshold ≥4.5 kW/m²). Smoke Value 9% min. Tested to AS/NZS 1860.1.',certs:'AS/NZS 1860.1 (product tested to)\nAS/NZS 1860.2 (installation standard)\nNo sustainability certifications declared',status:'maybe'},
+  {ref:'60',app:'Graphics/ surfaces',cat:'Surfaces - paint',name:'Paintback Greyscale water-based Paint',url:'paintback.com.au',size:'Standard litre containers',price:'$6.60/L',priceComp:'~30% less than commercial paints',supplier:'Paintback',aoRec:'RECOMMENDED',circ:'Highly circular paint product with 99%+ PCR content, active AU take-back, Green Star VOC compliance, and Australian manufacture.',fireClass:'Not flammable in liquid state. \nNo test required\nNCC VIC C2D11(3) - requirements for Fire Hazard Properties do not apply to paint',certs:'CONDITIONAL pending EPD, TDS, fire data, and Dec/Jan supply confirmation.',status:'yes'},
+  {ref:'61',app:'Graphics/ surfaces',cat:'Surfaces - paint',name:'Paintback Tinted water-based rWBP',url:'paintback.com.au',size:'Standard litre containers',price:'$7.20/L',priceComp:'Price competitive',supplier:'Paintback',aoRec:'RECOMMENDED',circ:'Most relevant Paintback product for AO brand colour requirements. 99%+ PCR base, active AU take-back, Australian made. Custom colour matching enables project-specific palette.',fireClass:'Not flammable in liquid state. \nNo test required\nNCC VIC C2D11(3) - requirements for Fire Hazard Properties do not apply to paint',certs:'CONDITIONAL pending EPD, TDS, tinted VOC confirmation, and Dec/Jan supply.',status:'yes'},
+  {ref:'62',app:'Joinery/ Cabinetry/ wall flats',cat:'Engineered wood',name:'SELEX® Plywood — Structural B/D & Non-Structural Pine  Structural CD',url:'https://forest.one',size:'2400×1200mm\n7–25mm.',price:'B/D 18mm: $80\nCD 18mm: $65',priceComp:'20% Premium over local CD-pine - verified EPD negative carbon',supplier:'Forest One',aoRec:'RECOMMENDED',circ:'Yes - can be recycled',fireClass:'All cabinetry / wall flats that are permanently affixed to floors or walls need to have a Group 1 or 2 rating with a minimum Critical Radiant Flux of  2.2 kW/m2',certs:'EPD: S-P-02010 (Intl EPD System, valid 2027)\nClimate Declaration S-P-02010\nFSC® + PEFC™ CoC',status:'yes'},
   {ref:'63',app:'Framing & structures',cat:'Engineered wood',name:'EGGER OSB 3 E0 — Oriented Strand Board',url:'https://forest.one/',size:'6–40mm\n2050–6300mm × 590–2800mm',price:'2500 x 1250mm\n12mm - $60 /sheet\n18mm - $89 /sheet',priceComp:'Competitive vs imported OSB. AU supply via Forest One.',supplier:'Forest One',aoRec:'RECOMMENDED',circ:'Yes - can be recycled',fireClass:'Confirm with Manufacturer\nOnly tested to AS 1530.3 - further testing required (AS 5637.1)',certs:'EPD: EPD-EGG-20240403-IBD2-EN (IBU, valid 2029)\nISO 38200:2018\nSVHC/REACH CLEAN\nAgBB (DIBt)',status:'yes'},
   {ref:'64',app:'Joinery/ Cabinetry/ wall flats',cat:'Engineered wood',name:'EGGER Eurodekor® MFC Panels —Super E0',url:'https://forest.one/',size:'2800×2070mm\n18mm - 25mm',price:'18mm from $40 /m²\n25mm from $48 /m²',priceComp:'Potential alternative to MDF.\nStandard market pricing for premium MFC — competitive with Laminex decorated particleboard',supplier:'Forest One',aoRec:'RECOMMENDED',circ:'76% recycled content (24% PCR). EGGER closed-loop chipboard. Recyclable at EOL.',fireClass:'All cabinetry / wall flats that are permanently affixed to floors or walls need to have a Group 1 or 2 rating with a minimum Critical Radiant Flux of  2.2 kW/m2',certs:'EPD: IBU (Eurodekor MFC)\nTÜV PROFiCERT-product Interior PREMIUM\nISO 38200:2018\nREACH CLEAN',status:'yes'},
   {ref:'65',app:'Joinery/ Cabinetry/ wall flats',cat:'Engineered wood',name:'EGGER Eurodekor® Feelwood MFC Panels —Super E0 ( MR Particleboard)',url:'https://forest.one/',size:'2800×2070mm\n18mm - 25mm',price:'18mm from $53 /m²\n25mm from $82 /m²',priceComp:'Potential alternative to MDF.\nPremium over Eurodekor MFC (~85%). Eliminates post-paint cost — lower lifecycle cost vs painted MDF.',supplier:'Forest One',aoRec:'RECOMMENDED',circ:'76% recycled content (24% PCR). EGGER closed-loop chipboard. Recyclable at EOL.',fireClass:'All cabinetry / wall flats that are permanently affixed to floors or walls need to have a Group 1 or 2 rating with a minimum Critical Radiant Flux of  2.2 kW/m2',certs:'EPD: IBU (Eurodekor MFC)\nTÜV PROFiCERT-product Interior PREMIUM\nISO 38200:2018\nREACH CLEAN',status:'yes'},
   {ref:'66',app:'Joinery/ Cabinetry/ wall flats',cat:'Engineered wood',name:'EGGER Laminate — CPL (Continuous Pressure Laminate)',url:'https://forest.one/',size:'3650×1310×0.8mm (standard)\n(PerfectSense)\n2790×2060×0.8mm (Feelwood)',price:'Standard - $33 /m2\nFeelwood - $64 /m2\nPerfectSense Matt - $73 /m2',priceComp:'Potential alternative to MDF.\nStandard market pricing for premium MFC — competitive with Laminex decorated laminate',supplier:'Forest One',aoRec:'RECOMMENDED',circ:'Not recyclable',fireClass:'All cabinetry / wall flats that are permanently affixed to floors or walls need to have a Group 1 or 2 rating with a minimum Critical Radiant Flux of  2.2 kW/m2',certs:'EPD: EPD-EGG-20230338-IBD1-EN (IBU, valid 2029)\nTÜV PROFiCERT-product Interior PREMIUM\nREACH CLEAN',status:'yes'},
   {ref:'67',app:'Joinery/ Cabinetry/ wall flats',cat:'Engineered wood',name:'EGGER PerfectSense® Lacquered ParticleBoard — Feelwood & Texture',url:'https://forest.one/',size:'2800×2070mm\n18mm and 25mm MR PB',price:'18mm: $74 /m²\n25mm: $82 /m²',priceComp:'Potential alternative to MDF.\nPremium over Eurodekor MFC (~85%). Eliminates post-paint cost — lower lifecycle cost vs painted MDF.',supplier:'Forest One',aoRec:'RECOMMENDED',circ:'68% recycled  EGGER closed-loop. Recyclable at EOL. Best circularity in EGGER range.',fireClass:'All cabinetry / wall flats that are permanently affixed to floors or walls need to have a Group 1 or 2 rating with a minimum Critical Radiant Flux of  2.2 kW/m2',certs:'EPD: EPD-EGG-20200253-IBC3-EN (IBU, issued 28.08.2023, valid 16.05.2028)\nTÜV PROFiCERT PREMIUM\nSVHC/REACH CLEAN\nAgBB confirmed',status:'yes'},
-  {ref:'68',app:'Framing & structures',cat:'Engineered wood',name:'Weathertex cladding',url:'https://weathertex.com.au/products/',size:'Various',price:'',priceComp:'An alternative to MDF.',supplier:'Weathertex',aoRec:'RECOMMENDED',circ:'Yes - can be recycled',fireClass:'All cabinetry / wall flats that are permanently affixed to floors or walls need to have a Group 1 or 2 rating with a minimum Critical Radiant Flux of 2.2 kW/m2',certs:'',status:'yes'},
+  {ref:'68',app:'Framing & structures',cat:'Engineered wood',name:'Weathertex cladding',url:'https://weathertex.com.au/products/',size:'Various',price:'Price competitive. Discounts available',priceComp:'An alternative to MDF.',supplier:'Weathertex',aoRec:'RECOMMENDED',circ:'Yes - can be recycled',fireClass:'All cabinetry / wall flats that are permanently affixed to floors or walls need to have a Group 1 or 2 rating with a minimum Critical Radiant Flux of 2.2 kW/m2',certs:'',status:'yes'},
   {ref:'69',app:'Precinct facades & cladding',cat:'Engineered wood',name:'Weathertex cladding',url:'https://weathertex.com.au/products/',size:'Various',price:'',priceComp:'An alternative to MDF.',supplier:'Weathertex',aoRec:'RECOMMENDED',circ:'Yes - can be recycled',fireClass:'All cabinetry / wall flats that are permanently affixed to floors or walls need to have a Group 1 or 2 rating with a minimum Critical Radiant Flux of 2.2 kW/m2',certs:'',status:'yes'},
   {ref:'70',app:'F&B container facades - standardised structures',cat:'Engineered wood',name:'Weathertex cladding',url:'https://weathertex.com.au/products/',size:'Various',price:'',priceComp:'An alternative to MDF.',supplier:'Weathertex',aoRec:'RECOMMENDED',circ:'All cabinetry / Recyclable at EOL',fireClass:'All cabinetry / wall flats that are permanently affixed to floors or walls need to have a Group 1 or 2 rating with a minimum Critical Radiant Flux of 2.2 kW/m2',certs:'',status:'yes'},
-  {ref:'71',app:'Framing & structures',cat:'Engineered wood',name:'Durra panel wall, ceiling & acoustic systems',url:'https://durrapanel.com',size:'Various',price:'',priceComp:'An alternative to MDF.',supplier:'Durra Panel',aoRec:'RECOMMENDED',circ:'All cabinetry / Recyclable at EOL',fireClass:'All cabinetry / wall flats that are permanently affixed to floors or walls need to have a Group 1 or 2 rating with a minimum Critical Radiant Flux of 2.2 kW/m2',certs:'',status:'yes'},
+  {ref:'71',app:'Framing & structures',cat:'Engineered wood',name:'Durra panel wall, ceiling & acoustic systems',url:'https://durrapanel.com',size:'Various',price:'Price competitive',priceComp:'An alternative to MDF.',supplier:'Durra Panel',aoRec:'RECOMMENDED',circ:'Yes - can be recycled',fireClass:'All cabinetry / wall flats that are permanently affixed to floors or walls need to have a Group 1 or 2 rating with a minimum Critical Radiant Flux of 2.2 kW/m2',certs:'',status:'yes'},
   {ref:'72',app:'Precinct facades & cladding',cat:'Engineered wood',name:'Durra panel wall, ceiling & acoustic systems',url:'https://durrapanel.com',size:'Various',price:'',priceComp:'An alternative to MDF.',supplier:'Durra Panel',aoRec:'RECOMMENDED',circ:'Yes - can be recycled',fireClass:'All cabinetry / wall flats that are permanently affixed to floors or walls need to have a Group 1 or 2 rating with a minimum Critical Radiant Flux of 2.2 kW/m2',certs:'',status:'yes'},
   {ref:'73',app:'Joinery/ Cabinetry/ wall flats',cat:'Engineered wood',name:'Durra panel wall, ceiling & acoustic systems',url:'https://durrapanel.com',size:'Various',price:'',priceComp:'An alternative to MDF.',supplier:'Durra Panel',aoRec:'RECOMMENDED',circ:'All cabinetry / Recyclable at EOL',fireClass:'All cabinetry / wall flats that are permanently affixed to floors or walls need to have a Group 1 or 2 rating with a minimum Critical Radiant Flux of 2.2 kW/m2',certs:'',status:'yes'}
 ];
@@ -2774,7 +3047,7 @@ function renderT3(){
 function clearT3(){['t3-app','t3-cat','t3-rec','t3-sup'].forEach(function(id){var e=$(id);if(e)e.value='';});renderT3();}
 
 // ── INIT ─────────────────────────────────────────────────────────
-populateCombined(); renderCombined();
+populateCombined(); renderAll(); setView('table'); initTableScrollControls();
 if($('t2-tbody')){populateT2(); renderT2();}
 if($('t3-tbody')){populateT3(); renderT3();}
 
