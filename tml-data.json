@@ -1,7 +1,7 @@
 [
   {
     "ref": "26",
-    "name": "Corsica Oak Engineered Timber Flooring 5G Insta Clic® floating.",
+    "name": "GH Corsica Oak Engineered Timber Flooring 5G Insta Clic® floating.",
     "cat": "Flooring - engineered wood",
     "rec": "Yes",
     "circ": "Eligible for take back rehome program 5G Insta Clic® board reuse possible.",
@@ -9,7 +9,7 @@
   },
   {
     "ref": "27",
-    "name": "Curious Path Broadloom Carpet (roll)",
+    "name": "GH Curious Path Broadloom Carpet (roll)",
     "cat": "Flooring - carpet",
     "rec": "Unknown",
     "circ": "No take-back, roll difficult to recycle",
@@ -17,7 +17,7 @@
   },
   {
     "ref": "28",
-    "name": "Thematic Thread Carpet Tiles & Planks 5G Insta Clic® floating.",
+    "name": "GH Thematic Thread Carpet Tiles & Planks 5G Insta Clic® floating.",
     "cat": "Flooring - carpet",
     "rec": "Yes",
     "circ": "Tiles well suited to GH take-back rehome program Modular tile format supports DfD. EPD, Declare Red List Free, Australian Made",
@@ -25,7 +25,7 @@
   },
   {
     "ref": "29",
-    "name": "Netcorp 100% Wool Broadloom Carpet 5G Insta Clic® floating. Unique natural credentials- biodegradable",
+    "name": "GH Netcorp 100% Wool Broadloom Carpet 5G Insta Clic® floating. Unique natural credentials- biodegradable",
     "cat": "Flooring - carpet",
     "rec": "Unknown",
     "circ": "Roll carpet difficult to recycle 100% Wool and Jute are biodegradable/ compostable. No active composting program confirmed.",
@@ -33,7 +33,7 @@
   },
   {
     "ref": "30",
-    "name": "Long Grain II Carpet Tiles",
+    "name": "GH Long Grain II Carpet Tiles",
     "cat": "Flooring - carpet",
     "rec": "Yes",
     "circ": "Tiles well suited to GH take-back rehome program. Optimal for modular & DfD.",
@@ -169,7 +169,7 @@
   },
   {
     "ref": "52",
-    "name": "Paperock PLY - good for refurb FSC Birch Plywood with Phenolic Paper Composite Faces *MDF Alternative",
+    "name": "Paperock PLY - FSC Birch Plywood with Phenolic Paper Composite Faces *MDF Alternative",
     "cat": "Engineered wood",
     "rec": "Unknown",
     "circ": "Composite bonded panel difficult to recycle.",
@@ -337,7 +337,7 @@
   },
   {
     "ref": "C4",
-    "name": "90x45 MGP 10 untreated pine Choose blue",
+    "name": "90x45 MGP 10 untreated pine (Choose blue)",
     "cat": "Timber/ wood",
     "rec": "Yes",
     "circ": "Yes - can be recycled (Note: Green moisture treatment cannot be recycled)",
@@ -409,7 +409,7 @@
   },
   {
     "ref": "C13",
-    "name": "Fabric façades and structures delivering 3D elements/ experience. Supports sublimation printing and secondary print materials",
+    "name": "Fabric façades and structures. Supports sublimation printing and secondary print materials",
     "cat": "Branding/ Graphics/ skins on facades",
     "rec": "Yes",
     "circ": "Recovery pathways in development",
@@ -433,7 +433,7 @@
   },
   {
     "ref": "C16",
-    "name": "Astro turf Choose Tuff group with take back program",
+    "name": "Astro turf (Choose Tuff group - take back program)",
     "cat": "Flooring - outdoor",
     "rec": "Yes",
     "circ": "Yes - can be recycled",
@@ -441,7 +441,7 @@
   },
   {
     "ref": "C17",
-    "name": "Carpet tiles - widely available source those with take back program",
+    "name": "Carpet tiles - widely available (source suited to reuse or take back program)",
     "cat": "Flooring - carpet",
     "rec": "Yes",
     "circ": "Yes - can be recycled",
@@ -465,7 +465,7 @@
   },
   {
     "ref": "C20",
-    "name": "Raw MDF",
+    "name": "Raw MDF * Consider alternatives: particleboard/ chipboard",
     "cat": "Engineered wood",
     "rec": "No",
     "circ": "No - has MUF/ UF cannot be recycled (waste stream)",
